@@ -1,0 +1,12 @@
+﻿corneto.data.util
+=================
+
+.. automodule:: corneto.data.util
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      generate_random_signalling_network
+   

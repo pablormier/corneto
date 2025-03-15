@@ -32,16 +32,8 @@
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster.custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster.bundle.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-shadow.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-punk.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-noir.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-light.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-borderless.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/micromodal.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=e238a3f6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=5ec6e6de" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -49,25 +41,20 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/jquery.js?v=5d32c60e"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/js/hoverxref.js"></script>
-    <script src="../../_static/js/tooltipster.bundle.min.js"></script>
-    <script src="../../_static/js/micromodal.min.js"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'guide/signaling/cellnopt_ILP';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://saezlab.github.io/corneto/dev/_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0.dev3';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0.dev5';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
+    <link rel="canonical" href="https://saezlab.github.io/corneto/guide/signaling/cellnopt_ILP.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Interactomics" href="../interactomics/index.html" />
@@ -174,9 +161,16 @@
 <nav>
   <ul class="bd-navbar-elements navbar-nav">
     
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../install.html">
+    Install
+  </a>
+</li>
+
+
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="../index.html">
-    User guide
+    Guide
   </a>
 </li>
 
@@ -190,17 +184,27 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../api/index.html">
-    API Reference
+    Reference
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-external" href="https://github.com/saezlab/corneto">
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://github.com/saezlab/corneto">
     GitHub
   </a>
 </li>
 
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -274,9 +278,16 @@
 <nav>
   <ul class="bd-navbar-elements navbar-nav">
     
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../install.html">
+    Install
+  </a>
+</li>
+
+
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="../index.html">
-    User guide
+    Guide
   </a>
 </li>
 
@@ -290,7 +301,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../api/index.html">
-    API Reference
+    Reference
   </a>
 </li>
 
@@ -413,7 +424,7 @@
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User guide</a></li>
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Guide</a></li>
     
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">Signaling</a></li>
@@ -463,7 +474,7 @@
             </td>
             <td>
             <table>
-                <tr><td>Installed version:</td><td style='text-align:left'>v1.0.0.dev3 (latest stable: v1.0.0-alpha)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.0, PICOS v2.5.1</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CVXOPT, GLPK, GLPK_MI, HIGHS, SCIP, SCIPY</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/home/runner/work/corneto/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
+                <tr><td>Installed version:</td><td style='text-align:left'>v1.0.0.dev5 (latest stable: v1.0.0-alpha)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.3, PICOS v2.6.0</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CVXOPT, GLPK, GLPK_MI, HIGHS, SCIP, SCIPY</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/home/runner/work/corneto/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
             </table>
             </td>
         </tr>
@@ -530,7 +541,7 @@ We expect that the optimization finds the correct subgraph of the above network,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/be9d2266e948081639e284b6f0a37d084b530339435290e40d10f028978692fe.png" src="../../_images/be9d2266e948081639e284b6f0a37d084b530339435290e40d10f028978692fe.png" />
+<img alt="../../_images/7c17dd0ede6e67af6964bbfb74d8b3a6dca697539a68a22503824b5a43b52f38.png" src="../../_images/7c17dd0ede6e67af6964bbfb74d8b3a6dca697539a68a22503824b5a43b52f38.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -547,7 +558,7 @@ We expect that the optimization finds the correct subgraph of the above network,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e1484e218055cd7792d31c0d7f3283ee501311430190dea602f356a70c32e896.png" src="../../_images/e1484e218055cd7792d31c0d7f3283ee501311430190dea602f356a70c32e896.png" />
+<img alt="../../_images/92cbc9371c17de8f420550dfb68d81b99de64fcee04e05fd5071ab6227d19418.png" src="../../_images/92cbc9371c17de8f420550dfb68d81b99de64fcee04e05fd5071ab6227d19418.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -621,7 +632,7 @@ Note the difference in the definition of the prior knowledge network.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/75a13bb968797193660f9eb77cede1d05c6f26a06227507e2a8f04565845e4bc.png" src="../../_images/75a13bb968797193660f9eb77cede1d05c6f26a06227507e2a8f04565845e4bc.png" />
+<img alt="../../_images/4d3f0a47eb5c19a45fe9a045e8c09da14c408a69f3e72dd4e5152103db6e22f0.png" src="../../_images/4d3f0a47eb5c19a45fe9a045e8c09da14c408a69f3e72dd4e5152103db6e22f0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -695,7 +706,7 @@ Note the difference in the definition of the prior knowledge network.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1c87fef36311dd592ce07e7c7534ab6df2b353208392db2528da4df29fc898dc.png" src="../../_images/1c87fef36311dd592ce07e7c7534ab6df2b353208392db2528da4df29fc898dc.png" />
+<img alt="../../_images/08101cb00aafaff15ac29a9ddded8b543a0ff7c69165f19012c2254a536a89bc.png" src="../../_images/08101cb00aafaff15ac29a9ddded8b543a0ff7c69165f19012c2254a536a89bc.png" />
 </div>
 </div>
 </section>
@@ -885,7 +896,7 @@ Note the difference in the definition of the prior knowledge network.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b43ae7053011795c9a529bcee260656ec412695d580e057931338a775733af2d.png" src="../../_images/b43ae7053011795c9a529bcee260656ec412695d580e057931338a775733af2d.png" />
+<img alt="../../_images/d22703cec4c53fe7395c4780e6e87641ba281ddee4e0665271bd19477a5c875e.png" src="../../_images/d22703cec4c53fe7395c4780e6e87641ba281ddee4e0665271bd19477a5c875e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -896,7 +907,7 @@ Note the difference in the definition of the prior knowledge network.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7b5cab6502738b247db3cad4e00793f65f28273b9b9fd7746dc69057850c2f9b.svg" src="../../_images/7b5cab6502738b247db3cad4e00793f65f28273b9b9fd7746dc69057850c2f9b.svg" />
+<img alt="../../_images/7e28ba6ee116da25c5b4c867de5fe269a91dbfc09feaa3fee40ead9d93261f29.svg" src="../../_images/7e28ba6ee116da25c5b4c867de5fe269a91dbfc09feaa3fee40ead9d93261f29.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -915,7 +926,7 @@ Note the difference in the definition of the prior knowledge network.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e2f5b6047330ace76c8a3dd1ae1c5d854857d9f7c898c8f9e6b56c4647fbaa83.svg" src="../../_images/e2f5b6047330ace76c8a3dd1ae1c5d854857d9f7c898c8f9e6b56c4647fbaa83.svg" />
+<img alt="../../_images/67a7a3a7cb3d68654d3e86c35167d8174d2e414decdf09e4024e7daa0f51ac53.svg" src="../../_images/67a7a3a7cb3d68654d3e86c35167d8174d2e414decdf09e4024e7daa0f51ac53.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -925,7 +936,7 @@ Note the difference in the definition of the prior knowledge network.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c95638a37e5f9424ee76f1a3d530d5207b9ed22dc81d01dc62952dbdea95403d.png" src="../../_images/c95638a37e5f9424ee76f1a3d530d5207b9ed22dc81d01dc62952dbdea95403d.png" />
+<img alt="../../_images/abe72d3e8c790d3903fc4d3ea489ab686b3a8f9b9e8eef21932e4be1496fa403.png" src="../../_images/abe72d3e8c790d3903fc4d3ea489ab686b3a8f9b9e8eef21932e4be1496fa403.png" />
 </div>
 </div>
 </section>
@@ -988,15 +999,6 @@ Note the difference in the definition of the prior knowledge network.</p>
 
   </nav></div>
 
-  <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../_sources/guide/signaling/cellnopt_ILP.ipynb.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
-
 </div></div>
               
             
@@ -1022,7 +1024,7 @@ Note the difference in the definition of the prior knowledge network.</p>
 
   <p class="copyright">
     
-      © Copyright 2023, Saez-Rodriguez group.
+      © Copyright 2023-2025, Saez-Rodriguez lab. (EMBL-EBI, Heidelberg University).
       <br/>
     
   </p>

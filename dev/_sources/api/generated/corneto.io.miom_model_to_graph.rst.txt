@@ -1,0 +1,6 @@
+﻿corneto.io.miom\_model\_to\_graph
+=================================
+
+.. currentmodule:: corneto.io
+
+.. autofunction:: miom_model_to_graph

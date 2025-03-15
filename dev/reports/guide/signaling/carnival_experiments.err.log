@@ -44,22 +44,22 @@ File [0;32m~/work/corneto/corneto/corneto/backend/_base.py:579[0m, in [0;36mP
 [1;32m    585[0m [43m    [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43moptions[49m[43m,[49m
 [1;32m    586[0m [43m[49m[43m)[49m
 
-File [0;32m~/work/corneto/corneto/corneto/backend/_base.py:840[0m, in [0;36mBackend.solve[0;34m(self, p, solver, max_seconds, warm_start, verbosity, **options)[0m
-[1;32m    834[0m [38;5;28;01melse[39;00m:
-[1;32m    835[0m     o [38;5;241m=[39m (
-[1;32m    836[0m         p[38;5;241m.[39mweights[[38;5;241m0[39m] [38;5;241m*[39m p[38;5;241m.[39mobjectives[[38;5;241m0[39m]
-[1;32m    837[0m         [38;5;28;01mif[39;00m p[38;5;241m.[39mobjectives [38;5;129;01mand[39;00m p[38;5;241m.[39mweights[[38;5;241m0[39m] [38;5;241m!=[39m [38;5;241m0[39m
-[1;32m    838[0m         [38;5;28;01melse[39;00m [38;5;28;01mNone[39;00m
-[1;32m    839[0m     )
-[0;32m--> 840[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_solve[49m[43m([49m
-[1;32m    841[0m [43m    [49m[43mp[49m[43m,[49m
-[1;32m    842[0m [43m    [49m[43mobjective[49m[38;5;241;43m=[39;49m[43mo[49m[43m,[49m
-[1;32m    843[0m [43m    [49m[43msolver[49m[38;5;241;43m=[39;49m[43msolver[49m[43m,[49m
-[1;32m    844[0m [43m    [49m[43mmax_seconds[49m[38;5;241;43m=[39;49m[43mmax_seconds[49m[43m,[49m
-[1;32m    845[0m [43m    [49m[43mwarm_start[49m[38;5;241;43m=[39;49m[43mwarm_start[49m[43m,[49m
-[1;32m    846[0m [43m    [49m[43mverbosity[49m[38;5;241;43m=[39;49m[43mverbosity[49m[43m,[49m
-[1;32m    847[0m [43m    [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43moptions[49m[43m,[49m
-[1;32m    848[0m [43m[49m[43m)[49m
+File [0;32m~/work/corneto/corneto/corneto/backend/_base.py:842[0m, in [0;36mBackend.solve[0;34m(self, p, solver, max_seconds, warm_start, verbosity, **options)[0m
+[1;32m    836[0m [38;5;28;01melse[39;00m:
+[1;32m    837[0m     o [38;5;241m=[39m (
+[1;32m    838[0m         p[38;5;241m.[39mweights[[38;5;241m0[39m] [38;5;241m*[39m p[38;5;241m.[39mobjectives[[38;5;241m0[39m]
+[1;32m    839[0m         [38;5;28;01mif[39;00m p[38;5;241m.[39mobjectives [38;5;129;01mand[39;00m p[38;5;241m.[39mweights[[38;5;241m0[39m] [38;5;241m!=[39m [38;5;241m0[39m
+[1;32m    840[0m         [38;5;28;01melse[39;00m [38;5;28;01mNone[39;00m
+[1;32m    841[0m     )
+[0;32m--> 842[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_solve[49m[43m([49m
+[1;32m    843[0m [43m    [49m[43mp[49m[43m,[49m
+[1;32m    844[0m [43m    [49m[43mobjective[49m[38;5;241;43m=[39;49m[43mo[49m[43m,[49m
+[1;32m    845[0m [43m    [49m[43msolver[49m[38;5;241;43m=[39;49m[43msolver[49m[43m,[49m
+[1;32m    846[0m [43m    [49m[43mmax_seconds[49m[38;5;241;43m=[39;49m[43mmax_seconds[49m[43m,[49m
+[1;32m    847[0m [43m    [49m[43mwarm_start[49m[38;5;241;43m=[39;49m[43mwarm_start[49m[43m,[49m
+[1;32m    848[0m [43m    [49m[43mverbosity[49m[38;5;241;43m=[39;49m[43mverbosity[49m[43m,[49m
+[1;32m    849[0m [43m    [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43moptions[49m[43m,[49m
+[1;32m    850[0m [43m[49m[43m)[49m
 
 File [0;32m~/work/corneto/corneto/corneto/backend/_cvxpy_backend.py:170[0m, in [0;36mCvxpyBackend._solve[0;34m(self, p, objective, solver, max_seconds, warm_start, verbosity, **options)[0m
 [1;32m    168[0m solvers [38;5;241m=[39m cp[38;5;241m.[39minstalled_solvers()
