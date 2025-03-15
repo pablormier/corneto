@@ -1,13 +1,13 @@
 [
   {
     "name": "main",
-    "version": "main",
+    "version": "1.0.0-alpha",
     "url": "https://pablormier.github.io/corneto/main/",
     "preferred": true
   },
   {
     "name": "dev",
-    "version": "dev",
+    "version": "1.0.0.dev5",
     "url": "https://pablormier.github.io/corneto/dev/"
   },
   {
