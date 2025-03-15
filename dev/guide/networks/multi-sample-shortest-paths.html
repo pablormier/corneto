@@ -48,12 +48,12 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'guide/networks/multi-sample-shortest-paths';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
-        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://saezlab.github.io/corneto/dev/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://pablormier.github.io/corneto/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0.dev5';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
-    <link rel="canonical" href="https://saezlab.github.io/corneto/guide/networks/multi-sample-shortest-paths.html" />
+    <link rel="canonical" href="https://pablormier.github.io/corneto/guide/networks/multi-sample-shortest-paths.html" />
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -615,33 +615,33 @@
                                      CVXPY                                     
                                      v1.6.3                                    
 ===============================================================================
-(CVXPY) Mar 15 12:17:15 PM: Your problem has 51 variables, 126 constraints, and 0 parameters.
-(CVXPY) Mar 15 12:17:15 PM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Mar 15 12:17:15 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
-(CVXPY) Mar 15 12:17:15 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Mar 15 12:17:15 PM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Mar 15 01:37:07 PM: Your problem has 51 variables, 126 constraints, and 0 parameters.
+(CVXPY) Mar 15 01:37:07 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Mar 15 01:37:07 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) Mar 15 01:37:07 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Mar 15 01:37:07 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Mar 15 12:17:15 PM: Compiling problem (target solver=SCIPY).
-(CVXPY) Mar 15 12:17:15 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIPY
-(CVXPY) Mar 15 12:17:15 PM: Applying reduction Dcp2Cone
-(CVXPY) Mar 15 12:17:15 PM: Applying reduction CvxAttr2Constr
-(CVXPY) Mar 15 12:17:15 PM: Applying reduction ConeMatrixStuffing
-(CVXPY) Mar 15 12:17:15 PM: Applying reduction SCIPY
-(CVXPY) Mar 15 12:17:15 PM: Finished problem compilation (took 1.186e-02 seconds).
+(CVXPY) Mar 15 01:37:07 PM: Compiling problem (target solver=SCIPY).
+(CVXPY) Mar 15 01:37:07 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIPY
+(CVXPY) Mar 15 01:37:07 PM: Applying reduction Dcp2Cone
+(CVXPY) Mar 15 01:37:07 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Mar 15 01:37:07 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) Mar 15 01:37:07 PM: Applying reduction SCIPY
+(CVXPY) Mar 15 01:37:07 PM: Finished problem compilation (took 1.224e-02 seconds).
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Mar 15 12:17:15 PM: Invoking solver SCIPY  to obtain a solution.
+(CVXPY) Mar 15 01:37:07 PM: Invoking solver SCIPY  to obtain a solution.
 Solver terminated with message: Optimization terminated successfully. (HiGHS Status 7: Optimal)
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Mar 15 12:17:15 PM: Problem status: optimal
-(CVXPY) Mar 15 12:17:15 PM: Optimal value: 3.705e+01
-(CVXPY) Mar 15 12:17:15 PM: Compilation took 1.186e-02 seconds
-(CVXPY) Mar 15 12:17:15 PM: Solver (including time spent in interface) took 1.549e-03 seconds
+(CVXPY) Mar 15 01:37:07 PM: Problem status: optimal
+(CVXPY) Mar 15 01:37:07 PM: Optimal value: 3.705e+01
+(CVXPY) Mar 15 01:37:07 PM: Compilation took 1.224e-02 seconds
+(CVXPY) Mar 15 01:37:07 PM: Solver (including time spent in interface) took 1.559e-03 seconds
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Problem(Minimize(Expression(AFFINE, UNKNOWN, ())), [Inequality(Constant(CONSTANT, ZERO, (17, 2))), Inequality(Variable((17, 2), _flow)), Equality(Expression(AFFINE, UNKNOWN, (8, 2)), Constant(CONSTANT, ZERO, ())), Equality(Expression(AFFINE, UNKNOWN, (2,)), Constant(CONSTANT, NONNEGATIVE, ())), Equality(Expression(AFFINE, UNKNOWN, (2,)), Constant(CONSTANT, NONNEGATIVE, ())), Equality(Expression(AFFINE, UNKNOWN, (2,)), Constant(CONSTANT, NONNEGATIVE, ())), Equality(Expression(AFFINE, UNKNOWN, (2,)), Constant(CONSTANT, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, (17,))), Inequality(Variable((17,), active_edge, boolean=True))])

@@ -48,12 +48,12 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'guide/interoperability/cvxpy';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
-        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://saezlab.github.io/corneto/dev/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://pablormier.github.io/corneto/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0.dev5';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
-    <link rel="canonical" href="https://saezlab.github.io/corneto/guide/interoperability/cvxpy.html" />
+    <link rel="canonical" href="https://pablormier.github.io/corneto/guide/interoperability/cvxpy.html" />
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -496,25 +496,25 @@
                                      CVXPY                                     
                                      v1.6.3                                    
 ===============================================================================
-(CVXPY) Mar 15 12:13:36 PM: Your problem has 5 variables, 6 constraints, and 0 parameters.
-(CVXPY) Mar 15 12:13:36 PM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Mar 15 12:13:36 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
-(CVXPY) Mar 15 12:13:36 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Mar 15 12:13:36 PM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Mar 15 01:33:29 PM: Your problem has 5 variables, 6 constraints, and 0 parameters.
+(CVXPY) Mar 15 01:33:29 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Mar 15 01:33:29 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) Mar 15 01:33:29 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Mar 15 01:33:29 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Mar 15 12:13:36 PM: Compiling problem (target solver=SCIP).
-(CVXPY) Mar 15 12:13:36 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
-(CVXPY) Mar 15 12:13:36 PM: Applying reduction Dcp2Cone
-(CVXPY) Mar 15 12:13:36 PM: Applying reduction CvxAttr2Constr
-(CVXPY) Mar 15 12:13:36 PM: Applying reduction ConeMatrixStuffing
-(CVXPY) Mar 15 12:13:36 PM: Applying reduction SCIP
-(CVXPY) Mar 15 12:13:36 PM: Finished problem compilation (took 1.791e-02 seconds).
+(CVXPY) Mar 15 01:33:29 PM: Compiling problem (target solver=SCIP).
+(CVXPY) Mar 15 01:33:29 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
+(CVXPY) Mar 15 01:33:29 PM: Applying reduction Dcp2Cone
+(CVXPY) Mar 15 01:33:29 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Mar 15 01:33:29 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) Mar 15 01:33:29 PM: Applying reduction SCIP
+(CVXPY) Mar 15 01:33:29 PM: Finished problem compilation (took 1.754e-02 seconds).
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Mar 15 12:13:36 PM: Invoking solver SCIP  to obtain a solution.
+(CVXPY) Mar 15 01:33:29 PM: Invoking solver SCIP  to obtain a solution.
 presolving:
    (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
    (0.0s) no symmetry present (symcode time: 0.00)
@@ -538,10 +538,10 @@ Gap                : 0.00 %
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Mar 15 12:13:36 PM: Problem status: optimal
-(CVXPY) Mar 15 12:13:36 PM: Optimal value: -3.000e-01
-(CVXPY) Mar 15 12:13:36 PM: Compilation took 1.791e-02 seconds
-(CVXPY) Mar 15 12:13:36 PM: Solver (including time spent in interface) took 3.839e-03 seconds
+(CVXPY) Mar 15 01:33:29 PM: Problem status: optimal
+(CVXPY) Mar 15 01:33:29 PM: Optimal value: -3.000e-01
+(CVXPY) Mar 15 01:33:29 PM: Compilation took 1.754e-02 seconds
+(CVXPY) Mar 15 01:33:29 PM: Solver (including time spent in interface) took 3.741e-03 seconds
 </pre></div>
 </div>
 </div>
