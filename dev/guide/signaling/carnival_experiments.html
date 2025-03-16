@@ -469,48 +469,48 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(CORNETO) Mar 16 12:55:57 PM - INFO    : 2/2 inputs mapped to the graph
-(CORNETO) Mar 16 12:55:57 PM - INFO    : 2/2 outputs mapped to the graph
-(CORNETO) Mar 16 12:55:57 PM - INFO    : Pruning the graph with size: V x E = (6, 6)...
-(CORNETO) Mar 16 12:55:57 PM - INFO    : Finished. Final size: V x E = (6, 6).
-(CORNETO) Mar 16 12:55:57 PM - INFO    : 2/2 inputs after pruning.
-(CORNETO) Mar 16 12:55:57 PM - INFO    : 2/2 outputs after pruning.
-(CORNETO) Mar 16 12:55:57 PM - INFO    : Converting into a flow graph...
-(CORNETO) Mar 16 12:55:57 PM - INFO    : Creating a network flow problem...
-(CORNETO) Mar 16 12:55:57 PM - INFO    : Preprocess completed.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(CORNETO) Mar 16 01:01:59 PM - INFO    : 2/2 inputs mapped to the graph
+(CORNETO) Mar 16 01:01:59 PM - INFO    : 2/2 outputs mapped to the graph
+(CORNETO) Mar 16 01:01:59 PM - INFO    : Pruning the graph with size: V x E = (6, 6)...
+(CORNETO) Mar 16 01:01:59 PM - INFO    : Finished. Final size: V x E = (6, 6).
+(CORNETO) Mar 16 01:01:59 PM - INFO    : 2/2 inputs after pruning.
+(CORNETO) Mar 16 01:01:59 PM - INFO    : 2/2 outputs after pruning.
+(CORNETO) Mar 16 01:01:59 PM - INFO    : Converting into a flow graph...
+(CORNETO) Mar 16 01:01:59 PM - INFO    : Creating a network flow problem...
+(CORNETO) Mar 16 01:01:59 PM - INFO    : Preprocess completed.
 ===============================================================================
                                      CVXPY                                     
                                      v1.6.3                                    
 ===============================================================================
-(CVXPY) Mar 16 12:55:57 PM: Your problem has 86 variables, 197 constraints, and 0 parameters.
-(CVXPY) Mar 16 12:55:57 PM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Mar 16 12:55:57 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
-(CVXPY) Mar 16 12:55:57 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Mar 16 12:55:57 PM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Mar 16 01:01:59 PM: Your problem has 86 variables, 197 constraints, and 0 parameters.
+(CVXPY) Mar 16 01:01:59 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Mar 16 01:01:59 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) Mar 16 01:01:59 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Mar 16 01:01:59 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Mar 16 12:55:57 PM: Compiling problem (target solver=SCIP).
-(CVXPY) Mar 16 12:55:57 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
-(CVXPY) Mar 16 12:55:57 PM: Applying reduction Dcp2Cone
-(CVXPY) Mar 16 12:55:57 PM: Applying reduction CvxAttr2Constr
-(CVXPY) Mar 16 12:55:57 PM: Applying reduction ConeMatrixStuffing
-(CVXPY) Mar 16 12:55:57 PM: Applying reduction SCIP
-(CVXPY) Mar 16 12:55:57 PM: Finished problem compilation (took 2.925e-02 seconds).
+(CVXPY) Mar 16 01:01:59 PM: Compiling problem (target solver=SCIP).
+(CVXPY) Mar 16 01:01:59 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
+(CVXPY) Mar 16 01:01:59 PM: Applying reduction Dcp2Cone
+(CVXPY) Mar 16 01:01:59 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Mar 16 01:01:59 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) Mar 16 01:01:59 PM: Applying reduction SCIP
+(CVXPY) Mar 16 01:01:59 PM: Finished problem compilation (took 3.041e-02 seconds).
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Mar 16 12:55:57 PM: Invoking solver SCIP  to obtain a solution.
+(CVXPY) Mar 16 01:01:59 PM: Invoking solver SCIP  to obtain a solution.
 presolving:
 (round 1, fast)       36 del vars, 95 del conss, 0 add conss, 48 chg bounds, 1 chg sides, 23 chg coeffs, 0 upgd conss, 0 impls, 28 clqs
-(round 2, fast)       54 del vars, 132 del conss, 0 add conss, 53 chg bounds, 10 chg sides, 32 chg coeffs, 0 upgd conss, 0 impls, 20 clqs
-(round 3, fast)       61 del vars, 145 del conss, 0 add conss, 53 chg bounds, 12 chg sides, 34 chg coeffs, 0 upgd conss, 0 impls, 18 clqs
-(round 4, fast)       64 del vars, 147 del conss, 0 add conss, 53 chg bounds, 16 chg sides, 38 chg coeffs, 0 upgd conss, 0 impls, 18 clqs
-(round 5, fast)       66 del vars, 151 del conss, 0 add conss, 53 chg bounds, 16 chg sides, 38 chg coeffs, 0 upgd conss, 0 impls, 18 clqs
-(round 6, exhaustive) 66 del vars, 151 del conss, 0 add conss, 53 chg bounds, 16 chg sides, 38 chg coeffs, 40 upgd conss, 0 impls, 18 clqs
+(round 2, fast)       54 del vars, 129 del conss, 0 add conss, 52 chg bounds, 9 chg sides, 31 chg coeffs, 0 upgd conss, 0 impls, 20 clqs
+(round 3, fast)       63 del vars, 145 del conss, 0 add conss, 52 chg bounds, 11 chg sides, 33 chg coeffs, 0 upgd conss, 0 impls, 18 clqs
+(round 4, fast)       65 del vars, 147 del conss, 0 add conss, 52 chg bounds, 15 chg sides, 37 chg coeffs, 0 upgd conss, 0 impls, 18 clqs
+(round 5, fast)       67 del vars, 151 del conss, 0 add conss, 52 chg bounds, 15 chg sides, 37 chg coeffs, 0 upgd conss, 0 impls, 18 clqs
+(round 6, exhaustive) 67 del vars, 151 del conss, 0 add conss, 52 chg bounds, 15 chg sides, 37 chg coeffs, 40 upgd conss, 0 impls, 18 clqs
    (0.0s) probing cycle finished: starting next cycle
-(round 7, exhaustive) 68 del vars, 151 del conss, 0 add conss, 53 chg bounds, 16 chg sides, 38 chg coeffs, 40 upgd conss, 28 impls, 46 clqs
-(round 8, medium)     68 del vars, 155 del conss, 0 add conss, 53 chg bounds, 16 chg sides, 38 chg coeffs, 40 upgd conss, 28 impls, 46 clqs
+(round 7, exhaustive) 69 del vars, 151 del conss, 0 add conss, 52 chg bounds, 15 chg sides, 37 chg coeffs, 40 upgd conss, 28 impls, 46 clqs
+(round 8, medium)     69 del vars, 155 del conss, 0 add conss, 52 chg bounds, 15 chg sides, 37 chg coeffs, 40 upgd conss, 28 impls, 46 clqs
    (0.0s) probing cycle finished: starting next cycle
    (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
    (0.0s) symmetry computation finished: 2 generators found (max: 1500, log10 of symmetry group size: 0.0) (symcode time: 0.00)
@@ -519,9 +519,9 @@ dynamic symmetry handling statistics:
    orbital reduction:         no components
    lexicographic reduction:   no permutations
 handled 1 out of 1 symmetry components
-(round 9, exhaustive) 68 del vars, 155 del conss, 3 add conss, 53 chg bounds, 16 chg sides, 38 chg coeffs, 40 upgd conss, 28 impls, 46 clqs
+(round 9, exhaustive) 69 del vars, 155 del conss, 3 add conss, 52 chg bounds, 15 chg sides, 37 chg coeffs, 40 upgd conss, 28 impls, 46 clqs
 presolving (10 rounds: 10 fast, 5 medium, 4 exhaustive):
- 68 deleted vars, 155 deleted constraints, 3 added constraints, 53 tightened bounds, 0 added holes, 16 changed sides, 38 changed coefficients
+ 69 deleted vars, 155 deleted constraints, 3 added constraints, 52 tightened bounds, 0 added holes, 15 changed sides, 37 changed coefficients
  28 implications, 46 cliques
 presolved problem has 27 variables (19 bin, 0 int, 0 impl, 8 cont) and 45 constraints
      16 constraints of type &lt;varbound&gt;
@@ -536,11 +536,10 @@ p 0.0s|     1 |     0 |     0 |     - |  clique|   0 |  27 |  45 |  42 |   0 |  
 p 0.0s|     1 |     0 |     0 |     - |   locks|   0 |  27 |  45 |  42 |   0 |  0 |   0 |   0 |-3.500000e+00 |-6.000000e-01 | 483.33%| unknown
 p 0.0s|     1 |     0 |     0 |     - | vbounds|   0 |  27 |  46 |  42 |   0 |  0 |   1 |   0 |-3.500000e+00 |-1.600000e+00 | 118.75%| unknown
 p 0.0s|     1 |     0 |     0 |     - | vbounds|   0 |  27 |  48 |  42 |   0 |  0 |   3 |   0 |-3.500000e+00 |-3.200000e+00 |   9.37%| unknown
-  0.0s|     1 |     0 |    23 |     - |  1788k |   0 |  27 |  49 |  42 |   0 |  0 |   8 |   0 |-3.300000e+00 |-3.200000e+00 |   3.13%| unknown
-  0.0s|     1 |     0 |    23 |     - |  1788k |   0 |  27 |  49 |  39 |   0 |  0 |   8 |   0 |-3.300000e+00 |-3.200000e+00 |   3.13%| unknown
-  0.0s|     1 |     0 |    26 |     - |  1794k |   0 |  27 |  45 |  36 |   3 |  1 |   8 |   0 |-3.300000e+00 |-3.200000e+00 |   3.13%| unknown
-r 0.0s|     1 |     0 |    26 |     - |rounding|   0 |  27 |  45 |  36 |   3 |  1 |   8 |   0 |-3.300000e+00 |-3.300000e+00 |   0.00%| unknown
-  0.0s|     1 |     0 |    26 |     - |  1795k |   0 |  27 |  45 |  36 |   3 |  1 |   8 |   0 |-3.300000e+00 |-3.300000e+00 |   0.00%| unknown
+  0.0s|     1 |     0 |    23 |     - |  1784k |   0 |  27 |  49 |  42 |   0 |  0 |   8 |   0 |-3.300000e+00 |-3.200000e+00 |   3.13%| unknown
+r 0.0s|     1 |     0 |    23 |     - |rounding|   0 |  27 |  49 |  39 |   0 |  0 |   8 |   0 |-3.300000e+00 |-3.300000e+00 |   0.00%| unknown
+  0.0s|     1 |     0 |    23 |     - |  1784k |   0 |  27 |  49 |  39 |   0 |  0 |   8 |   0 |-3.300000e+00 |-3.300000e+00 |   0.00%| unknown
+  0.0s|     1 |     0 |    23 |     - |  1784k |   0 |  27 |  49 |  39 |   0 |  0 |   8 |   0 |-3.300000e+00 |-3.300000e+00 |   0.00%| unknown
 
 SCIP Status        : problem is solved [optimal solution found]
 Solving Time (sec) : 0.01
@@ -551,11 +550,11 @@ Gap                : 0.00 %
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Mar 16 12:55:58 PM: Problem status: optimal
-(CVXPY) Mar 16 12:55:58 PM: Optimal value: 7.000e-01
-(CVXPY) Mar 16 12:55:58 PM: Compilation took 2.925e-02 seconds
-(CVXPY) Mar 16 12:55:58 PM: Solver (including time spent in interface) took 1.551e-02 seconds
-(CORNETO) Mar 16 12:55:58 PM - INFO    : Finished in 0.07 s.
+(CVXPY) Mar 16 01:01:59 PM: Problem status: optimal
+(CVXPY) Mar 16 01:01:59 PM: Optimal value: 7.000e-01
+(CVXPY) Mar 16 01:01:59 PM: Compilation took 3.041e-02 seconds
+(CVXPY) Mar 16 01:01:59 PM: Solver (including time spent in interface) took 1.507e-02 seconds
+(CORNETO) Mar 16 01:01:59 PM - INFO    : Finished in 0.07 s.
 </pre></div>
 </div>
 </div>
@@ -635,23 +634,23 @@ Gap                : 0.00 %
   <tbody>
     <tr>
       <th>0</th>
-      <td>M1</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
       <td>M2</td>
       <td>1.0</td>
     </tr>
     <tr>
+      <th>1</th>
+      <td>I2</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
       <th>2</th>
-      <td>N1</td>
-      <td>0.0</td>
+      <td>M1</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>I2</td>
-      <td>1.0</td>
+      <td>N1</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>4</th>
@@ -886,56 +885,74 @@ Gap                : 0.00 %
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">corneto.methods.carnival</span><span class="w"> </span><span class="kn">import</span> <span class="n">milp_carnival</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">P</span> <span class="o">=</span> <span class="n">milp_carnival</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;I2&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;I1&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;T&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="n">beta_weight</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;GUROBI&quot;</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===============================================================================
+                                     CVXPY                                     
+                                     v1.6.3                                    
+===============================================================================
+(CVXPY) Mar 16 01:02:00 PM: Your problem has 34 variables, 70 constraints, and 0 parameters.
+(CVXPY) Mar 16 01:02:00 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Mar 16 01:02:00 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) Mar 16 01:02:00 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Mar 16 01:02:00 PM: Your problem is compiled with the CPP canonicalization backend.
+-------------------------------------------------------------------------------
+                                  Compilation                                  
+-------------------------------------------------------------------------------
+(CVXPY) Mar 16 01:02:00 PM: Compiling problem (target solver=SCIP).
+(CVXPY) Mar 16 01:02:00 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
+(CVXPY) Mar 16 01:02:00 PM: Applying reduction Dcp2Cone
+(CVXPY) Mar 16 01:02:00 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Mar 16 01:02:00 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) Mar 16 01:02:00 PM: Applying reduction SCIP
+(CVXPY) Mar 16 01:02:00 PM: Finished problem compilation (took 3.025e-02 seconds).
+-------------------------------------------------------------------------------
+                                Numerical solver                               
+-------------------------------------------------------------------------------
+(CVXPY) Mar 16 01:02:00 PM: Invoking solver SCIP  to obtain a solution.
+presolving:
+(round 1, fast)       16 del vars, 41 del conss, 0 add conss, 21 chg bounds, 0 chg sides, 0 chg coeffs, 0 upgd conss, 0 impls, 11 clqs
+(round 2, fast)       21 del vars, 50 del conss, 0 add conss, 21 chg bounds, 3 chg sides, 3 chg coeffs, 0 upgd conss, 0 impls, 9 clqs
+(round 3, fast)       22 del vars, 50 del conss, 0 add conss, 21 chg bounds, 3 chg sides, 3 chg coeffs, 0 upgd conss, 0 impls, 9 clqs
+(round 4, exhaustive) 22 del vars, 55 del conss, 0 add conss, 21 chg bounds, 6 chg sides, 3 chg coeffs, 0 upgd conss, 0 impls, 9 clqs
+(round 5, exhaustive) 22 del vars, 55 del conss, 0 add conss, 21 chg bounds, 6 chg sides, 3 chg coeffs, 12 upgd conss, 0 impls, 9 clqs
+(round 6, medium)     23 del vars, 57 del conss, 0 add conss, 21 chg bounds, 6 chg sides, 3 chg coeffs, 12 upgd conss, 3 impls, 8 clqs
+(round 7, fast)       26 del vars, 59 del conss, 0 add conss, 21 chg bounds, 7 chg sides, 4 chg coeffs, 12 upgd conss, 3 impls, 4 clqs
+(round 8, exhaustive) 26 del vars, 59 del conss, 0 add conss, 21 chg bounds, 7 chg sides, 4 chg coeffs, 13 upgd conss, 3 impls, 4 clqs
+   (0.0s) probing cycle finished: starting next cycle
+   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.0s) no symmetry present (symcode time: 0.00)
+presolving (9 rounds: 9 fast, 5 medium, 4 exhaustive):
+ 26 deleted vars, 59 deleted constraints, 0 added constraints, 21 tightened bounds, 0 added holes, 7 changed sides, 4 changed coefficients
+ 8 implications, 4 cliques
+presolved problem has 8 variables (6 bin, 0 int, 0 impl, 2 cont) and 11 constraints
+      3 constraints of type &lt;varbound&gt;
+      4 constraints of type &lt;setppc&gt;
+      2 constraints of type &lt;linear&gt;
+      2 constraints of type &lt;logicor&gt;
+transformed objective value is always integral (scale: 0.01)
+Presolving Time: 0.00
 
-<span class="nn">File ~/work/corneto/corneto/corneto/backend/_base.py:579,</span> in <span class="ni">ProblemDef.solve</span><span class="nt">(self, solver, max_seconds, warm_start, verbosity, **options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">577</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">578</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No backend assigned.&quot;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">579</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">580</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">581</span>     <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">582</span>     <span class="n">max_seconds</span><span class="o">=</span><span class="n">max_seconds</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">583</span>     <span class="n">warm_start</span><span class="o">=</span><span class="n">warm_start</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">584</span>     <span class="n">verbosity</span><span class="o">=</span><span class="n">verbosity</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">585</span>     <span class="o">**</span><span class="n">options</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">586</span> <span class="p">)</span>
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+t 0.0s|     1 |     0 |     0 |     - | trivial|   0 |   8 |  11 |   0 |   0 |  0 |   0 |   0 |-9.900000e-01 | 0.000000e+00 |    Inf | unknown
+p 0.0s|     1 |     0 |     0 |     - |  clique|   0 |   8 |  11 |  11 |   0 |  0 |   0 |   0 |-9.900000e-01 |-9.700000e-01 |   2.06%| unknown
+p 0.0s|     1 |     0 |     0 |     - | vbounds|   0 |   8 |  11 |  11 |   0 |  0 |   1 |   0 |-9.900000e-01 |-9.800000e-01 |   1.02%| unknown
+  0.0s|     1 |     0 |     0 |     - |   840k |   0 |   8 |   6 |  11 |   0 |  0 |   5 |   0 |-9.800000e-01 |-9.800000e-01 |   0.00%| unknown
 
-<span class="nn">File ~/work/corneto/corneto/corneto/backend/_base.py:842,</span> in <span class="ni">Backend.solve</span><span class="nt">(self, p, solver, max_seconds, warm_start, verbosity, **options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">832</span>     <span class="c1">#o = sum(</span>
-<span class="g g-Whitespace">    </span><span class="mi">833</span>     <span class="c1">#    p.weights[i] * p.objectives[i] if p.weights[i] != 0.0 else 0.0  # type: ignore</span>
-<span class="nn">    834     #    for i</span> in <span class="ni">range(len</span><span class="nt">(p.objectives))</span>
-<span class="g g-Whitespace">    </span><span class="mi">835</span>     <span class="c1">#)</span>
-<span class="g g-Whitespace">    </span><span class="mi">836</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">837</span>     <span class="n">o</span> <span class="o">=</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">838</span>         <span class="n">p</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">objectives</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">839</span>         <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">objectives</span> <span class="ow">and</span> <span class="n">p</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span>
-<span class="g g-Whitespace">    </span><span class="mi">840</span>         <span class="k">else</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">841</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">842</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_solve</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">843</span>     <span class="n">p</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">844</span>     <span class="n">objective</span><span class="o">=</span><span class="n">o</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">845</span>     <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">846</span>     <span class="n">max_seconds</span><span class="o">=</span><span class="n">max_seconds</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">847</span>     <span class="n">warm_start</span><span class="o">=</span><span class="n">warm_start</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">848</span>     <span class="n">verbosity</span><span class="o">=</span><span class="n">verbosity</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">849</span>     <span class="o">**</span><span class="n">options</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">850</span> <span class="p">)</span>
-
-<span class="nn">File ~/work/corneto/corneto/corneto/backend/_cvxpy_backend.py:170,</span> in <span class="ni">CvxpyBackend._solve</span><span class="nt">(self, p, objective, solver, max_seconds, warm_start, verbosity, **options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">168</span> <span class="n">solvers</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">installed_solvers</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">169</span> <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">s</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">solvers</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">170</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">171</span>         <span class="sa">f</span><span class="s2">&quot;Solver </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2"> is not installed/supported, supported solvers are: </span><span class="si">{</span><span class="n">solvers</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">172</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">173</span> <span class="c1"># TODO: Implement parameter mapping for solvers and backends</span>
-<span class="g g-Whitespace">    </span><span class="mi">174</span> <span class="k">if</span> <span class="n">max_seconds</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="ne">ValueError</span>: Solver GUROBI is not installed/supported, supported solvers are: [&#39;CVXOPT&#39;, &#39;GLPK&#39;, &#39;GLPK_MI&#39;, &#39;HIGHS&#39;, &#39;SCIP&#39;, &#39;SCIPY&#39;]
+SCIP Status        : problem is solved [optimal solution found]
+Solving Time (sec) : 0.00
+Solving Nodes      : 1
+Primal Bound       : -9.80000000000000e-01 (3 solutions)
+Dual Bound         : -9.80000000000000e-01
+Gap                : 0.00 %
+-------------------------------------------------------------------------------
+                                    Summary                                    
+-------------------------------------------------------------------------------
+(CVXPY) Mar 16 01:02:00 PM: Problem status: optimal
+(CVXPY) Mar 16 01:02:00 PM: Optimal value: 2.000e-02
+(CVXPY) Mar 16 01:02:00 PM: Compilation took 3.025e-02 seconds
+(CVXPY) Mar 16 01:02:00 PM: Solver (including time spent in interface) took 6.642e-03 seconds
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Problem(Minimize(Expression(AFFINE, UNKNOWN, ())), [Inequality(Constant(CONSTANT, ZERO, (6,))), Inequality(Variable((6,), vertex_position)), Inequality(Expression(AFFINE, NONNEGATIVE, (6,))), Inequality(Expression(AFFINE, NONNEGATIVE, (8,))), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Equality(Expression(AFFINE, NONNEGATIVE, ()), Constant(CONSTANT, ZERO, ())), Equality(Expression(AFFINE, NONNEGATIVE, ()), Constant(CONSTANT, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Equality(Expression(AFFINE, NONNEGATIVE, ()), Constant(CONSTANT, ZERO, ())), Equality(Expression(AFFINE, NONNEGATIVE, ()), Constant(CONSTANT, ZERO, ()))])
 </pre></div>
 </div>
 </div>
@@ -947,7 +964,7 @@ Gap                : 0.00 %
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 2.0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(0.0), np.float64(2.0))
 </pre></div>
 </div>
 </div>
@@ -1007,7 +1024,7 @@ Gap                : 0.00 %
       <th>0</th>
       <td>I1</td>
       <td>1.0</td>
-      <td>0.0</td>
+      <td>-0.0</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1019,12 +1036,12 @@ Gap                : 0.00 %
       <th>2</th>
       <td>I2</td>
       <td>-1.0</td>
-      <td>0.0</td>
+      <td>-0.0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>P2</td>
-      <td>-0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1037,7 +1054,7 @@ Gap                : 0.00 %
       <th>5</th>
       <td>I3</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>-0.0</td>
     </tr>
   </tbody>
 </table>
@@ -1086,7 +1103,7 @@ Gap                : 0.00 %
     <tr>
       <th>2</th>
       <td>((I2), (P2))</td>
-      <td>-0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1106,12 +1123,12 @@ Gap                : 0.00 %
     <tr>
       <th>6</th>
       <td>((P2), (P1))</td>
-      <td>-0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>7</th>
       <td>((P1), (P2))</td>
-      <td>-0.0</td>
+      <td>0.0</td>
     </tr>
   </tbody>
 </table>
@@ -1133,7 +1150,7 @@ Gap                : 0.00 %
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/32226ac5cb5125e1fcdd30a4d477de8ba667c4d4655eddf4c8c7dabf174d53c9.svg" src="../../_images/32226ac5cb5125e1fcdd30a4d477de8ba667c4d4655eddf4c8c7dabf174d53c9.svg" />
+<img alt="../../_images/ee9567e769e75384519ed9c9c909994b31d55bf74d1586cfa84ef978d58af050.svg" src="../../_images/ee9567e769e75384519ed9c9c909994b31d55bf74d1586cfa84ef978d58af050.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1143,7 +1160,7 @@ Gap                : 0.00 %
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.0)
 </pre></div>
 </div>
 </div>
@@ -1263,7 +1280,7 @@ Gap                : 0.00 %
 16/25 outputs mapped to the graph
 Pruning the graph with size: V x E = (4931, 13157)...
 Finished. Final size: V x E = (1182, 5789).
-NEUROD1 (L4), HOXB7 (L4), HIPK2 (L3), ZBTB4 (L4), RUNX2 (L3), NFYB (L3), ELK1 (L3), NFATC4 (L3), SIRT1 (L3), AEBP1 (L3)
+SIRT1 (L3), ZBTB4 (L4), NEUROD1 (L4), AEBP1 (L3), HIPK2 (L3), NFYB (L3), NFATC4 (L3), RUNX2 (L3), HOXB7 (L4), ELK1 (L3)
 L1  :      1 iters, 0.00 s.
 L2  :     41 iters, 0.00 s.
  &gt; -EGFR -&gt; +CRK -&gt; +MAPK8 -&gt; +SIRT1
@@ -1274,12 +1291,12 @@ L2  :     41 iters, 0.00 s.
  &gt; -EGFR -&gt; -MAP2K1 -&gt; -MAPK1 -&gt; -ELK1
  &gt; -EGFR -&gt; -MAP2K1 -&gt; -MAPK1 -&gt; -AEBP1
  &gt; -EGFR -&gt; -MAP2K1 -&gt; -MAPK3 -&gt; -RUNX2
-L3  :    316 iters, 0.05 s.
+L3  :    316 iters, 0.02 s.
  &gt; -EGFR -&gt; -STAT1 -&gt; +CREBBP -&gt; ... -&gt; -NFYB
  &gt; -EGFR -&gt; -PIK3R1 -&gt; -RAC1 -&gt; ... -&gt; -NEUROD1
  &gt; -EGFR -&gt; -PTPN1 -&gt; +ABL1 -&gt; ... -&gt; -ZBTB4
  &gt; -EGFR -&gt; -ERBB2 -&gt; +CDK1 -&gt; ... -&gt; -HOXB7
-Finished (0.48 s)
+Finished (0.22 s)
  &gt; Number of selected edges: 26
  &gt; Total iterations: 2287
  &gt; Detected loops: 255
@@ -1312,7 +1329,7 @@ Number of selected edges: 26
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4997e79f387880a42878ffc7fe15cc96532cd7ed9ee4c1119d486f617d1c957b.svg" src="../../_images/4997e79f387880a42878ffc7fe15cc96532cd7ed9ee4c1119d486f617d1c957b.svg" />
+<img alt="../../_images/a611717058041567090a4563f14a2f8125974cc83a7f80508687554b10f489ef.svg" src="../../_images/a611717058041567090a4563f14a2f8125974cc83a7f80508687554b10f489ef.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1328,71 +1345,91 @@ Number of selected edges: 26
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===============================================================================
                                      CVXPY                                     
-                                     v1.5.3                                    
+                                     v1.6.3                                    
 ===============================================================================
-(CVXPY) Aug 26 09:50:09 PM: Your problem has 15124 variables, 30250 constraints, and 0 parameters.
-(CVXPY) Aug 26 09:50:12 PM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Aug 26 09:50:12 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
-(CVXPY) Aug 26 09:50:12 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Aug 26 09:50:12 PM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Mar 16 01:02:07 PM: Your problem has 15124 variables, 30250 constraints, and 0 parameters.
+(CVXPY) Mar 16 01:02:08 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Mar 16 01:02:08 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) Mar 16 01:02:08 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Mar 16 01:02:08 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Aug 26 09:50:15 PM: Compiling problem (target solver=GUROBI).
-(CVXPY) Aug 26 09:50:15 PM: Reduction chain: CvxAttr2Constr -&gt; Qp2SymbolicQp -&gt; QpMatrixStuffing -&gt; GUROBI
-(CVXPY) Aug 26 09:50:15 PM: Applying reduction CvxAttr2Constr
-(CVXPY) Aug 26 09:50:15 PM: Applying reduction Qp2SymbolicQp
-(CVXPY) Aug 26 09:50:20 PM: Applying reduction QpMatrixStuffing
-(CVXPY) Aug 26 09:50:52 PM: Applying reduction GUROBI
-(CVXPY) Aug 26 09:50:52 PM: Finished problem compilation (took 4.001e+01 seconds).
+(CVXPY) Mar 16 01:02:11 PM: Compiling problem (target solver=SCIP).
+(CVXPY) Mar 16 01:02:11 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
+(CVXPY) Mar 16 01:02:11 PM: Applying reduction Dcp2Cone
+(CVXPY) Mar 16 01:02:14 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Mar 16 01:02:15 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) Mar 16 01:02:37 PM: Applying reduction SCIP
+(CVXPY) Mar 16 01:02:38 PM: Finished problem compilation (took 2.973e+01 seconds).
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Aug 26 09:50:52 PM: Invoking solver GUROBI  to obtain a solution.
-Set parameter QCPDual to value 1
-Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22631.2))
+(CVXPY) Mar 16 01:02:38 PM: Invoking solver SCIP  to obtain a solution.
+presolving:
+(round 1, fast)       1645 del vars, 4056 del conss, 0 add conss, 2411 chg bounds, 0 chg sides, 0 chg coeffs, 0 upgd conss, 0 impls, 17589 clqs
+(round 2, fast)       1755 del vars, 4294 del conss, 0 add conss, 2411 chg bounds, 29 chg sides, 29 chg coeffs, 0 upgd conss, 0 impls, 17425 clqs
+(round 3, exhaustive) 1759 del vars, 9105 del conss, 0 add conss, 2420 chg bounds, 3721 chg sides, 69 chg coeffs, 0 upgd conss, 0 impls, 17425 clqs
+(round 4, exhaustive) 1759 del vars, 9105 del conss, 0 add conss, 2425 chg bounds, 3730 chg sides, 78 chg coeffs, 15393 upgd conss, 0 impls, 17425 clqs
+   (1.6s) probing: 1000/12191 (8.2%) - 2 fixings, 0 aggregations, 16939 implications, 0 bound changes
+   (1.7s) probing: 1073/12191 (8.8%) - 2 fixings, 0 aggregations, 17484 implications, 0 bound changes
+   (1.7s) probing aborted: 1000/1000 successive useless probings
+   (1.7s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (1.8s) symmetry computation finished: 48 generators found (max: 1500, log10 of symmetry group size: 0.0) (symcode time: 0.02)
+dynamic symmetry handling statistics:
+   orbitopal reduction:        1 components: 2x4
+   orbital reduction:         no components
+   lexicographic reduction:   43 permutations with support sizes 22, 22, 14, 6, 4, 4, 4, 4, 4, 4, 4, 4, 6, 4, 4, 4, 4, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 6, 6, 4, 4
+handled 45 out of 45 symmetry components
+(round 5, exhaustive) 1771 del vars, 9113 del conss, 1 add conss, 2425 chg bounds, 3730 chg sides, 80 chg coeffs, 15393 upgd conss, 530 impls, 34377 clqs
+   (3.0s) probing: 2000/12191 (16.4%) - 5 fixings, 0 aggregations, 44156 implications, 0 bound changes
+   (3.1s) probing: 2097/12191 (17.2%) - 5 fixings, 0 aggregations, 47562 implications, 0 bound changes
+   (3.1s) probing aborted: 1000/1000 successive useless probings
+presolving (6 rounds: 6 fast, 4 medium, 4 exhaustive):
+ 1777 deleted vars, 9122 deleted constraints, 1 added constraints, 2425 tightened bounds, 0 added holes, 3730 changed sides, 83 changed coefficients
+ 1197 implications, 63757 cliques
+presolved problem has 13353 variables (12180 bin, 0 int, 0 impl, 1173 cont) and 21129 constraints
+     29 constraints of type &lt;varbound&gt;
+  13756 constraints of type &lt;setppc&gt;
+   5752 constraints of type &lt;linear&gt;
+      1 constraints of type &lt;orbitope&gt;
+   1591 constraints of type &lt;logicor&gt;
+transformed objective value is always integral (scale: 0.01)
+Presolving Time: 3.07
 
-CPU model: 11th Gen Intel(R) Core(TM) i7-1185G7 @ 3.00GHz, instruction set [SSE2|AVX|AVX2|AVX512]
-Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+t 3.1s|     1 |     0 |     0 |     - | trivial|   0 |  13k|  21k|   0 |   0 |  0 |   0 |   0 |-9.950000e+00 | 0.000000e+00 |    Inf | unknown
+  3.5s|     1 |     0 |   422 |     - |   243M |   0 |  13k|  21k|  21k|   0 |  0 |  24 |   0 |-9.808000e+00 | 0.000000e+00 |    Inf | unknown
+  4.2s|     1 |     0 |   597 |     - |   247M |   0 |  13k|  21k|  21k|   8 |  1 |  24 |   0 |-9.803333e+00 | 0.000000e+00 |    Inf | unknown
+  4.3s|     1 |     0 |   690 |     - |   251M |   0 |  13k|  21k|  21k|  22 |  2 |  24 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  5.0s|     1 |     0 |   699 |     - |   256M |   0 |  13k|  21k|  21k|  31 |  3 |  24 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  5.3s|     1 |     0 |   775 |     - |   264M |   0 |  13k|  21k|  21k|  34 |  4 |  24 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  5.9s|     1 |     0 |  3703 |     - |   268M |   0 |  13k|  21k|  21k|  52 |  5 |  24 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  6.1s|     1 |     0 |  5352 |     - |   271M |   0 |  13k|  21k|  21k|  56 |  6 |  24 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  6.4s|     1 |     0 |  6643 |     - |   273M |   0 |  13k|  21k|  21k|  69 |  7 |  24 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  6.6s|     1 |     0 |  8207 |     - |   275M |   0 |  13k|  21k|  21k|  78 |  8 |  24 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  6.9s|     1 |     0 |  9538 |     - |   277M |   0 |  13k|  21k|  21k|  86 |  9 |  24 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  7.5s|     1 |     0 | 12172 |     - |   279M |   0 |  13k|  21k|  21k|  95 | 10 |  24 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  7.9s|     1 |     0 | 16319 |     - |   281M |   0 |  13k|  21k|  21k| 104 | 11 |  24 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  8.5s|     1 |     0 | 20088 |     - |   283M |   0 |  13k|  21k|  21k| 109 | 12 |  24 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  8.8s|     1 |     0 | 22427 |     - |   285M |   0 |  13k|  21k|  21k| 113 | 13 |  24 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+o26.9s|     1 |     0 |102094 |     - |feaspump|   0 |  13k|  21k|  21k| 113 | 13 |  24 |   0 |-9.800000e+00 |-9.800000e+00 |   0.00%| unknown
+ 26.9s|     1 |     0 |102094 |     - |   288M |   0 |  13k|  21k|  21k| 113 | 13 |  24 |   0 |-9.800000e+00 |-9.800000e+00 |   0.00%| unknown
 
-Optimize a model with 30250 rows, 15124 columns and 88140 nonzeros
-Model fingerprint: 0xb6fcef78
-Variable types: 1182 continuous, 13942 integer (13942 binary)
-Coefficient statistics:
-  Matrix range     [1e+00, 1e+03]
-  Objective range  [1e-02, 1e+00]
-  Bounds range     [1e+00, 1e+00]
-  RHS range        [1e+00, 1e+03]
-Found heuristic solution: objective 0.0000000
-Presolve removed 10948 rows and 1782 columns
-Presolve time: 0.35s
-Presolved: 19302 rows, 13342 columns, 71530 nonzeros
-Variable types: 1173 continuous, 12169 integer (12169 binary)
-
-Root relaxation: objective -9.808000e+00, 655 iterations, 0.05 seconds (0.05 work units)
-
-    Nodes    |    Current Node    |     Objective Bounds      |     Work
- Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
-
-     0     0   -9.80800    0   26    0.00000   -9.80800      -     -    0s
-H    0     0                      -9.8000000   -9.80800  0.08%     -    0s
-     0     0   -9.80800    0   26   -9.80000   -9.80800  0.08%     -    0s
-
-Explored 1 nodes (1070 simplex iterations) in 0.65 seconds (0.46 work units)
-Thread count was 8 (of 8 available processors)
-
-Solution count 2: -9.8 0 
-No other solutions better than -9.8
-
-Optimal solution found (tolerance 1.00e-04)
-Best objective -9.800000000000e+00, best bound -9.800000000000e+00, gap 0.0000%
+SCIP Status        : problem is solved [optimal solution found]
+Solving Time (sec) : 26.94
+Solving Nodes      : 1
+Primal Bound       : -9.80000000000000e+00 (2 solutions)
+Dual Bound         : -9.80000000000000e+00
+Gap                : 0.00 %
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Aug 26 09:50:53 PM: Problem status: optimal
-(CVXPY) Aug 26 09:50:53 PM: Optimal value: 2.000e-01
-(CVXPY) Aug 26 09:50:53 PM: Compilation took 4.001e+01 seconds
-(CVXPY) Aug 26 09:50:53 PM: Solver (including time spent in interface) took 8.843e-01 seconds
+(CVXPY) Mar 16 01:03:07 PM: Problem status: optimal
+(CVXPY) Mar 16 01:03:07 PM: Optimal value: 2.000e-01
+(CVXPY) Mar 16 01:03:07 PM: Compilation took 2.973e+01 seconds
+(CVXPY) Mar 16 01:03:07 PM: Solver (including time spent in interface) took 2.895e+01 seconds
 </pre></div>
 </div>
 </div>
@@ -1404,7 +1441,7 @@ Best objective -9.800000000000e+00, best bound -9.800000000000e+00, gap 0.0000%
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0)
 </pre></div>
 </div>
 </div>
@@ -1431,7 +1468,7 @@ Best objective -9.800000000000e+00, best bound -9.800000000000e+00, gap 0.0000%
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ba176c2fcf81a2823da505ab70c348ef64a13b9f387f7fcd31199b9d1513963c.svg" src="../../_images/ba176c2fcf81a2823da505ab70c348ef64a13b9f387f7fcd31199b9d1513963c.svg" />
+<img alt="../../_images/8d796370af809a9baea7be2ab1bc0dfb6335b195863e51b9d6803184a4ee9c05.svg" src="../../_images/8d796370af809a9baea7be2ab1bc0dfb6335b195863e51b9d6803184a4ee9c05.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1441,117 +1478,227 @@ Best objective -9.800000000000e+00, best bound -9.800000000000e+00, gap 0.0000%
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(CORNETO) Aug 26 09:50:54 PM - INFO    : 1/1 inputs mapped to the graph
-(CORNETO) Aug 26 09:50:54 PM - INFO    : 10/10 outputs mapped to the graph
-(CORNETO) Aug 26 09:50:54 PM - INFO    : Pruning the graph with size: V x E = (4931, 13157)...
-(CORNETO) Aug 26 09:50:55 PM - INFO    : Finished. Final size: V x E = (1182, 5789).
-(CORNETO) Aug 26 09:50:55 PM - INFO    : 1/1 inputs after pruning.
-(CORNETO) Aug 26 09:50:55 PM - INFO    : 10/10 outputs after pruning.
-(CORNETO) Aug 26 09:50:55 PM - INFO    : Converting into a flow graph...
-(CORNETO) Aug 26 09:50:55 PM - INFO    : Creating a network flow problem...
-(CORNETO) Aug 26 09:50:56 PM - INFO    : Preprocess completed.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(CORNETO) Mar 16 01:03:07 PM - INFO    : 1/1 inputs mapped to the graph
+(CORNETO) Mar 16 01:03:07 PM - INFO    : 10/10 outputs mapped to the graph
+(CORNETO) Mar 16 01:03:07 PM - INFO    : Pruning the graph with size: V x E = (4931, 13157)...
+(CORNETO) Mar 16 01:03:08 PM - INFO    : Finished. Final size: V x E = (1182, 5789).
+(CORNETO) Mar 16 01:03:08 PM - INFO    : 1/1 inputs after pruning.
+(CORNETO) Mar 16 01:03:08 PM - INFO    : 10/10 outputs after pruning.
+(CORNETO) Mar 16 01:03:08 PM - INFO    : Converting into a flow graph...
+(CORNETO) Mar 16 01:03:08 PM - INFO    : Creating a network flow problem...
+(CORNETO) Mar 16 01:03:08 PM - INFO    : Preprocess completed.
 ===============================================================================
                                      CVXPY                                     
-                                     v1.5.3                                    
+                                     v1.6.3                                    
 ===============================================================================
-(CVXPY) Aug 26 09:50:56 PM: Your problem has 26774 variables, 65161 constraints, and 0 parameters.
-(CVXPY) Aug 26 09:50:56 PM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Aug 26 09:50:56 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
-(CVXPY) Aug 26 09:50:56 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Aug 26 09:50:56 PM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Mar 16 01:03:08 PM: Your problem has 26774 variables, 65161 constraints, and 0 parameters.
+(CVXPY) Mar 16 01:03:08 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Mar 16 01:03:08 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) Mar 16 01:03:08 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Mar 16 01:03:08 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Aug 26 09:50:56 PM: Compiling problem (target solver=GUROBI).
-(CVXPY) Aug 26 09:50:56 PM: Reduction chain: CvxAttr2Constr -&gt; Qp2SymbolicQp -&gt; QpMatrixStuffing -&gt; GUROBI
-(CVXPY) Aug 26 09:50:56 PM: Applying reduction CvxAttr2Constr
-(CVXPY) Aug 26 09:50:56 PM: Applying reduction Qp2SymbolicQp
-(CVXPY) Aug 26 09:50:56 PM: Applying reduction QpMatrixStuffing
-(CVXPY) Aug 26 09:50:56 PM: Applying reduction GUROBI
-(CVXPY) Aug 26 09:50:56 PM: Finished problem compilation (took 1.425e-01 seconds).
+(CVXPY) Mar 16 01:03:08 PM: Compiling problem (target solver=SCIP).
+(CVXPY) Mar 16 01:03:08 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
+(CVXPY) Mar 16 01:03:08 PM: Applying reduction Dcp2Cone
+(CVXPY) Mar 16 01:03:08 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Mar 16 01:03:08 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) Mar 16 01:03:08 PM: Applying reduction SCIP
+(CVXPY) Mar 16 01:03:08 PM: Finished problem compilation (took 9.141e-02 seconds).
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Aug 26 09:50:56 PM: Invoking solver GUROBI  to obtain a solution.
-Set parameter QCPDual to value 1
-Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22631.2))
+(CVXPY) Mar 16 01:03:08 PM: Invoking solver SCIP  to obtain a solution.
+presolving:
+(round 1, fast)       1804 del vars, 21591 del conss, 0 add conss, 13600 chg bounds, 1 chg sides, 11603 chg coeffs, 0 upgd conss, 0 impls, 22761 clqs
+(round 2, exhaustive) 1813 del vars, 22407 del conss, 0 add conss, 13611 chg bounds, 2 chg sides, 11604 chg coeffs, 0 upgd conss, 0 impls, 22758 clqs
+(round 3, exhaustive) 1816 del vars, 22420 del conss, 0 add conss, 13611 chg bounds, 2 chg sides, 11616 chg coeffs, 35916 upgd conss, 0 impls, 22758 clqs
+(round 4, exhaustive) 1853 del vars, 22438 del conss, 0 add conss, 13611 chg bounds, 2 chg sides, 11616 chg coeffs, 35916 upgd conss, 11586 impls, 37687 clqs
+(round 5, medium)     2027 del vars, 22508 del conss, 0 add conss, 13611 chg bounds, 2 chg sides, 11616 chg coeffs, 35916 upgd conss, 11586 impls, 37164 clqs
+(round 6, fast)       2027 del vars, 22671 del conss, 0 add conss, 13611 chg bounds, 2 chg sides, 11616 chg coeffs, 35916 upgd conss, 11586 impls, 37164 clqs
+(round 7, medium)     2027 del vars, 23003 del conss, 0 add conss, 13611 chg bounds, 2 chg sides, 11616 chg coeffs, 35916 upgd conss, 11586 impls, 37164 clqs
+   (2.3s) probing: 1000/18164 (5.5%) - 0 fixings, 33 aggregations, 22221 implications, 0 bound changes
+   (4.0s) probing: 2000/18164 (11.0%) - 0 fixings, 39 aggregations, 27924 implications, 0 bound changes
+   (4.9s) probing: 2529/18164 (13.9%) - 0 fixings, 39 aggregations, 28760 implications, 0 bound changes
+   (4.9s) probing aborted: 1000/1000 successive useless probings
+   (5.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (5.0s) symmetry computation finished: 49 generators found (max: 1500, log10 of symmetry group size: 10.0) (symcode time: 0.03)
+dynamic symmetry handling statistics:
+   orbitopal reduction:        2 components: 13x3, 4x4
+   orbital reduction:         no components
+   lexicographic reduction:   44 permutations with support sizes 38, 10, 42, 26, 26, 8, 8, 8, 8, 8, 8, 8, 8, 8, 10, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 10, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 10, 8, 8, 10
+handled 46 out of 46 symmetry components
+presolving (8 rounds: 8 fast, 6 medium, 4 exhaustive):
+ 2041 deleted vars, 23024 deleted constraints, 0 added constraints, 13611 tightened bounds, 0 added holes, 2 changed sides, 11616 changed coefficients
+ 11910 implications, 50844 cliques
+presolved problem has 24735 variables (17951 bin, 0 int, 0 impl, 6784 cont) and 42137 constraints
+  11204 constraints of type &lt;varbound&gt;
+  22546 constraints of type &lt;setppc&gt;
+   6791 constraints of type &lt;linear&gt;
+   1596 constraints of type &lt;logicor&gt;
+transformed objective value is always integral (scale: 0.01)
+Presolving Time: 5.07
 
-CPU model: 11th Gen Intel(R) Core(TM) i7-1185G7 @ 3.00GHz, instruction set [SSE2|AVX|AVX2|AVX512]
-Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  6.0s|     1 |     0 |  1125 |     - |   439M |   0 |  24k|  42k|  42k|   0 |  0 |  36 |   0 |-1.078800e+01 |      --      |    Inf | unknown
+  8.2s|     1 |     0 | 11539 |     - |   451M |   0 |  24k|  42k|  42k|   2 |  1 |  36 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+  8.8s|     1 |     0 | 11547 |     - |   456M |   0 |  24k|  42k|  42k|   5 |  2 |  36 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+  9.5s|     1 |     0 | 11970 |     - |   465M |   0 |  24k|  42k|  42k|   8 |  3 |  36 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+ 10.7s|     1 |     0 | 12008 |     - |   472M |   0 |  24k|  42k|  42k|  11 |  4 |  36 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+ 12.5s|     1 |     0 | 12048 |     - |   486M |   0 |  24k|  42k|  42k|  13 |  5 |  36 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+ 14.5s|     1 |     0 | 12074 |     - |   505M |   0 |  24k|  42k|  42k|  27 |  6 |  36 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+ 15.1s|     1 |     0 | 12107 |     - |   511M |   0 |  24k|  42k|  42k|  29 |  7 |  36 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+ 15.8s|     1 |     0 | 12325 |     - |   515M |   0 |  24k|  42k|  42k|  38 |  8 |  36 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+ 18.0s|     1 |     0 | 18939 |     - |   519M |   0 |  24k|  42k|  42k|  41 |  9 |  36 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+ 25.3s|     1 |     0 | 35178 |     - |   523M |   0 |  24k|  42k|  42k|  67 | 10 |  36 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+ 29.8s|     1 |     0 | 47006 |     - |   527M |   0 |  24k|  42k|  42k|  92 | 11 |  36 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+ 64.1s|     1 |     2 |107457 |     - |   532M |   0 |  24k|  42k|  42k|  92 | 11 |  55 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+ 70.0s|   100 |    93 |131132 | 849.9 |   551M |  41 |  24k|  42k|  42k| 111 |  2 |  69 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  122s|   200 |   193 |255382 |1047.2 |   558M |  41 |  24k|  42k|  42k| 145 |  1 |  74 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  129s|   300 |   293 |284837 | 795.5 |   576M |  41 |  24k|  42k|  42k| 236 |  1 |  82 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  137s|   400 |   389 |322422 | 690.3 |   588M |  41 |  24k|  42k|  42k| 334 |  2 |  98 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  145s|   500 |   487 |356918 | 621.1 |   597M |  41 |  24k|  42k|  42k| 402 |  1 | 110 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  150s|   600 |   583 |379997 | 555.9 |   604M |  41 |  24k|  42k|  42k| 502 |  1 | 121 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  155s|   700 |   683 |399388 | 504.1 |   607M |  41 |  24k|  42k|  42k| 544 |  1 | 134 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  159s|   800 |   783 |421002 | 468.1 |   614M |  48 |  24k|  42k|  42k| 583 |  1 | 145 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  163s|   900 |   875 |433607 | 430.0 |   620M |  55 |  24k|  42k|  42k| 606 |  1 | 157 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  166s|  1000 |   973 |447650 | 401.1 |   623M |  55 |  24k|  42k|  42k| 623 |  1 | 165 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  171s|  1100 |  1073 |468299 | 383.4 |   628M |  55 |  24k|  42k|  42k| 641 |  1 | 173 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  174s|  1200 |  1165 |483385 | 364.0 |   630M |  55 |  24k|  42k|  42k| 674 |  1 | 188 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  177s|  1300 |  1265 |498492 | 347.6 |   636M |  55 |  24k|  42k|  42k| 705 |  1 | 192 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  180s|  1400 |  1365 |511021 | 331.7 |   637M |  55 |  24k|  42k|  42k| 711 |  1 | 204 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  186s|  1500 |  1465 |530712 | 322.7 |   638M |  55 |  24k|  42k|  42k| 742 |  1 | 216 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  189s|  1600 |  1565 |548785 | 313.8 |   641M |  55 |  24k|  42k|  42k| 748 |  2 | 222 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  193s|  1700 |  1661 |567509 | 306.4 |   646M |  55 |  24k|  42k|  42k| 767 |  1 | 232 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  196s|  1800 |  1761 |581089 | 296.9 |   648M |  57 |  24k|  42k|  42k| 780 |  1 | 238 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  199s|  1900 |  1861 |593013 | 287.5 |   651M |  57 |  24k|  42k|  42k| 787 |  1 | 242 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  203s|  2000 |  1961 |618061 | 285.7 |   652M |  57 |  24k|  42k|  42k| 816 |  1 | 250 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  207s|  2100 |  2061 |633339 | 279.3 |   654M |  57 |  24k|  42k|  42k| 865 |  1 | 256 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  209s|  2200 |  2159 |637821 | 268.7 |   656M |  57 |  24k|  42k|  42k| 889 |  1 | 261 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  211s|  2300 |  2257 |644633 | 260.0 |   658M |  57 |  24k|  42k|  42k| 928 |  1 | 265 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  214s|  2400 |  2357 |651432 | 252.0 |   667M |  57 |  24k|  42k|  42k| 965 |  1 | 267 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  216s|  2500 |  2457 |652393 | 242.3 |   669M |  57 |  24k|  42k|  42k| 987 |  1 | 267 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  219s|  2600 |  2557 |666256 | 238.3 |   672M |  57 |  24k|  42k|  42k|1004 |  1 | 276 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  221s|  2700 |  2657 |669404 | 230.6 |   673M |  57 |  24k|  42k|  42k|1016 |  1 | 276 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  223s|  2800 |  2757 |672253 | 223.4 |   675M |  57 |  24k|  42k|  42k|1027 |  1 | 276 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  226s|  2900 |  2849 |680186 | 218.4 |   676M |  57 |  24k|  42k|  42k|1050 |  1 | 286 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  228s|  3000 |  2949 |687733 | 213.7 |   678M |  57 |  24k|  42k|  42k|1081 |  1 | 286 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  230s|  3100 |  3049 |689514 | 207.3 |   679M |  57 |  24k|  42k|  42k|1088 |  1 | 286 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  232s|  3200 |  3149 |691492 | 201.5 |   682M |  57 |  24k|  42k|  42k|1105 |  1 | 286 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  235s|  3300 |  3249 |699861 | 197.9 |   684M |  57 |  24k|  42k|  42k|1119 |  1 | 288 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  237s|  3400 |  3349 |701054 | 192.4 |   685M |  57 |  24k|  42k|  42k|1150 |  1 | 288 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  241s|  3500 |  3447 |716817 | 191.4 |   692M |  57 |  24k|  42k|  42k|1186 |  1 | 303 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  246s|  3600 |  3539 |735187 | 191.2 |   706M |  57 |  24k|  42k|  42k|1273 |  1 | 315 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  249s|  3700 |  3639 |745598 | 188.9 |   716M |  57 |  24k|  42k|  42k|1318 |  1 | 317 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  252s|  3800 |  3735 |759157 | 187.5 |   735M |  57 |  24k|  42k|  42k|1378 |  1 | 323 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  256s|  3900 |  3829 |774741 | 186.6 |   738M |  58 |  24k|  42k|  42k|1420 |  0 | 335 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  259s|  4000 |  3925 |784953 | 184.5 |   739M |  59 |  24k|  42k|  42k|1478 |  1 | 341 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  273s|  4100 |  4025 |839835 | 193.4 |   747M |  59 |  24k|  42k|  42k|1526 |  1 | 347 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  277s|  4200 |  4117 |857819 | 193.1 |   749M |  59 |  24k|  42k|  42k|1586 |  1 | 365 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  280s|  4300 |  4210 |871421 | 191.8 |   750M |  59 |  24k|  42k|  42k|1626 |  0 | 376 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  286s|  4400 |  4308 |889288 | 191.5 |   753M |  59 |  24k|  42k|  42k|1662 |  1 | 385 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  289s|  4500 |  4406 |898587 | 189.3 |   755M |  59 |  24k|  42k|  42k|1713 |  1 | 387 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  292s|  4600 |  4504 |915227 | 188.8 |   759M |  59 |  24k|  42k|  42k|1786 |  1 | 393 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+  296s|  4700 |  4602 |926073 | 187.1 |   760M |  59 |  24k|  42k|  42k|1845 |  1 | 397 |  42 |-1.078000e+01 |      --      |    Inf | unknown
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  298s|  4800 |  4700 |931524 | 184.3 |   766M |  59 |  24k|  42k|  42k|1902 |  1 | 399 |  42 |-1.078000e+01 |      --      |    Inf | unknown
 
-Optimize a model with 65161 rows, 26774 columns and 152235 nonzeros
-Model fingerprint: 0x443b7235
-Variable types: 6990 continuous, 19784 integer (19784 binary)
-Coefficient statistics:
-  Matrix range     [1e-03, 1e+03]
-  Objective range  [1e-02, 1e+00]
-  Bounds range     [1e+00, 1e+00]
-  RHS range        [1e-03, 1e+03]
-Presolve removed 28859 rows and 2262 columns
-Presolve time: 0.53s
-Presolved: 36302 rows, 24512 columns, 108510 nonzeros
-Variable types: 6593 continuous, 17919 integer (17919 binary)
-Deterministic concurrent LP optimizer: primal and dual simplex
-Showing primal log only...
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 298.15
+Solving Nodes      : 4808
+Primal Bound       : +1.00000000000000e+20 (0 solutions)
+Dual Bound         : -1.07800000000000e+01
+Gap                : infinite
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">SolverError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">32</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">P</span><span class="p">,</span> <span class="n">Gf</span> <span class="o">=</span> <span class="n">runVanillaCarnival</span><span class="p">(</span><span class="n">cp_inputs</span><span class="p">,</span> <span class="n">cp_outputs</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">betaWeight</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;GUROBI&quot;</span><span class="p">)</span>
 
-Concurrent spin time: 0.03s
+<span class="nn">File ~/work/corneto/corneto/corneto/methods/carnival.py:142,</span> in <span class="ni">runVanillaCarnival</span><span class="nt">(perturbations, measurements, priorKnowledgeNetwork, betaWeight, solver, backend_options, solve, verbose, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">140</span> <span class="n">_info</span><span class="p">(</span><span class="s2">&quot;Preprocess completed.&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span> <span class="k">if</span> <span class="n">solve</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">142</span>     <span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span> <span class="o">**</span><span class="n">backend_options</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">143</span> <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span> <span class="n">_info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Finished in </span><span class="si">{</span><span class="n">end</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> s.&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
 
-Solved with dual simplex
-Extra simplex iterations after uncrush: 4
+<span class="nn">File ~/work/corneto/corneto/corneto/backend/_base.py:586,</span> in <span class="ni">ProblemDef.solve</span><span class="nt">(self, solver, max_seconds, warm_start, verbosity, **options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">581</span>     <span class="c1"># We need to match solver with the available solvers</span>
+<span class="g g-Whitespace">    </span><span class="mi">582</span>     <span class="c1"># being case-insensitive</span>
+<span class="g g-Whitespace">    </span><span class="mi">583</span>     <span class="n">solver</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">584</span>         <span class="p">(</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">avail_solvers</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">solver</span><span class="o">.</span><span class="n">lower</span><span class="p">()),</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">585</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">586</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span>     <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">589</span>     <span class="n">max_seconds</span><span class="o">=</span><span class="n">max_seconds</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">590</span>     <span class="n">warm_start</span><span class="o">=</span><span class="n">warm_start</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">591</span>     <span class="n">verbosity</span><span class="o">=</span><span class="n">verbosity</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">592</span>     <span class="o">**</span><span class="n">options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">593</span> <span class="p">)</span>
 
-Root relaxation: objective -1.078800e+01, 952 iterations, 0.30 seconds (0.14 work units)
+<span class="nn">File ~/work/corneto/corneto/corneto/backend/_base.py:849,</span> in <span class="ni">Backend.solve</span><span class="nt">(self, p, solver, max_seconds, warm_start, verbosity, **options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">839</span>     <span class="c1">#o = sum(</span>
+<span class="g g-Whitespace">    </span><span class="mi">840</span>     <span class="c1">#    p.weights[i] * p.objectives[i] if p.weights[i] != 0.0 else 0.0  # type: ignore</span>
+<span class="nn">    841     #    for i</span> in <span class="ni">range(len</span><span class="nt">(p.objectives))</span>
+<span class="g g-Whitespace">    </span><span class="mi">842</span>     <span class="c1">#)</span>
+<span class="g g-Whitespace">    </span><span class="mi">843</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">844</span>     <span class="n">o</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">845</span>         <span class="n">p</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">objectives</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">846</span>         <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">objectives</span> <span class="ow">and</span> <span class="n">p</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span>
+<span class="g g-Whitespace">    </span><span class="mi">847</span>         <span class="k">else</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">848</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">849</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_solve</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">850</span>     <span class="n">p</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">851</span>     <span class="n">objective</span><span class="o">=</span><span class="n">o</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">852</span>     <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">853</span>     <span class="n">max_seconds</span><span class="o">=</span><span class="n">max_seconds</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">854</span>     <span class="n">warm_start</span><span class="o">=</span><span class="n">warm_start</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">855</span>     <span class="n">verbosity</span><span class="o">=</span><span class="n">verbosity</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">856</span>     <span class="o">**</span><span class="n">options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span> <span class="p">)</span>
 
-    Nodes    |    Current Node    |     Objective Bounds      |     Work
- Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+<span class="nn">File ~/work/corneto/corneto/corneto/backend/_cvxpy_backend.py:208,</span> in <span class="ni">CvxpyBackend._solve</span><span class="nt">(self, p, objective, solver, max_seconds, warm_start, verbosity, **options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">200</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">201</span>         <span class="c1"># Warning that a mapping is not available, check backend documentation</span>
+<span class="g g-Whitespace">    </span><span class="mi">202</span>         <span class="n">LOGGER</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;max_seconds parameter mapping for </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2"> not found.</span>
+<span class="g g-Whitespace">    </span><span class="mi">203</span><span class="s2">                     Please refer to the backend documentation for more</span>
+<span class="g g-Whitespace">    </span><span class="mi">204</span><span class="s2">                     information. For example, using CVXPY with GUROBI solver,</span>
+<span class="g g-Whitespace">    </span><span class="mi">205</span><span class="s2">                     the parameter TimeLimit can be directly passed with</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span><span class="s2">                     `problem.solve(solver=&#39;GUROBI&#39;, TimeLimit=max_seconds)`&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">208</span> <span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbosity</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">warm_start</span><span class="o">=</span><span class="n">warm_start</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span> <span class="k">return</span> <span class="n">P</span>
 
-     0     0  -10.78800    0   38          -  -10.78800      -     -    1s
-H    0     0                      -0.9700000  -10.78800  1012%     -    2s
-H    0     0                      -1.9300000  -10.78800   459%     -    2s
-H    0     0                      -9.8100000  -10.78800  10.0%     -    2s
-     0     0  -10.78000    0   39   -9.81000  -10.78000  9.89%     -    2s
-H    0     0                     -10.7600000  -10.78000  0.19%     -    3s
-     0     0  -10.78000    0   43  -10.76000  -10.78000  0.19%     -    3s
-     0     0  -10.78000    0   76  -10.76000  -10.78000  0.19%     -    4s
-     0     0  -10.78000    0   69  -10.76000  -10.78000  0.19%     -    4s
-H    0     0                     -10.7700000  -10.78000  0.09%     -    5s
-     0     0  -10.78000    0    2  -10.77000  -10.78000  0.09%     -    5s
-     0     0  -10.78000    0   18  -10.77000  -10.78000  0.09%     -    5s
-     0     0  -10.78000    0   19  -10.77000  -10.78000  0.09%     -    6s
-     0     0  -10.78000    0   20  -10.77000  -10.78000  0.09%     -    6s
-     0     0  -10.78000    0   14  -10.77000  -10.78000  0.09%     -    7s
-     0     0  -10.78000    0   16  -10.77000  -10.78000  0.09%     -    7s
-     0     0  -10.78000    0   11  -10.77000  -10.78000  0.09%     -    7s
-     0     0  -10.78000    0   17  -10.77000  -10.78000  0.09%     -    7s
-     0     0  -10.78000    0    2  -10.77000  -10.78000  0.09%     -    7s
-     0     0  -10.78000    0    4  -10.77000  -10.78000  0.09%     -    8s
-     0     0  -10.78000    0    4  -10.77000  -10.78000  0.09%     -    8s
-     0     0  -10.78000    0    4  -10.77000  -10.78000  0.09%     -    8s
-     0     0  -10.78000    0    4  -10.77000  -10.78000  0.09%     -    8s
-     0     0  -10.78000    0    4  -10.77000  -10.78000  0.09%     -    8s
-     0     2  -10.78000    0    4  -10.77000  -10.78000  0.09%     -    8s
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/cvxpy/problems/problem.py:600,</span> in <span class="ni">Problem.solve</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">597</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">598</span>             <span class="s2">&quot;Cannot specify both &#39;solver&#39; and &#39;solver_path&#39;. Please choose one.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">599</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_solve_solver_path</span><span class="p">(</span><span class="n">solve_func</span><span class="p">,</span><span class="n">solver_path</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">600</span> <span class="k">return</span> <span class="n">solve_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-Cutting planes:
-  Gomory: 2
-  Cover: 1
-  Implied bound: 7
-  MIR: 1
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/cvxpy/problems/problem.py:1187,</span> in <span class="ni">Problem._solve</span><span class="nt">(self, solver, warm_start, verbose, gp, qcp, requires_grad, enforce_dpp, ignore_dpp, canon_backend, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1185</span> <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1186</span> <span class="bp">self</span><span class="o">.</span><span class="n">_solve_time</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
+<span class="ne">-&gt; </span><span class="mi">1187</span> <span class="bp">self</span><span class="o">.</span><span class="n">unpack_results</span><span class="p">(</span><span class="n">solution</span><span class="p">,</span> <span class="n">solving_chain</span><span class="p">,</span> <span class="n">inverse_data</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1188</span> <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1189</span>     <span class="nb">print</span><span class="p">(</span><span class="n">_FOOTER</span><span class="p">)</span>
 
-Explored 84 nodes (14713 simplex iterations) in 9.52 seconds (3.53 work units)
-Thread count was 8 (of 8 available processors)
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/cvxpy/problems/problem.py:1512,</span> in <span class="ni">Problem.unpack_results</span><span class="nt">(self, solution, chain, inverse_data)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1510</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">INF_OR_UNB_MESSAGE</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1511</span> <span class="k">if</span> <span class="n">solution</span><span class="o">.</span><span class="n">status</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">ERROR</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1512</span>     <span class="k">raise</span> <span class="n">error</span><span class="o">.</span><span class="n">SolverError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1513</span>             <span class="s2">&quot;Solver &#39;</span><span class="si">%s</span><span class="s2">&#39; failed. &quot;</span> <span class="o">%</span> <span class="n">chain</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="o">+</span>
+<span class="g g-Whitespace">   </span><span class="mi">1514</span>             <span class="s2">&quot;Try another solver, or solve with verbose=True for more &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1515</span>             <span class="s2">&quot;information.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1517</span> <span class="bp">self</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1518</span> <span class="bp">self</span><span class="o">.</span><span class="n">_solver_stats</span> <span class="o">=</span> <span class="n">SolverStats</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_solution</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1519</span>                                  <span class="n">chain</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
 
-Solution count 5: -10.77 -10.76 -9.81 ... -0.97
-No other solutions better than -10.77
-
-Optimal solution found (tolerance 1.00e-04)
-Best objective -1.077000000000e+01, best bound -1.077000000000e+01, gap 0.0000%
--------------------------------------------------------------------------------
-                                    Summary                                    
--------------------------------------------------------------------------------
-(CVXPY) Aug 26 09:51:06 PM: Problem status: optimal
-(CVXPY) Aug 26 09:51:06 PM: Optimal value: 2.300e-01
-(CVXPY) Aug 26 09:51:06 PM: Compilation took 1.425e-01 seconds
-(CVXPY) Aug 26 09:51:06 PM: Solver (including time spent in interface) took 9.985e+00 seconds
-(CORNETO) Aug 26 09:51:06 PM - INFO    : Finished in 12.03 s.
+<span class="ne">SolverError</span>: Solver &#39;SCIP&#39; failed. Try another solver, or solve with verbose=True for more information.
 </pre></div>
 </div>
 </div>
