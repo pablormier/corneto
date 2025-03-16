@@ -649,7 +649,7 @@
     </tr>
     <tr>
       <th>(c)</th>
-      <td>0</td>
+      <td>-1</td>
       <td>0</td>
     </tr>
     <tr>
@@ -700,7 +700,7 @@
     </tr>
     <tr>
       <th>(e)</th>
-      <td>-1</td>
+      <td>1</td>
       <td>0</td>
     </tr>
     <tr>
@@ -711,25 +711,25 @@
     <tr>
       <th>(e)</th>
       <th>(a)</th>
-      <td>-1</td>
+      <td>1</td>
       <td>0</td>
     </tr>
     <tr>
       <th>(d)</th>
       <th>(c)</th>
-      <td>1</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>(e)</th>
       <th>(tf1)</th>
-      <td>-1</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>(a)</th>
       <th>(tf1)</th>
-      <td>0</td>
+      <td>-1</td>
       <td>0</td>
     </tr>
     <tr>
@@ -758,7 +758,7 @@
     <tr>
       <th>(tf2)</th>
       <th>(rec1)</th>
-      <td>0</td>
+      <td>1</td>
       <td>0</td>
     </tr>
     <tr>
@@ -814,7 +814,7 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
 1.0
-11.0
+12.0
 </pre></div>
 </div>
 </div>
@@ -872,17 +872,16 @@
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">c</span> <span class="o">=</span> <span class="n">CarnivalILP</span><span class="p">(</span><span class="n">beta_weight</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">disable_acyclicity</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">P</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">dd</span><span class="p">)</span>
 
-<span class="nn">File ~/work/corneto/corneto/corneto/methods/future/method.py:110,</span> in <span class="ni">Method.build</span><span class="nt">(self, graph, data)</span>
+<span class="nn">File ~/work/corneto/corneto/corneto/methods/future/method.py:109,</span> in <span class="ni">Method.build</span><span class="nt">(self, graph, data)</span>
 <span class="g g-Whitespace">    </span><span class="mi">104</span>     <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">add_objectives</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">105</span>         <span class="c1"># TODO: replace by lambd parameter instead of self._lambda_reg</span>
-<span class="g g-Whitespace">    </span><span class="mi">106</span>         <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">expr</span><span class="p">[</span><span class="n">newvar_name</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span>         <span class="n">weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lambda_reg_param</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">108</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">109</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">110</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">111</span>         <span class="s2">&quot;Parameter lambda_reg &gt; 0 but no regularization variable name provided&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">112</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">113</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>         <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">expr</span><span class="p">[</span><span class="n">newvar_name</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span>         <span class="n">weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lambda_reg_param</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">109</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span>         <span class="s2">&quot;Parameter lambda_reg &gt; 0 but no regularization variable name provided&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">111</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span>
 
 <span class="ne">ValueError</span>: Parameter lambda_reg &gt; 0 but no regularization variable name provided
 </pre></div>

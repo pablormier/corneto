@@ -29,17 +29,16 @@ Cell [0;32mIn[12], line 2[0m
 [1;32m      1[0m c [38;5;241m=[39m CarnivalILP(beta_weight[38;5;241m=[39m[38;5;241m0[39m, disable_acyclicity[38;5;241m=[39m[38;5;28;01mFalse[39;00m)
 [0;32m----> 2[0m P [38;5;241m=[39m [43mc[49m[38;5;241;43m.[39;49m[43mbuild[49m[43m([49m[43mG[49m[43m,[49m[43m [49m[43mdd[49m[43m)[49m
 
-File [0;32m~/work/corneto/corneto/corneto/methods/future/method.py:110[0m, in [0;36mMethod.build[0;34m(self, graph, data)[0m
+File [0;32m~/work/corneto/corneto/corneto/methods/future/method.py:109[0m, in [0;36mMethod.build[0;34m(self, graph, data)[0m
 [1;32m    104[0m     [38;5;28mself[39m[38;5;241m.[39mproblem[38;5;241m.[39madd_objectives(
-[1;32m    105[0m         [38;5;66;03m# TODO: replace by lambd parameter instead of self._lambda_reg[39;00m
-[1;32m    106[0m         [38;5;28mself[39m[38;5;241m.[39mproblem[38;5;241m.[39mexpr[newvar_name][38;5;241m.[39msum(),
-[1;32m    107[0m         weights[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39mlambda_reg_param,
-[1;32m    108[0m     )
-[1;32m    109[0m [38;5;28;01melse[39;00m:
-[0;32m--> 110[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
-[1;32m    111[0m         [38;5;124m"[39m[38;5;124mParameter lambda_reg > 0 but no regularization variable name provided[39m[38;5;124m"[39m
-[1;32m    112[0m     )
-[1;32m    113[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39mproblem
+[1;32m    105[0m         [38;5;28mself[39m[38;5;241m.[39mproblem[38;5;241m.[39mexpr[newvar_name][38;5;241m.[39msum(),
+[1;32m    106[0m         weights[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39mlambda_reg_param,
+[1;32m    107[0m     )
+[1;32m    108[0m [38;5;28;01melse[39;00m:
+[0;32m--> 109[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
+[1;32m    110[0m         [38;5;124m"[39m[38;5;124mParameter lambda_reg > 0 but no regularization variable name provided[39m[38;5;124m"[39m
+[1;32m    111[0m     )
+[1;32m    112[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39mproblem
 
 [0;31mValueError[0m: Parameter lambda_reg > 0 but no regularization variable name provided
 
