@@ -600,7 +600,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/200a47e5ffdcc4027e31a73752410a032b8b708f446f046e26fad57ca59a820b.svg" src="../../_images/200a47e5ffdcc4027e31a73752410a032b8b708f446f046e26fad57ca59a820b.svg" />
+<img alt="../../_images/81253cbaaeb32ae57a659f41f8eb3cc6edcc191b3fba9a46e1c0a74bcb098614.svg" src="../../_images/81253cbaaeb32ae57a659f41f8eb3cc6edcc191b3fba9a46e1c0a74bcb098614.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -639,7 +639,7 @@
     <tr>
       <th rowspan="3" valign="top">(rec1)</th>
       <th>(a)</th>
-      <td>0</td>
+      <td>1</td>
       <td>1</td>
     </tr>
     <tr>
@@ -649,7 +649,7 @@
     </tr>
     <tr>
       <th>(c)</th>
-      <td>-1</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -684,13 +684,13 @@
     <tr>
       <th rowspan="2" valign="top">(a)</th>
       <th>(c)</th>
-      <td>0</td>
+      <td>1</td>
       <td>0</td>
     </tr>
     <tr>
       <th>(d)</th>
       <td>0</td>
-      <td>0</td>
+      <td>-1</td>
     </tr>
     <tr>
       <th rowspan="3" valign="top">(c)</th>
@@ -700,7 +700,7 @@
     </tr>
     <tr>
       <th>(e)</th>
-      <td>1</td>
+      <td>-1</td>
       <td>0</td>
     </tr>
     <tr>
@@ -711,25 +711,25 @@
     <tr>
       <th>(e)</th>
       <th>(a)</th>
-      <td>1</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>(d)</th>
       <th>(c)</th>
       <td>0</td>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>(e)</th>
       <th>(tf1)</th>
-      <td>0</td>
+      <td>-1</td>
       <td>0</td>
     </tr>
     <tr>
       <th>(a)</th>
       <th>(tf1)</th>
-      <td>-1</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -756,9 +756,14 @@
       <td>0</td>
     </tr>
     <tr>
-      <th>(tf2)</th>
+      <th rowspan="2" valign="top">(tf2)</th>
       <th>(rec1)</th>
       <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>()</th>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -774,21 +779,15 @@
       <td>0</td>
     </tr>
     <tr>
-      <th>(tf2)</th>
-      <th>()</th>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
       <th rowspan="2" valign="top">()</th>
-      <th>(rec1)</th>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
       <th>(rec2)</th>
       <td>1</td>
       <td>-1</td>
+    </tr>
+    <tr>
+      <th>(rec1)</th>
+      <td>0</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -801,7 +800,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02e63d5cc2dcc078993f787082ea1cee062cc735a6ed2f0e89e08493d0bab267.svg" src="../../_images/02e63d5cc2dcc078993f787082ea1cee062cc735a6ed2f0e89e08493d0bab267.svg" />
+<img alt="../../_images/87f08f47cad4c2ddf8d4d91b93fcf699a5e89ece11e2412f9a7e3837a2288987.svg" src="../../_images/87f08f47cad4c2ddf8d4d91b93fcf699a5e89ece11e2412f9a7e3837a2288987.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -865,28 +864,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">c</span> <span class="o">=</span> <span class="n">CarnivalILP</span><span class="p">(</span><span class="n">beta_weight</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">disable_acyclicity</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">P</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">dd</span><span class="p">)</span>
-
-<span class="nn">File ~/work/corneto/corneto/corneto/methods/future/method.py:109,</span> in <span class="ni">Method.build</span><span class="nt">(self, graph, data)</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span>     <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">add_objectives</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">105</span>         <span class="bp">self</span><span class="o">.</span><span class="n">problem</span><span class="o">.</span><span class="n">expr</span><span class="p">[</span><span class="n">newvar_name</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
-<span class="g g-Whitespace">    </span><span class="mi">106</span>         <span class="n">weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lambda_reg_param</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">108</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">109</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">110</span>         <span class="s2">&quot;Parameter lambda_reg &gt; 0 but no regularization variable name provided&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">111</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">112</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem</span>
-
-<span class="ne">ValueError</span>: Parameter lambda_reg &gt; 0 but no regularization variable name provided
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -927,7 +904,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a80801abef8ef815dcd11c6fbfe6a1289daf4844eacf2df89a62101cf8439a8e.svg" src="../../_images/a80801abef8ef815dcd11c6fbfe6a1289daf4844eacf2df89a62101cf8439a8e.svg" />
+<img alt="../../_images/de9d26a7f37b282f9cee2cc9dbff8fbf09b90a9a7ed332913e5c69664d9453b0.svg" src="../../_images/de9d26a7f37b282f9cee2cc9dbff8fbf09b90a9a7ed332913e5c69664d9453b0.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -967,7 +944,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1f27e1163038d19c8bacd3acc6adb21830bacd9ce0949d7cbcbf5c742883c977.svg" src="../../_images/1f27e1163038d19c8bacd3acc6adb21830bacd9ce0949d7cbcbf5c742883c977.svg" />
+<img alt="../../_images/c2166b50249596243db423aedb6642b73bf1c272aabc556f4d5f57e3abac2c4c.svg" src="../../_images/c2166b50249596243db423aedb6642b73bf1c272aabc556f4d5f57e3abac2c4c.svg" />
 </div>
 </div>
 <div class="cell docutils container">
