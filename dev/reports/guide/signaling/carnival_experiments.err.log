@@ -45,6 +45,10 @@ File [0;32m~/work/corneto/corneto/corneto/backend/_base.py:579[0m, in [0;36mP
 [1;32m    586[0m [43m[49m[43m)[49m
 
 File [0;32m~/work/corneto/corneto/corneto/backend/_base.py:842[0m, in [0;36mBackend.solve[0;34m(self, p, solver, max_seconds, warm_start, verbosity, **options)[0m
+[1;32m    832[0m     [38;5;66;03m#o = sum([39;00m
+[1;32m    833[0m     [38;5;66;03m#    p.weights[i] * p.objectives[i] if p.weights[i] != 0.0 else 0.0  # type: ignore[39;00m
+[1;32m    834[0m     [38;5;66;03m#    for i in range(len(p.objectives))[39;00m
+[1;32m    835[0m     [38;5;66;03m#)[39;00m
 [1;32m    836[0m [38;5;28;01melse[39;00m:
 [1;32m    837[0m     o [38;5;241m=[39m (
 [1;32m    838[0m         p[38;5;241m.[39mweights[[38;5;241m0[39m] [38;5;241m*[39m p[38;5;241m.[39mobjectives[[38;5;241m0[39m]
