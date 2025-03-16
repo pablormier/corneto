@@ -37,6 +37,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-P, Gf = runVanillaCarnival(cp_inputs, cp_outputs, G, betaWeight=0.01, solver="GUROBI")
+['from corneto.methods import (', '    expand_graph_for_flows,', '    runCARNIVAL_AcyclicFlow,', '    runCARNIVAL_Flow_Acyclic,', '    runCARNIVAL_Flow_Acyclic_Signal,']
+...
+['', '# Flow + Acyclic Signal', 'P_cross = runCARNIVAL_Flow_Acyclic_Signal(', '    G2, exp_list, solver="GUROBI", verbosity=True, betaWeight=0.01', ')']
 -------------------
 
