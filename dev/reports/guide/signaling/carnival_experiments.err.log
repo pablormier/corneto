@@ -37,14 +37,6 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-# AcyclicFlow
-
-Gp, cp_inputs, cp_outputs = preprocess_graph(G, c_inputs, c_outputs)
-exp_list = {"c0": {"input": cp_inputs, "output": cp_outputs}}
-exp_list["c1"] = exp_list["c0"]
-G2 = expand_graph_for_flows(Gp, exp_list)
-P_cross = runCARNIVAL_AcyclicFlow(
-    G2, exp_list, solver="GUROBI", verbosity=True, betaWeight=0.01
-)
+P, Gf = runVanillaCarnival(cp_inputs, cp_outputs, G, betaWeight=0.01, solver="GUROBI")
 -------------------
 

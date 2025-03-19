@@ -469,38 +469,38 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(CORNETO) Mar 19 11:51:22 AM - INFO    : 2/2 inputs mapped to the graph
-(CORNETO) Mar 19 11:51:22 AM - INFO    : 2/2 outputs mapped to the graph
-(CORNETO) Mar 19 11:51:22 AM - INFO    : Pruning the graph with size: V x E = (6, 6)...
-(CORNETO) Mar 19 11:51:22 AM - INFO    : Finished. Final size: V x E = (6, 6).
-(CORNETO) Mar 19 11:51:22 AM - INFO    : 2/2 inputs after pruning.
-(CORNETO) Mar 19 11:51:22 AM - INFO    : 2/2 outputs after pruning.
-(CORNETO) Mar 19 11:51:22 AM - INFO    : Converting into a flow graph...
-(CORNETO) Mar 19 11:51:22 AM - INFO    : Creating a network flow problem...
-(CORNETO) Mar 19 11:51:22 AM - INFO    : Preprocess completed.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(CORNETO) Mar 19 05:35:20 PM - INFO    : 2/2 inputs mapped to the graph
+(CORNETO) Mar 19 05:35:20 PM - INFO    : 2/2 outputs mapped to the graph
+(CORNETO) Mar 19 05:35:20 PM - INFO    : Pruning the graph with size: V x E = (6, 6)...
+(CORNETO) Mar 19 05:35:20 PM - INFO    : Finished. Final size: V x E = (6, 6).
+(CORNETO) Mar 19 05:35:20 PM - INFO    : 2/2 inputs after pruning.
+(CORNETO) Mar 19 05:35:20 PM - INFO    : 2/2 outputs after pruning.
+(CORNETO) Mar 19 05:35:20 PM - INFO    : Converting into a flow graph...
+(CORNETO) Mar 19 05:35:20 PM - INFO    : Creating a network flow problem...
+(CORNETO) Mar 19 05:35:20 PM - INFO    : Preprocess completed.
 ===============================================================================
                                      CVXPY                                     
                                      v1.6.3                                    
 ===============================================================================
-(CVXPY) Mar 19 11:51:22 AM: Your problem has 86 variables, 197 constraints, and 0 parameters.
-(CVXPY) Mar 19 11:51:22 AM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Mar 19 11:51:22 AM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
-(CVXPY) Mar 19 11:51:22 AM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Mar 19 11:51:22 AM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Mar 19 05:35:20 PM: Your problem has 86 variables, 197 constraints, and 0 parameters.
+(CVXPY) Mar 19 05:35:20 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Mar 19 05:35:20 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) Mar 19 05:35:20 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Mar 19 05:35:20 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Mar 19 11:51:22 AM: Compiling problem (target solver=SCIP).
-(CVXPY) Mar 19 11:51:22 AM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
-(CVXPY) Mar 19 11:51:22 AM: Applying reduction Dcp2Cone
-(CVXPY) Mar 19 11:51:22 AM: Applying reduction CvxAttr2Constr
-(CVXPY) Mar 19 11:51:22 AM: Applying reduction ConeMatrixStuffing
-(CVXPY) Mar 19 11:51:22 AM: Applying reduction SCIP
-(CVXPY) Mar 19 11:51:22 AM: Finished problem compilation (took 2.980e-02 seconds).
+(CVXPY) Mar 19 05:35:20 PM: Compiling problem (target solver=SCIP).
+(CVXPY) Mar 19 05:35:20 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
+(CVXPY) Mar 19 05:35:20 PM: Applying reduction Dcp2Cone
+(CVXPY) Mar 19 05:35:20 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Mar 19 05:35:20 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) Mar 19 05:35:20 PM: Applying reduction SCIP
+(CVXPY) Mar 19 05:35:20 PM: Finished problem compilation (took 3.120e-02 seconds).
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Mar 19 11:51:22 AM: Invoking solver SCIP  to obtain a solution.
+(CVXPY) Mar 19 05:35:20 PM: Invoking solver SCIP  to obtain a solution.
 presolving:
 (round 1, fast)       36 del vars, 95 del conss, 0 add conss, 48 chg bounds, 1 chg sides, 23 chg coeffs, 0 upgd conss, 0 impls, 28 clqs
 (round 2, fast)       54 del vars, 129 del conss, 0 add conss, 52 chg bounds, 9 chg sides, 31 chg coeffs, 0 upgd conss, 0 impls, 20 clqs
@@ -532,30 +532,27 @@ transformed objective value is always integral (scale: 0.1)
 Presolving Time: 0.00
 
  time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
-p 0.0s|     1 |     0 |     0 |     - |  clique|   0 |  27 |  45 |  42 |   0 |  0 |   0 |   0 |-3.500000e+00 | 1.000000e-01 |    Inf | unknown
-p 0.0s|     1 |     0 |     0 |     - |   locks|   0 |  27 |  45 |  42 |   0 |  0 |   0 |   0 |-3.500000e+00 |-6.000000e-01 | 483.33%| unknown
-p 0.0s|     1 |     0 |     0 |     - | vbounds|   0 |  27 |  45 |  42 |   0 |  0 |   0 |   0 |-3.500000e+00 |-1.600000e+00 | 118.75%| unknown
-p 0.0s|     1 |     0 |     0 |     - | vbounds|   0 |  27 |  47 |  42 |   0 |  0 |   2 |   0 |-3.500000e+00 |-3.200000e+00 |   9.37%| unknown
-  0.0s|     1 |     0 |    23 |     - |  1788k |   0 |  27 |  48 |  42 |   0 |  0 |   7 |   0 |-3.300000e+00 |-3.200000e+00 |   3.13%| unknown
-  0.0s|     1 |     0 |    23 |     - |  1788k |   0 |  27 |  48 |  39 |   0 |  0 |   7 |   0 |-3.300000e+00 |-3.200000e+00 |   3.13%| unknown
-  0.0s|     1 |     0 |    26 |     - |  1794k |   0 |  27 |  44 |  36 |   3 |  1 |   7 |   0 |-3.300000e+00 |-3.200000e+00 |   3.13%| unknown
-r 0.0s|     1 |     0 |    26 |     - |rounding|   0 |  27 |  44 |  36 |   3 |  1 |   7 |   0 |-3.300000e+00 |-3.300000e+00 |   0.00%| unknown
-  0.0s|     1 |     0 |    26 |     - |  1795k |   0 |  27 |  44 |  36 |   3 |  1 |   7 |   0 |-3.300000e+00 |-3.300000e+00 |   0.00%| unknown
+p 0.0s|     1 |     0 |     0 |     - |   locks|   0 |  27 |  46 |  42 |   0 |  0 |   0 |   0 |-3.500000e+00 |-6.000000e-01 | 483.33%| unknown
+p 0.0s|     1 |     0 |     0 |     - | vbounds|   0 |  27 |  46 |  42 |   0 |  0 |   0 |   0 |-3.500000e+00 |-1.600000e+00 | 118.75%| unknown
+p 0.0s|     1 |     0 |     0 |     - | vbounds|   0 |  27 |  48 |  42 |   0 |  0 |   2 |   0 |-3.500000e+00 |-3.200000e+00 |   9.37%| unknown
+  0.0s|     1 |     0 |    14 |     - |  1785k |   0 |  27 |  29 |  42 |   0 |  0 |   8 |   0 |-3.300000e+00 |-3.200000e+00 |   3.13%| unknown
+r 0.0s|     1 |     0 |    14 |     - |rounding|   0 |  27 |  29 |  42 |   0 |  0 |   8 |   0 |-3.300000e+00 |-3.300000e+00 |   0.00%| unknown
+  0.0s|     1 |     0 |    14 |     - |  1786k |   0 |  27 |  29 |  42 |   0 |  0 |   8 |   0 |-3.300000e+00 |-3.300000e+00 |   0.00%| unknown
 
 SCIP Status        : problem is solved [optimal solution found]
 Solving Time (sec) : 0.01
 Solving Nodes      : 1
-Primal Bound       : -3.30000000000000e+00 (5 solutions)
+Primal Bound       : -3.30000000000000e+00 (4 solutions)
 Dual Bound         : -3.30000000000000e+00
 Gap                : 0.00 %
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Mar 19 11:51:22 AM: Problem status: optimal
-(CVXPY) Mar 19 11:51:22 AM: Optimal value: 7.000e-01
-(CVXPY) Mar 19 11:51:22 AM: Compilation took 2.980e-02 seconds
-(CVXPY) Mar 19 11:51:22 AM: Solver (including time spent in interface) took 1.596e-02 seconds
-(CORNETO) Mar 19 11:51:22 AM - INFO    : Finished in 0.07 s.
+(CVXPY) Mar 19 05:35:20 PM: Problem status: optimal
+(CVXPY) Mar 19 05:35:20 PM: Optimal value: 7.000e-01
+(CVXPY) Mar 19 05:35:20 PM: Compilation took 3.120e-02 seconds
+(CVXPY) Mar 19 05:35:20 PM: Solver (including time spent in interface) took 1.277e-02 seconds
+(CORNETO) Mar 19 05:35:20 PM - INFO    : Finished in 0.07 s.
 </pre></div>
 </div>
 </div>
@@ -635,33 +632,33 @@ Gap                : 0.00 %
   <tbody>
     <tr>
       <th>0</th>
-      <td>M1</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
       <td>I1</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>N1</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>I2</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
+      <th>1</th>
       <td>M2</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>2</th>
       <td>N2</td>
       <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>N1</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>M1</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>I2</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>6</th>
@@ -890,25 +887,25 @@ Gap                : 0.00 %
                                      CVXPY                                     
                                      v1.6.3                                    
 ===============================================================================
-(CVXPY) Mar 19 11:51:22 AM: Your problem has 34 variables, 70 constraints, and 0 parameters.
-(CVXPY) Mar 19 11:51:22 AM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Mar 19 11:51:22 AM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
-(CVXPY) Mar 19 11:51:22 AM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Mar 19 11:51:22 AM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Mar 19 05:35:20 PM: Your problem has 34 variables, 70 constraints, and 0 parameters.
+(CVXPY) Mar 19 05:35:20 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Mar 19 05:35:20 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) Mar 19 05:35:20 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Mar 19 05:35:20 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Mar 19 11:51:22 AM: Compiling problem (target solver=SCIP).
-(CVXPY) Mar 19 11:51:22 AM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
-(CVXPY) Mar 19 11:51:22 AM: Applying reduction Dcp2Cone
-(CVXPY) Mar 19 11:51:22 AM: Applying reduction CvxAttr2Constr
-(CVXPY) Mar 19 11:51:22 AM: Applying reduction ConeMatrixStuffing
-(CVXPY) Mar 19 11:51:22 AM: Applying reduction SCIP
-(CVXPY) Mar 19 11:51:22 AM: Finished problem compilation (took 2.918e-02 seconds).
+(CVXPY) Mar 19 05:35:20 PM: Compiling problem (target solver=SCIP).
+(CVXPY) Mar 19 05:35:20 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
+(CVXPY) Mar 19 05:35:20 PM: Applying reduction Dcp2Cone
+(CVXPY) Mar 19 05:35:20 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Mar 19 05:35:20 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) Mar 19 05:35:20 PM: Applying reduction SCIP
+(CVXPY) Mar 19 05:35:20 PM: Finished problem compilation (took 3.125e-02 seconds).
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Mar 19 11:51:22 AM: Invoking solver SCIP  to obtain a solution.
+(CVXPY) Mar 19 05:35:20 PM: Invoking solver SCIP  to obtain a solution.
 presolving:
 (round 1, fast)       16 del vars, 41 del conss, 0 add conss, 21 chg bounds, 0 chg sides, 0 chg coeffs, 0 upgd conss, 0 impls, 11 clqs
 (round 2, fast)       21 del vars, 50 del conss, 0 add conss, 21 chg bounds, 3 chg sides, 3 chg coeffs, 0 upgd conss, 0 impls, 9 clqs
@@ -947,10 +944,10 @@ Gap                : 0.00 %
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Mar 19 11:51:22 AM: Problem status: optimal
-(CVXPY) Mar 19 11:51:22 AM: Optimal value: 2.000e-02
-(CVXPY) Mar 19 11:51:22 AM: Compilation took 2.918e-02 seconds
-(CVXPY) Mar 19 11:51:22 AM: Solver (including time spent in interface) took 6.534e-03 seconds
+(CVXPY) Mar 19 05:35:20 PM: Problem status: optimal
+(CVXPY) Mar 19 05:35:20 PM: Optimal value: 2.000e-02
+(CVXPY) Mar 19 05:35:20 PM: Compilation took 3.125e-02 seconds
+(CVXPY) Mar 19 05:35:20 PM: Solver (including time spent in interface) took 7.310e-03 seconds
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Problem(Minimize(Expression(AFFINE, UNKNOWN, ())), [Inequality(Constant(CONSTANT, ZERO, (6,))), Inequality(Variable((6,), vertex_position)), Inequality(Expression(AFFINE, NONNEGATIVE, (6,))), Inequality(Expression(AFFINE, NONNEGATIVE, (8,))), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Equality(Expression(AFFINE, NONNEGATIVE, ()), Constant(CONSTANT, ZERO, ())), Equality(Expression(AFFINE, NONNEGATIVE, ()), Constant(CONSTANT, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Inequality(Expression(AFFINE, NONNEGATIVE, ())), Equality(Expression(AFFINE, NONNEGATIVE, ()), Constant(CONSTANT, ZERO, ())), Equality(Expression(AFFINE, NONNEGATIVE, ()), Constant(CONSTANT, ZERO, ()))])
@@ -978,9 +975,9 @@ Gap                : 0.00 %
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;vertex_inhibited&#39;: Variable((6,), vertex_inhibited, boolean=True),
- &#39;edge_inhibiting&#39;: Variable((8,), edge_inhibiting, boolean=True),
- &#39;edge_activating&#39;: Variable((8,), edge_activating, boolean=True),
  &#39;vertex_activated&#39;: Variable((6,), vertex_activated, boolean=True),
+ &#39;edge_activating&#39;: Variable((8,), edge_activating, boolean=True),
+ &#39;edge_inhibiting&#39;: Variable((8,), edge_inhibiting, boolean=True),
  &#39;vertex_position&#39;: Variable((6,), vertex_position),
  &#39;vertex_values&#39;: Expression(AFFINE, UNKNOWN, (6,)),
  &#39;edge_values&#39;: Expression(AFFINE, UNKNOWN, (8,))}
@@ -1281,7 +1278,7 @@ Gap                : 0.00 %
 16/25 outputs mapped to the graph
 Pruning the graph with size: V x E = (4931, 13157)...
 Finished. Final size: V x E = (1182, 5789).
-HIPK2 (L3), AEBP1 (L3), NEUROD1 (L4), NFYB (L3), ZBTB4 (L4), RUNX2 (L3), ELK1 (L3), NFATC4 (L3), SIRT1 (L3), HOXB7 (L4)
+AEBP1 (L3), RUNX2 (L3), NEUROD1 (L4), NFYB (L3), HIPK2 (L3), ELK1 (L3), HOXB7 (L4), ZBTB4 (L4), SIRT1 (L3), NFATC4 (L3)
 L1  :      1 iters, 0.00 s.
 L2  :     41 iters, 0.00 s.
  &gt; -EGFR -&gt; +CRK -&gt; +MAPK8 -&gt; +SIRT1
@@ -1292,12 +1289,12 @@ L2  :     41 iters, 0.00 s.
  &gt; -EGFR -&gt; -MAP2K1 -&gt; -MAPK1 -&gt; -ELK1
  &gt; -EGFR -&gt; -MAP2K1 -&gt; -MAPK1 -&gt; -AEBP1
  &gt; -EGFR -&gt; -MAP2K1 -&gt; -MAPK3 -&gt; -RUNX2
-L3  :    316 iters, 0.01 s.
+L3  :    316 iters, 0.02 s.
  &gt; -EGFR -&gt; -STAT1 -&gt; +CREBBP -&gt; ... -&gt; -NFYB
  &gt; -EGFR -&gt; -PIK3R1 -&gt; -RAC1 -&gt; ... -&gt; -NEUROD1
  &gt; -EGFR -&gt; -PTPN1 -&gt; +ABL1 -&gt; ... -&gt; -ZBTB4
  &gt; -EGFR -&gt; -ERBB2 -&gt; +CDK1 -&gt; ... -&gt; -HOXB7
-Finished (0.22 s)
+Finished (0.31 s)
  &gt; Number of selected edges: 26
  &gt; Total iterations: 2287
  &gt; Detected loops: 255
@@ -1348,98 +1345,90 @@ Number of selected edges: 26
                                      CVXPY                                     
                                      v1.6.3                                    
 ===============================================================================
-(CVXPY) Mar 19 11:51:30 AM: Your problem has 15124 variables, 30250 constraints, and 0 parameters.
-(CVXPY) Mar 19 11:51:31 AM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Mar 19 11:51:31 AM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
-(CVXPY) Mar 19 11:51:31 AM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Mar 19 11:51:31 AM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Mar 19 05:35:30 PM: Your problem has 15124 variables, 30250 constraints, and 0 parameters.
+(CVXPY) Mar 19 05:35:32 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Mar 19 05:35:32 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) Mar 19 05:35:32 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Mar 19 05:35:32 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Mar 19 11:51:34 AM: Compiling problem (target solver=SCIP).
-(CVXPY) Mar 19 11:51:34 AM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
-(CVXPY) Mar 19 11:51:34 AM: Applying reduction Dcp2Cone
-(CVXPY) Mar 19 11:51:37 AM: Applying reduction CvxAttr2Constr
-(CVXPY) Mar 19 11:51:38 AM: Applying reduction ConeMatrixStuffing
-(CVXPY) Mar 19 11:52:01 AM: Applying reduction SCIP
-(CVXPY) Mar 19 11:52:02 AM: Finished problem compilation (took 3.047e+01 seconds).
+(CVXPY) Mar 19 05:35:35 PM: Compiling problem (target solver=SCIP).
+(CVXPY) Mar 19 05:35:35 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
+(CVXPY) Mar 19 05:35:35 PM: Applying reduction Dcp2Cone
+(CVXPY) Mar 19 05:35:39 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Mar 19 05:35:40 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) Mar 19 05:36:06 PM: Applying reduction SCIP
+(CVXPY) Mar 19 05:36:07 PM: Finished problem compilation (took 3.520e+01 seconds).
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Mar 19 11:52:02 AM: Invoking solver SCIP  to obtain a solution.
+(CVXPY) Mar 19 05:36:07 PM: Invoking solver SCIP  to obtain a solution.
 presolving:
 (round 1, fast)       1645 del vars, 4056 del conss, 0 add conss, 2411 chg bounds, 0 chg sides, 0 chg coeffs, 0 upgd conss, 0 impls, 17589 clqs
 (round 2, fast)       1755 del vars, 4294 del conss, 0 add conss, 2411 chg bounds, 29 chg sides, 29 chg coeffs, 0 upgd conss, 0 impls, 17425 clqs
-(round 3, exhaustive) 1759 del vars, 9078 del conss, 0 add conss, 2420 chg bounds, 3694 chg sides, 69 chg coeffs, 0 upgd conss, 0 impls, 17425 clqs
-(round 4, exhaustive) 1759 del vars, 9078 del conss, 0 add conss, 2425 chg bounds, 3703 chg sides, 78 chg coeffs, 15420 upgd conss, 0 impls, 17425 clqs
-   (1.7s) probing: 1000/12191 (8.2%) - 2 fixings, 0 aggregations, 16862 implications, 0 bound changes
-   (2.0s) probing: 1245/12191 (10.2%) - 2 fixings, 0 aggregations, 18881 implications, 0 bound changes
+(round 3, exhaustive) 1759 del vars, 9023 del conss, 0 add conss, 2420 chg bounds, 3639 chg sides, 69 chg coeffs, 0 upgd conss, 0 impls, 17425 clqs
+(round 4, exhaustive) 1759 del vars, 9023 del conss, 0 add conss, 2425 chg bounds, 3648 chg sides, 78 chg coeffs, 15475 upgd conss, 0 impls, 17425 clqs
+   (1.7s) probing: 1000/12191 (8.2%) - 2 fixings, 0 aggregations, 16974 implications, 0 bound changes
+   (2.0s) probing: 1223/12191 (10.0%) - 2 fixings, 0 aggregations, 18770 implications, 0 bound changes
    (2.0s) probing aborted: 1000/1000 successive useless probings
    (2.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
    (2.1s) symmetry computation finished: 48 generators found (max: 1500, log10 of symmetry group size: 0.0) (symcode time: 0.02)
 dynamic symmetry handling statistics:
    orbitopal reduction:        1 components: 2x4
    orbital reduction:         no components
-   lexicographic reduction:   43 permutations with support sizes 6, 14, 22, 22, 4, 4, 4, 4, 4, 4, 4, 4, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 6, 6, 4, 6
+   lexicographic reduction:   43 permutations with support sizes 14, 22, 6, 14, 4, 4, 4, 4, 4, 4, 4, 4, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 6, 6, 4, 4, 6
 handled 45 out of 45 symmetry components
-(round 5, exhaustive) 1771 del vars, 9086 del conss, 1 add conss, 2425 chg bounds, 3703 chg sides, 80 chg coeffs, 15420 upgd conss, 531 impls, 35768 clqs
-   (2.3s) probing: 1345/12191 (11.0%) - 2 fixings, 0 aggregations, 23246 implications, 0 bound changes
+(round 5, exhaustive) 1771 del vars, 9031 del conss, 1 add conss, 2425 chg bounds, 3648 chg sides, 80 chg coeffs, 15475 upgd conss, 532 impls, 35654 clqs
+   (2.3s) probing: 1323/12191 (10.9%) - 2 fixings, 0 aggregations, 23088 implications, 0 bound changes
    (2.3s) probing aborted: 1000/1000 successive useless probings
 presolving (6 rounds: 6 fast, 4 medium, 4 exhaustive):
- 1774 deleted vars, 9097 deleted constraints, 1 added constraints, 2425 tightened bounds, 0 added holes, 3703 changed sides, 83 changed coefficients
- 542 implications, 40110 cliques
-presolved problem has 13356 variables (12183 bin, 0 int, 0 impl, 1173 cont) and 21154 constraints
+ 1774 deleted vars, 9041 deleted constraints, 1 added constraints, 2425 tightened bounds, 0 added holes, 3648 changed sides, 83 changed coefficients
+ 543 implications, 39945 cliques
+presolved problem has 13356 variables (12183 bin, 0 int, 0 impl, 1173 cont) and 21210 constraints
      29 constraints of type &lt;varbound&gt;
-  13781 constraints of type &lt;setppc&gt;
+  13837 constraints of type &lt;setppc&gt;
    5752 constraints of type &lt;linear&gt;
       1 constraints of type &lt;orbitope&gt;
    1591 constraints of type &lt;logicor&gt;
 transformed objective value is always integral (scale: 0.01)
-Presolving Time: 2.24
+Presolving Time: 2.23
 
  time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
 t 2.3s|     1 |     0 |     0 |     - | trivial|   0 |  13k|  21k|   0 |   0 |  0 |   0 |   0 |-9.950000e+00 | 0.000000e+00 |    Inf | unknown
-p 2.7s|     1 |     0 |   688 |     - |  clique|   0 |  13k|  21k|  21k|   0 |  0 |   0 |   0 |-9.950000e+00 |-5.100000e-01 |1850.98%| unknown
-i 2.9s|     1 |     0 |   692 |     - |  oneopt|   0 |  13k|  21k|  21k|   0 |  0 |  37 |   0 |-9.950000e+00 |-9.900000e-01 | 905.05%| unknown
-  3.0s|     1 |     0 |  1053 |     - |   240M |   0 |  13k|  21k|  21k|   0 |  0 |  37 |   0 |-9.808000e+00 |-9.900000e-01 | 890.71%| unknown
-  3.4s|     1 |     0 |  1115 |     - |   246M |   0 |  13k|  21k|  21k|   5 |  1 |  37 |   0 |-9.803333e+00 |-9.900000e-01 | 890.24%| unknown
-  3.6s|     1 |     0 |  1145 |     - |   250M |   0 |  13k|  21k|  21k|  28 |  2 |  37 |   0 |-9.803333e+00 |-9.900000e-01 | 890.24%| unknown
-  4.0s|     1 |     0 |  1205 |     - |   255M |   0 |  13k|  21k|  21k|  33 |  3 |  37 |   0 |-9.803333e+00 |-9.900000e-01 | 890.24%| unknown
-  4.2s|     1 |     0 |  1267 |     - |   258M |   0 |  13k|  21k|  21k|  40 |  4 |  37 |   0 |-9.803333e+00 |-9.900000e-01 | 890.24%| unknown
-  4.4s|     1 |     0 |  1355 |     - |   260M |   0 |  13k|  21k|  21k|  44 |  5 |  37 |   0 |-9.802000e+00 |-9.900000e-01 | 890.10%| unknown
-  4.9s|     1 |     0 |  1363 |     - |   264M |   0 |  13k|  21k|  21k|  47 |  6 |  37 |   0 |-9.802000e+00 |-9.900000e-01 | 890.10%| unknown
-  5.4s|     1 |     0 |  1367 |     - |   267M |   0 |  13k|  21k|  21k|  49 |  7 |  37 |   0 |-9.802000e+00 |-9.900000e-01 | 890.10%| unknown
-  5.8s|     1 |     0 |  1397 |     - |   270M |   0 |  13k|  21k|  21k|  50 |  8 |  37 |   0 |-9.802000e+00 |-9.900000e-01 | 890.10%| unknown
-  6.2s|     1 |     0 |  1422 |     - |   272M |   0 |  13k|  21k|  21k|  52 |  9 |  37 |   0 |-9.801429e+00 |-9.900000e-01 | 890.04%| unknown
-  6.5s|     1 |     0 |  1556 |     - |   276M |   0 |  13k|  21k|  21k|  57 | 10 |  37 |   0 |-9.801429e+00 |-9.900000e-01 | 890.04%| unknown
-  6.5s|     1 |     0 |  1591 |     - |   278M |   0 |  13k|  21k|  21k|  69 | 11 |  37 |   0 |-9.801429e+00 |-9.900000e-01 | 890.04%| unknown
+  2.7s|     1 |     0 |   464 |     - |   240M |   0 |  13k|  21k|  21k|   0 |  0 |  21 |   0 |-9.808000e+00 | 0.000000e+00 |    Inf | unknown
+  3.2s|     1 |     0 |   589 |     - |   246M |   0 |  13k|  21k|  21k|   5 |  1 |  21 |   0 |-9.803333e+00 | 0.000000e+00 |    Inf | unknown
+  3.4s|     1 |     0 |   654 |     - |   248M |   0 |  13k|  21k|  21k|  26 |  2 |  21 |   0 |-9.803333e+00 | 0.000000e+00 |    Inf | unknown
+  3.5s|     1 |     0 |   679 |     - |   251M |   0 |  13k|  21k|  21k|  34 |  3 |  21 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  4.0s|     1 |     0 |   687 |     - |   256M |   0 |  13k|  21k|  21k|  41 |  4 |  21 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  4.3s|     1 |     0 |   760 |     - |   263M |   0 |  13k|  21k|  21k|  49 |  5 |  21 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  4.7s|     1 |     0 |   780 |     - |   268M |   0 |  13k|  21k|  21k|  63 |  6 |  21 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  5.4s|     1 |     0 |   893 |     - |   280M |   0 |  13k|  21k|  21k|  73 |  7 |  21 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  5.9s|     1 |     0 |   950 |     - |   286M |   0 |  13k|  21k|  21k|  78 |  8 |  21 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  6.8s|     1 |     0 |   959 |     - |   296M |   0 |  13k|  21k|  21k|  80 |  9 |  21 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  7.1s|     1 |     0 |  1026 |     - |   301M |   0 |  13k|  21k|  21k|  85 | 10 |  21 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  7.1s|     1 |     0 |  1086 |     - |   303M |   0 |  13k|  21k|  21k|  87 | 11 |  22 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  7.3s|     1 |     0 |  1117 |     - |   306M |   0 |  13k|  21k|  21k|  91 | 12 |  22 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+  7.3s|     1 |     0 |  1137 |     - |   308M |   0 |  13k|  21k|  21k|  96 | 13 |  22 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
  time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
-  6.6s|     1 |     0 |  1666 |     - |   281M |   0 |  13k|  21k|  21k|  72 | 12 |  37 |   0 |-9.800000e+00 |-9.900000e-01 | 889.90%| unknown
-  6.6s|     1 |     0 |  1680 |     - |   283M |   0 |  13k|  21k|  21k|  73 | 13 |  37 |   0 |-9.800000e+00 |-9.900000e-01 | 889.90%| unknown
-  6.7s|     1 |     0 |  1698 |     - |   285M |   0 |  13k|  21k|  21k|  78 | 14 |  37 |   0 |-9.800000e+00 |-9.900000e-01 | 889.90%| unknown
-  6.8s|     1 |     0 |  1806 |     - |   288M |   0 |  13k|  21k|  21k|  80 | 15 |  37 |   0 |-9.800000e+00 |-9.900000e-01 | 889.90%| unknown
-L 9.1s|     1 |     0 | 18778 |     - |    alns|   0 |  13k|  21k|  21k|  80 | 16 |  41 |   0 |-9.800000e+00 |-1.640000e+00 | 497.56%| unknown
-  9.2s|     1 |     0 | 18778 |     - |   293M |   0 |  13k|  21k|  21k|  80 | 16 |  41 |   0 |-9.800000e+00 |-1.640000e+00 | 497.56%| unknown
-i 9.2s|     1 |     0 | 19067 |     - |  oneopt|   0 |  13k|  21k|  21k|  80 | 16 |  41 |   0 |-9.800000e+00 |-1.650000e+00 | 493.94%| unknown
- 10.8s|     1 |     2 | 19068 |     - |   293M |   0 |  13k|  21k|  21k|  80 | 17 |  41 |  21 |-9.800000e+00 |-1.650000e+00 | 493.94%| unknown
-r14.5s|    11 |    10 | 21643 |2023.9 |shifting|  10 |  13k|  21k|  21k|  80 |  1 |  46 | 120 |-9.800000e+00 |-9.750000e+00 |   0.51%| unknown
-i14.6s|    11 |    10 | 21823 |2041.9 |  oneopt|  10 |  13k|  21k|  21k|  80 |  2 |  46 | 120 |-9.800000e+00 |-9.760000e+00 |   0.41%| unknown
-*19.5s|    17 |     6 | 23364 |1372.5 |strongbr|  10 |  13k|  21k|  21k|  80 |  1 |  46 | 175 |-9.800000e+00 |-9.790000e+00 |   0.10%|  13.47%
-*21.2s|    23 |     0 | 23987 |1026.5 |strongbr|  10 |  13k|  11k|  21k|  80 |  2 |  52 | 199 |-9.800000e+00 |-9.800000e+00 |   0.00%|  98.85%
+  7.4s|     1 |     0 |  1148 |     - |   311M |   0 |  13k|  21k|  21k|  98 | 14 |  22 |   0 |-9.800000e+00 | 0.000000e+00 |    Inf | unknown
+d16.9s|     1 |     0 | 61654 |     - |conflict|   0 |  13k|  21k|  21k|   0 | 14 |  22 |   0 |-9.800000e+00 |-8.650000e+00 |  13.29%| unknown
+L17.1s|     1 |     0 | 61843 |     - |    rens|   0 |  13k|  21k|  21k|  98 | 14 |  22 |   0 |-9.800000e+00 |-9.800000e+00 |   0.00%| unknown
+ 17.1s|     1 |     0 | 61843 |     - |   314M |   0 |  13k|  21k|  21k|  98 | 14 |  22 |   0 |-9.800000e+00 |-9.800000e+00 |   0.00%| unknown
 
 SCIP Status        : problem is solved [optimal solution found]
-Solving Time (sec) : 21.17
-Solving Nodes      : 23
-Primal Bound       : -9.80000000000000e+00 (11 solutions)
+Solving Time (sec) : 17.12
+Solving Nodes      : 1
+Primal Bound       : -9.80000000000000e+00 (3 solutions)
 Dual Bound         : -9.80000000000000e+00
 Gap                : 0.00 %
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Mar 19 11:52:25 AM: Problem status: optimal
-(CVXPY) Mar 19 11:52:25 AM: Optimal value: 2.000e-01
-(CVXPY) Mar 19 11:52:25 AM: Compilation took 3.047e+01 seconds
-(CVXPY) Mar 19 11:52:25 AM: Solver (including time spent in interface) took 2.341e+01 seconds
+(CVXPY) Mar 19 05:36:27 PM: Problem status: optimal
+(CVXPY) Mar 19 05:36:27 PM: Optimal value: 2.000e-01
+(CVXPY) Mar 19 05:36:27 PM: Compilation took 3.520e+01 seconds
+(CVXPY) Mar 19 05:36:27 PM: Solver (including time spent in interface) took 2.027e+01 seconds
 </pre></div>
 </div>
 </div>
@@ -1478,7 +1467,7 @@ Gap                : 0.00 %
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1336b68a7ae08dd1af021d3d378ab19781aab31f9464a1b5822f0077d7281912.svg" src="../../_images/1336b68a7ae08dd1af021d3d378ab19781aab31f9464a1b5822f0077d7281912.svg" />
+<img alt="../../_images/e02ce26f30e1edca7a847e540b2b86d8c31b4f7f9f4079fb1a376bc57ca3a0cd.svg" src="../../_images/e02ce26f30e1edca7a847e540b2b86d8c31b4f7f9f4079fb1a376bc57ca3a0cd.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1488,181 +1477,199 @@ Gap                : 0.00 %
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(CORNETO) Mar 19 11:52:25 AM - INFO    : 1/1 inputs mapped to the graph
-(CORNETO) Mar 19 11:52:25 AM - INFO    : 10/10 outputs mapped to the graph
-(CORNETO) Mar 19 11:52:25 AM - INFO    : Pruning the graph with size: V x E = (4931, 13157)...
-(CORNETO) Mar 19 11:52:26 AM - INFO    : Finished. Final size: V x E = (1182, 5789).
-(CORNETO) Mar 19 11:52:26 AM - INFO    : 1/1 inputs after pruning.
-(CORNETO) Mar 19 11:52:26 AM - INFO    : 10/10 outputs after pruning.
-(CORNETO) Mar 19 11:52:26 AM - INFO    : Converting into a flow graph...
-(CORNETO) Mar 19 11:52:26 AM - INFO    : Creating a network flow problem...
-(CORNETO) Mar 19 11:52:26 AM - INFO    : Preprocess completed.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(CORNETO) Mar 19 05:36:28 PM - INFO    : 1/1 inputs mapped to the graph
+(CORNETO) Mar 19 05:36:28 PM - INFO    : 10/10 outputs mapped to the graph
+(CORNETO) Mar 19 05:36:28 PM - INFO    : Pruning the graph with size: V x E = (4931, 13157)...
+(CORNETO) Mar 19 05:36:28 PM - INFO    : Finished. Final size: V x E = (1182, 5789).
+(CORNETO) Mar 19 05:36:28 PM - INFO    : 1/1 inputs after pruning.
+(CORNETO) Mar 19 05:36:28 PM - INFO    : 10/10 outputs after pruning.
+(CORNETO) Mar 19 05:36:28 PM - INFO    : Converting into a flow graph...
+(CORNETO) Mar 19 05:36:28 PM - INFO    : Creating a network flow problem...
+(CORNETO) Mar 19 05:36:29 PM - INFO    : Preprocess completed.
 ===============================================================================
                                      CVXPY                                     
                                      v1.6.3                                    
 ===============================================================================
-(CVXPY) Mar 19 11:52:26 AM: Your problem has 26774 variables, 65161 constraints, and 0 parameters.
-(CVXPY) Mar 19 11:52:26 AM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Mar 19 11:52:26 AM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
-(CVXPY) Mar 19 11:52:26 AM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Mar 19 11:52:26 AM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Mar 19 05:36:29 PM: Your problem has 26774 variables, 65161 constraints, and 0 parameters.
+(CVXPY) Mar 19 05:36:29 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Mar 19 05:36:29 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) Mar 19 05:36:29 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Mar 19 05:36:29 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Mar 19 11:52:26 AM: Compiling problem (target solver=SCIP).
-(CVXPY) Mar 19 11:52:26 AM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
-(CVXPY) Mar 19 11:52:26 AM: Applying reduction Dcp2Cone
-(CVXPY) Mar 19 11:52:26 AM: Applying reduction CvxAttr2Constr
-(CVXPY) Mar 19 11:52:26 AM: Applying reduction ConeMatrixStuffing
-(CVXPY) Mar 19 11:52:26 AM: Applying reduction SCIP
-(CVXPY) Mar 19 11:52:26 AM: Finished problem compilation (took 9.045e-02 seconds).
+(CVXPY) Mar 19 05:36:29 PM: Compiling problem (target solver=SCIP).
+(CVXPY) Mar 19 05:36:29 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
+(CVXPY) Mar 19 05:36:29 PM: Applying reduction Dcp2Cone
+(CVXPY) Mar 19 05:36:29 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Mar 19 05:36:29 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) Mar 19 05:36:29 PM: Applying reduction SCIP
+(CVXPY) Mar 19 05:36:29 PM: Finished problem compilation (took 1.067e-01 seconds).
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Mar 19 11:52:26 AM: Invoking solver SCIP  to obtain a solution.
+(CVXPY) Mar 19 05:36:29 PM: Invoking solver SCIP  to obtain a solution.
 presolving:
-(round 1, fast)       1804 del vars, 21591 del conss, 0 add conss, 13600 chg bounds, 1 chg sides, 11603 chg coeffs, 0 upgd conss, 0 impls, 22761 clqs
-(round 2, exhaustive) 1813 del vars, 22407 del conss, 0 add conss, 13611 chg bounds, 2 chg sides, 11604 chg coeffs, 0 upgd conss, 0 impls, 22758 clqs
-(round 3, exhaustive) 1816 del vars, 22420 del conss, 0 add conss, 13611 chg bounds, 2 chg sides, 11616 chg coeffs, 35916 upgd conss, 0 impls, 22758 clqs
-(round 4, exhaustive) 1853 del vars, 22438 del conss, 0 add conss, 13611 chg bounds, 2 chg sides, 11616 chg coeffs, 35916 upgd conss, 11586 impls, 37671 clqs
-(round 5, medium)     2027 del vars, 22508 del conss, 0 add conss, 13611 chg bounds, 2 chg sides, 11616 chg coeffs, 35916 upgd conss, 11586 impls, 37148 clqs
-(round 6, fast)       2027 del vars, 22671 del conss, 0 add conss, 13611 chg bounds, 2 chg sides, 11616 chg coeffs, 35916 upgd conss, 11586 impls, 37148 clqs
-(round 7, medium)     2027 del vars, 23003 del conss, 0 add conss, 13611 chg bounds, 2 chg sides, 11616 chg coeffs, 35916 upgd conss, 11586 impls, 37148 clqs
-   (2.3s) probing: 1000/18164 (5.5%) - 0 fixings, 31 aggregations, 22211 implications, 0 bound changes
-   (4.0s) probing: 2000/18164 (11.0%) - 0 fixings, 39 aggregations, 27909 implications, 0 bound changes
-   (4.9s) probing: 2529/18164 (13.9%) - 0 fixings, 39 aggregations, 28749 implications, 0 bound changes
-   (4.9s) probing aborted: 1000/1000 successive useless probings
-   (4.9s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
-   (5.0s) symmetry computation finished: 49 generators found (max: 1500, log10 of symmetry group size: 10.0) (symcode time: 0.03)
+(round 1, fast)       1803 del vars, 21590 del conss, 0 add conss, 13602 chg bounds, 1 chg sides, 11603 chg coeffs, 0 upgd conss, 0 impls, 22761 clqs
+(round 2, exhaustive) 1813 del vars, 22407 del conss, 0 add conss, 13613 chg bounds, 2 chg sides, 11604 chg coeffs, 0 upgd conss, 0 impls, 22758 clqs
+(round 3, exhaustive) 1816 del vars, 22420 del conss, 0 add conss, 13613 chg bounds, 2 chg sides, 11616 chg coeffs, 35916 upgd conss, 0 impls, 22758 clqs
+(round 4, exhaustive) 1853 del vars, 22438 del conss, 0 add conss, 13613 chg bounds, 2 chg sides, 11616 chg coeffs, 35916 upgd conss, 11586 impls, 37697 clqs
+(round 5, medium)     2027 del vars, 22508 del conss, 0 add conss, 13613 chg bounds, 2 chg sides, 11616 chg coeffs, 35916 upgd conss, 11586 impls, 37174 clqs
+(round 6, fast)       2027 del vars, 22671 del conss, 0 add conss, 13613 chg bounds, 2 chg sides, 11616 chg coeffs, 35916 upgd conss, 11586 impls, 37174 clqs
+(round 7, medium)     2027 del vars, 23003 del conss, 0 add conss, 13613 chg bounds, 2 chg sides, 11616 chg coeffs, 35916 upgd conss, 11586 impls, 37174 clqs
+   (2.6s) probing: 1000/18164 (5.5%) - 0 fixings, 33 aggregations, 22231 implications, 0 bound changes
+   (4.3s) probing: 2000/18164 (11.0%) - 0 fixings, 39 aggregations, 27933 implications, 0 bound changes
+   (5.2s) probing: 2528/18164 (13.9%) - 0 fixings, 39 aggregations, 28773 implications, 0 bound changes
+   (5.2s) probing aborted: 1000/1000 successive useless probings
+   (5.3s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (5.4s) symmetry computation finished: 49 generators found (max: 1500, log10 of symmetry group size: 10.0) (symcode time: 0.03)
 dynamic symmetry handling statistics:
    orbitopal reduction:        2 components: 13x3, 4x4
    orbital reduction:         no components
-   lexicographic reduction:   44 permutations with support sizes 10, 38, 42, 10, 26, 26, 8, 8, 8, 8, 8, 8, 8, 8, 8, 10, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 10, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 10, 8, 8
+   lexicographic reduction:   44 permutations with support sizes 26, 42, 38, 8, 10, 26, 8, 8, 8, 8, 8, 8, 8, 8, 10, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 10, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 10, 8, 10
 handled 46 out of 46 symmetry components
 presolving (8 rounds: 8 fast, 6 medium, 4 exhaustive):
- 2041 deleted vars, 23024 deleted constraints, 0 added constraints, 13611 tightened bounds, 0 added holes, 2 changed sides, 11616 changed coefficients
- 11908 implications, 50835 cliques
+ 2041 deleted vars, 23024 deleted constraints, 0 added constraints, 13613 tightened bounds, 0 added holes, 2 changed sides, 11616 changed coefficients
+ 11908 implications, 50859 cliques
 presolved problem has 24735 variables (17951 bin, 0 int, 0 impl, 6784 cont) and 42137 constraints
   11204 constraints of type &lt;varbound&gt;
   22546 constraints of type &lt;setppc&gt;
    6791 constraints of type &lt;linear&gt;
    1596 constraints of type &lt;logicor&gt;
 transformed objective value is always integral (scale: 0.01)
-Presolving Time: 4.99
+Presolving Time: 5.36
 
  time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
-p 5.9s|     1 |     0 |  2037 |     - | vbounds|   0 |  24k|  42k|  42k|   0 |  0 |  23 |   0 |-1.088000e+01 |-5.830000e+00 |  86.62%| unknown
-  6.0s|     1 |     0 |  2919 |     - |   435M |   0 |  24k|  42k|  42k|   0 |  0 |  34 |   0 |-1.078800e+01 |-5.830000e+00 |  85.04%| unknown
-  6.7s|     1 |     0 |  3032 |     - |   443M |   0 |  24k|  42k|  42k|   3 |  1 |  34 |   0 |-1.078000e+01 |-5.830000e+00 |  84.91%| unknown
-  7.3s|     1 |     0 |  3125 |     - |   449M |   0 |  24k|  42k|  42k|   8 |  2 |  34 |   0 |-1.078000e+01 |-5.830000e+00 |  84.91%| unknown
-  7.7s|     1 |     0 |  3193 |     - |   455M |   0 |  24k|  42k|  42k|  17 |  3 |  34 |   0 |-1.078000e+01 |-5.830000e+00 |  84.91%| unknown
-  8.3s|     1 |     0 |  3233 |     - |   460M |   0 |  24k|  42k|  42k|  20 |  4 |  34 |   0 |-1.078000e+01 |-5.830000e+00 |  84.91%| unknown
-  8.9s|     1 |     0 |  3305 |     - |   470M |   0 |  24k|  42k|  42k|  22 |  5 |  34 |   0 |-1.078000e+01 |-5.830000e+00 |  84.91%| unknown
-  9.9s|     1 |     0 |  3355 |     - |   479M |   0 |  24k|  42k|  42k|  49 |  6 |  34 |   0 |-1.078000e+01 |-5.830000e+00 |  84.91%| unknown
- 12.0s|     1 |     0 |  9282 |     - |   490M |   0 |  24k|  42k|  42k|  55 |  7 |  34 |   0 |-1.078000e+01 |-5.830000e+00 |  84.91%| unknown
- 14.1s|     1 |     0 | 15060 |     - |   498M |   0 |  24k|  42k|  42k| 103 |  8 |  34 |   0 |-1.078000e+01 |-5.830000e+00 |  84.91%| unknown
- 16.2s|     1 |     0 | 20550 |     - |   504M |   0 |  24k|  42k|  42k| 130 |  9 |  34 |   0 |-1.078000e+01 |-5.830000e+00 |  84.91%| unknown
- 16.9s|     1 |     0 | 22438 |     - |   508M |   0 |  24k|  42k|  42k| 138 | 10 |  34 |   0 |-1.078000e+01 |-5.830000e+00 |  84.91%| unknown
- 17.7s|     1 |     0 | 25186 |     - |   512M |   0 |  24k|  42k|  42k| 140 | 11 |  34 |   0 |-1.078000e+01 |-5.830000e+00 |  84.91%| unknown
- 63.7s|     1 |     2 |111029 |     - |   526M |   0 |  24k|  42k|  42k| 140 | 11 | 101 |  53 |-1.078000e+01 |-5.830000e+00 |  84.91%| unknown
-L69.7s|    45 |    32 |130405 |2437.6 |    alns|  20 |  24k|  42k|  42k| 158 |  1 | 110 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%|  13.50%
+  7.2s|     1 |     0 |  3646 |     - |   443M |   0 |  24k|  42k|  42k|   0 |  0 |  35 |   0 |-1.078800e+01 |      --      |    Inf | unknown
+  9.1s|     1 |     0 | 15376 |     - |   454M |   0 |  24k|  42k|  42k|   4 |  1 |  35 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+  9.6s|     1 |     0 | 15750 |     - |   458M |   0 |  24k|  42k|  42k|  15 |  2 |  35 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+ 10.3s|     1 |     0 | 17820 |     - |   463M |   0 |  24k|  42k|  42k|  19 |  3 |  35 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+ 10.9s|     1 |     0 | 18425 |     - |   471M |   0 |  24k|  42k|  42k|  22 |  4 |  35 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+ 11.7s|     1 |     0 | 20158 |     - |   477M |   0 |  24k|  42k|  42k|  69 |  5 |  35 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+ 12.2s|     1 |     0 | 20938 |     - |   482M |   0 |  24k|  42k|  42k|  74 |  6 |  35 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+ 12.8s|     1 |     0 | 21920 |     - |   486M |   0 |  24k|  42k|  42k|  99 |  7 |  35 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+ 13.7s|     1 |     0 | 23680 |     - |   491M |   0 |  24k|  42k|  42k| 149 |  8 |  35 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+ 14.2s|     1 |     0 | 24701 |     - |   496M |   0 |  24k|  42k|  42k| 169 |  9 |  35 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+ 14.8s|     1 |     0 | 26098 |     - |   500M |   0 |  24k|  42k|  42k| 175 | 10 |  35 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+ 15.4s|     1 |     0 | 27760 |     - |   504M |   0 |  24k|  42k|  42k| 214 | 11 |  35 |   0 |-1.078000e+01 |      --      |    Inf | unknown
+ 38.4s|     1 |     2 | 79514 |     - |   512M |   0 |  24k|  42k|  42k| 214 | 11 | 102 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+ 45.9s|   100 |    97 | 95382 | 712.3 |   528M |  64 |  24k|  42k|  42k| 241 |  1 | 117 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+ 59.0s|   200 |   179 |121169 | 483.9 |   533M |  91 |  24k|  42k|  42k| 245 |  1 | 138 |  19 |-1.078000e+01 |      --      |    Inf | unknown
  time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
- 85.9s|   100 |    61 |200599 |1792.4 |   556M |  33 |  24k|  42k|  42k| 162 |  1 | 127 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%|  20.39%
- 90.3s|   200 |   123 |214223 | 960.2 |   576M |  45 |  24k|  42k|  42k| 191 |  1 | 174 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%|  21.32%
- 92.8s|   300 |   193 |217190 | 649.0 |   581M | 104 |  24k|  42k|  42k| 194 |  2 | 183 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%|  21.34%
- 95.3s|   400 |   223 |223905 | 503.1 |   587M | 104 |  24k|  42k|  42k| 208 |  1 | 187 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%|  21.34%
- 98.3s|   500 |   243 |229918 | 414.4 |   593M | 104 |  24k|  42k|  42k| 215 |  0 | 198 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%|  21.36%
-  101s|   600 |   311 |235687 | 354.8 |   608M | 104 |  24k|  42k|  42k| 271 |  0 | 221 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%|  21.38%
-  105s|   700 |   363 |245311 | 317.8 |   619M | 104 |  24k|  42k|  42k| 361 |  1 | 264 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%|  21.44%
-  108s|   800 |   383 |252294 | 286.8 |   628M | 104 |  24k|  42k|  42k| 401 |  1 | 293 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%|  21.55%
-  111s|   900 |   418 |257814 | 261.0 |   637M | 104 |  24k|  42k|  42k| 491 |  1 | 351 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%|  21.66%
-  113s|  1000 |   445 |263215 | 240.3 |   647M | 104 |  24k|  42k|  42k| 534 |  0 | 402 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%|  21.67%
+ 62.5s|   300 |   265 |126047 | 338.4 |   535M | 117 |  24k|  42k|  42k| 251 |  1 | 154 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+ 67.5s|   400 |   363 |136959 | 280.9 |   547M | 117 |  24k|  42k|  42k| 280 |  2 | 156 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+ 75.6s|   500 |   453 |149686 | 250.1 |   570M | 117 |  24k|  42k|  42k| 335 |  1 | 168 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+ 79.4s|   600 |   545 |157141 | 220.8 |   579M | 117 |  24k|  42k|  42k| 356 |  1 | 178 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+ 83.0s|   700 |   637 |165525 | 201.2 |   591M | 117 |  24k|  42k|  42k| 396 |  1 | 191 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+ 86.8s|   800 |   719 |171646 | 183.7 |   600M | 117 |  24k|  42k|  42k| 459 |  1 | 211 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+ 90.2s|   900 |   801 |175467 | 167.5 |   605M | 117 |  24k|  42k|  42k| 496 |  1 | 234 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+ 93.7s|  1000 |   891 |183654 | 158.9 |   613M | 117 |  24k|  42k|  42k| 548 |  1 | 250 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+ 96.5s|  1100 |   975 |188538 | 148.9 |   624M | 117 |  24k|  42k|  42k| 605 |  0 | 268 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  114s|  1200 |  1067 |229942 | 171.0 |   626M | 117 |  24k|  42k|  42k| 658 |  1 | 277 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  124s|  1300 |  1157 |242466 | 167.5 |   629M | 117 |  24k|  42k|  42k| 679 |  2 | 287 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  128s|  1400 |  1245 |254651 | 164.3 |   631M | 117 |  24k|  42k|  42k| 712 |  1 | 305 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  130s|  1500 |  1339 |258724 | 156.0 |   634M | 117 |  24k|  42k|  42k| 738 |  1 | 315 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  134s|  1600 |  1429 |269764 | 153.2 |   635M | 117 |  24k|  42k|  42k| 801 |  2 | 339 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  137s|  1700 |  1519 |274780 | 147.1 |   639M | 117 |  24k|  42k|  42k| 828 |  1 | 353 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  141s|  1800 |  1617 |281927 | 142.9 |   640M | 117 |  24k|  42k|  42k| 872 |  1 | 355 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  144s|  1900 |  1715 |287378 | 138.2 |   643M | 117 |  24k|  42k|  42k| 899 |  2 | 361 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  147s|  2000 |  1807 |291635 | 133.5 |   647M | 117 |  24k|  42k|  42k| 911 |  1 | 371 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  150s|  2100 |  1899 |298173 | 130.2 |   647M | 117 |  24k|  42k|  42k| 935 |  1 | 385 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  153s|  2200 |  1981 |301465 | 125.8 |   650M | 117 |  24k|  42k|  42k| 950 |  1 | 405 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  158s|  2300 |  2075 |315027 | 126.2 |   651M | 117 |  24k|  42k|  42k| 965 |  1 | 417 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  161s|  2400 |  2167 |319522 | 122.8 |   654M | 117 |  24k|  42k|  42k| 973 |  1 | 427 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  164s|  2500 |  2257 |324664 | 120.0 |   655M | 117 |  24k|  42k|  42k| 987 |  0 | 440 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  168s|  2600 |  2351 |330682 | 117.7 |   657M | 117 |  24k|  42k|  42k|1003 |  1 | 448 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  171s|  2700 |  2447 |337193 | 115.7 |   658M | 117 |  24k|  42k|  42k|1018 |  1 | 460 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  175s|  2800 |  2547 |344089 | 114.0 |   660M | 117 |  24k|  42k|  42k|1047 |  1 | 465 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  178s|  2900 |  2639 |350029 | 112.2 |   662M | 117 |  24k|  42k|  42k|1078 |  1 | 478 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  181s|  3000 |  2737 |356207 | 110.5 |   663M | 117 |  24k|  42k|  42k|1094 |  1 | 486 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  184s|  3100 |  2833 |362042 | 108.8 |   666M | 117 |  24k|  42k|  42k|1117 |  1 | 495 |  19 |-1.078000e+01 |      --      |    Inf | unknown
+  187s|  3200 |  2925 |367505 | 107.1 |   667M | 117 |  24k|  42k|  42k|1138 |  2 | 507 |  19 |-1.078000e+01 |      --      |    Inf | unknown
 Restart triggered after 50 consecutive estimations that the remaining tree will be large
-(run 1, node 1094) performing user restart
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+L 188s|  3210 |   762 |367686 | 106.8 |    alns| 117 |  24k|  42k|  42k|1140 |  2 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+(run 1, node 3210) performing user restart
 
-(restart) converted 39 cuts from the global cut pool into linear constraints
+(restart) converted 49 cuts from the global cut pool into linear constraints
 
 presolving:
-(round 1, fast)       2081 del vars, 5282 del conss, 0 add conss, 23 chg bounds, 578 chg sides, 2206 chg coeffs, 0 upgd conss, 11908 impls, 30065 clqs
-(round 2, fast)       2618 del vars, 5808 del conss, 5 add conss, 25 chg bounds, 848 chg sides, 2500 chg coeffs, 0 upgd conss, 11908 impls, 29248 clqs
-(round 3, fast)       2705 del vars, 5991 del conss, 5 add conss, 25 chg bounds, 959 chg sides, 2611 chg coeffs, 0 upgd conss, 11908 impls, 28990 clqs
-(round 4, medium)     2774 del vars, 6067 del conss, 5 add conss, 25 chg bounds, 961 chg sides, 2613 chg coeffs, 0 upgd conss, 11908 impls, 28817 clqs
-(round 5, fast)       2789 del vars, 6126 del conss, 5 add conss, 25 chg bounds, 961 chg sides, 2613 chg coeffs, 0 upgd conss, 11908 impls, 28769 clqs
-(round 6, exhaustive) 2789 del vars, 6131 del conss, 5 add conss, 25 chg bounds, 961 chg sides, 2617 chg coeffs, 45 upgd conss, 11908 impls, 28769 clqs
+(round 1, fast)       440 del vars, 514 del conss, 0 add conss, 27 chg bounds, 229 chg sides, 472 chg coeffs, 0 upgd conss, 11909 impls, 45833 clqs
+(round 2, fast)       723 del vars, 1470 del conss, 3 add conss, 42 chg bounds, 609 chg sides, 1034 chg coeffs, 0 upgd conss, 11909 impls, 45513 clqs
+(round 3, fast)       820 del vars, 1672 del conss, 7 add conss, 42 chg bounds, 790 chg sides, 1215 chg coeffs, 0 upgd conss, 11909 impls, 45073 clqs
+(round 4, fast)       844 del vars, 1718 del conss, 7 add conss, 42 chg bounds, 815 chg sides, 1240 chg coeffs, 0 upgd conss, 11909 impls, 44955 clqs
+(round 5, medium)     863 del vars, 1759 del conss, 31 add conss, 42 chg bounds, 846 chg sides, 1295 chg coeffs, 0 upgd conss, 11909 impls, 44866 clqs
+(round 6, exhaustive) 864 del vars, 1771 del conss, 31 add conss, 42 chg bounds, 846 chg sides, 1300 chg coeffs, 41 upgd conss, 11909 impls, 44863 clqs
 presolving (7 rounds: 7 fast, 3 medium, 2 exhaustive):
- 2789 deleted vars, 6140 deleted constraints, 8 added constraints, 25 tightened bounds, 0 added holes, 967 changed sides, 2638 changed coefficients
- 11941 implications, 28771 cliques
-presolved problem has 21946 variables (15481 bin, 0 int, 0 impl, 6465 cont) and 36196 constraints
-  11211 constraints of type &lt;varbound&gt;
-     38 constraints of type &lt;knapsack&gt;
-  17464 constraints of type &lt;setppc&gt;
-   5799 constraints of type &lt;linear&gt;
-   1683 constraints of type &lt;logicor&gt;
-      1 constraints of type &lt;bounddisjunction&gt;
+ 864 deleted vars, 1775 deleted constraints, 31 added constraints, 42 tightened bounds, 0 added holes, 846 changed sides, 1312 changed coefficients
+ 11946 implications, 44863 cliques
+presolved problem has 24056 variables (17278 bin, 0 int, 0 impl, 6778 cont) and 40797 constraints
+  11216 constraints of type &lt;varbound&gt;
+     77 constraints of type &lt;knapsack&gt;
+  20970 constraints of type &lt;setppc&gt;
+   6774 constraints of type &lt;linear&gt;
+   1757 constraints of type &lt;logicor&gt;
+      3 constraints of type &lt;bounddisjunction&gt;
 transformed objective value is always integral (scale: 0.01)
-Presolving Time: 5.21
+Presolving Time: 5.66
  time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
-  119s|     1 |     0 |281682 |     - |   673M |   0 |  21k|  36k|  35k|   0 |  0 | 428 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  119s|     1 |     0 |281683 |     - |   674M |   0 |  21k|  36k|  35k|   0 |  0 | 428 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  119s|     1 |     0 |282671 |     - |   679M |   0 |  21k|  36k|  35k|  27 |  1 | 428 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  120s|     1 |     0 |284294 |     - |   682M |   0 |  21k|  36k|  35k|  48 |  2 | 429 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  120s|     1 |     0 |284720 |     - |   686M |   0 |  21k|  36k|  35k|  64 |  3 | 430 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  121s|     1 |     0 |286274 |     - |   689M |   0 |  21k|  36k|  35k|  73 |  4 | 430 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  121s|     1 |     0 |287455 |     - |   693M |   0 |  21k|  36k|  36k| 110 |  5 | 431 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  121s|     1 |     0 |288441 |     - |   697M |   0 |  21k|  36k|  36k| 120 |  6 | 431 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  122s|     1 |     0 |289143 |     - |   701M |   0 |  21k|  36k|  36k| 139 |  7 | 432 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  122s|     1 |     0 |290721 |     - |   704M |   0 |  21k|  36k|  36k| 156 |  8 | 432 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  123s|     1 |     0 |291527 |     - |   708M |   0 |  21k|  36k|  36k| 177 |  9 | 432 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  123s|     1 |     0 |293150 |     - |   711M |   0 |  21k|  36k|  36k| 196 | 10 | 432 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  124s|     1 |     0 |295801 |     - |   714M |   0 |  21k|  36k|  36k| 204 | 11 | 433 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  125s|     1 |     0 |297892 |     - |   718M |   0 |  21k|  36k|  36k| 220 | 12 | 434 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  125s|     1 |     0 |299603 |     - |   721M |   0 |  21k|  36k|  36k| 230 | 13 | 434 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
+  189s|     1 |     0 |369795 |     - |   635M |   0 |  24k|  40k|  40k|   0 |  0 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  189s|     1 |     0 |369795 |     - |   635M |   0 |  24k|  40k|  40k|   0 |  0 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  189s|     1 |     0 |370805 |     - |   641M |   0 |  24k|  40k|  40k|  25 |  1 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  190s|     1 |     0 |371637 |     - |   645M |   0 |  24k|  40k|  40k|  38 |  2 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  190s|     1 |     0 |372539 |     - |   648M |   0 |  24k|  40k|  40k|  68 |  3 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  191s|     1 |     0 |373655 |     - |   652M |   0 |  24k|  40k|  40k|  83 |  4 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  191s|     1 |     0 |375112 |     - |   656M |   0 |  24k|  40k|  40k| 103 |  5 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  192s|     1 |     0 |376476 |     - |   660M |   0 |  24k|  40k|  40k| 144 |  6 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  192s|     1 |     0 |377301 |     - |   664M |   0 |  24k|  40k|  40k| 151 |  7 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  193s|     1 |     0 |378189 |     - |   668M |   0 |  24k|  40k|  40k| 167 |  8 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  194s|     1 |     0 |379011 |     - |   672M |   0 |  24k|  40k|  40k| 178 |  9 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  194s|     1 |     0 |380004 |     - |   678M |   0 |  24k|  40k|  40k| 183 | 10 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  195s|     1 |     0 |380496 |     - |   682M |   0 |  24k|  40k|  40k| 191 | 11 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  195s|     1 |     0 |380497 |     - |   682M |   0 |  24k|  40k|  40k| 191 | 11 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  195s|     1 |     0 |381148 |     - |   686M |   0 |  24k|  40k|  40k| 196 | 12 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
  time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
-  126s|     1 |     0 |302395 |     - |   725M |   0 |  21k|  36k|  36k| 249 | 14 | 434 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  126s|     1 |     0 |303378 |     - |   728M |   0 |  21k|  36k|  36k| 254 | 15 | 435 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  127s|     1 |     0 |305538 |     - |   732M |   0 |  21k|  36k|  36k| 265 | 16 | 435 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  127s|     1 |     0 |306525 |     - |   735M |   0 |  21k|  36k|  36k| 296 | 17 | 435 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  127s|     1 |     0 |306526 |     - |   735M |   0 |  21k|  36k|  36k| 296 | 17 | 435 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  128s|     1 |     0 |308474 |     - |   736M |   0 |  21k|  36k|  36k| 309 | 18 | 435 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  128s|     1 |     0 |309819 |     - |   739M |   0 |  21k|  36k|  36k| 316 | 19 | 435 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  129s|     1 |     0 |311738 |     - |   743M |   0 |  21k|  36k|  36k| 323 | 20 | 435 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  130s|     1 |     0 |317527 |     - |   743M |   0 |  21k|  36k|  36k| 324 | 21 | 435 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  131s|     1 |     0 |318796 |     - |   743M |   0 |  21k|  36k|  36k| 346 | 22 | 436 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  131s|     1 |     0 |319517 |     - |   743M |   0 |  21k|  36k|  36k| 369 | 23 | 436 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  131s|     1 |     0 |321098 |     - |   743M |   0 |  21k|  36k|  36k| 399 | 24 | 436 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  131s|     1 |     0 |322313 |     - |   743M |   0 |  21k|  36k|  36k| 416 | 25 | 438 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  132s|     1 |     0 |323676 |     - |   743M |   0 |  21k|  36k|  36k| 431 | 26 | 442 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  132s|     1 |     0 |324576 |     - |   743M |   0 |  21k|  36k|  36k| 441 | 27 | 442 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
+  195s|     1 |     0 |381545 |     - |   690M |   0 |  24k|  40k|  40k| 212 | 13 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  196s|     1 |     0 |382164 |     - |   694M |   0 |  24k|  40k|  40k| 217 | 14 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  196s|     1 |     0 |384318 |     - |   698M |   0 |  24k|  40k|  40k| 236 | 15 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  197s|     1 |     0 |385783 |     - |   702M |   0 |  24k|  40k|  40k| 263 | 16 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  197s|     1 |     0 |387401 |     - |   706M |   0 |  24k|  40k|  40k| 295 | 17 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  198s|     1 |     0 |388861 |     - |   709M |   0 |  24k|  40k|  40k| 309 | 18 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  198s|     1 |     0 |389923 |     - |   709M |   0 |  24k|  40k|  40k| 320 | 19 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  199s|     1 |     0 |391068 |     - |   713M |   0 |  24k|  40k|  40k| 343 | 20 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  199s|     1 |     0 |391922 |     - |   713M |   0 |  24k|  40k|  40k| 351 | 21 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  200s|     1 |     0 |392706 |     - |   713M |   0 |  24k|  40k|  40k| 378 | 22 | 507 |  19 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  208s|     1 |     2 |415038 |     - |   717M |   0 |  24k|  40k|  40k| 378 | 22 | 520 |  39 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  221s|   100 |    97 |455680 | 122.6 |   765M |  17 |  24k|  40k|  40k| 526 |  1 | 599 |  39 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  243s|   200 |   197 |526997 | 140.0 |   829M |  18 |  24k|  40k|  40k| 841 |  2 | 738 |  39 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+  260s|   300 |   295 |586731 | 153.0 |   850M |  23 |  24k|  40k|  40k|1211 |  2 | 908 |  39 |-1.078000e+01 |-1.074000e+01 |   0.37%| unknown
+o 263s|   319 |   314 |599779 | 155.9 |feaspump|  23 |  24k|  40k|  40k|1252 |  2 | 958 |  39 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
  time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
-  133s|     1 |     0 |326153 |     - |   743M |   0 |  21k|  36k|  36k| 457 | 28 | 442 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  133s|     1 |     0 |327437 |     - |   743M |   0 |  21k|  36k|  36k| 472 | 29 | 442 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  133s|     1 |     0 |328392 |     - |   743M |   0 |  21k|  36k|  36k| 488 | 30 | 443 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  133s|     1 |     0 |329353 |     - |   743M |   0 |  21k|  36k|  36k| 496 | 31 | 445 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  134s|     1 |     0 |330645 |     - |   743M |   0 |  21k|  36k|  36k| 507 | 32 | 449 |  53 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  137s|     1 |     2 |335952 |     - |   743M |   0 |  21k|  36k|  36k| 507 | 32 | 450 |  73 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-  144s|   100 |    87 |365686 | 244.6 |   794M |  19 |  21k|  36k|  35k| 593 |  2 | 552 |  73 |-1.078000e+01 |-1.076000e+01 |   0.19%| unknown
-d 146s|   128 |    15 |369804 | 242.3 |adaptive|  19 |  21k|  36k|  35k|   0 |  1 | 596 |  73 |-1.078000e+01 |-1.077000e+01 |   0.09%|  40.81%
-  148s|   200 |    19 |375457 | 233.2 |   810M |  27 |  21k|  34k|  35k| 660 |  0 | 624 |  73 |-1.078000e+01 |-1.077000e+01 |   0.09%|  48.41%
-  149s|   300 |    19 |377229 | 217.7 |   810M |  32 |  21k|  34k|  35k| 673 |  1 | 638 |  73 |-1.078000e+01 |-1.077000e+01 |   0.09%|  68.32%
-  151s|   400 |    16 |383188 | 207.1 |   818M |  32 |  21k|  34k|  35k| 739 |  1 | 664 |  73 |-1.078000e+01 |-1.077000e+01 |   0.09%|  70.34%
-  154s|   500 |    28 |385050 | 195.3 |   818M |  32 |  21k|  34k|  35k| 756 |  0 | 681 |  73 |-1.078000e+01 |-1.077000e+01 |   0.09%|  70.35%
-  155s|   600 |    31 |386003 | 184.3 |   818M |  32 |  21k|  34k|  35k| 771 |  0 | 697 |  73 |-1.078000e+01 |-1.077000e+01 |   0.09%|  70.35%
-  157s|   700 |    16 |388750 | 175.6 |   822M |  32 |  21k|  34k|  35k| 804 |  1 | 715 |  73 |-1.078000e+01 |-1.077000e+01 |   0.09%|  73.77%
+i 263s|   320 |   216 |601932 | 156.4 |  oneopt|  23 |  24k|  40k|  40k|1252 |  2 | 958 |  39 |-1.078000e+01 |-1.077000e+01 |   0.09%|  21.60%
+  266s|   400 |    29 |606822 | 154.3 |   856M |  40 |  24k|  21k|  40k|1293 |  0 | 960 |  39 |-1.078000e+01 |-1.077000e+01 |   0.09%|  96.57%
+  268s|   500 |    37 |609981 | 151.0 |   857M |  40 |  24k|  21k|  40k|1311 |  0 | 963 |  39 |-1.078000e+01 |-1.077000e+01 |   0.09%|  96.61%
+  271s|   600 |    41 |611990 | 147.6 |   857M |  40 |  24k|  21k|  40k|1350 |  1 | 963 |  39 |-1.078000e+01 |-1.077000e+01 |   0.09%|  96.61%
+  273s|   700 |    35 |614103 | 144.3 |   857M |  40 |  24k|  21k|  40k|1355 |  1 | 963 |  39 |-1.078000e+01 |-1.077000e+01 |   0.09%|  96.61%
+  275s|   800 |    29 |616547 | 141.3 |   857M |  40 |  24k|  21k|  40k|1355 |  0 | 963 |  39 |-1.078000e+01 |-1.077000e+01 |   0.09%|  96.62%
+  277s|   900 |    25 |619393 | 138.6 |   857M |  40 |  24k|  21k|  40k|1365 |  1 | 963 |  39 |-1.078000e+01 |-1.077000e+01 |   0.09%|  96.62%
+  279s|  1000 |    21 |622569 | 136.1 |   857M |  40 |  24k|  21k|  40k|1381 |  1 | 963 |  39 |-1.078000e+01 |-1.077000e+01 |   0.09%|  96.62%
+  281s|  1100 |    13 |624029 | 133.2 |   857M |  40 |  24k|  21k|  40k|1410 |  1 | 963 |  39 |-1.078000e+01 |-1.077000e+01 |   0.09%|  96.62%
+  283s|  1200 |    15 |626661 | 130.8 |   857M |  40 |  24k|  21k|  40k|1489 |  0 | 964 |  39 |-1.078000e+01 |-1.077000e+01 |   0.09%|  96.63%
+  285s|  1300 |    15 |629396 | 128.5 |   857M |  40 |  24k|  21k|  40k|1494 |  0 | 964 |  39 |-1.078000e+01 |-1.077000e+01 |   0.09%|  96.63%
+  288s|  1400 |    31 |634973 | 126.9 |   857M |  40 |  24k|  21k|  40k|1528 |  0 | 964 |  39 |-1.078000e+01 |-1.077000e+01 |   0.09%|  96.63%
+  290s|  1500 |    21 |639222 | 125.2 |   857M |  40 |  24k|  21k|  40k|1531 |  0 | 964 |  39 |-1.078000e+01 |-1.077000e+01 |   0.09%|  96.63%
+  292s|  1600 |    11 |644424 | 123.6 |   857M |  40 |  24k|  21k|  40k|1558 |  0 | 964 |  39 |-1.078000e+01 |-1.077000e+01 |   0.09%|  96.64%
+  294s|  1700 |    23 |647153 | 121.7 |   857M |  40 |  24k|  21k|  40k|1592 |  1 | 964 |  39 |-1.078000e+01 |-1.077000e+01 |   0.09%|  96.72%
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  296s|  1800 |    49 |648267 | 119.5 |   857M |  40 |  24k|  21k|  40k|1606 |  0 | 964 |  39 |-1.078000e+01 |-1.077000e+01 |   0.09%|  96.87%
 
-SCIP Status        : problem is solved [optimal solution found]
-Solving Time (sec) : 157.90
-Solving Nodes      : 772 (total of 1866 nodes in 2 runs)
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 297.42
+Solving Nodes      : 1859 (total of 5069 nodes in 2 runs)
 Primal Bound       : -1.07700000000000e+01 (3 solutions)
-Dual Bound         : -1.07700000000000e+01
-Gap                : 0.00 %
--------------------------------------------------------------------------------
-                                    Summary                                    
--------------------------------------------------------------------------------
-(CVXPY) Mar 19 11:55:06 AM: Problem status: optimal
-(CVXPY) Mar 19 11:55:06 AM: Optimal value: 2.300e-01
-(CVXPY) Mar 19 11:55:06 AM: Compilation took 9.045e-02 seconds
-(CVXPY) Mar 19 11:55:06 AM: Solver (including time spent in interface) took 1.594e+02 seconds
-(CORNETO) Mar 19 11:55:06 AM - INFO    : Finished in 160.24 s.
+Dual Bound         : -1.07800000000000e+01
+Gap                : 0.09 %
 </pre></div>
 </div>
 </div>
@@ -1674,7 +1681,7 @@ Gap                : 0.00 %
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4cbd407d839f205d5cd5e073e265865e018263415fb76c58a7d6cfc833fe2736.svg" src="../../_images/4cbd407d839f205d5cd5e073e265865e018263415fb76c58a7d6cfc833fe2736.svg" />
+<img alt="../../_images/e79e7f88407e9757186910adb02ebec3551202926289f5101c3ec16a32cada64.svg" src="../../_images/e79e7f88407e9757186910adb02ebec3551202926289f5101c3ec16a32cada64.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1713,96 +1720,84 @@ Gap                : 0.00 %
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===============================================================================
                                      CVXPY                                     
-                                     v1.6.3                                    
+                                     v1.5.3                                    
 ===============================================================================
-(CVXPY) Mar 19 11:55:07 AM: Your problem has 33728 variables, 89468 constraints, and 0 parameters.
-(CVXPY) Mar 19 11:55:07 AM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Mar 19 11:55:07 AM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
-(CVXPY) Mar 19 11:55:07 AM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Mar 19 11:55:07 AM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Aug 26 09:51:09 PM: Your problem has 33728 variables, 89468 constraints, and 0 parameters.
+(CVXPY) Aug 26 09:51:09 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Aug 26 09:51:09 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) Aug 26 09:51:09 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Aug 26 09:51:09 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Mar 19 11:55:07 AM: Compiling problem (target solver=SCIP).
-(CVXPY) Mar 19 11:55:07 AM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
-(CVXPY) Mar 19 11:55:07 AM: Applying reduction Dcp2Cone
-(CVXPY) Mar 19 11:55:08 AM: Applying reduction CvxAttr2Constr
-(CVXPY) Mar 19 11:55:08 AM: Applying reduction ConeMatrixStuffing
-(CVXPY) Mar 19 11:55:24 AM: Applying reduction SCIP
-(CVXPY) Mar 19 11:55:24 AM: Finished problem compilation (took 1.649e+01 seconds).
+(CVXPY) Aug 26 09:51:09 PM: Compiling problem (target solver=GUROBI).
+(CVXPY) Aug 26 09:51:09 PM: Reduction chain: CvxAttr2Constr -&gt; Qp2SymbolicQp -&gt; QpMatrixStuffing -&gt; GUROBI
+(CVXPY) Aug 26 09:51:09 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Aug 26 09:51:09 PM: Applying reduction Qp2SymbolicQp
+(CVXPY) Aug 26 09:51:10 PM: Applying reduction QpMatrixStuffing
+(CVXPY) Aug 26 09:51:31 PM: Applying reduction GUROBI
+(CVXPY) Aug 26 09:51:31 PM: Finished problem compilation (took 2.138e+01 seconds).
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Mar 19 11:55:24 AM: Invoking solver SCIP  to obtain a solution.
-presolving:
-(round 1, fast)       979 del vars, 31305 del conss, 0 add conss, 18310 chg bounds, 0 chg sides, 0 chg coeffs, 0 upgd conss, 0 impls, 13834 clqs
-(round 2, fast)       3360 del vars, 31361 del conss, 0 add conss, 18310 chg bounds, 4 chg sides, 4 chg coeffs, 0 upgd conss, 0 impls, 13830 clqs
-(round 3, exhaustive) 3361 del vars, 32101 del conss, 0 add conss, 18320 chg bounds, 10 chg sides, 4 chg coeffs, 0 upgd conss, 0 impls, 13830 clqs
-(round 4, exhaustive) 3361 del vars, 32101 del conss, 0 add conss, 18320 chg bounds, 10 chg sides, 4 chg coeffs, 33590 upgd conss, 0 impls, 13830 clqs
-   (2.4s) probing: 1000/22408 (4.5%) - 0 fixings, 0 aggregations, 8863 implications, 0 bound changes
-   (2.4s) probing: 1001/22408 (4.5%) - 0 fixings, 0 aggregations, 8868 implications, 0 bound changes
-   (2.4s) probing aborted: 1000/1000 successive useless probings
-   (2.6s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
-   (3.0s) symmetry computation finished: 50 generators found (max: 1500, log10 of symmetry group size: 10.0) (symcode time: 0.23)
-dynamic symmetry handling statistics:
-   orbitopal reduction:       no components
-   orbital reduction:         no components
-   lexicographic reduction:   no permutations
-handled 1 out of 1 symmetry components
-(round 5, exhaustive) 3361 del vars, 32101 del conss, 56 add conss, 18320 chg bounds, 10 chg sides, 4 chg coeffs, 33590 upgd conss, 4002 impls, 18704 clqs
-presolving (6 rounds: 6 fast, 4 medium, 4 exhaustive):
- 3361 deleted vars, 32101 deleted constraints, 56 added constraints, 18320 tightened bounds, 0 added holes, 10 changed sides, 8 changed coefficients
- 4002 implications, 18704 cliques
-presolved problem has 30367 variables (22408 bin, 0 int, 10 impl, 7949 cont) and 57423 constraints
-      8 constraints of type &lt;varbound&gt;
-  13830 constraints of type &lt;setppc&gt;
-  23833 constraints of type &lt;linear&gt;
-  19752 constraints of type &lt;logicor&gt;
-transformed objective value is always integral (scale: 0.01)
-Presolving Time: 3.22
- time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
-p 5.0s|     1 |     0 |   531 |     - |shiftand|   0 |  30k|  57k|  57k|   0 |  0 |  12 |   0 | 1.000000e-01 | 2.002000e+01 |  Large | unknown
-  5.8s|     1 |     0 |  2589 |     - |   643M |   0 |  30k|  57k|  57k|   0 |  0 |  12 |   0 | 4.040000e-01 | 2.002000e+01 |4855.45%| unknown
-  7.5s|     1 |     0 |  3204 |     - |   660M |   0 |  30k|  57k|  57k|   9 |  1 |  12 |   0 | 4.100000e-01 | 2.002000e+01 |4782.93%| unknown
-  8.0s|     1 |     0 |  3508 |     - |   670M |   0 |  30k|  57k|  57k|  31 |  2 |  12 |   0 | 4.100000e-01 | 2.002000e+01 |4782.93%| unknown
-  8.7s|     1 |     0 |  3693 |     - |   675M |   0 |  30k|  57k|  57k|  38 |  3 |  12 |   0 | 4.100000e-01 | 2.002000e+01 |4782.93%| unknown
-  9.4s|     1 |     0 |  4089 |     - |   683M |   0 |  30k|  57k|  57k|  50 |  4 |  12 |   0 | 4.166667e-01 | 2.002000e+01 |4704.80%| unknown
- 10.6s|     1 |     0 |  4513 |     - |   690M |   0 |  30k|  57k|  57k|  52 |  5 |  12 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
- 11.7s|     1 |     0 |  5044 |     - |   695M |   0 |  30k|  57k|  57k|  66 |  6 |  12 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
- 13.6s|     1 |     0 |  5878 |     - |   701M |   0 |  30k|  57k|  57k|  72 |  7 |  12 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
- 17.1s|     1 |     0 | 13925 |     - |   707M |   0 |  30k|  57k|  57k|  82 |  8 |  12 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
- 18.8s|     1 |     0 | 18246 |     - |   714M |   0 |  30k|  57k|  57k| 106 |  9 |  12 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
- 20.1s|     1 |     0 | 22576 |     - |   721M |   0 |  30k|  57k|  57k| 112 | 10 |  12 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
- 21.1s|     1 |     0 | 26667 |     - |   726M |   0 |  30k|  57k|  57k| 123 | 11 |  12 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
- 22.0s|     1 |     0 | 30550 |     - |   732M |   0 |  30k|  57k|  57k| 129 | 12 |  12 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
- 22.7s|     1 |     0 | 33473 |     - |   737M |   0 |  30k|  57k|  57k| 135 | 13 |  12 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
- time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
- 23.6s|     1 |     0 | 37389 |     - |   743M |   0 |  30k|  57k|  57k| 139 | 14 |  12 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
- 24.2s|     1 |     0 | 39989 |     - |   748M |   0 |  30k|  57k|  57k| 148 | 15 |  12 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
- 24.9s|     1 |     0 | 43068 |     - |   754M |   0 |  30k|  57k|  57k| 163 | 16 |  12 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
- 25.7s|     1 |     0 | 46320 |     - |   759M |   0 |  30k|  57k|  57k| 173 | 17 |  12 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
- 26.3s|     1 |     0 | 49186 |     - |   765M |   0 |  30k|  57k|  57k| 177 | 18 |  12 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
- 49.3s|     1 |     2 |108570 |     - |   770M |   0 |  30k|  57k|  57k| 177 | 18 |  12 |  24 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
-L 105s|    80 |    75 |167746 |1507.5 |    alns|  20 |  30k|  57k|  57k| 229 |  2 |  33 | 307 | 4.200000e-01 | 1.612000e+01 |3738.10%| unknown
-* 106s|    91 |    14 |169521 |1343.0 |    LP  |  23 |  30k|  57k|  57k| 229 |  1 |  39 | 311 | 4.200000e-01 | 4.400000e-01 |   4.76%|  27.52%
-i 106s|    91 |     4 |169521 |1343.0 |  oneopt|  23 |  30k|  57k|  57k| 229 |  1 |  39 | 311 | 4.200000e-01 | 4.300000e-01 |   2.38%|  39.53%
-  109s|   100 |     5 |175527 |1281.5 |   811M |  23 |  30k|  51k|  57k| 229 |  1 |  39 | 322 | 4.200000e-01 | 4.300000e-01 |   2.38%|  43.83%
-  120s|   200 |    13 |206822 | 794.8 |   819M |  29 |  30k|  51k|  57k| 264 |  0 |  57 | 344 | 4.200000e-01 | 4.300000e-01 |   2.38%|  44.06%
-* 131s|   262 |     0 |234848 | 713.4 |    LP  |  33 |  30k|  51k|  57k| 270 |  1 |  61 | 372 | 4.200000e-01 | 4.200000e-01 |   0.00%| 100.00%
+(CVXPY) Aug 26 09:51:31 PM: Invoking solver GUROBI  to obtain a solution.
+Set parameter QCPDual to value 1
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22631.2))
 
-SCIP Status        : problem is solved [optimal solution found]
-Solving Time (sec) : 131.11
-Solving Nodes      : 262
-Primal Bound       : +4.20000000000000e-01 (5 solutions)
-Dual Bound         : +4.20000000000000e-01
-Gap                : 0.00 %
+CPU model: 11th Gen Intel(R) Core(TM) i7-1185G7 @ 3.00GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+
+Optimize a model with 89468 rows, 33728 columns and 426597 nonzeros
+Model fingerprint: 0x526c36bd
+Variable types: 10528 continuous, 23200 integer (23200 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+03]
+  Objective range  [1e-02, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+03]
+Presolve removed 32415 rows and 3552 columns
+Presolve time: 1.34s
+Presolved: 57053 rows, 30176 columns, 326601 nonzeros
+Variable types: 7745 continuous, 22431 integer (22404 binary)
+Found heuristic solution: objective 21.2500000
+
+Deterministic concurrent LP optimizer: primal and dual simplex (primal and dual model)
+Showing primal log only...
+
+Root relaxation presolved: 57013 rows, 30148 columns, 326394 nonzeros
+
+Concurrent spin time: 0.03s
+
+Solved with dual simplex
+
+Root relaxation: objective 4.040000e-01, 995 iterations, 0.77 seconds (0.27 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.40400    0   38   21.25000    0.40400  98.1%     -    3s
+H    0     0                       0.4300000    0.40400  6.05%     -    3s
+H    0     0                       0.4200000    0.40400  3.81%     -    4s
+     0     0     cutoff    0         0.42000    0.42000  0.00%     -    4s
+
+Cutting planes:
+  Gomory: 2
+  MIR: 3
+
+Explored 1 nodes (2458 simplex iterations) in 4.49 seconds (2.22 work units)
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 0.42 0.43 21.25 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.200000000000e-01, best bound 4.200000000000e-01, gap 0.0000%
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Mar 19 11:57:38 AM: Problem status: optimal
-(CVXPY) Mar 19 11:57:38 AM: Optimal value: 4.200e-01
-(CVXPY) Mar 19 11:57:38 AM: Compilation took 1.649e+01 seconds
-(CVXPY) Mar 19 11:57:38 AM: Solver (including time spent in interface) took 1.345e+02 seconds
+(CVXPY) Aug 26 09:51:37 PM: Problem status: optimal
+(CVXPY) Aug 26 09:51:37 PM: Optimal value: 4.200e-01
+(CVXPY) Aug 26 09:51:37 PM: Compilation took 2.138e+01 seconds
+(CVXPY) Aug 26 09:51:37 PM: Solver (including time spent in interface) took 5.305e+00 seconds
 </pre></div>
 </div>
 </div>
@@ -1814,7 +1809,7 @@ Gap                : 0.00 %
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a96d409ed4530b3c099bb2ebdd820398cb03a99c5f4c31de7817a6c57adc168b.svg" src="../../_images/a96d409ed4530b3c099bb2ebdd820398cb03a99c5f4c31de7817a6c57adc168b.svg" />
+<img alt="../../_images/594e978d780aaeaa154e3b216b9380496de17e05c7880b497c2e688e3749e647.svg" src="../../_images/594e978d780aaeaa154e3b216b9380496de17e05c7880b497c2e688e3749e647.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1841,68 +1836,101 @@ Gap                : 0.00 %
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===============================================================================
                                      CVXPY                                     
-                                     v1.6.3                                    
+                                     v1.5.3                                    
 ===============================================================================
-(CVXPY) Mar 19 11:57:40 AM: Your problem has 44146 variables, 98726 constraints, and 0 parameters.
-(CVXPY) Mar 19 11:57:40 AM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Mar 19 11:57:40 AM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
-(CVXPY) Mar 19 11:57:40 AM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Mar 19 11:57:40 AM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Aug 26 09:51:40 PM: Your problem has 44146 variables, 98726 constraints, and 0 parameters.
+(CVXPY) Aug 26 09:51:40 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Aug 26 09:51:40 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) Aug 26 09:51:40 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Aug 26 09:51:40 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Mar 19 11:57:40 AM: Compiling problem (target solver=SCIP).
-(CVXPY) Mar 19 11:57:40 AM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
-(CVXPY) Mar 19 11:57:40 AM: Applying reduction Dcp2Cone
-(CVXPY) Mar 19 11:57:40 AM: Applying reduction CvxAttr2Constr
-(CVXPY) Mar 19 11:57:40 AM: Applying reduction ConeMatrixStuffing
-(CVXPY) Mar 19 11:57:56 AM: Applying reduction SCIP
-(CVXPY) Mar 19 11:57:56 AM: Finished problem compilation (took 1.638e+01 seconds).
+(CVXPY) Aug 26 09:51:40 PM: Compiling problem (target solver=GUROBI).
+(CVXPY) Aug 26 09:51:40 PM: Reduction chain: CvxAttr2Constr -&gt; Qp2SymbolicQp -&gt; QpMatrixStuffing -&gt; GUROBI
+(CVXPY) Aug 26 09:51:40 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Aug 26 09:51:40 PM: Applying reduction Qp2SymbolicQp
+(CVXPY) Aug 26 09:51:41 PM: Applying reduction QpMatrixStuffing
+(CVXPY) Aug 26 09:52:01 PM: Applying reduction GUROBI
+(CVXPY) Aug 26 09:52:01 PM: Finished problem compilation (took 2.129e+01 seconds).
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Mar 19 11:57:56 AM: Invoking solver SCIP  to obtain a solution.
-presolving:
-(round 1, fast)       6779 del vars, 34752 del conss, 0 add conss, 21746 chg bounds, 0 chg sides, 0 chg coeffs, 0 upgd conss, 0 impls, 25414 clqs
-(round 2, fast)       9142 del vars, 34788 del conss, 0 add conss, 21746 chg bounds, 29 chg sides, 29 chg coeffs, 0 upgd conss, 0 impls, 25410 clqs
-(round 3, exhaustive) 9142 del vars, 35174 del conss, 0 add conss, 21762 chg bounds, 29 chg sides, 41 chg coeffs, 0 upgd conss, 0 impls, 25410 clqs
-(round 4, exhaustive) 9154 del vars, 35198 del conss, 0 add conss, 21762 chg bounds, 29 chg sides, 41 chg coeffs, 56745 upgd conss, 6 impls, 25398 clqs
-(round 5, exhaustive) 9183 del vars, 35202 del conss, 0 add conss, 21762 chg bounds, 29 chg sides, 41 chg coeffs, 56755 upgd conss, 12667 impls, 30625 clqs
-(round 6, medium)     9343 del vars, 35300 del conss, 0 add conss, 21762 chg bounds, 29 chg sides, 41 chg coeffs, 56755 upgd conss, 12679 impls, 29981 clqs
-(round 7, fast)       9343 del vars, 35614 del conss, 0 add conss, 21762 chg bounds, 29 chg sides, 41 chg coeffs, 56755 upgd conss, 12679 impls, 29981 clqs
-(round 8, medium)     9343 del vars, 35934 del conss, 0 add conss, 21762 chg bounds, 29 chg sides, 41 chg coeffs, 56755 upgd conss, 12679 impls, 29981 clqs
-   (3.7s) probing: 1000/28198 (3.5%) - 0 fixings, 25 aggregations, 6938 implications, 0 bound changes
-   (5.6s) probing: 1800/28198 (6.4%) - 0 fixings, 25 aggregations, 10117 implications, 0 bound changes
-   (5.6s) probing aborted: 1000/1000 successive useless probings
-   (5.8s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
-   (6.1s) symmetry computation finished: 50 generators found (max: 1500, log10 of symmetry group size: 10.0) (symcode time: 0.17)
-dynamic symmetry handling statistics:
-   orbitopal reduction:       no components
-   orbital reduction:         no components
-   lexicographic reduction:   no permutations
-handled 1 out of 1 symmetry components
-(round 9, exhaustive) 9343 del vars, 35934 del conss, 52 add conss, 21762 chg bounds, 29 chg sides, 45 chg coeffs, 56755 upgd conss, 14475 impls, 32253 clqs
-presolving (10 rounds: 10 fast, 7 medium, 5 exhaustive):
- 9343 deleted vars, 35934 deleted constraints, 52 added constraints, 21762 tightened bounds, 0 added holes, 29 changed sides, 45 changed coefficients
- 14475 implications, 32253 cliques
-presolved problem has 34803 variables (28013 bin, 0 int, 10 impl, 6780 cont) and 62844 constraints
-  11235 constraints of type &lt;varbound&gt;
-  25032 constraints of type &lt;setppc&gt;
-   6825 constraints of type &lt;linear&gt;
-  19752 constraints of type &lt;logicor&gt;
-transformed objective value is always integral (scale: 0.01)
-Presolving Time: 6.41
+(CVXPY) Aug 26 09:52:01 PM: Invoking solver GUROBI  to obtain a solution.
+Set parameter QCPDual to value 1
+Gurobi Optimizer version 11.0.1 build v11.0.1rc0 (win64 - Windows 11.0 (22631.2))
 
- time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
-p 7.8s|     1 |     0 |     9 |     - |shiftand|   0 |  34k|  62k|  62k|   0 |  0 |  41 |   0 | 1.000000e-01 | 2.002000e+01 |  Large | unknown
-  8.0s|     1 |     0 |   962 |     - |   721M |   0 |  34k|  62k|  62k|   0 |  0 |  41 |   0 | 4.040000e-01 | 2.002000e+01 |4855.45%| unknown
-  9.5s|     1 |     0 |  2370 |     - |   733M |   0 |  34k|  62k|  62k|  24 |  1 |  41 |   0 | 4.120000e-01 | 2.002000e+01 |4759.22%| unknown
- 17.3s|     1 |     0 | 14716 |     - |   744M |   0 |  34k|  62k|  62k|  70 |  2 |  41 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
- 22.9s|     1 |     0 | 23992 |     - |   761M |   0 |  34k|  62k|  63k| 300 |  3 |  41 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
- 39.3s|     1 |     0 | 38381 |     - |   769M |   0 |  34k|  62k|  63k| 513 |  4 |  41 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
- 58.4s|     1 |     0 | 52622 |     - |   782M |   0 |  34k|  62k|  63k| 659 |  5 |  41 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
- 81.7s|     1 |     0 | 69057 |     - |   791M |   0 |  34k|  62k|  63k| 789 |  6 |  41 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
-  103s|     1 |     0 | 83757 |     - |   803M |   0 |  34k|  62k|  63k| 895 |  7 |  41 |   0 | 4.200000e-01 | 2.002000e+01 |4666.67%| unknown
+CPU model: 11th Gen Intel(R) Core(TM) i7-1185G7 @ 3.00GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+
+Optimize a model with 98726 rows, 44146 columns and 441710 nonzeros
+Model fingerprint: 0x724789c8
+Variable types: 9346 continuous, 34800 integer (34800 binary)
+Coefficient statistics:
+  Matrix range     [1e-04, 1e+03]
+  Objective range  [1e-02, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+03]
+Presolve removed 46687 rows and 9337 columns
+Presolve time: 1.22s
+Presolved: 52039 rows, 34809 columns, 310941 nonzeros
+Variable types: 6591 continuous, 28218 integer (28198 binary)
+Deterministic concurrent LP optimizer: primal and dual simplex
+Showing primal log only...
+
+Concurrent spin time: 0.00s
+
+Solved with dual simplex
+Extra simplex iterations after uncrush: 4
+
+Root relaxation: objective 4.040000e-01, 5095 iterations, 2.32 seconds (1.06 work units)
+Total elapsed time = 5.64s (DegenMoves)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.40400    0   78          -    0.40400      -     -    6s
+H    0     0                      94.0400000    0.40400   100%     -    8s
+     0     0    0.42000    0   98   94.04000    0.42000   100%     -    9s
+H    0     0                      20.0200000    0.42000  97.9%     -   10s
+H    0     0                       0.4400000    0.42000  4.55%     -   12s
+     0     0    0.42000    0   95    0.44000    0.42000  4.55%     -   12s
+     0     0    0.42000    0   56    0.44000    0.42000  4.55%     -   12s
+     0     0    0.42000    0   53    0.44000    0.42000  4.55%     -   16s
+     0     0    0.42000    0   33    0.44000    0.42000  4.55%     -   16s
+     0     0    0.42000    0   36    0.44000    0.42000  4.55%     -   16s
+     0     0    0.42000    0   35    0.44000    0.42000  4.55%     -   17s
+     0     0    0.42000    0   34    0.44000    0.42000  4.55%     -   17s
+     0     0    0.42000    0   22    0.44000    0.42000  4.55%     -   19s
+     0     0    0.42000    0    4    0.44000    0.42000  4.55%     -   20s
+H    0     0                       0.4200000    0.42000  0.00%     -   20s
+     0     0    0.42000    0    4    0.42000    0.42000  0.00%     -   20s
+
+Cutting planes:
+  Learned: 1
+  Gomory: 4
+  Cover: 2
+  Implied bound: 7
+  MIR: 4
+  Flow cover: 10
+  Zero half: 2
+  RLT: 5
+  PSD: 2
+
+Explored 1 nodes (51188 simplex iterations) in 21.04 seconds (10.44 work units)
+Thread count was 8 (of 8 available processors)
+
+Solution count 4: 0.42 0.44 20.02 94.04 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.200000000000e-01, best bound 4.200000000000e-01, gap 0.0000%
+-------------------------------------------------------------------------------
+                                    Summary                                    
+-------------------------------------------------------------------------------
+(CVXPY) Aug 26 09:52:24 PM: Problem status: optimal
+(CVXPY) Aug 26 09:52:24 PM: Optimal value: 4.200e-01
+(CVXPY) Aug 26 09:52:24 PM: Compilation took 2.129e+01 seconds
+(CVXPY) Aug 26 09:52:24 PM: Solver (including time spent in interface) took 2.194e+01 seconds
 </pre></div>
 </div>
 </div>
