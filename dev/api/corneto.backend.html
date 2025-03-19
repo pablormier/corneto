@@ -460,6 +460,46 @@ flow it implies order(A) &gt; order(B).</p></li>
 <li><p><strong>max_parents</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>, </em><em>Dict</em><em>[</em><em>Any</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>]</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – The maximum number of parents per node. If an integer is provided, the maximum
 number of parents is the same for all nodes. If a dictionary is provided, the
 maximum number of parents can be different for each node. Default is None.</p></li>
+<li><p><strong>vertex_lb_dist</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>Dict</em><em>[</em><em>Any</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>]</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – A list (one entry per experiment) of dictionaries that assign a lower bound
+(minimum layer/distance) for each vertex.</p></li>
+<li><p><strong>vertex_ub_dist</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>Dict</em><em>[</em><em>Any</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>]</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – A list (one entry per experiment) of dictionaries that assign an upper bound
+(maximum layer/distance) for each vertex.</p></li>
+<li><p><strong>Returns</strong></p></li>
+<li><p><strong>-------</strong></p></li>
+<li><p><strong>ProblemDef</strong> – The problem definition with acyclic constraints.</p></li>
+<li><p><strong>Raises</strong></p></li>
+<li><p><strong>------</strong></p></li>
+<li><p><strong>NotImplementedError</strong> – If hyperedges are used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>ProblemDef</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corneto.backend.Backend.Acyclic0">
+<span class="sig-name descname"><span class="pre">Acyclic0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indicator_positive_var_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indicator_negative_var_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acyclic_var_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_dag_layer'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_parents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex_lb_dist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex_ub_dist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#corneto.backend.Backend.Acyclic0" title="Link to this definition">#</a></dt>
+<dd><p>Create Acyclicity Constraint.</p>
+<p>This function creates acyclicity constraints, ensuring that the selected edges
+form an acyclic graph, meaning there are no cycles on the given property.
+Acyclicity can be applied, for example, over flow constraints or signal properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>g</strong> (<em>BaseGraph</em>) – The graph that defines the problem.</p></li>
+<li><p><strong>P</strong> (<em>ProblemDef</em>) – The problem definition.</p></li>
+<li><p><strong>indicator_positive_var_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – The name of the indicator variable, i.e., which edges are selected.
+Default is EXPR_NAME_FLOW_IPOS.</p></li>
+<li><p><strong>indicator_negative_var_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><em>optional</em>) – The name of the indicator variable for negative flows. Default is None.
+If a negative flow appears, the source and target nodes of the edge are reversed.
+For example, A-&gt;B with positive flow implies order(B) &gt; order(A), with negative
+flow it implies order(A) &gt; order(B).</p></li>
+<li><p><strong>acyclic_var_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><em>optional</em>) – The name of the acyclic variable. Default is VAR_DAG.</p></li>
+<li><p><strong>max_parents</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>, </em><em>Dict</em><em>[</em><em>Any</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>]</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – The maximum number of parents per node. If an integer is provided, the maximum
+number of parents is the same for all nodes. If a dictionary is provided, the
+maximum number of parents can be different for each node. Default is None.</p></li>
 <li><p><strong>Returns</strong></p></li>
 <li><p><strong>-------</strong></p></li>
 <li><p><strong>ProblemDef</strong> – The problem definition with acyclic constraints.</p></li>
@@ -1096,6 +1136,7 @@ Defaults to VarType.CONTINUOUS.</p></li>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.backend.Backend"><code class="docutils literal notranslate"><span class="pre">Backend</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.backend.Backend.Acyclic"><code class="docutils literal notranslate"><span class="pre">Backend.Acyclic</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.backend.Backend.Acyclic0"><code class="docutils literal notranslate"><span class="pre">Backend.Acyclic0</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.backend.Backend.AcyclicFlow"><code class="docutils literal notranslate"><span class="pre">Backend.AcyclicFlow</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.backend.Backend.Constant"><code class="docutils literal notranslate"><span class="pre">Backend.Constant</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.backend.Backend.Flow"><code class="docutils literal notranslate"><span class="pre">Backend.Flow</span></code></a></li>

@@ -567,25 +567,25 @@
                                      CVXPY                                     
                                      v1.6.3                                    
 ===============================================================================
-(CVXPY) Mar 16 01:59:31 PM: Your problem has 20 variables, 70 constraints, and 0 parameters.
-(CVXPY) Mar 16 01:59:31 PM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Mar 16 01:59:31 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
-(CVXPY) Mar 16 01:59:31 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Mar 16 01:59:31 PM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Mar 19 11:48:26 AM: Your problem has 20 variables, 70 constraints, and 0 parameters.
+(CVXPY) Mar 19 11:48:26 AM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Mar 19 11:48:26 AM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) Mar 19 11:48:26 AM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Mar 19 11:48:26 AM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Mar 16 01:59:31 PM: Compiling problem (target solver=SCIP).
-(CVXPY) Mar 16 01:59:31 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
-(CVXPY) Mar 16 01:59:31 PM: Applying reduction Dcp2Cone
-(CVXPY) Mar 16 01:59:31 PM: Applying reduction CvxAttr2Constr
-(CVXPY) Mar 16 01:59:31 PM: Applying reduction ConeMatrixStuffing
-(CVXPY) Mar 16 01:59:31 PM: Applying reduction SCIP
-(CVXPY) Mar 16 01:59:31 PM: Finished problem compilation (took 1.434e-02 seconds).
+(CVXPY) Mar 19 11:48:26 AM: Compiling problem (target solver=SCIP).
+(CVXPY) Mar 19 11:48:26 AM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
+(CVXPY) Mar 19 11:48:26 AM: Applying reduction Dcp2Cone
+(CVXPY) Mar 19 11:48:26 AM: Applying reduction CvxAttr2Constr
+(CVXPY) Mar 19 11:48:26 AM: Applying reduction ConeMatrixStuffing
+(CVXPY) Mar 19 11:48:26 AM: Applying reduction SCIP
+(CVXPY) Mar 19 11:48:26 AM: Finished problem compilation (took 1.390e-02 seconds).
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Mar 16 01:59:31 PM: Invoking solver SCIP  to obtain a solution.
+(CVXPY) Mar 19 11:48:26 AM: Invoking solver SCIP  to obtain a solution.
 presolving:
    (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
    (0.0s) no symmetry present (symcode time: 0.00)
@@ -609,10 +609,10 @@ Gap                : 0.00 %
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Mar 16 01:59:31 PM: Problem status: optimal
-(CVXPY) Mar 16 01:59:31 PM: Optimal value: -1.900e+02
-(CVXPY) Mar 16 01:59:31 PM: Compilation took 1.434e-02 seconds
-(CVXPY) Mar 16 01:59:31 PM: Solver (including time spent in interface) took 5.388e-03 seconds
+(CVXPY) Mar 19 11:48:26 AM: Problem status: optimal
+(CVXPY) Mar 19 11:48:26 AM: Optimal value: -1.900e+02
+(CVXPY) Mar 19 11:48:26 AM: Compilation took 1.390e-02 seconds
+(CVXPY) Mar 19 11:48:26 AM: Solver (including time spent in interface) took 5.488e-03 seconds
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Problem(Minimize(Expression(AFFINE, UNKNOWN, ())), [Inequality(Constant(CONSTANT, ZERO, (10, 2))), Inequality(Variable((10, 2), _flow)), Equality(Expression(AFFINE, UNKNOWN, (5, 2)), Constant(CONSTANT, ZERO, ())), Inequality(Expression(AFFINE, UNKNOWN, (10,))), Inequality(Constant(CONSTANT, ZERO, (10,)))])
