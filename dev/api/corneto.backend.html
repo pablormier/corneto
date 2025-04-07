@@ -359,6 +359,14 @@
 <li class="toctree-l2"><a class="reference internal" href="generated/corneto.io.load_graph_from_sif_tuples.html">corneto.io.load_graph_from_sif_tuples</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="corneto.graph.html">Graph module (<code class="xref py py-mod docutils literal notranslate"><span class="pre">corneto.graph</span></code>)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/corneto.graph.BaseGraph.html">corneto.graph.BaseGraph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/corneto.graph.Graph.html">corneto.graph.Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/corneto.graph.EdgeType.html">corneto.graph.EdgeType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/corneto.graph.duplication_divergence_network.html">corneto.graph.duplication_divergence_network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/corneto.graph.preferential_attachment_network.html">corneto.graph.preferential_attachment_network</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="corneto.methods.html">Network inference (<code class="xref py py-mod docutils literal notranslate"><span class="pre">corneto.methods.future</span></code>)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="generated/corneto.methods.future.CarnivalFlow.html">corneto.methods.future.CarnivalFlow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/corneto.methods.future.CarnivalILP.html">corneto.methods.future.CarnivalILP</a></li>
@@ -449,7 +457,7 @@ Acyclicity can be applied, for example, over flow constraints or signal properti
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>g</strong> (<em>BaseGraph</em>) – The graph that defines the problem.</p></li>
+<li><p><strong>g</strong> (<a class="reference internal" href="generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph" title="corneto.graph.BaseGraph"><em>BaseGraph</em></a>) – The graph that defines the problem.</p></li>
 <li><p><strong>P</strong> (<em>ProblemDef</em>) – The problem definition.</p></li>
 <li><p><strong>indicator_positive_var_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – The name of the indicator variable, i.e., which edges are selected.
 Default is EXPR_NAME_FLOW_IPOS.</p></li>
@@ -489,7 +497,7 @@ Acyclicity can be applied, for example, over flow constraints or signal properti
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>g</strong> (<em>BaseGraph</em>) – The graph that defines the problem.</p></li>
+<li><p><strong>g</strong> (<a class="reference internal" href="generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph" title="corneto.graph.BaseGraph"><em>BaseGraph</em></a>) – The graph that defines the problem.</p></li>
 <li><p><strong>P</strong> (<em>ProblemDef</em>) – The problem definition.</p></li>
 <li><p><strong>indicator_positive_var_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – The name of the indicator variable, i.e., which edges are selected.
 Default is EXPR_NAME_FLOW_IPOS.</p></li>
@@ -619,12 +627,12 @@ maximum number of parents can be different for each node. Default is None.</p></
 
 <dl class="py method">
 <dt class="sig sig-object py" id="corneto.backend.Backend.NonZeroIndicator">
-<span class="sig-name descname"><span class="pre">NonZeroIndicator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix_pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_ipos'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix_neg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_ineg'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#corneto.backend.Backend.NonZeroIndicator" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">NonZeroIndicator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix_pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_ipos'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix_neg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_ineg'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#corneto.backend.Backend.NonZeroIndicator" title="Link to this definition">#</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>V</strong> (<em>CSymbol</em>)</p></li>
-<li><p><strong>indexes</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.13)"><em>Tuple</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><em>List</em></a><em> | </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><em>ndarray</em></a><em> | </em><em>None</em>)</p></li>
+<li><p><strong>indexes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#slice" title="(in Python v3.13)"><em>slice</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.13)"><em>Tuple</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><em>List</em></a><em> | </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><em>ndarray</em></a><em> | </em><em>None</em>)</p></li>
 <li><p><strong>suffix_pos</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>)</p></li>
 <li><p><strong>suffix_neg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>)</p></li>
 <li><p><strong>tolerance</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>)</p></li>

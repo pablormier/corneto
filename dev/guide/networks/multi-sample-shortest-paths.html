@@ -57,7 +57,7 @@
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Steiner Trees (STs)" href="steiner-trees.html" />
+    <link rel="next" title="Multi-commodity Network Flows" href="multi-commodity-network-flows.html" />
     <link rel="prev" title="Shortest paths" href="shortest-paths.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -338,16 +338,18 @@
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../intro/index.html">Getting started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../intro/prior-knowledge.html">Prior Knowledge and Graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/data.html">Working with data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/constrained-optimization.html">Constrained Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../intro/multi-commodity-network-flows.html">Multi-commodity Network Flows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../intro/acyclic-flows.html">Acyclic Flows</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Network methods</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="shortest-paths.html">Shortest paths</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Multi-sample shortest paths</a></li>
-<li class="toctree-l2"><a class="reference internal" href="steiner-trees.html">Steiner Trees (STs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pcst.html">Prize-Collecting Steiner Trees (PCSTs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-commodity-network-flows.html">Multi-commodity Network Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acyclic-flows.html">Acyclic Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="steiner-trees.html">Steiner trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pcst.html">Prize-Collecting Steiner Trees (PCST)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-pcst-grb.html">Multi-sample PCST</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../metabolism/index.html">Metabolism</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -615,33 +617,33 @@
                                      CVXPY                                     
                                      v1.6.4                                    
 ===============================================================================
-(CVXPY) Mar 19 06:03:09 PM: Your problem has 51 variables, 126 constraints, and 0 parameters.
-(CVXPY) Mar 19 06:03:09 PM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Mar 19 06:03:09 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
-(CVXPY) Mar 19 06:03:09 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Mar 19 06:03:09 PM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Apr 07 09:32:48 AM: Your problem has 51 variables, 126 constraints, and 0 parameters.
+(CVXPY) Apr 07 09:32:48 AM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Apr 07 09:32:48 AM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) Apr 07 09:32:48 AM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Apr 07 09:32:48 AM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Mar 19 06:03:09 PM: Compiling problem (target solver=SCIPY).
-(CVXPY) Mar 19 06:03:09 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIPY
-(CVXPY) Mar 19 06:03:09 PM: Applying reduction Dcp2Cone
-(CVXPY) Mar 19 06:03:09 PM: Applying reduction CvxAttr2Constr
-(CVXPY) Mar 19 06:03:09 PM: Applying reduction ConeMatrixStuffing
-(CVXPY) Mar 19 06:03:09 PM: Applying reduction SCIPY
-(CVXPY) Mar 19 06:03:09 PM: Finished problem compilation (took 1.224e-02 seconds).
+(CVXPY) Apr 07 09:32:48 AM: Compiling problem (target solver=SCIPY).
+(CVXPY) Apr 07 09:32:48 AM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIPY
+(CVXPY) Apr 07 09:32:48 AM: Applying reduction Dcp2Cone
+(CVXPY) Apr 07 09:32:48 AM: Applying reduction CvxAttr2Constr
+(CVXPY) Apr 07 09:32:48 AM: Applying reduction ConeMatrixStuffing
+(CVXPY) Apr 07 09:32:48 AM: Applying reduction SCIPY
+(CVXPY) Apr 07 09:32:48 AM: Finished problem compilation (took 1.202e-02 seconds).
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Mar 19 06:03:09 PM: Invoking solver SCIPY  to obtain a solution.
+(CVXPY) Apr 07 09:32:48 AM: Invoking solver SCIPY  to obtain a solution.
 Solver terminated with message: Optimization terminated successfully. (HiGHS Status 7: Optimal)
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Mar 19 06:03:09 PM: Problem status: optimal
-(CVXPY) Mar 19 06:03:09 PM: Optimal value: 3.705e+01
-(CVXPY) Mar 19 06:03:09 PM: Compilation took 1.224e-02 seconds
-(CVXPY) Mar 19 06:03:09 PM: Solver (including time spent in interface) took 1.821e-03 seconds
+(CVXPY) Apr 07 09:32:48 AM: Problem status: optimal
+(CVXPY) Apr 07 09:32:48 AM: Optimal value: 3.705e+01
+(CVXPY) Apr 07 09:32:48 AM: Compilation took 1.202e-02 seconds
+(CVXPY) Apr 07 09:32:48 AM: Solver (including time spent in interface) took 1.587e-03 seconds
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Problem(Minimize(Expression(AFFINE, UNKNOWN, ())), [Inequality(Constant(CONSTANT, ZERO, (17, 2))), Inequality(Variable((17, 2), _flow)), Equality(Expression(AFFINE, UNKNOWN, (8, 2)), Constant(CONSTANT, ZERO, ())), Equality(Expression(AFFINE, UNKNOWN, (2,)), Constant(CONSTANT, NONNEGATIVE, ())), Equality(Expression(AFFINE, UNKNOWN, (2,)), Constant(CONSTANT, NONNEGATIVE, ())), Equality(Expression(AFFINE, UNKNOWN, (2,)), Constant(CONSTANT, NONNEGATIVE, ())), Equality(Expression(AFFINE, UNKNOWN, (2,)), Constant(CONSTANT, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, (17,))), Inequality(Variable((17,), active_edge, boolean=True))])
@@ -747,11 +749,11 @@ Solver terminated with message: Optimization terminated successfully. (HiGHS Sta
       </div>
     </a>
     <a class="right-next"
-       href="steiner-trees.html"
+       href="multi-commodity-network-flows.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Steiner Trees (STs)</p>
+        <p class="prev-next-title">Multi-commodity Network Flows</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

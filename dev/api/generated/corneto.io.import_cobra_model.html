@@ -359,6 +359,14 @@
 <li class="toctree-l2"><a class="reference internal" href="corneto.io.load_graph_from_sif_tuples.html">corneto.io.load_graph_from_sif_tuples</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../corneto.graph.html">Graph module (<code class="xref py py-mod docutils literal notranslate"><span class="pre">corneto.graph</span></code>)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="corneto.graph.BaseGraph.html">corneto.graph.BaseGraph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="corneto.graph.Graph.html">corneto.graph.Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="corneto.graph.EdgeType.html">corneto.graph.EdgeType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="corneto.graph.duplication_divergence_network.html">corneto.graph.duplication_divergence_network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="corneto.graph.preferential_attachment_network.html">corneto.graph.preferential_attachment_network</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../corneto.methods.html">Network inference (<code class="xref py py-mod docutils literal notranslate"><span class="pre">corneto.methods.future</span></code>)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="corneto.methods.future.CarnivalFlow.html">corneto.methods.future.CarnivalFlow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="corneto.methods.future.CarnivalILP.html">corneto.methods.future.CarnivalILP</a></li>
@@ -432,17 +440,20 @@
 <h1>corneto.io.import_cobra_model<a class="headerlink" href="#corneto-io-import-cobra-model" title="Link to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="corneto.io.import_cobra_model">
-<span class="sig-prename descclassname"><span class="pre">corneto.io.</span></span><span class="sig-name descname"><span class="pre">import_cobra_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#corneto.io.import_cobra_model" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">corneto.io.</span></span><span class="sig-name descname"><span class="pre">import_cobra_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#corneto.io.import_cobra_model" title="Link to this definition">#</a></dt>
 <dd><p>Import a COBRA model from an SBML file and convert it to a CORNETO graph.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Path to SBML file</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Path to SBML file</p></li>
+<li><p><strong>quiet</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A CORNETO graph representing the metabolic network</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Graph</p>
+<dd class="field-odd"><p><a class="reference internal" href="corneto.graph.Graph.html#corneto.graph.Graph" title="corneto.graph.Graph">Graph</a></p>
 </dd>
 </dl>
 </dd></dl>

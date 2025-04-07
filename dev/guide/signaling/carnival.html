@@ -342,16 +342,18 @@
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../intro/index.html">Getting started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../intro/prior-knowledge.html">Prior Knowledge and Graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/data.html">Working with data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/constrained-optimization.html">Constrained Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../intro/multi-commodity-network-flows.html">Multi-commodity Network Flows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../intro/acyclic-flows.html">Acyclic Flows</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../networks/index.html">Network methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../networks/shortest-paths.html">Shortest paths</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../networks/multi-sample-shortest-paths.html">Multi-sample shortest paths</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../networks/steiner-trees.html">Steiner Trees (STs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../networks/pcst.html">Prize-Collecting Steiner Trees (PCSTs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networks/multi-commodity-network-flows.html">Multi-commodity Network Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networks/acyclic-flows.html">Acyclic Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networks/steiner-trees.html">Steiner trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networks/pcst.html">Prize-Collecting Steiner Trees (PCST)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networks/multi-pcst-grb.html">Multi-sample PCST</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../metabolism/index.html">Metabolism</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -593,8 +595,55 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unreachable vertices for sample: 1
-Unreachable vertices for sample: 0
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">c</span> <span class="o">=</span> <span class="n">CarnivalFlow</span><span class="p">(</span><span class="n">lambda_reg</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">P</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;SCIP&quot;</span><span class="p">);</span>
+
+<span class="nn">File ~/work/corneto/corneto/corneto/methods/future/method.py:95,</span> in <span class="ni">Method.build</span><span class="nt">(self, graph, data)</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span> <span class="k">def</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">BaseGraph</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ProblemDef</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Build the complete optimization problem.</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span><span class="sd">     The process involves:</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span><span class="sd">         ValueError: If lambda_reg &gt; 0 but no regularization variable name is provided.</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">95</span>     <span class="bp">self</span><span class="o">.</span><span class="n">processed_graph</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">processed_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="bp">self</span><span class="o">.</span><span class="n">problem</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_problem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">processed_graph</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">processed_data</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="c1"># Add structured sparsity regularization if needed.</span>
+
+<span class="nn">File ~/work/corneto/corneto/corneto/methods/future/carnival.py:190,</span> in <span class="ni">CarnivalFlow.preprocess</span><span class="nt">(self, graph, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span> <span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">BaseGraph</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">BaseGraph</span><span class="p">,</span> <span class="n">Data</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Preprocess the input graph and dataset before optimization.</span>
+<span class="g g-Whitespace">    </span><span class="mi">176</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">177</span><span class="sd">     This method performs two main preprocessing steps:</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">188</span><span class="sd">             - The preprocessed dataset with standardized format</span>
+<span class="g g-Whitespace">    </span><span class="mi">189</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">190</span>     <span class="n">pruned_graph</span><span class="p">,</span> <span class="n">pruned_data</span> <span class="o">=</span> <span class="n">prune_graph</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">191</span>         <span class="n">graph</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_type_key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_input_key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_output_key</span>
+<span class="g g-Whitespace">    </span><span class="mi">192</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">194</span>     <span class="c1"># We use the inputs/outputs of the dataset to expand the graph into a flow graph</span>
+<span class="g g-Whitespace">    </span><span class="mi">195</span>     <span class="c1"># inputs = pruned_data.collect_features(self.data_type_key, self.data_input_key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span>     <span class="c1"># outputs = pruned_data.collect_features(self.data_type_key, self.data_output_key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">197</span>     <span class="n">inputs</span> <span class="o">=</span> <span class="n">pruned_data</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_features</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">198</span>         <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_type_key</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_input_key</span>
+<span class="g g-Whitespace">    </span><span class="mi">199</span>     <span class="p">)</span><span class="o">.</span><span class="n">pluck_features</span><span class="p">()</span>
+
+<span class="nn">File ~/work/corneto/corneto/corneto/methods/future/carnival.py:66,</span> in <span class="ni">prune_graph</span><span class="nt">(G, data, property_key, input_key, output_key)</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span> <span class="n">reachable_inputs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">64</span> <span class="n">reachable_outputs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">66</span> <span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+<span class="g g-Whitespace">     </span><span class="mi">67</span>     <span class="n">sample_inputs</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span>         <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">property_key</span><span class="p">]</span> <span class="o">==</span> <span class="n">input_key</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="p">)</span><span class="o">.</span><span class="n">pluck</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>     <span class="n">sample_outputs</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>         <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">property_key</span><span class="p">]</span> <span class="o">==</span> <span class="n">output_key</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="p">)</span><span class="o">.</span><span class="n">pluck</span><span class="p">()</span>
+
+<span class="ne">AttributeError</span>: &#39;Data&#39; object has no attribute &#39;samples&#39;
 </pre></div>
 </div>
 </div>
@@ -606,7 +655,7 @@ Unreachable vertices for sample: 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0fcd724daa6c6e1016cf4621f8df781f535b900c0d3a56a021a6aa544b312c4f.svg" src="../../_images/0fcd724daa6c6e1016cf4621f8df781f535b900c0d3a56a021a6aa544b312c4f.svg" />
+<img alt="../../_images/8eff5cede451dab692853651d02dc8481faadbd9d67c6b29f38c1bbd029e91aa.svg" src="../../_images/8eff5cede451dab692853651d02dc8481faadbd9d67c6b29f38c1bbd029e91aa.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -667,7 +716,7 @@ Unreachable vertices for sample: 0
     <tr>
       <th>(tf2)</th>
       <td>1</td>
-      <td>-1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>(b)</th>
@@ -695,7 +744,7 @@ Unreachable vertices for sample: 0
     </tr>
     <tr>
       <th>(d)</th>
-      <td>-1</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -706,7 +755,7 @@ Unreachable vertices for sample: 0
     </tr>
     <tr>
       <th>(e)</th>
-      <td>-1</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -723,19 +772,19 @@ Unreachable vertices for sample: 0
     <tr>
       <th>(d)</th>
       <th>(c)</th>
-      <td>1</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>(e)</th>
       <th>(tf1)</th>
-      <td>-1</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>(a)</th>
       <th>(tf1)</th>
-      <td>0</td>
+      <td>-1</td>
       <td>0</td>
     </tr>
     <tr>
@@ -748,7 +797,7 @@ Unreachable vertices for sample: 0
       <th>(c)</th>
       <th>(tf2)</th>
       <td>0</td>
-      <td>0</td>
+      <td>-1</td>
     </tr>
     <tr>
       <th rowspan="2" valign="top">(tf1)</th>
@@ -762,25 +811,24 @@ Unreachable vertices for sample: 0
       <td>0</td>
     </tr>
     <tr>
-      <th>(tf2)</th>
+      <th rowspan="2" valign="top">(tf2)</th>
       <th>(rec1)</th>
       <td>1</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>(tf3)</th>
-      <th>()</th>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>(tf2)</th>
       <th>()</th>
       <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>(tf1)</th>
+      <th>()</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>(tf3)</th>
       <th>()</th>
       <td>0</td>
       <td>0</td>
@@ -807,7 +855,7 @@ Unreachable vertices for sample: 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1542ea34797a98a0b0329061800a8bd8dbe88e791e4af03a84896f7d12a8c02b.svg" src="../../_images/1542ea34797a98a0b0329061800a8bd8dbe88e791e4af03a84896f7d12a8c02b.svg" />
+<img alt="../../_images/2e3531b3d620d32c3a37001152862cc57fc45807838f601f555ea27149036518.svg" src="../../_images/2e3531b3d620d32c3a37001152862cc57fc45807838f601f555ea27149036518.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -820,7 +868,6 @@ Unreachable vertices for sample: 0
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
 1.0
-11.0
 </pre></div>
 </div>
 </div>
@@ -911,7 +958,7 @@ Unreachable vertices for sample: 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c2166b50249596243db423aedb6642b73bf1c272aabc556f4d5f57e3abac2c4c.svg" src="../../_images/c2166b50249596243db423aedb6642b73bf1c272aabc556f4d5f57e3abac2c4c.svg" />
+<img alt="../../_images/a80801abef8ef815dcd11c6fbfe6a1289daf4844eacf2df89a62101cf8439a8e.svg" src="../../_images/a80801abef8ef815dcd11c6fbfe6a1289daf4844eacf2df89a62101cf8439a8e.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -951,7 +998,7 @@ Unreachable vertices for sample: 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c2166b50249596243db423aedb6642b73bf1c272aabc556f4d5f57e3abac2c4c.svg" src="../../_images/c2166b50249596243db423aedb6642b73bf1c272aabc556f4d5f57e3abac2c4c.svg" />
+<img alt="../../_images/1f27e1163038d19c8bacd3acc6adb21830bacd9ce0949d7cbcbf5c742883c977.svg" src="../../_images/1f27e1163038d19c8bacd3acc6adb21830bacd9ce0949d7cbcbf5c742883c977.svg" />
 </div>
 </div>
 <div class="cell docutils container">

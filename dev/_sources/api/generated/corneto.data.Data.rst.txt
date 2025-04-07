@@ -19,6 +19,8 @@
       ~Data.collect_features
       ~Data.copy
       ~Data.delete_sample
+      ~Data.filter
+      ~Data.filter_by
       ~Data.filter_samples
       ~Data.from_dict
       ~Data.from_sample_value_dict

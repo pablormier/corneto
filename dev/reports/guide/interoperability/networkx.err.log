@@ -1,0 +1,136 @@
+Traceback (most recent call last):
+  File "/home/runner/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/runner/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.11/x64/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/runner/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from corneto.contrib.networkx import networkx as nxc
+
+# NOTE: everytime a corneto graph is passed to a networkx function, it is converted to a networkx graph
+# Think about converting first the graph to a networkx graph and then using networkx functions for better performance
+shortest_paths = nxc.single_source_dijkstra_path(Gc, source=1)
+shortest_path_lengths = nxc.single_source_dijkstra_path_length(Gc, source=1)
+
+# Print the paths and their lengths
+print("Shortest paths from node 1:")
+for target, path in shortest_paths.items():
+    print(
+        f"Node 1 to node {target}: Path: {path} with total weight: {shortest_path_lengths[target]}"
+    )
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[4], line 5[0m
+[1;32m      1[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mcorneto[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcontrib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mnetworkx[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m networkx [38;5;28;01mas[39;00m nxc
+[1;32m      3[0m [38;5;66;03m# NOTE: everytime a corneto graph is passed to a networkx function, it is converted to a networkx graph[39;00m
+[1;32m      4[0m [38;5;66;03m# Think about converting first the graph to a networkx graph and then using networkx functions for better performance[39;00m
+[0;32m----> 5[0m shortest_paths [38;5;241m=[39m [43mnxc[49m[38;5;241;43m.[39;49m[43msingle_source_dijkstra_path[49m[43m([49m[43mGc[49m[43m,[49m[43m [49m[43msource[49m[38;5;241;43m=[39;49m[38;5;241;43m1[39;49m[43m)[49m
+[1;32m      6[0m shortest_path_lengths [38;5;241m=[39m nxc[38;5;241m.[39msingle_source_dijkstra_path_length(Gc, source[38;5;241m=[39m[38;5;241m1[39m)
+[1;32m      8[0m [38;5;66;03m# Print the paths and their lengths[39;00m
+
+File [0;32m~/work/corneto/corneto/corneto/contrib/networkx.py:149[0m, in [0;36mNetworkXWrapper.__getattr__.<locals>.wrapped[0;34m(*args, **kwargs)[0m
+[1;32m    140[0m new_args [38;5;241m=[39m [
+[1;32m    141[0m     (
+[1;32m    142[0m         corneto_graph_to_networkx(arg)
+[0;32m   (...)[0m
+[1;32m    146[0m     [38;5;28;01mfor[39;00m arg [38;5;129;01min[39;00m args
+[1;32m    147[0m ]
+[1;32m    148[0m [38;5;66;03m# Call the original NetworkX function with the possibly converted arguments[39;00m
+[0;32m--> 149[0m [38;5;28;01mreturn[39;00m [43moriginal_attr[49m[43m([49m[38;5;241;43m*[39;49m[43mnew_args[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+
+File [0;32m<class 'networkx.utils.decorators.argmap'> compilation 4:3[0m, in [0;36margmap_single_source_dijkstra_path_1[0;34m(G, source, cutoff, weight, backend, **backend_kwargs)[0m
+[1;32m      1[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mbz2[39;00m
+[1;32m      2[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mcollections[39;00m
+[0;32m----> 3[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mgzip[39;00m
+[1;32m      4[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01minspect[39;00m
+[1;32m      5[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mitertools[39;00m
+
+File [0;32m~/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/networkx/utils/backends.py:967[0m, in [0;36m_dispatchable.__call__[0;34m(self, backend, *args, **kwargs)[0m
+[1;32m    965[0m     [38;5;28;01mif[39;00m backend [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mand[39;00m backend [38;5;241m!=[39m [38;5;124m"[39m[38;5;124mnetworkx[39m[38;5;124m"[39m:
+[1;32m    966[0m         [38;5;28;01mraise[39;00m [38;5;167;01mImportError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;124m'[39m[38;5;132;01m{[39;00mbackend[38;5;132;01m}[39;00m[38;5;124m'[39m[38;5;124m backend is not installed[39m[38;5;124m"[39m)
+[0;32m--> 967[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43morig_func[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    969[0m [38;5;66;03m# Use `backend_name` in this function instead of `backend`.[39;00m
+[1;32m    970[0m [38;5;66;03m# This is purely for aesthetics and to make it easier to search for this[39;00m
+[1;32m    971[0m [38;5;66;03m# variable since "backend" is used in many comments and log/error messages.[39;00m
+[1;32m    972[0m backend_name [38;5;241m=[39m backend
+
+File [0;32m~/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/networkx/algorithms/shortest_paths/weighted.py:317[0m, in [0;36msingle_source_dijkstra_path[0;34m(G, source, cutoff, weight)[0m
+[1;32m    255[0m [38;5;129m@nx[39m[38;5;241m.[39m_dispatchable(edge_attrs[38;5;241m=[39m[38;5;124m"[39m[38;5;124mweight[39m[38;5;124m"[39m)
+[1;32m    256[0m [38;5;28;01mdef[39;00m[38;5;250m [39m[38;5;21msingle_source_dijkstra_path[39m(G, source, cutoff[38;5;241m=[39m[38;5;28;01mNone[39;00m, weight[38;5;241m=[39m[38;5;124m"[39m[38;5;124mweight[39m[38;5;124m"[39m):
+[1;32m    257[0m [38;5;250m    [39m[38;5;124;03m"""Find shortest weighted paths in G from a source node.[39;00m
+[1;32m    258[0m 
+[1;32m    259[0m [38;5;124;03m    Compute shortest path between source and all other reachable[39;00m
+[0;32m   (...)[0m
+[1;32m    315[0m 
+[1;32m    316[0m [38;5;124;03m    """[39;00m
+[0;32m--> 317[0m     [38;5;28;01mreturn[39;00m [43mmulti_source_dijkstra_path[49m[43m([49m[43mG[49m[43m,[49m[43m [49m[43m{[49m[43msource[49m[43m}[49m[43m,[49m[43m [49m[43mcutoff[49m[38;5;241;43m=[39;49m[43mcutoff[49m[43m,[49m[43m [49m[43mweight[49m[38;5;241;43m=[39;49m[43mweight[49m[43m)[49m
+
+File [0;32m<class 'networkx.utils.decorators.argmap'> compilation 8:3[0m, in [0;36margmap_multi_source_dijkstra_path_5[0;34m(G, sources, cutoff, weight, backend, **backend_kwargs)[0m
+[1;32m      1[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mbz2[39;00m
+[1;32m      2[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mcollections[39;00m
+[0;32m----> 3[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mgzip[39;00m
+[1;32m      4[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01minspect[39;00m
+[1;32m      5[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mitertools[39;00m
+
+File [0;32m~/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/networkx/utils/backends.py:967[0m, in [0;36m_dispatchable.__call__[0;34m(self, backend, *args, **kwargs)[0m
+[1;32m    965[0m     [38;5;28;01mif[39;00m backend [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mand[39;00m backend [38;5;241m!=[39m [38;5;124m"[39m[38;5;124mnetworkx[39m[38;5;124m"[39m:
+[1;32m    966[0m         [38;5;28;01mraise[39;00m [38;5;167;01mImportError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;124m'[39m[38;5;132;01m{[39;00mbackend[38;5;132;01m}[39;00m[38;5;124m'[39m[38;5;124m backend is not installed[39m[38;5;124m"[39m)
+[0;32m--> 967[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43morig_func[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    969[0m [38;5;66;03m# Use `backend_name` in this function instead of `backend`.[39;00m
+[1;32m    970[0m [38;5;66;03m# This is purely for aesthetics and to make it easier to search for this[39;00m
+[1;32m    971[0m [38;5;66;03m# variable since "backend" is used in many comments and log/error messages.[39;00m
+[1;32m    972[0m backend_name [38;5;241m=[39m backend
+
+File [0;32m~/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/networkx/algorithms/shortest_paths/weighted.py:564[0m, in [0;36mmulti_source_dijkstra_path[0;34m(G, sources, cutoff, weight)[0m
+[1;32m    494[0m [38;5;129m@nx[39m[38;5;241m.[39m_dispatchable(edge_attrs[38;5;241m=[39m[38;5;124m"[39m[38;5;124mweight[39m[38;5;124m"[39m)
+[1;32m    495[0m [38;5;28;01mdef[39;00m[38;5;250m [39m[38;5;21mmulti_source_dijkstra_path[39m(G, sources, cutoff[38;5;241m=[39m[38;5;28;01mNone[39;00m, weight[38;5;241m=[39m[38;5;124m"[39m[38;5;124mweight[39m[38;5;124m"[39m):
+[1;32m    496[0m [38;5;250m    [39m[38;5;124;03m"""Find shortest weighted paths in G from a given set of source[39;00m
+[1;32m    497[0m [38;5;124;03m    nodes.[39;00m
+[1;32m    498[0m 
+[0;32m   (...)[0m
+[1;32m    562[0m 
+[1;32m    563[0m [38;5;124;03m    """[39;00m
+[0;32m--> 564[0m     length, path [38;5;241m=[39m [43mmulti_source_dijkstra[49m[43m([49m[43mG[49m[43m,[49m[43m [49m[43msources[49m[43m,[49m[43m [49m[43mcutoff[49m[38;5;241;43m=[39;49m[43mcutoff[49m[43m,[49m[43m [49m[43mweight[49m[38;5;241;43m=[39;49m[43mweight[49m[43m)[49m
+[1;32m    565[0m     [38;5;28;01mreturn[39;00m path
+
+File [0;32m<class 'networkx.utils.decorators.argmap'> compilation 12:3[0m, in [0;36margmap_multi_source_dijkstra_9[0;34m(G, sources, target, cutoff, weight, backend, **backend_kwargs)[0m
+[1;32m      1[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mbz2[39;00m
+[1;32m      2[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mcollections[39;00m
+[0;32m----> 3[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mgzip[39;00m
+[1;32m      4[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01minspect[39;00m
+[1;32m      5[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mitertools[39;00m
+
+File [0;32m~/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/networkx/utils/backends.py:967[0m, in [0;36m_dispatchable.__call__[0;34m(self, backend, *args, **kwargs)[0m
+[1;32m    965[0m     [38;5;28;01mif[39;00m backend [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mand[39;00m backend [38;5;241m!=[39m [38;5;124m"[39m[38;5;124mnetworkx[39m[38;5;124m"[39m:
+[1;32m    966[0m         [38;5;28;01mraise[39;00m [38;5;167;01mImportError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;124m'[39m[38;5;132;01m{[39;00mbackend[38;5;132;01m}[39;00m[38;5;124m'[39m[38;5;124m backend is not installed[39m[38;5;124m"[39m)
+[0;32m--> 967[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43morig_func[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    969[0m [38;5;66;03m# Use `backend_name` in this function instead of `backend`.[39;00m
+[1;32m    970[0m [38;5;66;03m# This is purely for aesthetics and to make it easier to search for this[39;00m
+[1;32m    971[0m [38;5;66;03m# variable since "backend" is used in many comments and log/error messages.[39;00m
+[1;32m    972[0m backend_name [38;5;241m=[39m backend
+
+File [0;32m~/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/networkx/algorithms/shortest_paths/weighted.py:753[0m, in [0;36mmulti_source_dijkstra[0;34m(G, sources, target, cutoff, weight)[0m
+[1;32m    751[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m"[39m[38;5;124msources must not be empty[39m[38;5;124m"[39m)
+[1;32m    752[0m [38;5;28;01mfor[39;00m s [38;5;129;01min[39;00m sources:
+[0;32m--> 753[0m     [38;5;28;01mif[39;00m [43ms[49m[43m [49m[38;5;129;43;01mnot[39;49;00m[43m [49m[38;5;129;43;01min[39;49;00m[43m [49m[43mG[49m:
+[1;32m    754[0m         [38;5;28;01mraise[39;00m nx[38;5;241m.[39mNodeNotFound([38;5;124mf[39m[38;5;124m"[39m[38;5;124mNode [39m[38;5;132;01m{[39;00ms[38;5;132;01m}[39;00m[38;5;124m not found in graph[39m[38;5;124m"[39m)
+[1;32m    755[0m [38;5;28;01mif[39;00m target [38;5;129;01min[39;00m sources:
+
+[0;31mTypeError[0m: argument of type 'Graph' is not iterable
+

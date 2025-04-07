@@ -366,6 +366,7 @@
  | <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
  | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
@@ -373,7 +374,9 @@
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
  | <a href="#U"><strong>U</strong></a>
@@ -389,6 +392,12 @@
 
       <ul>
         <li><a href="api/generated/corneto.data.Sample.html#corneto.data.Sample.__init__">(corneto.data.Sample method)</a>
+</li>
+        <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.__init__">(corneto.graph.BaseGraph method)</a>
+</li>
+        <li><a href="api/generated/corneto.graph.EdgeType.html#corneto.graph.EdgeType.__init__">(corneto.graph.EdgeType method)</a>
+</li>
+        <li><a href="api/generated/corneto.graph.Graph.html#corneto.graph.Graph.__init__">(corneto.graph.Graph method)</a>
 </li>
         <li><a href="api/generated/corneto.methods.future.CarnivalFlow.html#corneto.methods.future.CarnivalFlow.__init__">(corneto.methods.future.CarnivalFlow method)</a>
 </li>
@@ -409,11 +418,19 @@
 </li>
       <li><a href="api/corneto.backend.html#corneto.backend.Backend.AcyclicFlow">AcyclicFlow() (corneto.backend.Backend method)</a>
 </li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.add_edge">add_edge() (corneto.graph.BaseGraph method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.add_edges">add_edges() (corneto.graph.BaseGraph method)</a>
+</li>
       <li><a href="api/generated/corneto.data.Sample.html#corneto.data.Sample.add_feature">add_feature() (corneto.data.Sample method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/generated/corneto.data.Data.html#corneto.data.Data.add_sample">add_sample() (corneto.data.Data method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.add_vertex">add_vertex() (corneto.graph.BaseGraph method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.add_vertices">add_vertices() (corneto.graph.BaseGraph method)</a>
 </li>
       <li><a href="api/corneto.backend.html#corneto.backend.Backend.available_solvers">available_solvers() (corneto.backend.Backend method)</a>
 
@@ -433,10 +450,14 @@
 </li>
       <li><a href="api/generated/corneto.methods.future.MultiSampleFBA.html#corneto.methods.future.MultiSampleFBA.backend">backend (corneto.methods.future.MultiSampleFBA attribute)</a>
 </li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph">BaseGraph (class in corneto.graph)</a>
+</li>
       <li><a href="api/generated/corneto.methods.future.MultiSampleFBA.html#corneto.methods.future.MultiSampleFBA.beta_reg">beta_reg (corneto.methods.future.MultiSampleFBA attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.bfs">bfs() (corneto.graph.BaseGraph method)</a>
+</li>
       <li><a href="api/corneto.backend.html#corneto.backend.VarType.BINARY">BINARY (corneto.backend.VarType attribute)</a>
 </li>
       <li><a href="api/corneto.backend.html#corneto.backend.Backend.build">build() (corneto.backend.Backend method)</a>
@@ -472,7 +493,13 @@
       <li><a href="api/corneto.backend.html#corneto.backend.VarType.CONTINUOUS">CONTINUOUS (corneto.backend.VarType attribute)</a>
 </li>
       <li><a href="api/generated/corneto.data.Data.html#corneto.data.Data.copy">copy() (corneto.data.Data method)</a>
+
+      <ul>
+        <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.copy">(corneto.graph.BaseGraph method)</a>
 </li>
+        <li><a href="api/generated/corneto.graph.Graph.html#corneto.graph.Graph.copy">(corneto.graph.Graph method)</a>
+</li>
+      </ul></li>
       <li>
     corneto.backend
 
@@ -494,6 +521,13 @@
 
       <ul>
         <li><a href="api/generated/corneto.data.util.html#module-corneto.data.util">module</a>
+</li>
+      </ul></li>
+      <li>
+    corneto.graph
+
+      <ul>
+        <li><a href="api/corneto.graph.html#module-corneto.graph">module</a>
 </li>
       </ul></li>
       <li>
@@ -530,12 +564,38 @@
 </li>
       <li><a href="api/generated/corneto.data.Data.html#corneto.data.Data.data">data (corneto.data.Data attribute)</a>
 </li>
+      <li><a href="api/generated/corneto.data.Data.html#corneto.data.Data.delete_sample">delete_sample() (corneto.data.Data method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/generated/corneto.data.Data.html#corneto.data.Data.delete_sample">delete_sample() (corneto.data.Data method)</a>
+      <li><a href="api/generated/corneto.graph.EdgeType.html#corneto.graph.EdgeType.DIRECTED">DIRECTED (corneto.graph.EdgeType attribute)</a>, <a href="api/generated/corneto.graph.EdgeType.html#id0">[1]</a>
 </li>
       <li><a href="api/generated/corneto.methods.future.MultiSampleFBA.html#corneto.methods.future.MultiSampleFBA.disable_structured_sparsity">disable_structured_sparsity (corneto.methods.future.MultiSampleFBA attribute)</a>
 </li>
+      <li><a href="api/generated/corneto.graph.duplication_divergence_network.html#corneto.graph.duplication_divergence_network">duplication_divergence_network() (in module corneto.graph)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.E">E (corneto.graph.BaseGraph property)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.edge_subgraph">edge_subgraph() (corneto.graph.BaseGraph method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.edges">edges() (corneto.graph.BaseGraph method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/generated/corneto.graph.EdgeType.html#corneto.graph.EdgeType">EdgeType (class in corneto.graph)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.extract_subgraph">extract_subgraph() (corneto.graph.BaseGraph method)</a>
+
+      <ul>
+        <li><a href="api/generated/corneto.graph.Graph.html#corneto.graph.Graph.extract_subgraph">(corneto.graph.Graph method)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -544,9 +604,19 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/generated/corneto.data.Sample.html#corneto.data.Sample.features">features (corneto.data.Sample attribute)</a>
 </li>
-      <li><a href="api/generated/corneto.data.Sample.html#corneto.data.Sample.filter">filter() (corneto.data.Sample method)</a>
+      <li><a href="api/generated/corneto.data.Data.html#corneto.data.Data.filter">filter() (corneto.data.Data method)</a>
+
+      <ul>
+        <li><a href="api/generated/corneto.data.Sample.html#corneto.data.Sample.filter">(corneto.data.Sample method)</a>
 </li>
-      <li><a href="api/generated/corneto.data.Sample.html#corneto.data.Sample.filter_by">filter_by() (corneto.data.Sample method)</a>
+      </ul></li>
+      <li><a href="api/generated/corneto.data.Data.html#corneto.data.Data.filter_by">filter_by() (corneto.data.Data method)</a>
+
+      <ul>
+        <li><a href="api/generated/corneto.data.Sample.html#corneto.data.Sample.filter_by">(corneto.data.Sample method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/generated/corneto.graph.Graph.html#corneto.graph.Graph.filter_graph">filter_graph() (corneto.graph.Graph method)</a>
 </li>
       <li><a href="api/generated/corneto.data.Data.html#corneto.data.Data.filter_samples">filter_samples() (corneto.data.Data method)</a>
 </li>
@@ -561,10 +631,18 @@
       <li><a href="api/generated/corneto.methods.future.MultiSampleFBA.html#corneto.methods.future.MultiSampleFBA.flux_indicator_name">flux_indicator_name (corneto.methods.future.MultiSampleFBA attribute)</a>
 </li>
       <li><a href="api/generated/corneto.data.Data.html#corneto.data.Data.from_dict">from_dict() (corneto.data.Data class method)</a>
+
+      <ul>
+        <li><a href="api/generated/corneto.graph.Graph.html#corneto.graph.Graph.from_dict">(corneto.graph.Graph class method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/generated/corneto.graph.Graph.html#corneto.graph.Graph.from_json">from_json() (corneto.graph.Graph class method)</a>
 </li>
       <li><a href="api/generated/corneto.data.Data.html#corneto.data.Data.from_sample_value_dict">from_sample_value_dict() (corneto.data.Data class method)</a>
 </li>
       <li><a href="api/generated/corneto.data.Data.html#corneto.data.Data.from_tight_format">from_tight_format() (corneto.data.Data class method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.Graph.html#corneto.graph.Graph.from_tuples">from_tuples() (corneto.graph.Graph static method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -572,25 +650,71 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/generated/corneto.data.util.html#corneto.data.util.generate_duplication_divergence_network">generate_duplication_divergence_network() (in module corneto.data.util)</a>
+</li>
+      <li><a href="api/generated/corneto.data.util.html#corneto.data.util.generate_preferential_attachment_network">generate_preferential_attachment_network() (in module corneto.data.util)</a>
+</li>
+      <li><a href="api/generated/corneto.data.util.html#corneto.data.util.generate_random_duplication_divergence_signalling_network">generate_random_duplication_divergence_signalling_network() (in module corneto.data.util)</a>
+</li>
       <li><a href="api/generated/corneto.data.util.html#corneto.data.util.generate_random_signalling_network">generate_random_signalling_network() (in module corneto.data.util)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.get_attr_edge">get_attr_edge() (corneto.graph.BaseGraph method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.get_attr_edges">get_attr_edges() (corneto.graph.BaseGraph method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.get_attr_from_edges">get_attr_from_edges() (corneto.graph.BaseGraph method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.get_attr_vertex">get_attr_vertex() (corneto.graph.BaseGraph method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.get_attr_vertices">get_attr_vertices() (corneto.graph.BaseGraph method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.get_common_incident_edges">get_common_incident_edges() (corneto.graph.BaseGraph method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.get_edge">get_edge() (corneto.graph.BaseGraph method)</a>
+
+      <ul>
+        <li><a href="api/generated/corneto.graph.Graph.html#corneto.graph.Graph.get_edge">(corneto.graph.Graph method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.get_edges">get_edges() (corneto.graph.BaseGraph method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.get_edges_by_attr">get_edges_by_attr() (corneto.graph.BaseGraph method)</a>
 </li>
       <li><a href="api/generated/corneto.data.Data.html#corneto.data.Data.get_feature_across_samples">get_feature_across_samples() (corneto.data.Data method)</a>
 </li>
       <li><a href="api/generated/corneto.methods.future.MultiSampleFBA.html#corneto.methods.future.MultiSampleFBA.get_flow_bounds">get_flow_bounds() (corneto.methods.future.MultiSampleFBA method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.get_graph_attributes">get_graph_attributes() (corneto.graph.BaseGraph method)</a>
+
+      <ul>
+        <li><a href="api/generated/corneto.graph.Graph.html#corneto.graph.Graph.get_graph_attributes">(corneto.graph.Graph method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.get_incident_edges">get_incident_edges() (corneto.graph.BaseGraph method)</a>
+</li>
       <li><a href="api/corneto.backend.html#corneto.backend.Backend.get_symbols">get_symbols() (corneto.backend.Backend static method)</a>
 </li>
       <li><a href="api/generated/corneto.data.Sample.html#corneto.data.Sample.get_value">get_value() (corneto.data.Sample method)</a>
 </li>
       <li><a href="api/generated/corneto.data.Sample.html#corneto.data.Sample.get_values">get_values() (corneto.data.Sample method)</a>
 </li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.get_vertex">get_vertex() (corneto.graph.BaseGraph method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.get_vertex_incidence_matrix_as_lists">get_vertex_incidence_matrix_as_lists() (corneto.graph.BaseGraph method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.Graph.html#corneto.graph.Graph">Graph (class in corneto.graph)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.hash">hash() (corneto.graph.BaseGraph method)</a>
+</li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/corneto.backend.html#corneto.backend.Backend.hstack">hstack() (corneto.backend.Backend method)</a>
 </li>
@@ -604,6 +728,8 @@
 </li>
       <li><a href="api/generated/corneto.io.import_miom_model.html#corneto.io.import_miom_model">import_miom_model() (in module corneto.io)</a>
 </li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.in_edges">in_edges() (corneto.graph.BaseGraph method)</a>
+</li>
       <li><a href="api/corneto.backend.html#corneto.backend.Backend.Indicator">Indicator() (corneto.backend.Backend method)</a>
 </li>
   </ul></td>
@@ -613,6 +739,8 @@
       <li><a href="api/corneto.backend.html#corneto.backend.VarType.INTEGER">INTEGER (corneto.backend.VarType attribute)</a>
 </li>
       <li><a href="api/corneto.backend.html#corneto.backend.Backend.is_available">is_available() (corneto.backend.Backend method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.is_hypergraph">is_hypergraph() (corneto.graph.BaseGraph method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -626,13 +754,17 @@
 </li>
       <li><a href="api/corneto.backend.html#corneto.backend.Backend.linear_or">linear_or() (corneto.backend.Backend method)</a>
 </li>
+      <li><a href="api/corneto.backend.html#corneto.backend.Backend.linear_xor">linear_xor() (corneto.backend.Backend method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/corneto.backend.html#corneto.backend.Backend.linear_xor">linear_xor() (corneto.backend.Backend method)</a>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.load">load() (corneto.graph.BaseGraph static method)</a>
 </li>
       <li><a href="api/generated/corneto.io.load_graph_from_sif.html#corneto.io.load_graph_from_sif">load_graph_from_sif() (in module corneto.io)</a>
 </li>
       <li><a href="api/generated/corneto.io.load_graph_from_sif_tuples.html#corneto.io.load_graph_from_sif_tuples">load_graph_from_sif_tuples() (in module corneto.io)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.Graph.html#corneto.graph.Graph.load_json">load_json() (corneto.graph.Graph class method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -652,6 +784,8 @@
 </li>
         <li><a href="api/generated/corneto.data.util.html#module-corneto.data.util">corneto.data.util</a>
 </li>
+        <li><a href="api/corneto.graph.html#module-corneto.graph">corneto.graph</a>
+</li>
         <li><a href="api/corneto.io.html#module-corneto.io">corneto.io</a>
 </li>
         <li><a href="api/corneto.methods.html#module-corneto.methods.future">corneto.methods.future</a>
@@ -667,7 +801,27 @@
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.ne">ne (corneto.graph.BaseGraph property)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.neighbors">neighbors() (corneto.graph.BaseGraph method)</a>
+</li>
       <li><a href="api/corneto.backend.html#corneto.backend.Backend.NonZeroIndicator">NonZeroIndicator() (corneto.backend.Backend method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.num_edges">num_edges (corneto.graph.BaseGraph property)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.num_vertices">num_vertices (corneto.graph.BaseGraph property)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.nv">nv (corneto.graph.BaseGraph property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.out_edges">out_edges() (corneto.graph.BaseGraph method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -685,9 +839,17 @@
       </ul></li>
       <li><a href="api/generated/corneto.io.parse_cobra_model.html#corneto.io.parse_cobra_model">parse_cobra_model() (in module corneto.io)</a>
 </li>
+      <li><a href="api/corneto.backend.html#corneto.backend.PicosBackend">PicosBackend (class in corneto.backend)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.plot">plot() (corneto.graph.BaseGraph method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.plot_values">plot_values() (corneto.graph.BaseGraph method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/corneto.backend.html#corneto.backend.PicosBackend">PicosBackend (class in corneto.backend)</a>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.predecessors">predecessors() (corneto.graph.BaseGraph method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.preferential_attachment_network.html#corneto.graph.preferential_attachment_network">preferential_attachment_network() (in module corneto.graph)</a>
 </li>
       <li><a href="api/generated/corneto.methods.future.CarnivalFlow.html#corneto.methods.future.CarnivalFlow.preprocess">preprocess() (corneto.methods.future.CarnivalFlow method)</a>
 
@@ -699,6 +861,24 @@
       </ul></li>
       <li><a href="api/corneto.backend.html#corneto.backend.Backend.Problem">Problem() (corneto.backend.Backend method)</a>
 </li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.prune">prune() (corneto.graph.BaseGraph method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.reachability_analysis">reachability_analysis() (corneto.graph.BaseGraph method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.reverse">reverse() (corneto.graph.BaseGraph method)</a>
+
+      <ul>
+        <li><a href="api/generated/corneto.graph.Graph.html#corneto.graph.Graph.reverse">(corneto.graph.Graph method)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -707,11 +887,21 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/generated/corneto.data.Sample.html#corneto.data.Sample">Sample (class in corneto.data)</a>
 </li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.save">save() (corneto.graph.BaseGraph method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.Graph.html#corneto.graph.Graph.save_json">save_json() (corneto.graph.Graph method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.shape">shape (corneto.graph.BaseGraph property)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/corneto.backend.html#corneto.backend.Backend.solve">solve() (corneto.backend.Backend method)</a>
 </li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.subgraph">subgraph() (corneto.graph.BaseGraph method)</a>
+</li>
       <li><a href="api/generated/corneto.data.Data.html#corneto.data.Data.subset_features">subset_features() (corneto.data.Data method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.successors">successors() (corneto.graph.BaseGraph method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -719,17 +909,29 @@
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/generated/corneto.data.Data.html#corneto.data.Data.to_sample_value_dict">to_sample_value_dict() (corneto.data.Data method)</a>
+      <li><a href="api/generated/corneto.graph.Graph.html#corneto.graph.Graph.to_dict">to_dict() (corneto.graph.Graph method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.to_graphviz">to_graphviz() (corneto.graph.BaseGraph method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.Graph.html#corneto.graph.Graph.to_json">to_json() (corneto.graph.Graph method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/generated/corneto.data.Data.html#corneto.data.Data.to_sample_value_dict">to_sample_value_dict() (corneto.data.Data method)</a>
+</li>
       <li><a href="api/generated/corneto.data.Data.html#corneto.data.Data.to_tight_format">to_tight_format() (corneto.data.Data method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.toposort">toposort() (corneto.graph.BaseGraph method)</a>
 </li>
   </ul></td>
 </tr></table>
 
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/generated/corneto.graph.EdgeType.html#corneto.graph.EdgeType.UNDIRECTED">UNDIRECTED (corneto.graph.EdgeType attribute)</a>, <a href="api/generated/corneto.graph.EdgeType.html#id1">[1]</a>
+</li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/generated/corneto.data.Data.html#corneto.data.Data.update_sample">update_sample() (corneto.data.Data method)</a>
 </li>
@@ -739,6 +941,8 @@
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.V">V (corneto.graph.BaseGraph property)</a>
+</li>
       <li><a href="api/corneto.backend.html#corneto.backend.Backend.Variable">Variable() (corneto.backend.Backend method)</a>
 
       <ul>
@@ -752,6 +956,10 @@
       <li><a href="api/corneto.backend.html#corneto.backend.VarType">VarType (class in corneto.backend)</a>
 </li>
       <li><a href="api/corneto.backend.html#corneto.backend.Backend.version">version() (corneto.backend.Backend method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.vertex_incidence_matrix">vertex_incidence_matrix() (corneto.graph.BaseGraph method)</a>
+</li>
+      <li><a href="api/generated/corneto.graph.BaseGraph.html#corneto.graph.BaseGraph.vertices">vertices (corneto.graph.BaseGraph property)</a>
 </li>
       <li><a href="api/corneto.backend.html#corneto.backend.Backend.vstack">vstack() (corneto.backend.Backend method)</a>
 </li>

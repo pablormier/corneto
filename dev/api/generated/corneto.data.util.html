@@ -359,6 +359,14 @@
 <li class="toctree-l2"><a class="reference internal" href="corneto.io.load_graph_from_sif_tuples.html">corneto.io.load_graph_from_sif_tuples</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../corneto.graph.html">Graph module (<code class="xref py py-mod docutils literal notranslate"><span class="pre">corneto.graph</span></code>)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="corneto.graph.BaseGraph.html">corneto.graph.BaseGraph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="corneto.graph.Graph.html">corneto.graph.Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="corneto.graph.EdgeType.html">corneto.graph.EdgeType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="corneto.graph.duplication_divergence_network.html">corneto.graph.duplication_divergence_network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="corneto.graph.preferential_attachment_network.html">corneto.graph.preferential_attachment_network</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../corneto.methods.html">Network inference (<code class="xref py py-mod docutils literal notranslate"><span class="pre">corneto.methods.future</span></code>)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="corneto.methods.future.CarnivalFlow.html">corneto.methods.future.CarnivalFlow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="corneto.methods.future.CarnivalILP.html">corneto.methods.future.CarnivalILP</a></li>
@@ -430,65 +438,141 @@
                   
   <section id="module-corneto.data.util">
 <span id="corneto-data-util"></span><h1>corneto.data.util<a class="headerlink" href="#module-corneto.data.util" title="Link to this heading">#</a></h1>
-<p>Utility functions for data generation and manipulation.</p>
-<p>This module provides utility functions for generating and manipulating
-data structures for use with the corneto data package.</p>
+<p>Utility functions for data generation.</p>
+<p>This module provides utility functions for generating random networks.</p>
 <section id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
 <dl class="simple">
+<dt>generate_preferential_attachment_network<span class="classifier">Generate a random network using the</span></dt><dd><p>Barabasi-Albert preferential attachment model.</p>
+</dd>
+<dt>generate_duplication_divergence_network<span class="classifier">Generate a random network using the</span></dt><dd><p>duplication-divergence model.</p>
+</dd>
 <dt>generate_random_signalling_network<span class="classifier">Generate a random biological signaling network</span></dt><dd><p>with configurable properties such as inhibitory edge probability.</p>
+</dd>
+<dt>generate_random_duplication_divergence_signalling_network<span class="classifier">Generate a random biological</span></dt><dd><p>signaling network using the duplication-divergence model.</p>
 </dd>
 </dl>
 </section>
 <p class="rubric">Functions</p>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#corneto.data.util.generate_random_signalling_network" title="corneto.data.util.generate_random_signalling_network"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_random_signalling_network</span></code></a>(n, m[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#corneto.data.util.generate_duplication_divergence_network" title="corneto.data.util.generate_duplication_divergence_network"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_duplication_divergence_network</span></code></a>(n[, ...])</p></td>
+<td><p>Generate a random network using the duplication-divergence model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#corneto.data.util.generate_preferential_attachment_network" title="corneto.data.util.generate_preferential_attachment_network"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_preferential_attachment_network</span></code></a>(n, m)</p></td>
+<td><p>Generate a random network using the Barabasi-Albert preferential attachment model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#corneto.data.util.generate_random_duplication_divergence_signalling_network" title="corneto.data.util.generate_random_duplication_divergence_signalling_network"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_random_duplication_divergence_signalling_network</span></code></a>(n)</p></td>
+<td><p>Generate a random signaling network using the duplication-divergence model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#corneto.data.util.generate_random_signalling_network" title="corneto.data.util.generate_random_signalling_network"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_random_signalling_network</span></code></a>(n, m[, ...])</p></td>
 <td><p>Generate a random signaling network using a preferential attachment model.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <dl class="py function">
-<dt class="sig sig-object py" id="corneto.data.util.generate_random_signalling_network">
-<span class="sig-prename descclassname"><span class="pre">corneto.data.util.</span></span><span class="sig-name descname"><span class="pre">generate_random_signalling_network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_inhibitory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#corneto.data.util.generate_random_signalling_network" title="Link to this definition">#</a></dt>
-<dd><p>Generate a random signaling network using a preferential attachment model.</p>
-<p>Creates a network with biologically-inspired properties, where each edge represents
-a regulatory relationship (activation or inhibition) between genes or proteins.
-The network follows a scale-free topology commonly observed in biological systems.</p>
+<dt class="sig sig-object py" id="corneto.data.util.generate_preferential_attachment_network">
+<span class="sig-prename descclassname"><span class="pre">corneto.data.util.</span></span><span class="sig-name descname"><span class="pre">generate_preferential_attachment_network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#corneto.data.util.generate_preferential_attachment_network" title="Link to this definition">#</a></dt>
+<dd><p>Generate a random network using the Barabasi-Albert preferential attachment model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Total number of nodes in the network (must be greater than m).</p></li>
 <li><p><strong>m</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Number of edges each new node attaches with, controlling network density.</p></li>
-<li><p><strong>p_inhibitory</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>, </em><em>optional</em>) – Probability that an edge is inhibitory (-1), default is 0.3.
-Values closer to 0 create more activation-dominated networks.</p></li>
 <li><p><strong>seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em> or </em><em>None</em><em>, </em><em>optional</em>) – Random seed for reproducibility, default is None.</p></li>
+<li><p><strong>Returns</strong> – <dl class="simple">
+<dt>list of tuples</dt><dd><p>Each edge is represented as (source, target) where source and target
+are vertex labels like “v1”, “v2”, …</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>Notes</strong> – The algorithm implements a Barabasi-Albert preferential attachment model,
+which produces scale-free networks similar to those observed in biological
+systems. The initial network consists of a complete graph among the first
+m nodes.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Each edge is represented as (source, sign, target) where:
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="corneto.data.util.generate_duplication_divergence_network">
+<span class="sig-prename descclassname"><span class="pre">corneto.data.util.</span></span><span class="sig-name descname"><span class="pre">generate_duplication_divergence_network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_retain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#corneto.data.util.generate_duplication_divergence_network" title="Link to this definition">#</a></dt>
+<dd><p>Generate a random network using the duplication-divergence model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Total number of nodes in the network (n must be at least 2).</p></li>
+<li><p><strong>p_retain</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>, </em><em>optional</em>) – Probability to retain each edge during duplication (default is 0.3).</p></li>
+<li><p><strong>seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em> or </em><em>None</em><em>, </em><em>optional</em>) – Random seed for reproducibility (default is None).</p></li>
+<li><p><strong>Returns</strong> – <dl class="simple">
+<dt>list of tuples</dt><dd><p>Each edge is represented as (source, target) where source and target
+are vertex labels like “v1”, “v2”, …</p>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="corneto.data.util.generate_random_signalling_network">
+<span class="sig-prename descclassname"><span class="pre">corneto.data.util.</span></span><span class="sig-name descname"><span class="pre">generate_random_signalling_network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_inhibitory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#corneto.data.util.generate_random_signalling_network" title="Link to this definition">#</a></dt>
+<dd><p>Generate a random signaling network using a preferential attachment model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Total number of nodes in the network (must be greater than m).</p></li>
+<li><p><strong>m</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Number of edges each new node attaches with, controlling network density.</p></li>
+<li><p><strong>p_inhibitory</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>, </em><em>optional</em>) – Probability that an edge is inhibitory (-1), default is 0.3.</p></li>
+<li><p><strong>seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em> or </em><em>None</em><em>, </em><em>optional</em>) – Random seed for reproducibility.</p></li>
+<li><p><strong>Returns</strong> – <dl class="simple">
+<dt>list of tuples</dt><dd><p>Each edge is represented as (source, sign, target) where:
 - source and target are vertex labels like “v1”, “v2”, …
 - sign is -1 (inhibitory) or +1 (activation)</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)">list</a> of tuples</p>
-</dd>
 </dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">corneto.data.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_random_signalling_network</span>
+</p></li>
+<li><p><strong>Examples</strong> – <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">corneto.data.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_random_signalling_network</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Generate a small signaling network with 30% inhibitory edges</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">network</span> <span class="o">=</span> <span class="n">generate_random_signalling_network</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">p_inhibitory</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">network</span> <span class="o">=</span> <span class="n">generate_random_signalling_network</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">p_inhibitory</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span>
+<span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Generated </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">network</span><span class="p">)</span><span class="si">}</span><span class="s2"> edges&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Extract all inhibitory interactions</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inhibitory</span> <span class="o">=</span> <span class="p">[</span><span class="n">edge</span> <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">network</span> <span class="k">if</span> <span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Network has </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">inhibitory</span><span class="p">)</span><span class="si">}</span><span class="s2"> inhibitory relationships&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="rubric">Notes</p>
-<p>The algorithm implements a Barabási–Albert preferential attachment model,
-which produces scale-free networks similar to those observed in biological systems.
-The initial network consists of a complete graph among the first m nodes.</p>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="corneto.data.util.generate_random_duplication_divergence_signalling_network">
+<span class="sig-prename descclassname"><span class="pre">corneto.data.util.</span></span><span class="sig-name descname"><span class="pre">generate_random_duplication_divergence_signalling_network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_retain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_inhibitory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#corneto.data.util.generate_random_duplication_divergence_signalling_network" title="Link to this definition">#</a></dt>
+<dd><p>Generate a random signaling network using the duplication-divergence model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Total number of nodes in the network (n must be at least 2).</p></li>
+<li><p><strong>p_retain</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>, </em><em>optional</em>) – Probability to retain each edge during duplication (default is 0.3).</p></li>
+<li><p><strong>p_inhibitory</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>, </em><em>optional</em>) – Probability that an edge is inhibitory (-1), default is 0.3.</p></li>
+<li><p><strong>seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em> or </em><em>None</em><em>, </em><em>optional</em>) – Random seed for reproducibility.</p></li>
+<li><p><strong>Returns</strong> – <dl class="simple">
+<dt>list of tuples</dt><dd><p>Each edge is represented as (source, sign, target) where:
+- source and target are vertex labels like “v1”, “v2”, …
+- sign is -1 (inhibitory) or +1 (activation)</p>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -541,7 +625,10 @@ The initial network consists of a complete graph among the first m nodes.</p>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.data.util.generate_preferential_attachment_network"><code class="docutils literal notranslate"><span class="pre">generate_preferential_attachment_network</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.data.util.generate_duplication_divergence_network"><code class="docutils literal notranslate"><span class="pre">generate_duplication_divergence_network</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.data.util.generate_random_signalling_network"><code class="docutils literal notranslate"><span class="pre">generate_random_signalling_network</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.data.util.generate_random_duplication_divergence_signalling_network"><code class="docutils literal notranslate"><span class="pre">generate_random_duplication_divergence_signalling_network</span></code></a></li>
 </ul>
   </nav></div>
 

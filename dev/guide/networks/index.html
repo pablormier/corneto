@@ -45,6 +45,8 @@
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'guide/networks/index';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
@@ -58,7 +60,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Shortest paths" href="shortest-paths.html" />
-    <link rel="prev" title="Acyclic Flows" href="../intro/acyclic-flows.html" />
+    <link rel="prev" title="Constrained Optimization" href="../intro/constrained-optimization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -338,16 +340,18 @@
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../intro/index.html">Getting started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../intro/prior-knowledge.html">Prior Knowledge and Graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/data.html">Working with data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/constrained-optimization.html">Constrained Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../intro/multi-commodity-network-flows.html">Multi-commodity Network Flows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../intro/acyclic-flows.html">Acyclic Flows</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Network methods</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="shortest-paths.html">Shortest paths</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multi-sample-shortest-paths.html">Multi-sample shortest paths</a></li>
-<li class="toctree-l2"><a class="reference internal" href="steiner-trees.html">Steiner Trees (STs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pcst.html">Prize-Collecting Steiner Trees (PCSTs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-commodity-network-flows.html">Multi-commodity Network Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acyclic-flows.html">Acyclic Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="steiner-trees.html">Steiner trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pcst.html">Prize-Collecting Steiner Trees (PCST)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-pcst-grb.html">Multi-sample PCST</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../metabolism/index.html">Metabolism</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -449,12 +453,35 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multi-sample-shortest-paths.html">Multi-sample shortest paths</a></li>
-<li class="toctree-l1"><a class="reference internal" href="steiner-trees.html">Steiner Trees (STs)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="steiner-trees.html#heuristic-steiner-tree-from-networkx">Heuristic steiner tree from NetworkX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="steiner-trees.html#exact-steiner-trees-with-corneto">Exact Steiner Trees with CORNETO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multi-commodity-network-flows.html">Multi-commodity Network Flows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acyclic-flows.html">Acyclic Flows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="acyclic-flows.html#largest-dag-from-a-given-source-and-sink-vertex">Largest DAG from a given source and sink vertex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acyclic-flows.html#largest-dag-from-any-source-to-any-sink">Largest DAG from any source to any sink</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="pcst.html">Prize-Collecting Steiner Trees (PCSTs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="steiner-trees.html">Steiner trees</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="steiner-trees.html#what-are-steiner-trees">What are Steiner Trees?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="steiner-trees.html#how-corneto-solves-steiner-tree-problems">How CORNETO Solves Steiner Tree Problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="steiner-trees.html#key-features">Key Features:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="steiner-trees.html#importing-data-to-corneto">Importing data to CORNETO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="steiner-trees.html#solving-the-problem-with-the-exact-steiner-tree">Solving the problem with the exact steiner tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="steiner-trees.html#extracting-the-tree-and-plotting">Extracting the tree and plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="steiner-trees.html#directed">Directed</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pcst.html">Prize-Collecting Steiner Trees (PCST)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pcst.html#directed">Directed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pcst.html#select-a-specific-root-vertex">Select a specific root vertex</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multi-pcst-grb.html">Multi-sample PCST</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multi-pcst-grb.html#using-corneto">Using CORNETO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-pcst-grb.html#id1">Multi-sample PCST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-pcst-grb.html#testing-the-effect-of-lambda">Testing the effect of <span class="math notranslate nohighlight">\(\lambda\)</span></a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -470,12 +497,12 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../intro/acyclic-flows.html"
+       href="../intro/constrained-optimization.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Acyclic Flows</p>
+        <p class="prev-next-title">Constrained Optimization</p>
       </div>
     </a>
     <a class="right-next"

@@ -8,5 +8,8 @@
 
    .. autosummary::
    
+      generate_duplication_divergence_network
+      generate_preferential_attachment_network
+      generate_random_duplication_divergence_signalling_network
       generate_random_signalling_network
    

@@ -338,16 +338,18 @@
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../intro/index.html">Getting started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../intro/prior-knowledge.html">Prior Knowledge and Graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/data.html">Working with data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/constrained-optimization.html">Constrained Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../intro/multi-commodity-network-flows.html">Multi-commodity Network Flows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../intro/acyclic-flows.html">Acyclic Flows</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../networks/index.html">Network methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../networks/shortest-paths.html">Shortest paths</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../networks/multi-sample-shortest-paths.html">Multi-sample shortest paths</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../networks/steiner-trees.html">Steiner Trees (STs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../networks/pcst.html">Prize-Collecting Steiner Trees (PCSTs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networks/multi-commodity-network-flows.html">Multi-commodity Network Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networks/acyclic-flows.html">Acyclic Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networks/steiner-trees.html">Steiner trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networks/pcst.html">Prize-Collecting Steiner Trees (PCST)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networks/multi-pcst-grb.html">Multi-sample PCST</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../metabolism/index.html">Metabolism</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -553,12 +555,105 @@ Node 1 to node 4: Path: [1, 2, 3, 4] with total weight: 4
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shortest paths from node 1:
-Node 1 to node 1: Path: [1] with total weight: 0
-Node 1 to node 2: Path: [1, 2] with total weight: 1
-Node 1 to node 3: Path: [1, 2, 3] with total weight: 3
-Node 1 to node 5: Path: [1, 2, 3, 4, 5] with total weight: 7
-Node 1 to node 4: Path: [1, 2, 3, 4] with total weight: 4
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">corneto.contrib.networkx</span><span class="w"> </span><span class="kn">import</span> <span class="n">networkx</span> <span class="k">as</span> <span class="n">nxc</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># NOTE: everytime a corneto graph is passed to a networkx function, it is converted to a networkx graph</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Think about converting first the graph to a networkx graph and then using networkx functions for better performance</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">shortest_paths</span> <span class="o">=</span> <span class="n">nxc</span><span class="o">.</span><span class="n">single_source_dijkstra_path</span><span class="p">(</span><span class="n">Gc</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">shortest_path_lengths</span> <span class="o">=</span> <span class="n">nxc</span><span class="o">.</span><span class="n">single_source_dijkstra_path_length</span><span class="p">(</span><span class="n">Gc</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># Print the paths and their lengths</span>
+
+<span class="nn">File ~/work/corneto/corneto/corneto/contrib/networkx.py:149,</span> in <span class="ni">NetworkXWrapper.__getattr__.&lt;locals&gt;.wrapped</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">140</span> <span class="n">new_args</span> <span class="o">=</span> <span class="p">[</span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span>     <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span>         <span class="n">corneto_graph_to_networkx</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>     <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span> <span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span> <span class="c1"># Call the original NetworkX function with the possibly converted arguments</span>
+<span class="ne">--&gt; </span><span class="mi">149</span> <span class="k">return</span> <span class="n">original_attr</span><span class="p">(</span><span class="o">*</span><span class="n">new_args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File &lt;class &#39;networkx.utils.decorators.argmap&#39;&gt; compilation 4:3,</span> in <span class="ni">argmap_single_source_dijkstra_path_1</span><span class="nt">(G, source, cutoff, weight, backend, **backend_kwargs)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">bz2</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">gzip</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/networkx/utils/backends.py:967,</span> in <span class="ni">_dispatchable.__call__</span><span class="nt">(self, backend, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">965</span>     <span class="k">if</span> <span class="n">backend</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">backend</span> <span class="o">!=</span> <span class="s2">&quot;networkx&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">966</span>         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">backend</span><span class="si">}</span><span class="s2">&#39; backend is not installed&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">967</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">orig_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">969</span> <span class="c1"># Use `backend_name` in this function instead of `backend`.</span>
+<span class="g g-Whitespace">    </span><span class="mi">970</span> <span class="c1"># This is purely for aesthetics and to make it easier to search for this</span>
+<span class="g g-Whitespace">    </span><span class="mi">971</span> <span class="c1"># variable since &quot;backend&quot; is used in many comments and log/error messages.</span>
+<span class="g g-Whitespace">    </span><span class="mi">972</span> <span class="n">backend_name</span> <span class="o">=</span> <span class="n">backend</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/networkx/algorithms/shortest_paths/weighted.py:317,</span> in <span class="ni">single_source_dijkstra_path</span><span class="nt">(G, source, cutoff, weight)</span>
+<span class="g g-Whitespace">    </span><span class="mi">255</span> <span class="nd">@nx</span><span class="o">.</span><span class="n">_dispatchable</span><span class="p">(</span><span class="n">edge_attrs</span><span class="o">=</span><span class="s2">&quot;weight&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">256</span> <span class="k">def</span><span class="w"> </span><span class="nf">single_source_dijkstra_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;weight&quot;</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">257</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Find shortest weighted paths in G from a source node.</span>
+<span class="g g-Whitespace">    </span><span class="mi">258</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">259</span><span class="sd">     Compute shortest path between source and all other reachable</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">315</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">316</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">317</span>     <span class="k">return</span> <span class="n">multi_source_dijkstra_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="p">{</span><span class="n">source</span><span class="p">},</span> <span class="n">cutoff</span><span class="o">=</span><span class="n">cutoff</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">)</span>
+
+<span class="nn">File &lt;class &#39;networkx.utils.decorators.argmap&#39;&gt; compilation 8:3,</span> in <span class="ni">argmap_multi_source_dijkstra_path_5</span><span class="nt">(G, sources, cutoff, weight, backend, **backend_kwargs)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">bz2</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">gzip</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/networkx/utils/backends.py:967,</span> in <span class="ni">_dispatchable.__call__</span><span class="nt">(self, backend, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">965</span>     <span class="k">if</span> <span class="n">backend</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">backend</span> <span class="o">!=</span> <span class="s2">&quot;networkx&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">966</span>         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">backend</span><span class="si">}</span><span class="s2">&#39; backend is not installed&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">967</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">orig_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">969</span> <span class="c1"># Use `backend_name` in this function instead of `backend`.</span>
+<span class="g g-Whitespace">    </span><span class="mi">970</span> <span class="c1"># This is purely for aesthetics and to make it easier to search for this</span>
+<span class="g g-Whitespace">    </span><span class="mi">971</span> <span class="c1"># variable since &quot;backend&quot; is used in many comments and log/error messages.</span>
+<span class="g g-Whitespace">    </span><span class="mi">972</span> <span class="n">backend_name</span> <span class="o">=</span> <span class="n">backend</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/networkx/algorithms/shortest_paths/weighted.py:564,</span> in <span class="ni">multi_source_dijkstra_path</span><span class="nt">(G, sources, cutoff, weight)</span>
+<span class="g g-Whitespace">    </span><span class="mi">494</span> <span class="nd">@nx</span><span class="o">.</span><span class="n">_dispatchable</span><span class="p">(</span><span class="n">edge_attrs</span><span class="o">=</span><span class="s2">&quot;weight&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span> <span class="k">def</span><span class="w"> </span><span class="nf">multi_source_dijkstra_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;weight&quot;</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">496</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Find shortest weighted paths in G from a given set of source</span>
+<span class="g g-Whitespace">    </span><span class="mi">497</span><span class="sd">     nodes.</span>
+<span class="g g-Whitespace">    </span><span class="mi">498</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">562</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">563</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">564</span>     <span class="n">length</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="n">multi_source_dijkstra</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="n">cutoff</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">565</span>     <span class="k">return</span> <span class="n">path</span>
+
+<span class="nn">File &lt;class &#39;networkx.utils.decorators.argmap&#39;&gt; compilation 12:3,</span> in <span class="ni">argmap_multi_source_dijkstra_9</span><span class="nt">(G, sources, target, cutoff, weight, backend, **backend_kwargs)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">bz2</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">gzip</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/networkx/utils/backends.py:967,</span> in <span class="ni">_dispatchable.__call__</span><span class="nt">(self, backend, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">965</span>     <span class="k">if</span> <span class="n">backend</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">backend</span> <span class="o">!=</span> <span class="s2">&quot;networkx&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">966</span>         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">backend</span><span class="si">}</span><span class="s2">&#39; backend is not installed&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">967</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">orig_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">969</span> <span class="c1"># Use `backend_name` in this function instead of `backend`.</span>
+<span class="g g-Whitespace">    </span><span class="mi">970</span> <span class="c1"># This is purely for aesthetics and to make it easier to search for this</span>
+<span class="g g-Whitespace">    </span><span class="mi">971</span> <span class="c1"># variable since &quot;backend&quot; is used in many comments and log/error messages.</span>
+<span class="g g-Whitespace">    </span><span class="mi">972</span> <span class="n">backend_name</span> <span class="o">=</span> <span class="n">backend</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/corneto-lU1q7eKj-py3.11/lib/python3.11/site-packages/networkx/algorithms/shortest_paths/weighted.py:753,</span> in <span class="ni">multi_source_dijkstra</span><span class="nt">(G, sources, target, cutoff, weight)</span>
+<span class="g g-Whitespace">    </span><span class="mi">751</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;sources must not be empty&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">752</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sources</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">753</span>     <span class="k">if</span> <span class="n">s</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">G</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">754</span>         <span class="k">raise</span> <span class="n">nx</span><span class="o">.</span><span class="n">NodeNotFound</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Node </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2"> not found in graph&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">755</span> <span class="k">if</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">sources</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: argument of type &#39;Graph&#39; is not iterable
 </pre></div>
 </div>
 </div>
@@ -574,7 +669,7 @@ Node 1 to node 4: Path: [1, 2, 3, 4] with total weight: 4
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/25dad3b2c5be1f1cff7e8ab23198a801ebaa30df366d4d32ff39bd56236ab5af.svg" src="../../_images/25dad3b2c5be1f1cff7e8ab23198a801ebaa30df366d4d32ff39bd56236ab5af.svg" />
+<img alt="../../_images/37e72c55bfc3c02971ad367850e2c66ec469b599e42e19e920590ba83a2f5b2b.svg" src="../../_images/37e72c55bfc3c02971ad367850e2c66ec469b599e42e19e920590ba83a2f5b2b.svg" />
 </div>
 </div>
 <div class="cell docutils container">

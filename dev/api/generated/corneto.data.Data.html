@@ -359,6 +359,14 @@
 <li class="toctree-l2"><a class="reference internal" href="corneto.io.load_graph_from_sif_tuples.html">corneto.io.load_graph_from_sif_tuples</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../corneto.graph.html">Graph module (<code class="xref py py-mod docutils literal notranslate"><span class="pre">corneto.graph</span></code>)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="corneto.graph.BaseGraph.html">corneto.graph.BaseGraph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="corneto.graph.Graph.html">corneto.graph.Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="corneto.graph.EdgeType.html">corneto.graph.EdgeType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="corneto.graph.duplication_divergence_network.html">corneto.graph.duplication_divergence_network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="corneto.graph.preferential_attachment_network.html">corneto.graph.preferential_attachment_network</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../corneto.methods.html">Network inference (<code class="xref py py-mod docutils literal notranslate"><span class="pre">corneto.methods.future</span></code>)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="corneto.methods.future.CarnivalFlow.html">corneto.methods.future.CarnivalFlow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="corneto.methods.future.CarnivalILP.html">corneto.methods.future.CarnivalILP</a></li>
@@ -493,6 +501,12 @@ data formats such as dictionaries and tight formats.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#corneto.data.Data.delete_sample" title="corneto.data.Data.delete_sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">delete_sample</span></code></a>(sample_id)</p></td>
 <td><p>Delete a sample from the dataset by its ID.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#corneto.data.Data.filter" title="corneto.data.Data.filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter</span></code></a>(predicate)</p></td>
+<td><p>Filter features across all samples based on a predicate function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#corneto.data.Data.filter_by" title="corneto.data.Data.filter_by"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_by</span></code></a>(key, value)</p></td>
+<td><p>Filter features across all samples that have metadata matching the given key and value.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#corneto.data.Data.filter_samples" title="corneto.data.Data.filter_samples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_samples</span></code></a>(predicate)</p></td>
 <td><p>Filter samples based on a predicate function.</p></td>
 </tr>
@@ -606,6 +620,82 @@ mapping feature names to feature data.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
 <span class="go">Dataset(num_samples=2)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corneto.data.Data.filter">
+<span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predicate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#corneto.data.Data.filter" title="Link to this definition">#</a></dt>
+<dd><p>Filter features across all samples based on a predicate function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>predicate</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><em>Any</em><em>]</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>]</em>) – A function that takes a sample ID,
+feature name, and feature value, returning True if the feature should be included.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A new Data instance containing only the features that satisfy the predicate,</dt><dd><p>with empty samples excluded.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#corneto.data.Data" title="corneto.data.Data">Data</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span>
+<span class="gp">... </span>    <span class="s2">&quot;cell1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;TP53&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;BRCA1&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span>
+<span class="gp">... </span>    <span class="s2">&quot;cell2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;TP53&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;EGFR&quot;</span><span class="p">:</span> <span class="mf">1.2</span><span class="p">},</span>
+<span class="gp">... </span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filtered</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">sid</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">fvalue</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fvalue</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span> <span class="ow">and</span> <span class="n">fvalue</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filtered</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cell1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">features</span>
+<span class="go">{&#39;BRCA1&#39;: 0.5}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filtered</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cell2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">features</span>
+<span class="go">{&#39;EGFR&#39;: 1.2}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corneto.data.Data.filter_by">
+<span class="sig-name descname"><span class="pre">filter_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#corneto.data.Data.filter_by" title="Link to this definition">#</a></dt>
+<dd><p>Filter features across all samples that have metadata matching the given key and value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – The metadata key to filter by.</p></li>
+<li><p><strong>value</strong> (<em>Any</em>) – The value that the metadata key should match.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A new Data instance containing only the features with matching metadata,</dt><dd><p>with empty samples excluded.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#corneto.data.Data" title="corneto.data.Data">Data</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span>
+<span class="gp">... </span>    <span class="s2">&quot;cell1&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>        <span class="s2">&quot;TP53&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;tumor_suppressor&quot;</span><span class="p">},</span>
+<span class="gp">... </span>        <span class="s2">&quot;EGFR&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;oncogene&quot;</span><span class="p">}</span>
+<span class="gp">... </span>    <span class="p">},</span>
+<span class="gp">... </span>    <span class="s2">&quot;cell2&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>        <span class="s2">&quot;KRAS&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1.2</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;oncogene&quot;</span><span class="p">},</span>
+<span class="gp">... </span>        <span class="s2">&quot;BRCA1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;tumor_suppressor&quot;</span><span class="p">}</span>
+<span class="gp">... </span>    <span class="p">}</span>
+<span class="gp">... </span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filtered</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;oncogene&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filtered</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cell1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">features</span>
+<span class="go">{&#39;EGFR&#39;: {&#39;value&#39;: 0.8, &#39;type&#39;: &#39;oncogene&#39;}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filtered</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cell2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">features</span>
+<span class="go">{&#39;KRAS&#39;: {&#39;value&#39;: 1.2, &#39;type&#39;: &#39;oncogene&#39;}}</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1006,6 +1096,8 @@ sample IDs to sets of features, depending on the <cite>by_sample</cite> flag.</p
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.data.Data.__init__"><code class="docutils literal notranslate"><span class="pre">Data.__init__</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.data.Data.add_sample"><code class="docutils literal notranslate"><span class="pre">Data.add_sample</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.data.Data.from_dict"><code class="docutils literal notranslate"><span class="pre">Data.from_dict</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.data.Data.filter"><code class="docutils literal notranslate"><span class="pre">Data.filter</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.data.Data.filter_by"><code class="docutils literal notranslate"><span class="pre">Data.filter_by</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.data.Data.subset_features"><code class="docutils literal notranslate"><span class="pre">Data.subset_features</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.data.Data.to_tight_format"><code class="docutils literal notranslate"><span class="pre">Data.to_tight_format</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.data.Data.from_tight_format"><code class="docutils literal notranslate"><span class="pre">Data.from_tight_format</span></code></a></li>
