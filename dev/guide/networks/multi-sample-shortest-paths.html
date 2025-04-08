@@ -339,6 +339,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../intro/index.html">Getting started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../intro/prior-knowledge.html">Prior Knowledge and Graphs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/data.html">Working with data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/plotting.html">Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/constrained-optimization.html">Constrained Optimization</a></li>
 </ul>
 </details></li>
@@ -362,13 +363,10 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../signaling/index.html">Signaling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../signaling/carnival.html">CARNIVAL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../signaling/multicondition-carnival.html">Multi-condition CARNIVAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../signaling/multisample-carnival.html">Multi-sample CARNIVAL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../signaling/cellnopt_ILP.html">Acyclic boolean models of cell signaling (experimental)</a></li>
 
 
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../interactomics/index.html">Interactomics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../interoperability/index.html">Interoperability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -608,7 +606,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;SCIPY&quot;</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;scipy&quot;</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -617,33 +615,33 @@
                                      CVXPY                                     
                                      v1.6.4                                    
 ===============================================================================
-(CVXPY) Apr 07 09:32:48 AM: Your problem has 51 variables, 126 constraints, and 0 parameters.
-(CVXPY) Apr 07 09:32:48 AM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Apr 07 09:32:48 AM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
-(CVXPY) Apr 07 09:32:48 AM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Apr 07 09:32:48 AM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Apr 08 09:14:24 AM: Your problem has 51 variables, 126 constraints, and 0 parameters.
+(CVXPY) Apr 08 09:14:24 AM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Apr 08 09:14:24 AM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) Apr 08 09:14:24 AM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Apr 08 09:14:24 AM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Apr 07 09:32:48 AM: Compiling problem (target solver=SCIPY).
-(CVXPY) Apr 07 09:32:48 AM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIPY
-(CVXPY) Apr 07 09:32:48 AM: Applying reduction Dcp2Cone
-(CVXPY) Apr 07 09:32:48 AM: Applying reduction CvxAttr2Constr
-(CVXPY) Apr 07 09:32:48 AM: Applying reduction ConeMatrixStuffing
-(CVXPY) Apr 07 09:32:48 AM: Applying reduction SCIPY
-(CVXPY) Apr 07 09:32:48 AM: Finished problem compilation (took 1.202e-02 seconds).
+(CVXPY) Apr 08 09:14:24 AM: Compiling problem (target solver=SCIPY).
+(CVXPY) Apr 08 09:14:24 AM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIPY
+(CVXPY) Apr 08 09:14:24 AM: Applying reduction Dcp2Cone
+(CVXPY) Apr 08 09:14:24 AM: Applying reduction CvxAttr2Constr
+(CVXPY) Apr 08 09:14:24 AM: Applying reduction ConeMatrixStuffing
+(CVXPY) Apr 08 09:14:24 AM: Applying reduction SCIPY
+(CVXPY) Apr 08 09:14:24 AM: Finished problem compilation (took 1.215e-02 seconds).
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Apr 07 09:32:48 AM: Invoking solver SCIPY  to obtain a solution.
+(CVXPY) Apr 08 09:14:24 AM: Invoking solver SCIPY  to obtain a solution.
 Solver terminated with message: Optimization terminated successfully. (HiGHS Status 7: Optimal)
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Apr 07 09:32:48 AM: Problem status: optimal
-(CVXPY) Apr 07 09:32:48 AM: Optimal value: 3.705e+01
-(CVXPY) Apr 07 09:32:48 AM: Compilation took 1.202e-02 seconds
-(CVXPY) Apr 07 09:32:48 AM: Solver (including time spent in interface) took 1.587e-03 seconds
+(CVXPY) Apr 08 09:14:24 AM: Problem status: optimal
+(CVXPY) Apr 08 09:14:24 AM: Optimal value: 3.705e+01
+(CVXPY) Apr 08 09:14:24 AM: Compilation took 1.215e-02 seconds
+(CVXPY) Apr 08 09:14:24 AM: Solver (including time spent in interface) took 1.605e-03 seconds
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Problem(Minimize(Expression(AFFINE, UNKNOWN, ())), [Inequality(Constant(CONSTANT, ZERO, (17, 2))), Inequality(Variable((17, 2), _flow)), Equality(Expression(AFFINE, UNKNOWN, (8, 2)), Constant(CONSTANT, ZERO, ())), Equality(Expression(AFFINE, UNKNOWN, (2,)), Constant(CONSTANT, NONNEGATIVE, ())), Equality(Expression(AFFINE, UNKNOWN, (2,)), Constant(CONSTANT, NONNEGATIVE, ())), Equality(Expression(AFFINE, UNKNOWN, (2,)), Constant(CONSTANT, NONNEGATIVE, ())), Equality(Expression(AFFINE, UNKNOWN, (2,)), Constant(CONSTANT, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, (17,))), Inequality(Variable((17,), active_edge, boolean=True))])

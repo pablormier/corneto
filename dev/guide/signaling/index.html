@@ -339,6 +339,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../intro/index.html">Getting started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../intro/prior-knowledge.html">Prior Knowledge and Graphs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/data.html">Working with data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/plotting.html">Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/constrained-optimization.html">Constrained Optimization</a></li>
 </ul>
 </details></li>
@@ -362,13 +363,10 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Signaling</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="carnival.html">CARNIVAL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multicondition-carnival.html">Multi-condition CARNIVAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisample-carnival.html">Multi-sample CARNIVAL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cellnopt_ILP.html">Acyclic boolean models of cell signaling (experimental)</a></li>
 
 
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../interactomics/index.html">Interactomics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../interoperability/index.html">Interoperability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -447,10 +445,19 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="carnival.html">CARNIVAL</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="carnival.html#a-toy-example">A toy example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="carnival.html#creating-a-toy-example">Creating a toy example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="carnival.html#carnivalflow">CarnivalFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="carnival.html#carnival-ilp">Carnival ILP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="carnival.html#old-implementation">Old implementation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="multicondition-carnival.html">Multi-condition CARNIVAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multisample-carnival.html">Multi-sample CARNIVAL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multisample-carnival.html#toy-example">Toy example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisample-carnival.html#id1">Multi-sample CARNIVAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisample-carnival.html#plotting-solutions-on-top-of-the-pkn">Plotting solutions on top of the PKN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisample-carnival.html#single-sample-using-the-same-multi-sample-method">Single sample using the same multi-sample method</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="cellnopt_ILP.html">Acyclic boolean models of cell signaling (experimental)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cellnopt_ILP.html#introduction-to-a-boolean-model">Introduction to a Boolean model</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cellnopt_ILP.html#inhibition-egf-activates-ras">Inhibition: !EGF activates RAS</a></li>

@@ -343,6 +343,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../intro/index.html">Getting started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../intro/prior-knowledge.html">Prior Knowledge and Graphs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/data.html">Working with data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/plotting.html">Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/constrained-optimization.html">Constrained Optimization</a></li>
 </ul>
 </details></li>
@@ -366,13 +367,10 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../signaling/index.html">Signaling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../signaling/carnival.html">CARNIVAL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../signaling/multicondition-carnival.html">Multi-condition CARNIVAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../signaling/multisample-carnival.html">Multi-sample CARNIVAL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../signaling/cellnopt_ILP.html">Acyclic boolean models of cell signaling (experimental)</a></li>
 
 
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../interactomics/index.html">Interactomics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../interoperability/index.html">Interoperability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -506,7 +504,7 @@
             </td>
             <td>
             <table>
-                <tr><td>Installed version:</td><td style='text-align:left'>v1.0.0.dev5 (latest stable: v1.0.0-alpha)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.4, PICOS v2.6.0</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CVXOPT, GLPK, GLPK_MI, HIGHS, SCIP, SCIPY</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/home/runner/work/corneto/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
+                <tr><td>Installed version:</td><td style='text-align:left'>v1.0.0.dev5 (latest stable: v1.0.0-alpha)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.4, PICOS v2.6.0</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CLARABEL, CVXOPT, GLOP, GLPK, GLPK_MI, GUROBI, HIGHS, OSQP, PDLP, SCIP, SCIPY, SCS</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/Users/pablorodriguezmier/Documents/work/repos/pablormier/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
             </table>
             </td>
         </tr>
@@ -590,7 +588,7 @@ Total cost of the Steiner tree: 46.7653
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ccc620bec9a839df25f154e4e46d37ec31ee47dc0533b8c1b0dc76d1ea7987f7.png" src="../../_images/ccc620bec9a839df25f154e4e46d37ec31ee47dc0533b8c1b0dc76d1ea7987f7.png" />
+<img alt="../../_images/c7b89511c62f073ffbdc8c17130532093f38148b229d5a1e959a06049f2b6f8c.png" src="../../_images/c7b89511c62f073ffbdc8c17130532093f38148b229d5a1e959a06049f2b6f8c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -690,8 +688,8 @@ Total cost of the Steiner tree: 46.7653
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_flow&#39;: Variable((521,), _flow),
- &#39;_flow_ipos&#39;: Variable((521,), _flow_ipos, boolean=True),
  &#39;_flow_ineg&#39;: Variable((521,), _flow_ineg, boolean=True),
+ &#39;_flow_ipos&#39;: Variable((521,), _flow_ipos, boolean=True),
  &#39;_dag_layer&#39;: Variable((100, 1), _dag_layer),
  &#39;flow&#39;: Variable((521,), _flow),
  &#39;with_flow&#39;: Expression(AFFINE, NONNEGATIVE, (521,))}
@@ -710,7 +708,7 @@ Total cost of the Steiner tree: 46.7653
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35.85180933414298
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35.85180933414297
 28.0
 </pre></div>
 </div>
@@ -728,7 +726,7 @@ Total cost of the Steiner tree: 46.7653
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0224a837a52ae24de75cf31795b296cc76402ca3830d9e2a7491a2a52e0cb7b5.svg" src="../../_images/0224a837a52ae24de75cf31795b296cc76402ca3830d9e2a7491a2a52e0cb7b5.svg" />
+<img alt="../../_images/c4972bf202b1a14529f47978506b5e0db26ce7555fe7e3a85531f0c0c03f2f99.svg" src="../../_images/c4972bf202b1a14529f47978506b5e0db26ce7555fe7e3a85531f0c0c03f2f99.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -779,7 +777,7 @@ Total cost of the Steiner tree: 46.7653
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/742671679fa2c9bb7f02dbd6e0fcaea667c0da8c4c60731d59cedffdc2d451c6.png" src="../../_images/742671679fa2c9bb7f02dbd6e0fcaea667c0da8c4c60731d59cedffdc2d451c6.png" />
+<img alt="../../_images/dcc930f20736ca508393498d1a089c84d57275366802a0dd34e1aa9353d996b0.png" src="../../_images/dcc930f20736ca508393498d1a089c84d57275366802a0dd34e1aa9353d996b0.png" />
 </div>
 </div>
 </section>
@@ -824,8 +822,8 @@ Total cost of the Steiner tree: 46.7653
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35.851809334141144
-27.999999999998657
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35.85180933414286
+28.000000000000142
 </pre></div>
 </div>
 </div>
@@ -838,7 +836,7 @@ Total cost of the Steiner tree: 46.7653
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9b98a5585a7d48f1f0c10a4268109d2408264ecb513ed7725bbe3c82b7807cbd.svg" src="../../_images/9b98a5585a7d48f1f0c10a4268109d2408264ecb513ed7725bbe3c82b7807cbd.svg" />
+<img alt="../../_images/f2d5508c0c8da571d83c8ccccf3a7da3e8951ea534ad5bba7d54a80a9434ca01.svg" src="../../_images/f2d5508c0c8da571d83c8ccccf3a7da3e8951ea534ad5bba7d54a80a9434ca01.svg" />
 </div>
 </div>
 <div class="cell docutils container">

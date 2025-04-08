@@ -57,7 +57,7 @@
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Multi-condition CARNIVAL" href="multicondition-carnival.html" />
+    <link rel="next" title="Multi-sample CARNIVAL" href="multisample-carnival.html" />
     <link rel="prev" title="Signaling" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -343,6 +343,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../intro/index.html">Getting started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../intro/prior-knowledge.html">Prior Knowledge and Graphs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/data.html">Working with data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/plotting.html">Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/constrained-optimization.html">Constrained Optimization</a></li>
 </ul>
 </details></li>
@@ -366,13 +367,10 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Signaling</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">CARNIVAL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multicondition-carnival.html">Multi-condition CARNIVAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisample-carnival.html">Multi-sample CARNIVAL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cellnopt_ILP.html">Acyclic boolean models of cell signaling (experimental)</a></li>
 
 
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../interactomics/index.html">Interactomics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../interoperability/index.html">Interoperability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -469,6 +467,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">corneto</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cn</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">cn</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
@@ -489,8 +488,8 @@
         </tr>
         </table></div></div>
 </div>
-<section id="a-toy-example">
-<h2>A toy example<a class="headerlink" href="#a-toy-example" title="Link to this heading">#</a></h2>
+<section id="creating-a-toy-example">
+<h2>Creating a toy example<a class="headerlink" href="#creating-a-toy-example" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corneto.graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">Graph</span>
@@ -523,6 +522,7 @@
         <span class="p">(</span><span class="s2">&quot;tf1&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">)</span>
     <span class="p">]</span>
 <span class="p">)</span>
+<span class="c1"># Plot our PKN</span>
 <span class="n">G</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -534,135 +534,67 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corneto.methods.future.carnival</span><span class="w"> </span><span class="kn">import</span> <span class="n">CarnivalFlow</span><span class="p">,</span> <span class="n">CarnivalILP</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">corneto.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">Data</span>
 
 <span class="n">samples</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;c1&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;input_example&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">&quot;rec2&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span>
+            <span class="s2">&quot;mapping&quot;</span><span class="p">:</span> <span class="s2">&quot;vertex&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span>
         <span class="p">},</span>
         <span class="s2">&quot;tf1&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+            <span class="s2">&quot;mapping&quot;</span><span class="p">:</span> <span class="s2">&quot;vertex&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
         <span class="p">},</span>
         <span class="s2">&quot;tf2&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;c2&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;rec1&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;rec2&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;tf1&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;tf2&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;tf3&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
+            <span class="s2">&quot;mapping&quot;</span><span class="p">:</span> <span class="s2">&quot;vertex&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">cn</span><span class="o">.</span><span class="n">Data</span><span class="o">.</span><span class="n">from_cdict</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
 <span class="n">data</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset(num_samples=2)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data(n_samples=1, n_feats=[3])
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="carnivalflow">
+<h2>CarnivalFlow<a class="headerlink" href="#carnivalflow" title="Link to this heading">#</a></h2>
+<p>Carnival Flow is a generalization of Carnival for multi-samples, using the structured sparsity inducing penalty to regularize solutions taking into account multiple samples. However, in the single sample case, it is equivalent to the original Carnival, although using a complete different formulation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">CarnivalFlow</span><span class="p">(</span><span class="n">lambda_reg</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">CarnivalFlow</span><span class="p">(</span><span class="n">lambda_reg</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
 <span class="n">P</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-<span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;SCIP&quot;</span><span class="p">);</span>
+<span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;scipy&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">P</span><span class="o">.</span><span class="n">objectives</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+<span class="n">c</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">edge_subgraph</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">edge_has_signal</span><span class="o">.</span><span class="n">value</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">c</span> <span class="o">=</span> <span class="n">CarnivalFlow</span><span class="p">(</span><span class="n">lambda_reg</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">P</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;SCIP&quot;</span><span class="p">);</span>
-
-<span class="nn">File ~/work/corneto/corneto/corneto/methods/future/method.py:95,</span> in <span class="ni">Method.build</span><span class="nt">(self, graph, data)</span>
-<span class="g g-Whitespace">     </span><span class="mi">77</span> <span class="k">def</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">BaseGraph</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ProblemDef</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">78</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Build the complete optimization problem.</span>
-<span class="g g-Whitespace">     </span><span class="mi">79</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">80</span><span class="sd">     The process involves:</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">93</span><span class="sd">         ValueError: If lambda_reg &gt; 0 but no regularization variable name is provided.</span>
-<span class="g g-Whitespace">     </span><span class="mi">94</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">95</span>     <span class="bp">self</span><span class="o">.</span><span class="n">processed_graph</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">processed_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="bp">self</span><span class="o">.</span><span class="n">problem</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_problem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">processed_graph</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">processed_data</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="c1"># Add structured sparsity regularization if needed.</span>
-
-<span class="nn">File ~/work/corneto/corneto/corneto/methods/future/carnival.py:190,</span> in <span class="ni">CarnivalFlow.preprocess</span><span class="nt">(self, graph, data)</span>
-<span class="g g-Whitespace">    </span><span class="mi">174</span> <span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">BaseGraph</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">BaseGraph</span><span class="p">,</span> <span class="n">Data</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">175</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Preprocess the input graph and dataset before optimization.</span>
-<span class="g g-Whitespace">    </span><span class="mi">176</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">177</span><span class="sd">     This method performs two main preprocessing steps:</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">188</span><span class="sd">             - The preprocessed dataset with standardized format</span>
-<span class="g g-Whitespace">    </span><span class="mi">189</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">190</span>     <span class="n">pruned_graph</span><span class="p">,</span> <span class="n">pruned_data</span> <span class="o">=</span> <span class="n">prune_graph</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">191</span>         <span class="n">graph</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_type_key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_input_key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_output_key</span>
-<span class="g g-Whitespace">    </span><span class="mi">192</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">194</span>     <span class="c1"># We use the inputs/outputs of the dataset to expand the graph into a flow graph</span>
-<span class="g g-Whitespace">    </span><span class="mi">195</span>     <span class="c1"># inputs = pruned_data.collect_features(self.data_type_key, self.data_input_key)</span>
-<span class="g g-Whitespace">    </span><span class="mi">196</span>     <span class="c1"># outputs = pruned_data.collect_features(self.data_type_key, self.data_output_key)</span>
-<span class="g g-Whitespace">    </span><span class="mi">197</span>     <span class="n">inputs</span> <span class="o">=</span> <span class="n">pruned_data</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_features</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">198</span>         <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_type_key</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_input_key</span>
-<span class="g g-Whitespace">    </span><span class="mi">199</span>     <span class="p">)</span><span class="o">.</span><span class="n">pluck_features</span><span class="p">()</span>
-
-<span class="nn">File ~/work/corneto/corneto/corneto/methods/future/carnival.py:66,</span> in <span class="ni">prune_graph</span><span class="nt">(G, data, property_key, input_key, output_key)</span>
-<span class="g g-Whitespace">     </span><span class="mi">63</span> <span class="n">reachable_inputs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">64</span> <span class="n">reachable_outputs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">66</span> <span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-<span class="g g-Whitespace">     </span><span class="mi">67</span>     <span class="n">sample_inputs</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">68</span>         <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">property_key</span><span class="p">]</span> <span class="o">==</span> <span class="n">input_key</span>
-<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="p">)</span><span class="o">.</span><span class="n">pluck</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">71</span>     <span class="n">sample_outputs</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">72</span>         <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">property_key</span><span class="p">]</span> <span class="o">==</span> <span class="n">output_key</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="p">)</span><span class="o">.</span><span class="n">pluck</span><span class="p">()</span>
-
-<span class="ne">AttributeError</span>: &#39;Data&#39; object has no attribute &#39;samples&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unreachable vertices for sample: 0
+0.0
+5.0
 </pre></div>
 </div>
+<img alt="../../_images/f241de182f9f6b73e736b744d931f928b2f4274204a15fe91d745cf9008fa499.svg" src="../../_images/f241de182f9f6b73e736b744d931f928b2f4274204a15fe91d745cf9008fa499.svg" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/8eff5cede451dab692853651d02dc8481faadbd9d67c6b29f38c1bbd029e91aa.svg" src="../../_images/8eff5cede451dab692853651d02dc8481faadbd9d67c6b29f38c1bbd029e91aa.svg" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-
-<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">edge_value</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">E</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;condition_1&quot;</span><span class="p">,</span> <span class="s2">&quot;condition_2&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract the values from the problem</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">edge_value</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">E</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;edge_activity&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -686,8 +618,7 @@
     <tr style="text-align: right;">
       <th></th>
       <th></th>
-      <th>condition_1</th>
-      <th>condition_2</th>
+      <th>edge_activity</th>
     </tr>
   </thead>
   <tbody>
@@ -695,153 +626,114 @@
       <th rowspan="3" valign="top">(rec1)</th>
       <th>(a)</th>
       <td>1</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>(b)</th>
       <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>(c)</th>
-      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th rowspan="2" valign="top">(rec2)</th>
       <th>(b)</th>
       <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>(tf2)</th>
       <td>1</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>(b)</th>
       <th>(g)</th>
       <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>(g)</th>
       <th>(d)</th>
       <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>(rec2)</th>
       <th>(d)</th>
-      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th rowspan="2" valign="top">(a)</th>
       <th>(c)</th>
       <td>0</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>(d)</th>
       <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
-      <th rowspan="3" valign="top">(c)</th>
+      <th rowspan="2" valign="top">(c)</th>
       <th>(d)</th>
-      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>(e)</th>
       <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>(tf3)</th>
-      <td>0</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>(e)</th>
       <th>(a)</th>
-      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>(d)</th>
       <th>(c)</th>
       <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>(e)</th>
       <th>(tf1)</th>
-      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>(a)</th>
       <th>(tf1)</th>
       <td>-1</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>(d)</th>
       <th>(tf2)</th>
-      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>(c)</th>
       <th>(tf2)</th>
       <td>0</td>
-      <td>-1</td>
     </tr>
     <tr>
       <th rowspan="2" valign="top">(tf1)</th>
       <th>(tf2)</th>
       <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>(rec2)</th>
       <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">(tf2)</th>
+      <th>(tf2)</th>
       <th>(rec1)</th>
       <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>()</th>
-      <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>(tf1)</th>
       <th>()</th>
       <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
-      <th>(tf3)</th>
+      <th>(tf2)</th>
       <th>()</th>
       <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">()</th>
+      <th>()</th>
       <th>(rec2)</th>
-      <td>1</td>
-      <td>-1</td>
-    </tr>
-    <tr>
-      <th>(rec1)</th>
-      <td>0</td>
       <td>1</td>
     </tr>
   </tbody>
@@ -850,129 +742,102 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">edge_subgraph</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">edge_has_signal</span><span class="o">.</span><span class="n">value</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]))</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">vertex_value</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">V</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;node_activity&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2e3531b3d620d32c3a37001152862cc57fc45807838f601f555ea27149036518.svg" src="../../_images/2e3531b3d620d32c3a37001152862cc57fc45807838f601f555ea27149036518.svg" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">P</span><span class="o">.</span><span class="n">objectives</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
-1.0
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dd</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="s2">&quot;c1&quot;</span><span class="p">:</span> <span class="n">samples</span><span class="p">[</span><span class="s2">&quot;c1&quot;</span><span class="p">]})</span>
-<span class="n">dd</span><span class="o">.</span><span class="n">to_sample_value_dict</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;c1&#39;: {&#39;rec2&#39;: {&#39;value&#39;: 1, &#39;type&#39;: &#39;input&#39;},
-  &#39;tf1&#39;: {&#39;value&#39;: -2, &#39;type&#39;: &#39;output&#39;},
-  &#39;tf2&#39;: {&#39;value&#39;: 1, &#39;type&#39;: &#39;output&#39;}}}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;c1&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Sample({&#39;rec2&#39;: {&#39;value&#39;: 1, &#39;type&#39;: &#39;input&#39;}, &#39;tf1&#39;: {&#39;value&#39;: -2, &#39;type&#39;: &#39;output&#39;}, &#39;tf2&#39;: {&#39;value&#39;: 1, &#39;type&#39;: &#39;output&#39;}})]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">CarnivalILP</span><span class="p">(</span><span class="n">beta_weight</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">disable_acyclicity</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">P</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">dd</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Sample({&#39;rec2&#39;: {&#39;value&#39;: 1, &#39;type&#39;: &#39;input&#39;}, &#39;tf1&#39;: {&#39;value&#39;: -2, &#39;type&#39;: &#39;output&#39;}, &#39;tf2&#39;: {&#39;value&#39;: 1, &#39;type&#39;: &#39;output&#39;}})]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;SCIP&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">P</span><span class="o">.</span><span class="n">objectives</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">edge_subgraph</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">edge_values</span><span class="o">.</span><span class="n">value</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/a80801abef8ef815dcd11c6fbfe6a1289daf4844eacf2df89a62101cf8439a8e.svg" src="../../_images/a80801abef8ef815dcd11c6fbfe6a1289daf4844eacf2df89a62101cf8439a8e.svg" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corneto.methods.carnival</span><span class="w"> </span><span class="kn">import</span> <span class="n">milp_carnival</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="n">P</span> <span class="o">=</span> <span class="n">milp_carnival</span><span class="p">(</span>
-    <span class="n">c</span><span class="o">.</span><span class="n">processed_graph</span><span class="p">,</span>
-    <span class="p">{</span><span class="s2">&quot;rec2&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
-    <span class="p">{</span><span class="s2">&quot;tf1&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;tf2&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
-    <span class="n">beta_weight</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
-    <span class="n">disable_acyclicity</span><span class="o">=</span><span class="kc">True</span>
-<span class="p">)</span> 
-<span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;SCIP&quot;</span><span class="p">);</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>node_activity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>d</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>g</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>tf1</th>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>tf2</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>rec1</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>rec2</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">plot_values</span><span class="p">(</span><span class="n">vertex_values</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">vertex_value</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">edge_values</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">edge_value</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/927af6e56fd0d5d4008258bf4b982417ab8170c87cc18777a8b220c821654148.svg" src="../../_images/927af6e56fd0d5d4008258bf4b982417ab8170c87cc18777a8b220c821654148.svg" />
+</div>
+</div>
+</section>
+<section id="carnival-ilp">
+<h2>Carnival ILP<a class="headerlink" href="#carnival-ilp" title="Link to this heading">#</a></h2>
+<p>For completion, we have a version of the original Carnival that is not based on the modern formulation of CarnivalFlow, cannot be used for multi-samples, and is slower for larger problems.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">CarnivalILP</span><span class="p">(</span><span class="n">beta_weight</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;scipy&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -998,14 +863,267 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1f27e1163038d19c8bacd3acc6adb21830bacd9ce0949d7cbcbf5c742883c977.svg" src="../../_images/1f27e1163038d19c8bacd3acc6adb21830bacd9ce0949d7cbcbf5c742883c977.svg" />
+<img alt="../../_images/c2166b50249596243db423aedb6642b73bf1c272aabc556f4d5f57e3abac2c4c.svg" src="../../_images/c2166b50249596243db423aedb6642b73bf1c272aabc556f4d5f57e3abac2c4c.svg" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Graph.from_tuples(edge_list).plot()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract the values from the problem</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">edge_values</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">E</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;edge_activity&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>edge_activity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">(rec1)</th>
+      <th>(a)</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>(b)</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>(c)</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">(rec2)</th>
+      <th>(b)</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>(tf2)</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>(b)</th>
+      <th>(g)</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>(g)</th>
+      <th>(d)</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>(rec2)</th>
+      <th>(d)</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">(a)</th>
+      <th>(c)</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>(d)</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">(c)</th>
+      <th>(d)</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>(e)</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>(e)</th>
+      <th>(a)</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>(d)</th>
+      <th>(c)</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>(e)</th>
+      <th>(tf1)</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>(a)</th>
+      <th>(tf1)</th>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>(d)</th>
+      <th>(tf2)</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>(c)</th>
+      <th>(tf2)</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">(tf1)</th>
+      <th>(tf2)</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>(rec2)</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>(tf2)</th>
+      <th>(rec1)</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">vertex_values</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">V</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;node_activity&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>node_activity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>d</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>g</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>tf1</th>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>tf2</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>rec1</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>rec2</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">plot_values</span><span class="p">(</span><span class="n">vertex_values</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">vertex_values</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">edge_values</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">edge_values</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d745b305335376dbb66473a4f5ca3527b50813c61bf623a7961bd35ab446341e.svg" src="../../_images/d745b305335376dbb66473a4f5ca3527b50813c61bf623a7961bd35ab446341e.svg" />
+</div>
+</div>
+</section>
+<section id="old-implementation">
+<h2>Old implementation<a class="headerlink" href="#old-implementation" title="Link to this heading">#</a></h2>
+<p>An older implementation used in previous versions of CORNETO is still available in the <code class="docutils literal notranslate"><span class="pre">corneto.methods.carnival</span></code> package. It uses a simpler interface and a formulation more similar to the original CarnivalR:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corneto.methods.carnival</span><span class="w"> </span><span class="kn">import</span> <span class="n">milp_carnival</span>
+
+<span class="n">P</span> <span class="o">=</span> <span class="n">milp_carnival</span><span class="p">(</span>
+    <span class="n">G</span><span class="p">,</span>
+    <span class="p">{</span><span class="s2">&quot;rec2&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;tf1&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;tf2&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+    <span class="n">beta_weight</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
+<span class="p">)</span> 
+<span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;scipy&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">P</span><span class="o">.</span><span class="n">objectives</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+4.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">.</span><span class="n">edge_subgraph</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">edge_values</span><span class="o">.</span><span class="n">value</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e0ee0d02cb945b90c4e9dedcf8a0e02571e2e4d34fa663a08696f3305c181856.svg" src="../../_images/e0ee0d02cb945b90c4e9dedcf8a0e02571e2e4d34fa663a08696f3305c181856.svg" />
 </div>
 </div>
 </section>
@@ -1031,11 +1149,11 @@
       </div>
     </a>
     <a class="right-next"
-       href="multicondition-carnival.html"
+       href="multisample-carnival.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Multi-condition CARNIVAL</p>
+        <p class="prev-next-title">Multi-sample CARNIVAL</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1058,7 +1176,10 @@
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-toy-example">A toy example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-toy-example">Creating a toy example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carnivalflow">CarnivalFlow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carnival-ilp">Carnival ILP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#old-implementation">Old implementation</a></li>
 </ul>
   </nav></div>
 

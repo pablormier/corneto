@@ -343,6 +343,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../intro/index.html">Getting started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../intro/prior-knowledge.html">Prior Knowledge and Graphs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/data.html">Working with data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/plotting.html">Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/constrained-optimization.html">Constrained Optimization</a></li>
 </ul>
 </details></li>
@@ -366,13 +367,10 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../signaling/index.html">Signaling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../signaling/carnival.html">CARNIVAL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../signaling/multicondition-carnival.html">Multi-condition CARNIVAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../signaling/multisample-carnival.html">Multi-sample CARNIVAL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../signaling/cellnopt_ILP.html">Acyclic boolean models of cell signaling (experimental)</a></li>
 
 
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../interactomics/index.html">Interactomics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../interoperability/index.html">Interoperability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -489,6 +487,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set parameter Username
+Academic license - for non-commercial use only - expires 2023-11-09
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(72, 95)
 </pre></div>
 </div>
@@ -510,7 +512,7 @@
                 <td><strong>Name</strong></td><td>Biomass Objective Function with GAM</td>
             </tr><tr>
                 <td><strong>Memory address</strong></td>
-                <td>0x7f48c0d29cd0</td>
+                <td>0x235d3623bb0</td>
             </tr><tr>
                 <td><strong>Stoichiometry</strong></td>
                 <td>
@@ -535,7 +537,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Solution 0.874 at 0x7f48abb9fcd0&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Solution 0.874 at 0x235bcea6050&gt;
 </pre></div>
 </div>
 </div>
@@ -549,7 +551,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"></div><div class="output text_html">
+<div class="output text_html">
         <table style='background-color:rgba(0, 0, 0, 0);'>
         <tr>
             <td style="min-width:85px">
@@ -557,7 +559,7 @@
             </td>
             <td>
             <table>
-                <tr><td>Installed version:</td><td style='text-align:left'>v1.0.0.dev5 (latest stable: v1.0.0-alpha)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.4, PICOS v2.6.0</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CVXOPT, GLPK, GLPK_MI, HIGHS, SCIP, SCIPY</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/home/runner/work/corneto/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
+                <tr><td>Installed version:</td><td style='text-align:left'>v0.9.2-beta.1 (latest: v0.9.1-alpha.3)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.3.2, PICOS v2.4.17</td></tr><tr><td>Default backend (corneto.K):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CBC, CLARABEL, COPT, CPLEX, CVXOPT, DIFFCP, ECOS, ECOS_BB, GLPK, GLPK_MI, GUROBI, MOSEK, OSQP, PROXQP, SCIP, SCIPY, SCS</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.1</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
             </table>
             </td>
         </tr>
@@ -586,32 +588,31 @@
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__edge_type&#39;: &#39;directed&#39;,
  &#39;id&#39;: &#39;Biomass_Ecoli_core&#39;,
- &#39;__source_attr&#39;: {&#39;3pg_c&#39;: {&#39;__value&#39;: np.float64(-1.496)},
-  &#39;accoa_c&#39;: {&#39;__value&#39;: np.float64(-3.7478)},
-  &#39;atp_c&#39;: {&#39;__value&#39;: np.float64(-59.81)},
-  &#39;e4p_c&#39;: {&#39;__value&#39;: np.float64(-0.361)},
-  &#39;f6p_c&#39;: {&#39;__value&#39;: np.float64(-0.0709)},
-  &#39;g3p_c&#39;: {&#39;__value&#39;: np.float64(-0.129)},
-  &#39;g6p_c&#39;: {&#39;__value&#39;: np.float64(-0.205)},
-  &#39;gln__L_c&#39;: {&#39;__value&#39;: np.float64(-0.2557)},
-  &#39;glu__L_c&#39;: {&#39;__value&#39;: np.float64(-4.9414)},
-  &#39;h2o_c&#39;: {&#39;__value&#39;: np.float64(-59.81)},
-  &#39;nad_c&#39;: {&#39;__value&#39;: np.float64(-3.547)},
-  &#39;nadph_c&#39;: {&#39;__value&#39;: np.float64(-13.0279)},
-  &#39;oaa_c&#39;: {&#39;__value&#39;: np.float64(-1.7867)},
-  &#39;pep_c&#39;: {&#39;__value&#39;: np.float64(-0.5191)},
-  &#39;pyr_c&#39;: {&#39;__value&#39;: np.float64(-2.8328)},
-  &#39;r5p_c&#39;: {&#39;__value&#39;: np.float64(-0.8977)}},
- &#39;__target_attr&#39;: {&#39;adp_c&#39;: {&#39;__value&#39;: np.float64(59.81)},
-  &#39;akg_c&#39;: {&#39;__value&#39;: np.float64(4.1182)},
-  &#39;coa_c&#39;: {&#39;__value&#39;: np.float64(3.7478)},
-  &#39;h_c&#39;: {&#39;__value&#39;: np.float64(59.81)},
-  &#39;nadh_c&#39;: {&#39;__value&#39;: np.float64(3.547)},
-  &#39;nadp_c&#39;: {&#39;__value&#39;: np.float64(13.0279)},
-  &#39;pi_c&#39;: {&#39;__value&#39;: np.float64(59.81)}},
- &#39;default_lb&#39;: np.float64(0.0),
- &#39;default_ub&#39;: np.float64(1000.0),
- &#39;GPR&#39;: &#39;&#39;}
+ &#39;__source_attr&#39;: {&#39;3pg_c&#39;: {&#39;__value&#39;: -1.496},
+  &#39;accoa_c&#39;: {&#39;__value&#39;: -3.7478},
+  &#39;atp_c&#39;: {&#39;__value&#39;: -59.81},
+  &#39;e4p_c&#39;: {&#39;__value&#39;: -0.361},
+  &#39;f6p_c&#39;: {&#39;__value&#39;: -0.0709},
+  &#39;g3p_c&#39;: {&#39;__value&#39;: -0.129},
+  &#39;g6p_c&#39;: {&#39;__value&#39;: -0.205},
+  &#39;gln__L_c&#39;: {&#39;__value&#39;: -0.2557},
+  &#39;glu__L_c&#39;: {&#39;__value&#39;: -4.9414},
+  &#39;h2o_c&#39;: {&#39;__value&#39;: -59.81},
+  &#39;nad_c&#39;: {&#39;__value&#39;: -3.547},
+  &#39;nadph_c&#39;: {&#39;__value&#39;: -13.0279},
+  &#39;oaa_c&#39;: {&#39;__value&#39;: -1.7867},
+  &#39;pep_c&#39;: {&#39;__value&#39;: -0.5191},
+  &#39;pyr_c&#39;: {&#39;__value&#39;: -2.8328},
+  &#39;r5p_c&#39;: {&#39;__value&#39;: -0.8977}},
+ &#39;__target_attr&#39;: {&#39;adp_c&#39;: {&#39;__value&#39;: 59.81},
+  &#39;akg_c&#39;: {&#39;__value&#39;: 4.1182},
+  &#39;coa_c&#39;: {&#39;__value&#39;: 3.7478},
+  &#39;h_c&#39;: {&#39;__value&#39;: 59.81},
+  &#39;nadh_c&#39;: {&#39;__value&#39;: 3.547},
+  &#39;nadp_c&#39;: {&#39;__value&#39;: 13.0279},
+  &#39;pi_c&#39;: {&#39;__value&#39;: 59.81}},
+ &#39;default_lb&#39;: 0.0,
+ &#39;default_ub&#39;: 1000.0}
 </pre></div>
 </div>
 </div>
@@ -623,7 +624,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1c39a3f04f7076650434c290db5f489519d3305c6989d0a78ee9f90acee1347f.svg" src="../../_images/1c39a3f04f7076650434c290db5f489519d3305c6989d0a78ee9f90acee1347f.svg" />
+<img alt="../../_images/a19f0292ef1ed0ebe56aa2e6f8b786ea73d96a9740d10d3c628e2f5de3bfac74.svg" src="../../_images/a19f0292ef1ed0ebe56aa2e6f8b786ea73d96a9740d10d3c628e2f5de3bfac74.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -639,7 +640,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8739215069684303
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8739214999268428
 </pre></div>
 </div>
 </div>
@@ -651,7 +652,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/52e874f5904636f946cc7ef9d141e38a98ce8da97462178c419832206bb7a679.svg" src="../../_images/52e874f5904636f946cc7ef9d141e38a98ce8da97462178c419832206bb7a679.svg" />
+<img alt="../../_images/95a6abed6b6a9ecc0c955a6140e89128020508bcc911ad9e8cd96b49137a3895.svg" src="../../_images/95a6abed6b6a9ecc0c955a6140e89128020508bcc911ad9e8cd96b49137a3895.svg" />
 </div>
 </div>
 </section>

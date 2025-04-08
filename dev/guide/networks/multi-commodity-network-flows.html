@@ -339,6 +339,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../intro/index.html">Getting started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../intro/prior-knowledge.html">Prior Knowledge and Graphs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/data.html">Working with data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/plotting.html">Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/constrained-optimization.html">Constrained Optimization</a></li>
 </ul>
 </details></li>
@@ -362,13 +363,10 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../signaling/index.html">Signaling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../signaling/carnival.html">CARNIVAL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../signaling/multicondition-carnival.html">Multi-condition CARNIVAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../signaling/multisample-carnival.html">Multi-sample CARNIVAL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../signaling/cellnopt_ILP.html">Acyclic boolean models of cell signaling (experimental)</a></li>
 
 
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../interactomics/index.html">Interactomics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../interoperability/index.html">Interoperability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -533,7 +531,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We create a flow problem with 2 flows, one per commodity</span>
-<span class="n">P</span> <span class="o">=</span> <span class="n">cn</span><span class="o">.</span><span class="n">K</span><span class="o">.</span><span class="n">Flow</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">ub</span><span class="o">=</span><span class="n">G</span><span class="o">.</span><span class="n">get_attr_from_edges</span><span class="p">(</span><span class="s2">&quot;capacity&quot;</span><span class="p">),</span> <span class="n">n_flows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">shared_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">cn</span><span class="o">.</span><span class="n">opt</span><span class="o">.</span><span class="n">Flow</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">ub</span><span class="o">=</span><span class="n">G</span><span class="o">.</span><span class="n">get_attr_from_edges</span><span class="p">(</span><span class="s2">&quot;capacity&quot;</span><span class="p">),</span> <span class="n">n_flows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">shared_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1"># NOTE: Using shared bounds links shares the capacity of the edges across flows. It is equivalent to adding this constraint here:</span>
 <span class="c1"># P += P.expressions.flow[:, 0] + P.expressions.flow[:, 1] &lt;= G.get_attr_from_edges(&#39;capacity&#39;)</span>
 <span class="n">P</span><span class="o">.</span><span class="n">expressions</span>
@@ -569,25 +567,25 @@
                                      CVXPY                                     
                                      v1.6.4                                    
 ===============================================================================
-(CVXPY) Apr 07 09:32:47 AM: Your problem has 20 variables, 70 constraints, and 0 parameters.
-(CVXPY) Apr 07 09:32:47 AM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Apr 07 09:32:47 AM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
-(CVXPY) Apr 07 09:32:47 AM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Apr 07 09:32:47 AM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Apr 08 09:14:22 AM: Your problem has 20 variables, 70 constraints, and 0 parameters.
+(CVXPY) Apr 08 09:14:22 AM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Apr 08 09:14:22 AM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) Apr 08 09:14:22 AM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Apr 08 09:14:22 AM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Apr 07 09:32:47 AM: Compiling problem (target solver=SCIP).
-(CVXPY) Apr 07 09:32:47 AM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
-(CVXPY) Apr 07 09:32:47 AM: Applying reduction Dcp2Cone
-(CVXPY) Apr 07 09:32:47 AM: Applying reduction CvxAttr2Constr
-(CVXPY) Apr 07 09:32:47 AM: Applying reduction ConeMatrixStuffing
-(CVXPY) Apr 07 09:32:47 AM: Applying reduction SCIP
-(CVXPY) Apr 07 09:32:47 AM: Finished problem compilation (took 1.479e-02 seconds).
+(CVXPY) Apr 08 09:14:22 AM: Compiling problem (target solver=SCIP).
+(CVXPY) Apr 08 09:14:22 AM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
+(CVXPY) Apr 08 09:14:22 AM: Applying reduction Dcp2Cone
+(CVXPY) Apr 08 09:14:22 AM: Applying reduction CvxAttr2Constr
+(CVXPY) Apr 08 09:14:22 AM: Applying reduction ConeMatrixStuffing
+(CVXPY) Apr 08 09:14:22 AM: Applying reduction SCIP
+(CVXPY) Apr 08 09:14:22 AM: Finished problem compilation (took 1.439e-02 seconds).
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Apr 07 09:32:47 AM: Invoking solver SCIP  to obtain a solution.
+(CVXPY) Apr 08 09:14:22 AM: Invoking solver SCIP  to obtain a solution.
 presolving:
    (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
    (0.0s) no symmetry present (symcode time: 0.00)
@@ -611,10 +609,10 @@ Gap                : 0.00 %
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Apr 07 09:32:47 AM: Problem status: optimal
-(CVXPY) Apr 07 09:32:47 AM: Optimal value: -1.900e+02
-(CVXPY) Apr 07 09:32:47 AM: Compilation took 1.479e-02 seconds
-(CVXPY) Apr 07 09:32:47 AM: Solver (including time spent in interface) took 5.644e-03 seconds
+(CVXPY) Apr 08 09:14:22 AM: Problem status: optimal
+(CVXPY) Apr 08 09:14:22 AM: Optimal value: -1.900e+02
+(CVXPY) Apr 08 09:14:22 AM: Compilation took 1.439e-02 seconds
+(CVXPY) Apr 08 09:14:22 AM: Solver (including time spent in interface) took 5.495e-03 seconds
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Problem(Minimize(Expression(AFFINE, UNKNOWN, ())), [Inequality(Constant(CONSTANT, ZERO, (10, 2))), Inequality(Variable((10, 2), _flow)), Equality(Expression(AFFINE, UNKNOWN, (5, 2)), Constant(CONSTANT, ZERO, ())), Inequality(Expression(AFFINE, UNKNOWN, (10,))), Inequality(Constant(CONSTANT, ZERO, (10,)))])

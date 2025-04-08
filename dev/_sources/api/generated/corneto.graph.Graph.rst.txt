@@ -58,6 +58,7 @@
       ~Graph.subgraph
       ~Graph.successors
       ~Graph.to_dict
+      ~Graph.to_dot
       ~Graph.to_graphviz
       ~Graph.to_json
       ~Graph.toposort

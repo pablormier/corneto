@@ -339,6 +339,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../intro/index.html">Getting started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../intro/prior-knowledge.html">Prior Knowledge and Graphs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/data.html">Working with data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/plotting.html">Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/constrained-optimization.html">Constrained Optimization</a></li>
 </ul>
 </details></li>
@@ -362,13 +363,10 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../signaling/index.html">Signaling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../signaling/carnival.html">CARNIVAL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../signaling/multicondition-carnival.html">Multi-condition CARNIVAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../signaling/multisample-carnival.html">Multi-sample CARNIVAL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../signaling/cellnopt_ILP.html">Acyclic boolean models of cell signaling (experimental)</a></li>
 
 
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../interactomics/index.html">Interactomics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../interoperability/index.html">Interoperability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -470,7 +468,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"></div><div class="output text_html">
+<div class="output text_html">
         <table style='background-color:rgba(0, 0, 0, 0);'>
         <tr>
             <td style="min-width:85px">
@@ -478,7 +476,7 @@
             </td>
             <td>
             <table>
-                <tr><td>Installed version:</td><td style='text-align:left'>v1.0.0.dev5 (latest stable: v1.0.0-alpha)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.4, PICOS v2.6.0</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CVXOPT, GLPK, GLPK_MI, HIGHS, SCIP, SCIPY</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/home/runner/work/corneto/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
+                <tr><td>Installed version:</td><td style='text-align:left'>v0.9.2-beta.1 (latest: v0.9.1-alpha.3)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.3.2, PICOS v2.4.17</td></tr><tr><td>Default backend (corneto.K):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CBC, CLARABEL, COPT, CPLEX, CVXOPT, DIFFCP, ECOS, ECOS_BB, GLPK, GLPK_MI, GUROBI, MOSEK, OSQP, PROXQP, SCIP, SCIPY, SCS</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.1</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
             </table>
             </td>
         </tr>
@@ -507,7 +505,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2f9835ec0275b84be5d768cb98a40d218622eb4e521fbbd8af45dd97293e3890.svg" src="../../_images/2f9835ec0275b84be5d768cb98a40d218622eb4e521fbbd8af45dd97293e3890.svg" />
+<img alt="../../_images/14fdfebc485b5d69901dae02d5a0c68a3d443a6f598f7bf521c007b9a4249d42.svg" src="../../_images/14fdfebc485b5d69901dae02d5a0c68a3d443a6f598f7bf521c007b9a4249d42.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -535,7 +533,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Problem(Minimize(Expression(AFFINE, UNKNOWN, ())), [Inequality(Constant(CONSTANT, NONPOSITIVE, (11,))), Inequality(Variable((11,), _flow)), Equality(Expression(AFFINE, UNKNOWN, (9,)), Constant(CONSTANT, ZERO, ())), Inequality(Expression(AFFINE, NONNEGATIVE, (11,))), Equality(Expression(AFFINE, NONNEGATIVE, (3,)), Constant(CONSTANT, ZERO, ())), Inequality(Expression(AFFINE, UNKNOWN, (11,))), Inequality(Variable((11,), _flow)), Inequality(Expression(AFFINE, NONNEGATIVE, (11,))), Inequality(Variable((11,), _or, boolean=True))])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Problem(Minimize(Expression(AFFINE, UNKNOWN, ())), [Inequality(Constant(CONSTANT, NONPOSITIVE, (11,))), Inequality(Variable((11,))), Equality(Expression(AFFINE, UNKNOWN, (9,)), Constant(CONSTANT, ZERO, ())), Inequality(Expression(AFFINE, NONNEGATIVE, (11,))), Equality(Expression(AFFINE, NONNEGATIVE, (3,)), Constant(CONSTANT, ZERO, ())), Inequality(Expression(AFFINE, UNKNOWN, (11,))), Inequality(Variable((11,))), Inequality(Expression(AFFINE, NONPOSITIVE, (11,))), Inequality(Variable((11,))), Inequality(Expression(AFFINE, NONNEGATIVE, (11,))), Inequality(Expression(AFFINE, NONNEGATIVE, (11,))), Inequality(Variable((11,), boolean=True))])
 </pre></div>
 </div>
 </div>
@@ -547,7 +545,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1133928d5f148a046eb1038ca956ae1657a31fdb926f5d563599f6626e3b3867.svg" src="../../_images/1133928d5f148a046eb1038ca956ae1657a31fdb926f5d563599f6626e3b3867.svg" />
+<img alt="../../_images/1061700913ccf0816625076b4ab7abcd6d48b99458cceec021c6a622be3e0c30.svg" src="../../_images/1061700913ccf0816625076b4ab7abcd6d48b99458cceec021c6a622be3e0c30.svg" />
 </div>
 </div>
 <p>We can make the plot to look more like the image from the original paper by drawing the reactions with fluxes above a certain threshold with a wider line:</p>
@@ -560,7 +558,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/263afc85f1e8831bdcdbbc757dd507d3e9a68f221d28dc4ac49cd412d46bafba.svg" src="../../_images/263afc85f1e8831bdcdbbc757dd507d3e9a68f221d28dc4ac49cd412d46bafba.svg" />
+<img alt="../../_images/1b1f2cc794b58ec323613ca06ff95d227d66218f9c1d9579e9831343136cdaee.svg" src="../../_images/1b1f2cc794b58ec323613ca06ff95d227d66218f9c1d9579e9831343136cdaee.svg" />
 </div>
 </div>
 </section>

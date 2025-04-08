@@ -51,6 +51,7 @@
       ~BaseGraph.save
       ~BaseGraph.subgraph
       ~BaseGraph.successors
+      ~BaseGraph.to_dot
       ~BaseGraph.to_graphviz
       ~BaseGraph.toposort
       ~BaseGraph.vertex_incidence_matrix

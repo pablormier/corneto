@@ -339,6 +339,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../intro/index.html">Getting started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../intro/prior-knowledge.html">Prior Knowledge and Graphs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/data.html">Working with data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/plotting.html">Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/constrained-optimization.html">Constrained Optimization</a></li>
 </ul>
 </details></li>
@@ -362,13 +363,10 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../signaling/index.html">Signaling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../signaling/carnival.html">CARNIVAL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../signaling/multicondition-carnival.html">Multi-condition CARNIVAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../signaling/multisample-carnival.html">Multi-sample CARNIVAL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../signaling/cellnopt_ILP.html">Acyclic boolean models of cell signaling (experimental)</a></li>
 
 
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../interactomics/index.html">Interactomics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Interoperability</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -469,7 +467,7 @@
             </td>
             <td>
             <table>
-                <tr><td>Installed version:</td><td style='text-align:left'>v1.0.0.dev5 (latest stable: v1.0.0-alpha)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.4, PICOS v2.6.0</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CVXOPT, GLPK, GLPK_MI, HIGHS, SCIP, SCIPY</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/home/runner/work/corneto/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
+                <tr><td>Installed version:</td><td style='text-align:left'>v1.0.0.dev4 (latest stable: v1.0.0-alpha)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.0, PICOS v2.6.0</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CVXOPT, GLPK, GLPK_MI, HIGHS, SCIP, SCIPY</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/Users/pablorodriguezmier/Documents/work/projects/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
             </table>
             </td>
         </tr>
@@ -496,27 +494,27 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===============================================================================
                                      CVXPY                                     
-                                     v1.6.4                                    
+                                     v1.6.0                                    
 ===============================================================================
-(CVXPY) Apr 07 09:30:13 AM: Your problem has 5 variables, 6 constraints, and 0 parameters.
-(CVXPY) Apr 07 09:30:13 AM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Apr 07 09:30:13 AM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
-(CVXPY) Apr 07 09:30:13 AM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Apr 07 09:30:13 AM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Feb 16 04:54:03 PM: Your problem has 5 variables, 6 constraints, and 0 parameters.
+(CVXPY) Feb 16 04:54:03 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Feb 16 04:54:03 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) Feb 16 04:54:03 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Feb 16 04:54:03 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Apr 07 09:30:13 AM: Compiling problem (target solver=SCIP).
-(CVXPY) Apr 07 09:30:13 AM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
-(CVXPY) Apr 07 09:30:13 AM: Applying reduction Dcp2Cone
-(CVXPY) Apr 07 09:30:13 AM: Applying reduction CvxAttr2Constr
-(CVXPY) Apr 07 09:30:13 AM: Applying reduction ConeMatrixStuffing
-(CVXPY) Apr 07 09:30:13 AM: Applying reduction SCIP
-(CVXPY) Apr 07 09:30:13 AM: Finished problem compilation (took 1.909e-02 seconds).
+(CVXPY) Feb 16 04:54:03 PM: Compiling problem (target solver=SCIP).
+(CVXPY) Feb 16 04:54:03 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
+(CVXPY) Feb 16 04:54:03 PM: Applying reduction Dcp2Cone
+(CVXPY) Feb 16 04:54:03 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Feb 16 04:54:03 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) Feb 16 04:54:03 PM: Applying reduction SCIP
+(CVXPY) Feb 16 04:54:03 PM: Finished problem compilation (took 4.165e-03 seconds).
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Apr 07 09:30:13 AM: Invoking solver SCIP  to obtain a solution.
+(CVXPY) Feb 16 04:54:03 PM: Invoking solver SCIP  to obtain a solution.
 presolving:
    (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
    (0.0s) no symmetry present (symcode time: 0.00)
@@ -540,10 +538,10 @@ Gap                : 0.00 %
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Apr 07 09:30:13 AM: Problem status: optimal
-(CVXPY) Apr 07 09:30:13 AM: Optimal value: -3.000e-01
-(CVXPY) Apr 07 09:30:13 AM: Compilation took 1.909e-02 seconds
-(CVXPY) Apr 07 09:30:13 AM: Solver (including time spent in interface) took 3.723e-03 seconds
+(CVXPY) Feb 16 04:54:03 PM: Problem status: optimal
+(CVXPY) Feb 16 04:54:03 PM: Optimal value: -3.000e-01
+(CVXPY) Feb 16 04:54:03 PM: Compilation took 4.165e-03 seconds
+(CVXPY) Feb 16 04:54:03 PM: Solver (including time spent in interface) took 5.013e-03 seconds
 </pre></div>
 </div>
 </div>

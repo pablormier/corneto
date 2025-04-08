@@ -558,7 +558,7 @@ Supports directed/undirected/mixed edges and self-edges.</p>
 <td><p>Plot the graph using Graphviz.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#corneto.graph.BaseGraph.plot_values" title="corneto.graph.BaseGraph.plot_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_values</span></code></a>([vertex_values, edge_values, ...])</p></td>
-<td><p>Plot graph with vertex and edge values visualized.</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#corneto.graph.BaseGraph.predecessors" title="corneto.graph.BaseGraph.predecessors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predecessors</span></code></a>(vertices)</p></td>
 <td><p>Get predecessor vertices for multiple vertices.</p></td>
@@ -581,13 +581,16 @@ Supports directed/undirected/mixed edges and self-edges.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#corneto.graph.BaseGraph.successors" title="corneto.graph.BaseGraph.successors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">successors</span></code></a>(vertices)</p></td>
 <td><p>Get successor vertices for multiple vertices.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#corneto.graph.BaseGraph.to_graphviz" title="corneto.graph.BaseGraph.to_graphviz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_graphviz</span></code></a>(**kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#corneto.graph.BaseGraph.to_dot" title="corneto.graph.BaseGraph.to_dot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dot</span></code></a>(**kwargs)</p></td>
+<td><p>Convert graph to DOT format.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#corneto.graph.BaseGraph.to_graphviz" title="corneto.graph.BaseGraph.to_graphviz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_graphviz</span></code></a>(**kwargs)</p></td>
 <td><p>Convert graph to Graphviz representation.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#corneto.graph.BaseGraph.toposort" title="corneto.graph.BaseGraph.toposort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toposort</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#corneto.graph.BaseGraph.toposort" title="corneto.graph.BaseGraph.toposort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toposort</span></code></a>()</p></td>
 <td><p>Perform topological sort on the graph using Kahn's algorithm.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#corneto.graph.BaseGraph.vertex_incidence_matrix" title="corneto.graph.BaseGraph.vertex_incidence_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_incidence_matrix</span></code></a>([values, sparse])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#corneto.graph.BaseGraph.vertex_incidence_matrix" title="corneto.graph.BaseGraph.vertex_incidence_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_incidence_matrix</span></code></a>([values, sparse])</p></td>
 <td><p>Get vertex incidence matrix.</p></td>
 </tr>
 </tbody>
@@ -1314,22 +1317,8 @@ Falls back to Viz.js rendering if SVG+XML rendering fails.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="corneto.graph.BaseGraph.plot_values">
-<span class="sig-name descname"><span class="pre">plot_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex_props</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_props</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#corneto.graph.BaseGraph.plot_values" title="Link to this definition">#</a></dt>
-<dd><p>Plot graph with vertex and edge values visualized.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>vertex_values</strong> – Optional values to display on vertices</p></li>
-<li><p><strong>edge_values</strong> – Optional values to display on edges</p></li>
-<li><p><strong>vertex_props</strong> – Optional dict of vertex drawing properties</p></li>
-<li><p><strong>edge_props</strong> – Optional dict of edge drawing properties</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Graphviz plot object with values visualized</p>
-</dd>
-</dl>
-</dd></dl>
+<span class="sig-name descname"><span class="pre">plot_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex_props</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_props</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_indexes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#corneto.graph.BaseGraph.plot_values" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="corneto.graph.BaseGraph.to_graphviz">
@@ -1341,6 +1330,20 @@ Falls back to Viz.js rendering if SVG+XML rendering fails.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Graphviz object representing the graph structure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corneto.graph.BaseGraph.to_dot">
+<span class="sig-name descname"><span class="pre">to_dot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#corneto.graph.BaseGraph.to_dot" title="Link to this definition">#</a></dt>
+<dd><p>Convert graph to DOT format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>**kwargs</strong> – Additional options for DOT conversion</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>DOT representation of the graph</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1519,6 +1522,7 @@ If ‘auto’, will detect from file extension.</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.graph.BaseGraph.plot"><code class="docutils literal notranslate"><span class="pre">BaseGraph.plot</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.graph.BaseGraph.plot_values"><code class="docutils literal notranslate"><span class="pre">BaseGraph.plot_values</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.graph.BaseGraph.to_graphviz"><code class="docutils literal notranslate"><span class="pre">BaseGraph.to_graphviz</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.graph.BaseGraph.to_dot"><code class="docutils literal notranslate"><span class="pre">BaseGraph.to_dot</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.graph.BaseGraph.save"><code class="docutils literal notranslate"><span class="pre">BaseGraph.save</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.graph.BaseGraph.load"><code class="docutils literal notranslate"><span class="pre">BaseGraph.load</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.graph.BaseGraph.toposort"><code class="docutils literal notranslate"><span class="pre">BaseGraph.toposort</span></code></a></li>
