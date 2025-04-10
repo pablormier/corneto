@@ -654,6 +654,54 @@
 </div>
 </div>
 </div>
+</section>
+<section id="modyfing-attributes">
+<h2>Modyfing attributes<a class="headerlink" href="#modyfing-attributes" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">attr</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">get_attr_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">attr</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">G</span><span class="o">.</span><span class="n">get_attr_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__edge_type&#39;: &#39;directed&#39;,
+ &#39;__source_attr&#39;: {1: {&#39;__value&#39;: {}}},
+ &#39;__target_attr&#39;: {2: {&#39;__value&#39;: {}}},
+ &#39;id&#39;: 1}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">attr</span><span class="o">.</span><span class="n">id</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">attr</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">G</span><span class="o">.</span><span class="n">get_attr_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__edge_type&#39;: &#39;directed&#39;,
+ &#39;__source_attr&#39;: {1: {&#39;__value&#39;: {}}},
+ &#39;__target_attr&#39;: {2: {&#39;__value&#39;: {}}},
+ &#39;id&#39;: 2}
+</pre></div>
+</div>
+</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The API for handling attributes on graphs is still under development and will change in future versions. It is used mostly internally to transform different representations of prior knowledge.</p>
@@ -661,10 +709,10 @@
 </section>
 <section id="importing-graphs">
 <h2>Importing graphs<a class="headerlink" href="#importing-graphs" title="Link to this heading">#</a></h2>
-<p>CORNETO implements also few adapters to import prior knowledge from other sources as corneto Graphs. For example, when working with signaling networks, one common format is the <code class="docutils literal notranslate"><span class="pre">SIF</span></code> files, which store vertices and edges in triples: <code class="docutils literal notranslate"><span class="pre">Source</span> <span class="pre">Interaction</span> <span class="pre">Target</span></code>, for example <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">-1</span> <span class="pre">B</span></code> to indicate that vertex (e.g. protein) A inhibits protein B. When importing a SIF file, CORNETO creates a graph with the attribute <code class="docutils literal notranslate"><span class="pre">interaction</span></code> which stores the type of interaction between vertices. The method <code class="docutils literal notranslate"><span class="pre">from_sif_tuples</span></code> takes a list of these triplets to generate the graph:</p>
+<p>CORNETO implements also few adapters to import prior knowledge from other sources as corneto Graphs. For example, when working with signaling networks, one common format is the <code class="docutils literal notranslate"><span class="pre">SIF</span></code> files, which store vertices and edges in triples: <code class="docutils literal notranslate"><span class="pre">Source</span> <span class="pre">Interaction</span> <span class="pre">Target</span></code>, for example <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">-1</span> <span class="pre">B</span></code> to indicate that vertex (e.g. protein) A inhibits protein B. When importing a SIF file, CORNETO creates a graph with the attribute <code class="docutils literal notranslate"><span class="pre">interaction</span></code> which stores the type of interaction between vertices. The method <code class="docutils literal notranslate"><span class="pre">from_tuples</span></code> takes a list of these triplets to generate the graph:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sif_graph</span> <span class="o">=</span> <span class="n">cn</span><span class="o">.</span><span class="n">Graph</span><span class="o">.</span><span class="n">from_sif_tuples</span><span class="p">([(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">)])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sif_graph</span> <span class="o">=</span> <span class="n">cn</span><span class="o">.</span><span class="n">Graph</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">)])</span>
 <span class="n">sif_graph</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -712,13 +760,37 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G_c</span> <span class="o">=</span> <span class="n">cn</span><span class="o">.</span><span class="n">Graph</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;my_graph.pkl.xz&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G_c</span> <span class="o">=</span> <span class="n">cn</span><span class="o">.</span><span class="n">Graph</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;my_graph.pkl&quot;</span><span class="p">)</span>
 <span class="n">G_c</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="../../_images/830d8c157a3ed412b2e33bab6169b3c68529baac55c68065dbb982d81c7dfb00.svg" src="../../_images/830d8c157a3ed412b2e33bab6169b3c68529baac55c68065dbb982d81c7dfb00.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;{&quot;vertices&quot;: {&quot;1&quot;: {}, &quot;2&quot;: {}, &quot;3&quot;: {}, &quot;4&quot;: {}}, &quot;edges&quot;: [{&quot;source&quot;: [1], &quot;target&quot;: [2], &quot;attributes&quot;: {&quot;__edge_type&quot;: &quot;directed&quot;, &quot;__source_attr&quot;: {&quot;1&quot;: {&quot;__value&quot;: {}}}, &quot;__target_attr&quot;: {&quot;2&quot;: {&quot;__value&quot;: {}}}, &quot;id&quot;: 2}}, {&quot;source&quot;: [2], &quot;target&quot;: [3], &quot;attributes&quot;: {&quot;__edge_type&quot;: &quot;directed&quot;, &quot;__source_attr&quot;: {&quot;2&quot;: {&quot;__value&quot;: {}}}, &quot;__target_attr&quot;: {&quot;3&quot;: {&quot;__value&quot;: {}}}}}, {&quot;source&quot;: [1], &quot;target&quot;: [3], &quot;attributes&quot;: {&quot;__edge_type&quot;: &quot;directed&quot;, &quot;__source_attr&quot;: {&quot;1&quot;: {&quot;__value&quot;: {}}}, &quot;__target_attr&quot;: {&quot;3&quot;: {&quot;__value&quot;: {}}}}}, {&quot;source&quot;: [3], &quot;target&quot;: [4], &quot;attributes&quot;: {&quot;__edge_type&quot;: &quot;undirected&quot;, &quot;__source_attr&quot;: {&quot;3&quot;: {&quot;__value&quot;: {}}}, &quot;__target_attr&quot;: {&quot;4&quot;: {&quot;__value&quot;: {}}}}}, {&quot;source&quot;: [3], &quot;target&quot;: [4], &quot;attributes&quot;: {&quot;__edge_type&quot;: &quot;undirected&quot;, &quot;__source_attr&quot;: {&quot;3&quot;: {&quot;__value&quot;: {}}}, &quot;__target_attr&quot;: {&quot;4&quot;: {&quot;__value&quot;: {}}}}}, {&quot;source&quot;: [3], &quot;target&quot;: [4], &quot;attributes&quot;: {&quot;__edge_type&quot;: &quot;directed&quot;, &quot;__source_attr&quot;: {&quot;3&quot;: {&quot;__value&quot;: {}}}, &quot;__target_attr&quot;: {&quot;4&quot;: {&quot;__value&quot;: {}}}}}, {&quot;source&quot;: [3], &quot;target&quot;: [4], &quot;attributes&quot;: {&quot;__edge_type&quot;: &quot;directed&quot;, &quot;weight&quot;: 0.5, &quot;label&quot;: &quot;E(3-&gt;4)&quot;, &quot;__source_attr&quot;: {&quot;3&quot;: {&quot;__value&quot;: {}}}, &quot;__target_attr&quot;: {&quot;4&quot;: {&quot;__value&quot;: {}}}}}], &quot;attributes&quot;: {}}&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G_c</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;{&quot;vertices&quot;: {&quot;1&quot;: {}, &quot;2&quot;: {}, &quot;3&quot;: {}, &quot;4&quot;: {}}, &quot;edges&quot;: [{&quot;source&quot;: [1], &quot;target&quot;: [2], &quot;attributes&quot;: {&quot;__edge_type&quot;: &quot;directed&quot;, &quot;__source_attr&quot;: {&quot;1&quot;: {&quot;__value&quot;: {}}}, &quot;__target_attr&quot;: {&quot;2&quot;: {&quot;__value&quot;: {}}}, &quot;id&quot;: 2}}, {&quot;source&quot;: [2], &quot;target&quot;: [3], &quot;attributes&quot;: {&quot;__edge_type&quot;: &quot;directed&quot;, &quot;__source_attr&quot;: {&quot;2&quot;: {&quot;__value&quot;: {}}}, &quot;__target_attr&quot;: {&quot;3&quot;: {&quot;__value&quot;: {}}}}}, {&quot;source&quot;: [1], &quot;target&quot;: [3], &quot;attributes&quot;: {&quot;__edge_type&quot;: &quot;directed&quot;, &quot;__source_attr&quot;: {&quot;1&quot;: {&quot;__value&quot;: {}}}, &quot;__target_attr&quot;: {&quot;3&quot;: {&quot;__value&quot;: {}}}}}, {&quot;source&quot;: [3], &quot;target&quot;: [4], &quot;attributes&quot;: {&quot;__edge_type&quot;: &quot;undirected&quot;, &quot;__source_attr&quot;: {&quot;3&quot;: {&quot;__value&quot;: {}}}, &quot;__target_attr&quot;: {&quot;4&quot;: {&quot;__value&quot;: {}}}}}, {&quot;source&quot;: [3], &quot;target&quot;: [4], &quot;attributes&quot;: {&quot;__edge_type&quot;: &quot;undirected&quot;, &quot;__source_attr&quot;: {&quot;3&quot;: {&quot;__value&quot;: {}}}, &quot;__target_attr&quot;: {&quot;4&quot;: {&quot;__value&quot;: {}}}}}, {&quot;source&quot;: [3], &quot;target&quot;: [4], &quot;attributes&quot;: {&quot;__edge_type&quot;: &quot;directed&quot;, &quot;__source_attr&quot;: {&quot;3&quot;: {&quot;__value&quot;: {}}}, &quot;__target_attr&quot;: {&quot;4&quot;: {&quot;__value&quot;: {}}}}}, {&quot;source&quot;: [3], &quot;target&quot;: [4], &quot;attributes&quot;: {&quot;__edge_type&quot;: &quot;directed&quot;, &quot;weight&quot;: 0.5, &quot;label&quot;: &quot;E(3-&gt;4)&quot;, &quot;__source_attr&quot;: {&quot;3&quot;: {&quot;__value&quot;: {}}}, &quot;__target_attr&quot;: {&quot;4&quot;: {&quot;__value&quot;: {}}}}}], &quot;attributes&quot;: {}}&#39;
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -738,7 +810,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/aa5de03a8fa1f18e84a4e5f339d555aa1df0998f717b8aed0e0e8d7e13c87e5f.svg" src="../../_images/aa5de03a8fa1f18e84a4e5f339d555aa1df0998f717b8aed0e0e8d7e13c87e5f.svg" />
+<img alt="../../_images/87001b6da2d0dc9d11f1d8b5a487022354a42c566301209c6907bea7e6e72f55.svg" src="../../_images/87001b6da2d0dc9d11f1d8b5a487022354a42c566301209c6907bea7e6e72f55.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -748,7 +820,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;A&#39;, &#39;B&#39;, &#39;D&#39;, &#39;C&#39;, &#39;F&#39;, &#39;E&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;B&#39;, &#39;A&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;F&#39;)
 </pre></div>
 </div>
 </div>
@@ -821,6 +893,7 @@
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manually-creating-a-graph">Manually creating a graph</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edge-attributes">Edge attributes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modyfing-attributes">Modyfing attributes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-graphs">Importing graphs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-reading">Saving and reading</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypergraphs">Hypergraphs</a></li>

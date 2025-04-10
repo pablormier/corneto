@@ -445,7 +445,24 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e6d37c058dd449b9cb6aaec4baa24da1d6e78a0f7fb739e893b0756e0c4591d3.svg" src="../../_images/e6d37c058dd449b9cb6aaec4baa24da1d6e78a0f7fb739e893b0756e0c4591d3.svg" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">G</span> <span class="o">=</span> <span class="n">cn</span><span class="o">.</span><span class="n">Graph</span><span class="o">.</span><span class="n">from_sif_tuples</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="p">[</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="p">(</span><span class="s2">&quot;I1&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;N1&quot;</span><span class="p">),</span>  <span class="c1"># I1 activates N1</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>         <span class="p">(</span><span class="s2">&quot;N1&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;M1&quot;</span><span class="p">),</span>  <span class="c1"># N1 activates M1</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>         <span class="p">(</span><span class="s2">&quot;N1&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;M2&quot;</span><span class="p">),</span>  <span class="c1"># N1 activaes M2</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>         <span class="p">(</span><span class="s2">&quot;I2&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;N2&quot;</span><span class="p">),</span>  <span class="c1"># I2 inhibits N2</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="p">(</span><span class="s2">&quot;N2&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;M2&quot;</span><span class="p">),</span>  <span class="c1"># N2 inhibits M2</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>         <span class="p">(</span><span class="s2">&quot;N2&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;M1&quot;</span><span class="p">),</span>  <span class="c1"># N2 inhibits M1</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">G</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+
+<span class="ne">AttributeError</span>: type object &#39;Graph&#39; has no attribute &#39;from_sif_tuples&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -468,95 +485,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(CORNETO) Apr 08 09:14:47 AM - INFO    : 2/2 inputs mapped to the graph
-(CORNETO) Apr 08 09:14:47 AM - INFO    : 2/2 outputs mapped to the graph
-(CORNETO) Apr 08 09:14:47 AM - INFO    : Pruning the graph with size: V x E = (6, 6)...
-(CORNETO) Apr 08 09:14:47 AM - INFO    : Finished. Final size: V x E = (6, 6).
-(CORNETO) Apr 08 09:14:47 AM - INFO    : 2/2 inputs after pruning.
-(CORNETO) Apr 08 09:14:47 AM - INFO    : 2/2 outputs after pruning.
-(CORNETO) Apr 08 09:14:47 AM - INFO    : Converting into a flow graph...
-(CORNETO) Apr 08 09:14:47 AM - INFO    : Creating a network flow problem...
-(CORNETO) Apr 08 09:14:47 AM - INFO    : Preprocess completed.
-===============================================================================
-                                     CVXPY                                     
-                                     v1.6.4                                    
-===============================================================================
-(CVXPY) Apr 08 09:14:47 AM: Your problem has 86 variables, 197 constraints, and 0 parameters.
-(CVXPY) Apr 08 09:14:47 AM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Apr 08 09:14:47 AM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
-(CVXPY) Apr 08 09:14:47 AM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Apr 08 09:14:47 AM: Your problem is compiled with the CPP canonicalization backend.
--------------------------------------------------------------------------------
-                                  Compilation                                  
--------------------------------------------------------------------------------
-(CVXPY) Apr 08 09:14:47 AM: Compiling problem (target solver=SCIP).
-(CVXPY) Apr 08 09:14:47 AM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
-(CVXPY) Apr 08 09:14:47 AM: Applying reduction Dcp2Cone
-(CVXPY) Apr 08 09:14:47 AM: Applying reduction CvxAttr2Constr
-(CVXPY) Apr 08 09:14:47 AM: Applying reduction ConeMatrixStuffing
-(CVXPY) Apr 08 09:14:47 AM: Applying reduction SCIP
-(CVXPY) Apr 08 09:14:47 AM: Finished problem compilation (took 2.966e-02 seconds).
--------------------------------------------------------------------------------
-                                Numerical solver                               
--------------------------------------------------------------------------------
-(CVXPY) Apr 08 09:14:47 AM: Invoking solver SCIP  to obtain a solution.
-presolving:
-(round 1, fast)       36 del vars, 95 del conss, 0 add conss, 48 chg bounds, 1 chg sides, 23 chg coeffs, 0 upgd conss, 0 impls, 28 clqs
-(round 2, fast)       54 del vars, 129 del conss, 0 add conss, 52 chg bounds, 9 chg sides, 31 chg coeffs, 0 upgd conss, 0 impls, 20 clqs
-(round 3, fast)       63 del vars, 145 del conss, 0 add conss, 52 chg bounds, 11 chg sides, 33 chg coeffs, 0 upgd conss, 0 impls, 18 clqs
-(round 4, fast)       65 del vars, 147 del conss, 0 add conss, 52 chg bounds, 15 chg sides, 37 chg coeffs, 0 upgd conss, 0 impls, 18 clqs
-(round 5, fast)       67 del vars, 151 del conss, 0 add conss, 52 chg bounds, 15 chg sides, 37 chg coeffs, 0 upgd conss, 0 impls, 18 clqs
-(round 6, exhaustive) 67 del vars, 151 del conss, 0 add conss, 52 chg bounds, 15 chg sides, 37 chg coeffs, 40 upgd conss, 0 impls, 18 clqs
-   (0.0s) probing cycle finished: starting next cycle
-(round 7, exhaustive) 69 del vars, 151 del conss, 0 add conss, 52 chg bounds, 15 chg sides, 37 chg coeffs, 40 upgd conss, 28 impls, 46 clqs
-(round 8, medium)     69 del vars, 155 del conss, 0 add conss, 52 chg bounds, 15 chg sides, 37 chg coeffs, 40 upgd conss, 28 impls, 46 clqs
-   (0.0s) probing cycle finished: starting next cycle
-   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
-   (0.0s) symmetry computation finished: 2 generators found (max: 1500, log10 of symmetry group size: 0.0) (symcode time: 0.00)
-dynamic symmetry handling statistics:
-   orbitopal reduction:       no components
-   orbital reduction:         no components
-   lexicographic reduction:   no permutations
-handled 1 out of 1 symmetry components
-(round 9, exhaustive) 69 del vars, 155 del conss, 3 add conss, 52 chg bounds, 15 chg sides, 37 chg coeffs, 40 upgd conss, 28 impls, 46 clqs
-presolving (10 rounds: 10 fast, 5 medium, 4 exhaustive):
- 69 deleted vars, 155 deleted constraints, 3 added constraints, 52 tightened bounds, 0 added holes, 15 changed sides, 37 changed coefficients
- 28 implications, 46 cliques
-presolved problem has 27 variables (19 bin, 0 int, 0 impl, 8 cont) and 45 constraints
-     16 constraints of type &lt;varbound&gt;
-     18 constraints of type &lt;setppc&gt;
-      9 constraints of type &lt;linear&gt;
-      2 constraints of type &lt;logicor&gt;
-transformed objective value is always integral (scale: 0.1)
-Presolving Time: 0.00
-
- time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
-p 0.0s|     1 |     0 |     0 |     - |  clique|   0 |  27 |  45 |  42 |   0 |  0 |   0 |   0 |-3.500000e+00 | 1.000000e-01 |    Inf | unknown
-p 0.0s|     1 |     0 |     0 |     - |   locks|   0 |  27 |  45 |  42 |   0 |  0 |   0 |   0 |-3.500000e+00 |-6.000000e-01 | 483.33%| unknown
-p 0.0s|     1 |     0 |     0 |     - | vbounds|   0 |  27 |  45 |  42 |   0 |  0 |   0 |   0 |-3.500000e+00 |-1.600000e+00 | 118.75%| unknown
-p 0.0s|     1 |     0 |     0 |     - | vbounds|   0 |  27 |  47 |  42 |   0 |  0 |   2 |   0 |-3.500000e+00 |-3.200000e+00 |   9.37%| unknown
-  0.0s|     1 |     0 |    14 |     - |  1787k |   0 |  27 |  29 |  42 |   0 |  0 |  10 |   0 |-3.300000e+00 |-3.200000e+00 |   3.13%| unknown
-r 0.0s|     1 |     0 |    14 |     - |rounding|   0 |  27 |  29 |  42 |   0 |  0 |  10 |   0 |-3.300000e+00 |-3.300000e+00 |   0.00%| unknown
-  0.0s|     1 |     0 |    14 |     - |  1788k |   0 |  27 |  29 |  42 |   0 |  0 |  10 |   0 |-3.300000e+00 |-3.300000e+00 |   0.00%| unknown
-
-SCIP Status        : problem is solved [optimal solution found]
-Solving Time (sec) : 0.00
-Solving Nodes      : 1
-Primal Bound       : -3.30000000000000e+00 (5 solutions)
-Dual Bound         : -3.30000000000000e+00
-Gap                : 0.00 %
--------------------------------------------------------------------------------
-                                    Summary                                    
--------------------------------------------------------------------------------
-(CVXPY) Apr 08 09:14:47 AM: Problem status: optimal
-(CVXPY) Apr 08 09:14:47 AM: Optimal value: 7.000e-01
-(CVXPY) Apr 08 09:14:47 AM: Compilation took 2.966e-02 seconds
-(CVXPY) Apr 08 09:14:47 AM: Solver (including time spent in interface) took 1.189e-02 seconds
-(CORNETO) Apr 08 09:14:47 AM - INFO    : Finished in 0.06 s.
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -564,20 +492,10 @@ Gap                : 0.00 %
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.])
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="o">.</span><span class="n">objectives</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(7.0)
 </pre></div>
 </div>
 </div>
@@ -592,9 +510,6 @@ Gap                : 0.00 %
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/073e151f80b4aaf424a745f61c532be4f3e99a681e1b622bc0332fb3a95775ac.svg" src="../../_images/073e151f80b4aaf424a745f61c532be4f3e99a681e1b622bc0332fb3a95775ac.svg" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -607,83 +522,6 @@ Gap                : 0.00 %
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>V</th>
-      <th>value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>N1</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>I2</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>N2</td>
-      <td>-1.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>M2</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>M1</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>I1</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>_s</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>_pert_c0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>_meas_c0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>_t</td>
-      <td>0.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -691,103 +529,6 @@ Gap                : 0.00 %
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>E</th>
-      <th>value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>((I1), (N1))</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>((N1), (M1))</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>((N1), (M2))</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>((I2), (N2))</td>
-      <td>-1.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>((N2), (M2))</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>((N2), (M1))</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>((_s), (_pert_c0))</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>((_pert_c0), (I1))</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>((_pert_c0), (I2))</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>((M1), (_meas_c0))</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>((M2), (_meas_c0))</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>((_meas_c0), (_t))</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>((), (_s))</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>((_t), ())</td>
-      <td>0.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -795,9 +536,6 @@ Gap                : 0.00 %
 <span class="n">G_sol</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/a18af31210c20b9afdc10fc3443dfc3ddab9d41d7f88310804f0f80d84116ddc.svg" src="../../_images/a18af31210c20b9afdc10fc3443dfc3ddab9d41d7f88310804f0f80d84116ddc.svg" />
 </div>
 </div>
 </section>

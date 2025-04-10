@@ -499,7 +499,15 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_flow&#39;: Variable((95,), _flow), &#39;flow&#39;: Variable((95,), _flow)}
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">corneto.methods.metabolism.fba</span><span class="w"> </span><span class="kn">import</span> <span class="n">fba_problem</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">G</span> <span class="o">=</span> <span class="n">cn</span><span class="o">.</span><span class="n">Graph</span><span class="o">.</span><span class="n">from_cobra_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">P</span> <span class="o">=</span> <span class="n">fba_problem</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">P</span><span class="o">.</span><span class="n">expr</span>
+
+<span class="ne">AttributeError</span>: type object &#39;Graph&#39; has no attribute &#39;from_cobra_model&#39;
 </pre></div>
 </div>
 </div>
@@ -515,7 +523,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8739215069684303
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8739215069684304
 </pre></div>
 </div>
 </div>
@@ -530,7 +538,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.5)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5
 </pre></div>
 </div>
 </div>
@@ -542,7 +550,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/dbc57b6c51c3418c3af5e8c9ff00d490177105d7687362e66b87ec52907bb0fc.svg" src="../../_images/dbc57b6c51c3418c3af5e8c9ff00d490177105d7687362e66b87ec52907bb0fc.svg" />
+<img alt="../../_images/46d86fb5700b967f3cb2e48a58f8ba28919b9cd7c33bcae919974036f1676440.svg" src="../../_images/46d86fb5700b967f3cb2e48a58f8ba28919b9cd7c33bcae919974036f1676440.svg" />
 </div>
 </div>
 <p>Now we are going to see how to use specialized building blocks from CORNETO to automatically add indicators for the presence of reactions in a model. Indicators are binary variables associated to a continuous variable: when the indicator is 0, the continuous variable is 0; and when the indicator is 1, the continuous variable is unconstrained.</p>
@@ -558,13 +566,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_flow&#39;: Variable((95,), _flow),
- &#39;unblocked_flow&#39;: Variable((95,), unblocked_flow, boolean=True),
- &#39;flow&#39;: Variable((95,), _flow)}
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -572,11 +573,6 @@
 <span class="n">P</span><span class="o">.</span><span class="n">add_objectives</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">unblocked_flow</span><span class="p">))</span>
 <span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">biomass</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
 </pre></div>
 </div>
 </div>
@@ -588,20 +584,12 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(16.0)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">custom_edge_attr</span><span class="o">=</span><span class="n">cn</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">flow_style</span><span class="p">(</span><span class="n">P</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;fdp&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/b225534e83275f9505edf81fff5aa4f53464cb0219f9ee9d76a56177f086fdea.svg" src="../../_images/b225534e83275f9505edf81fff5aa4f53464cb0219f9ee9d76a56177f086fdea.svg" />
 </div>
 </div>
 </section>
@@ -617,11 +605,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Problem(Minimize(Expression(AFFINE, NONNEGATIVE, ())), [Inequality(Constant(CONSTANT, UNKNOWN, (95,))), Inequality(Variable((95,), _flow)), Equality(Expression(AFFINE, UNKNOWN, (72,)), Constant(CONSTANT, ZERO, ())), Inequality(Constant(CONSTANT, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, (95,))), Inequality(Variable((95,), _flow))])
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -629,20 +612,10 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(42.0)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">flow</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">1e-6</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(42)
 </pre></div>
 </div>
 </div>
