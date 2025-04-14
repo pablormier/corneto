@@ -465,7 +465,7 @@
             </td>
             <td>
             <table>
-                <tr><td>Installed version:</td><td style='text-align:left'>v1.0.0.dev5 (latest stable: v1.0.0-alpha)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.4, PICOS v2.6.0</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CVXOPT, GLPK, GLPK_MI, HIGHS, SCIP, SCIPY</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/home/runner/work/corneto/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
+                <tr><td>Installed version:</td><td style='text-align:left'>v1.0.0.dev5 (latest stable: v1.0.0-alpha)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.5, PICOS v2.6.1</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CVXOPT, GLPK, GLPK_MI, HIGHS, SCIP, SCIPY</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/home/runner/work/corneto/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
             </table>
             </td>
         </tr>
@@ -566,27 +566,27 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===============================================================================
                                      CVXPY                                     
-                                     v1.6.4                                    
+                                     v1.6.5                                    
 ===============================================================================
-(CVXPY) Apr 14 11:01:31 AM: Your problem has 20 variables, 70 constraints, and 0 parameters.
-(CVXPY) Apr 14 11:01:31 AM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Apr 14 11:01:31 AM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
-(CVXPY) Apr 14 11:01:31 AM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Apr 14 11:01:31 AM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Apr 14 12:59:31 PM: Your problem has 20 variables, 70 constraints, and 0 parameters.
+(CVXPY) Apr 14 12:59:31 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Apr 14 12:59:31 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) Apr 14 12:59:31 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Apr 14 12:59:31 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Apr 14 11:01:31 AM: Compiling problem (target solver=SCIP).
-(CVXPY) Apr 14 11:01:31 AM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
-(CVXPY) Apr 14 11:01:31 AM: Applying reduction Dcp2Cone
-(CVXPY) Apr 14 11:01:31 AM: Applying reduction CvxAttr2Constr
-(CVXPY) Apr 14 11:01:31 AM: Applying reduction ConeMatrixStuffing
-(CVXPY) Apr 14 11:01:31 AM: Applying reduction SCIP
-(CVXPY) Apr 14 11:01:31 AM: Finished problem compilation (took 1.405e-02 seconds).
+(CVXPY) Apr 14 12:59:31 PM: Compiling problem (target solver=SCIP).
+(CVXPY) Apr 14 12:59:31 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIP
+(CVXPY) Apr 14 12:59:31 PM: Applying reduction Dcp2Cone
+(CVXPY) Apr 14 12:59:31 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Apr 14 12:59:31 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) Apr 14 12:59:31 PM: Applying reduction SCIP
+(CVXPY) Apr 14 12:59:31 PM: Finished problem compilation (took 1.472e-02 seconds).
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Apr 14 11:01:31 AM: Invoking solver SCIP  to obtain a solution.
+(CVXPY) Apr 14 12:59:31 PM: Invoking solver SCIP  to obtain a solution.
 presolving:
    (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
    (0.0s) no symmetry present (symcode time: 0.00)
@@ -610,10 +610,10 @@ Gap                : 0.00 %
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Apr 14 11:01:31 AM: Problem status: optimal
-(CVXPY) Apr 14 11:01:31 AM: Optimal value: -1.900e+02
-(CVXPY) Apr 14 11:01:31 AM: Compilation took 1.405e-02 seconds
-(CVXPY) Apr 14 11:01:31 AM: Solver (including time spent in interface) took 5.655e-03 seconds
+(CVXPY) Apr 14 12:59:31 PM: Problem status: optimal
+(CVXPY) Apr 14 12:59:31 PM: Optimal value: -1.900e+02
+(CVXPY) Apr 14 12:59:31 PM: Compilation took 1.472e-02 seconds
+(CVXPY) Apr 14 12:59:31 PM: Solver (including time spent in interface) took 5.695e-03 seconds
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Problem(Minimize(Expression(AFFINE, UNKNOWN, ())), [Inequality(Constant(CONSTANT, ZERO, (10, 2))), Inequality(Variable((10, 2), _flow)), Equality(Expression(AFFINE, UNKNOWN, (5, 2)), Constant(CONSTANT, ZERO, ())), Inequality(Expression(AFFINE, UNKNOWN, (10,))), Inequality(Constant(CONSTANT, ZERO, (10,)))])

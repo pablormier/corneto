@@ -480,7 +480,7 @@
             </td>
             <td>
             <table>
-                <tr><td>Installed version:</td><td style='text-align:left'>v1.0.0.dev5 (latest stable: v1.0.0-alpha)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.4, PICOS v2.6.0</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CVXOPT, GLPK, GLPK_MI, HIGHS, SCIP, SCIPY</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/home/runner/work/corneto/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
+                <tr><td>Installed version:</td><td style='text-align:left'>v1.0.0.dev5 (latest stable: v1.0.0-alpha)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.5, PICOS v2.6.1</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CVXOPT, GLPK, GLPK_MI, HIGHS, SCIP, SCIPY</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/home/runner/work/corneto/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
             </table>
             </td>
         </tr>
@@ -516,7 +516,7 @@
     <span class="k">return</span> <span class="n">G</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">solve_pcst_with_pcst_fast</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">root</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_clusters</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pruning</span><span class="o">=</span><span class="s1">&#39;strong&#39;</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">solve_pcst_with_pcst_fast</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">root</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_clusters</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pruning</span><span class="o">=</span><span class="s1">&#39;gw&#39;</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Solves the PCST problem on a NetworkX graph using pcst_fast from:</span>
 <span class="sd">    https://github.com/fraenkel-lab/pcst_fast</span>
@@ -630,7 +630,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/751c9e2f8d67d04818bd243f7760a1ce47c613653dd9f1b57d988effa6671953.png" src="../../_images/751c9e2f8d67d04818bd243f7760a1ce47c613653dd9f1b57d988effa6671953.png" />
+<img alt="../../_images/e7808c1f133808052a5a1adc404302909f4926464ad454ce666cc694b9174820.png" src="../../_images/e7808c1f133808052a5a1adc404302909f4926464ad454ce666cc694b9174820.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -641,9 +641,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;edge_cost&#39;: 14.321959001143224,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;edge_cost&#39;: 68.25937510893766,
  &#39;prize_collected&#39;: 0,
- &#39;objective&#39;: 14.321959001143224}
+ &#39;objective&#39;: 68.25937510893766}
 </pre></div>
 </div>
 </div>
@@ -677,7 +677,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/96ebb3702547872a3f5818f277c971b28729eaffd88646f349efcc925c86f1b0.png" src="../../_images/96ebb3702547872a3f5818f277c971b28729eaffd88646f349efcc925c86f1b0.png" />
+<img alt="../../_images/2ce6dad412479d9a858903f6226eb7b3e39f2fcebfebdb5b7b3d08405f32ad1a.png" src="../../_images/2ce6dad412479d9a858903f6226eb7b3e39f2fcebfebdb5b7b3d08405f32ad1a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -776,7 +776,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(14.321959001143224, np.float64(24.493118581655683))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(68.25937510893766, np.float64(24.493118581655683))
 </pre></div>
 </div>
 </div>
@@ -851,7 +851,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/91de740196ff5c6f3852e1d0dd64fcdb513b9825398a324ca8a8e9716d9304c9.png" src="../../_images/91de740196ff5c6f3852e1d0dd64fcdb513b9825398a324ca8a8e9716d9304c9.png" />
+<img alt="../../_images/af2d458e1f974d8d76228054130d304189930171c66883b03980f8a49c46d216.png" src="../../_images/af2d458e1f974d8d76228054130d304189930171c66883b03980f8a49c46d216.png" />
 </div>
 </div>
 <section id="directed">
@@ -876,8 +876,8 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_flow&#39;: _flow: Variable((1028,), _flow),
- &#39;_flow_ipos&#39;: _flow_ipos: Variable((1028,), _flow_ipos, boolean=True),
  &#39;_flow_ineg&#39;: _flow_ineg: Variable((1028,), _flow_ineg, boolean=True),
+ &#39;_flow_ipos&#39;: _flow_ipos: Variable((1028,), _flow_ipos, boolean=True),
  &#39;_dag_layer&#39;: _dag_layer: Variable((100, 1), _dag_layer),
  &#39;_flow_terminal_neg_0&#39;: _flow_terminal_neg_0: Variable((6,), _flow_terminal_neg_0, boolean=True),
  &#39;_flow_terminal_pos_0&#39;: _flow_terminal_pos_0: Variable((6,), _flow_terminal_pos_0, boolean=True),
