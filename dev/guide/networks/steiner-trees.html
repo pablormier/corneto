@@ -588,7 +588,7 @@ Total cost of the Steiner tree: 46.7653
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bd43efb7b76426714abf1b3d8f377996f12952025a4848d3f3eed46c3e8cb785.png" src="../../_images/bd43efb7b76426714abf1b3d8f377996f12952025a4848d3f3eed46c3e8cb785.png" />
+<img alt="../../_images/26641126c2266d109d16798f409707c47680cc9aab4786be3ea31e0ba3f962cb.png" src="../../_images/26641126c2266d109d16798f409707c47680cc9aab4786be3ea31e0ba3f962cb.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -688,8 +688,8 @@ Total cost of the Steiner tree: 46.7653
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_flow&#39;: _flow: Variable((521,), _flow),
- &#39;_flow_ineg&#39;: _flow_ineg: Variable((521,), _flow_ineg, boolean=True),
  &#39;_flow_ipos&#39;: _flow_ipos: Variable((521,), _flow_ipos, boolean=True),
+ &#39;_flow_ineg&#39;: _flow_ineg: Variable((521,), _flow_ineg, boolean=True),
  &#39;_dag_layer&#39;: _dag_layer: Variable((100, 1), _dag_layer),
  &#39;flow&#39;: _flow: Variable((521,), _flow),
  &#39;with_flow&#39;: Expression(AFFINE, NONNEGATIVE, (521,))}
@@ -777,12 +777,12 @@ Total cost of the Steiner tree: 46.7653
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9f4d5342c01f2099b30683b2d6eed6732ead232c4beed37e12a621ba621c4347.png" src="../../_images/9f4d5342c01f2099b30683b2d6eed6732ead232c4beed37e12a621ba621c4347.png" />
+<img alt="../../_images/c37c635750036df1c3056eb5dd00edcb549152fc807b7fc974f796fe1d1879da.png" src="../../_images/c37c635750036df1c3056eb5dd00edcb549152fc807b7fc974f796fe1d1879da.png" />
 </div>
 </div>
 </section>
-<section id="directed">
-<h2>Directed<a class="headerlink" href="#directed" title="Link to this heading">#</a></h2>
+<section id="directed-graphs">
+<h2>Directed graphs<a class="headerlink" href="#directed-graphs" title="Link to this heading">#</a></h2>
 <p>CORNETO supports also directed steiner trees (and even a mixed set of directed or undirected edges). In the directed case, the selection of a root node is important, since not every vertex is reachable in a tree, depending on the directions. CORNETO can also find the best root possible, so it explores the entire space of potential trees, starting from different roots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -830,7 +830,7 @@ Total cost of the Steiner tree: 46.7653
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">edge_subgraph</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">with_flow</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">1e-6</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">edge_subgraph</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">with_flow</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">0.5</span><span class="p">))</span>
 <span class="n">sol</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">orphan_edges</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -874,6 +874,116 @@ Total cost of the Steiner tree: 46.7653
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35.85180933414298
 </pre></div>
 </div>
+</div>
+</div>
+</section>
+<section id="mixed-graphs">
+<h2>Mixed graphs<a class="headerlink" href="#mixed-graphs" title="Link to this heading">#</a></h2>
+<p>Mixed graphs (graphs with directed edges, undirected edges, multiple edges) are naturally supported by CORNETO. Here we see the different steiner trees that we can obtain from a mixed graph, depending on the direction of the edges</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G_mixed</span> <span class="o">=</span> <span class="n">cn</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<span class="n">G_mixed</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">cn</span><span class="o">.</span><span class="n">EdgeType</span><span class="o">.</span><span class="n">DIRECTED</span><span class="p">)</span>
+<span class="n">G_mixed</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">cn</span><span class="o">.</span><span class="n">EdgeType</span><span class="o">.</span><span class="n">UNDIRECTED</span><span class="p">)</span>
+<span class="n">G_mixed</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">cn</span><span class="o">.</span><span class="n">EdgeType</span><span class="o">.</span><span class="n">UNDIRECTED</span><span class="p">)</span>
+<span class="n">G_mixed</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">cn</span><span class="o">.</span><span class="n">EdgeType</span><span class="o">.</span><span class="n">UNDIRECTED</span><span class="p">)</span>
+<span class="n">G_mixed</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">cn</span><span class="o">.</span><span class="n">EdgeType</span><span class="o">.</span><span class="n">UNDIRECTED</span><span class="p">)</span>
+<span class="n">G_mixed</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">cn</span><span class="o">.</span><span class="n">EdgeType</span><span class="o">.</span><span class="n">DIRECTED</span><span class="p">)</span> <span class="c1"># UNDIR</span>
+<span class="n">G_mixed</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">cn</span><span class="o">.</span><span class="n">EdgeType</span><span class="o">.</span><span class="n">DIRECTED</span><span class="p">)</span>
+<span class="n">G_mixed</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">cn</span><span class="o">.</span><span class="n">EdgeType</span><span class="o">.</span><span class="n">UNDIRECTED</span><span class="p">)</span>
+<span class="n">G_mixed</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">cn</span><span class="o">.</span><span class="n">EdgeType</span><span class="o">.</span><span class="n">UNDIRECTED</span><span class="p">)</span>
+<span class="n">G_mixed</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">cn</span><span class="o">.</span><span class="n">EdgeType</span><span class="o">.</span><span class="n">UNDIRECTED</span><span class="p">)</span>
+<span class="n">G_mixed</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e19c37cb3bf371c8df76cd0e7a7326f3e39a583e86cdcf5727d304904b20626b.svg" src="../../_images/e19c37cb3bf371c8df76cd0e7a7326f3e39a583e86cdcf5727d304904b20626b.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">cn</span><span class="o">.</span><span class="n">Data</span><span class="o">.</span><span class="n">from_cdict</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;steiner&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="mi">0</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;mapping&quot;</span><span class="p">:</span> <span class="s2">&quot;vertex&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;terminal&quot;</span>
+            <span class="p">},</span>
+            <span class="mi">5</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;mapping&quot;</span><span class="p">:</span> <span class="s2">&quot;vertex&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;terminal&quot;</span>
+            <span class="p">},</span>
+            <span class="mi">6</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;mapping&quot;</span><span class="p">:</span> <span class="s2">&quot;vertex&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;terminal&quot;</span>
+            <span class="p">},</span> 
+            <span class="mi">4</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;mapping&quot;</span><span class="p">:</span> <span class="s2">&quot;vertex&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;terminal&quot;</span>
+            <span class="p">},</span> 
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">SteinerTreeFlow</span><span class="p">(</span><span class="n">root_selection_strategy</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">G_mixed</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/fc24a50d0737ae905fd1d91a22b7a29d10fbedb3c0bc3351fda4f7e0a96be7cc.svg" src="../../_images/fc24a50d0737ae905fd1d91a22b7a29d10fbedb3c0bc3351fda4f7e0a96be7cc.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;scipy&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">edge_subgraph</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">with_flow</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="n">sol</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">orphan_edges</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/a978d6ffe4693fdafec8a4e370e8e6c5e9ff7c1fc5759eb1d1eee408aeac47cd.svg" src="../../_images/a978d6ffe4693fdafec8a4e370e8e6c5e9ff7c1fc5759eb1d1eee408aeac47cd.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G_mixed</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">cn</span><span class="o">.</span><span class="n">EdgeType</span><span class="o">.</span><span class="n">UNDIRECTED</span><span class="p">)</span>
+<span class="n">G_mixed</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/623b24ff42196f02fbee613caa10e12d490ec744860c03f37ba59667d6cdcd47.svg" src="../../_images/623b24ff42196f02fbee613caa10e12d490ec744860c03f37ba59667d6cdcd47.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">SteinerTreeFlow</span><span class="p">(</span><span class="n">root_selection_strategy</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">G_mixed</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+<span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;scipy&quot;</span><span class="p">)</span>
+
+<span class="n">sol</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">edge_subgraph</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">with_flow</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="n">sol</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">orphan_edges</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/8853df7875c64821c36cd7e7f21ba652613f91c7092e6167bf68a42c75983bb3.svg" src="../../_images/8853df7875c64821c36cd7e7f21ba652613f91c7092e6167bf68a42c75983bb3.svg" />
 </div>
 </div>
 </section>
@@ -934,7 +1044,8 @@ Total cost of the Steiner tree: 46.7653
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-data-to-corneto">Importing data to CORNETO</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-problem-with-the-exact-steiner-tree">Solving the problem with the exact steiner tree</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-the-tree-and-plotting">Extracting the tree and plotting</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directed">Directed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directed-graphs">Directed graphs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-graphs">Mixed graphs</a></li>
 </ul>
   </nav></div>
 
