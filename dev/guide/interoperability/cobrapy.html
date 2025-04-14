@@ -470,7 +470,7 @@
             </td>
             <td>
             <table>
-                <tr><td>Installed version:</td><td style='text-align:left'>v1.0.0.dev5 (latest stable: v1.0.0-alpha)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.4, PICOS v2.6.0</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CLARABEL, CVXOPT, GLOP, GLPK, GLPK_MI, GUROBI, HIGHS, OSQP, PDLP, PROXQP, SCIP, SCIPY, SCS</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/Users/pablorodriguezmier/Documents/work/repos/pablormier/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
+                <tr><td>Installed version:</td><td style='text-align:left'>v1.0.0.dev5 (latest stable: v1.0.0-alpha)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.5, PICOS v2.6.1</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CVXOPT, GLPK, GLPK_MI, HIGHS, SCIP, SCIPY</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/home/runner/work/corneto/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
             </table>
             </td>
         </tr>
@@ -487,11 +487,6 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set parameter Username
-Set parameter LicenseID to value 2593994
-Academic license - for non-commercial use only - expires 2025-12-02
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(72, 95)
 </pre></div>
 </div>
@@ -522,14 +517,14 @@ Academic license - for non-commercial use only - expires 2025-12-02
   frozenset({&#39;accoa_c&#39;, &#39;h_c&#39;, &#39;nadh_c&#39;})),
  {&#39;__edge_type&#39;: &#39;directed&#39;,
   &#39;id&#39;: &#39;ACALD&#39;,
-  &#39;__source_attr&#39;: {&#39;acald_c&#39;: {&#39;__value&#39;: -1.0},
-   &#39;coa_c&#39;: {&#39;__value&#39;: -1.0},
-   &#39;nad_c&#39;: {&#39;__value&#39;: -1.0}},
-  &#39;__target_attr&#39;: {&#39;accoa_c&#39;: {&#39;__value&#39;: 1.0},
-   &#39;h_c&#39;: {&#39;__value&#39;: 1.0},
-   &#39;nadh_c&#39;: {&#39;__value&#39;: 1.0}},
-  &#39;default_lb&#39;: -1000.0,
-  &#39;default_ub&#39;: 1000.0,
+  &#39;__source_attr&#39;: {&#39;acald_c&#39;: {&#39;__value&#39;: np.float64(-1.0)},
+   &#39;coa_c&#39;: {&#39;__value&#39;: np.float64(-1.0)},
+   &#39;nad_c&#39;: {&#39;__value&#39;: np.float64(-1.0)}},
+  &#39;__target_attr&#39;: {&#39;accoa_c&#39;: {&#39;__value&#39;: np.float64(1.0)},
+   &#39;h_c&#39;: {&#39;__value&#39;: np.float64(1.0)},
+   &#39;nadh_c&#39;: {&#39;__value&#39;: np.float64(1.0)}},
+  &#39;default_lb&#39;: np.float64(-1000.0),
+  &#39;default_ub&#39;: np.float64(1000.0),
   &#39;GPR&#39;: &#39;b0351 or b1241&#39;})
 </pre></div>
 </div>
@@ -590,7 +585,7 @@ Academic license - for non-commercial use only - expires 2025-12-02
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8739215069684303
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.873921506968431)
 </pre></div>
 </div>
 </div>
@@ -711,28 +706,28 @@ Academic license - for non-commercial use only - expires 2025-12-02
   <tbody>
     <tr>
       <th>ACALD</th>
-      <td>0.000000</td>
-      <td>8.673617e-19</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
     </tr>
     <tr>
       <th>ACALDt</th>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>0.000000e+00</td>
     </tr>
     <tr>
       <th>ACKr</th>
-      <td>0.000000</td>
-      <td>-1.734723e-18</td>
+      <td>3.192215e-14</td>
+      <td>-0.000000e+00</td>
     </tr>
     <tr>
       <th>ACONTa</th>
-      <td>6.007250</td>
+      <td>6.007250e+00</td>
       <td>0.000000e+00</td>
     </tr>
     <tr>
       <th>ACONTb</th>
-      <td>6.007250</td>
-      <td>0.000000e+00</td>
+      <td>6.007250e+00</td>
+      <td>1.082023e-16</td>
     </tr>
     <tr>
       <th>...</th>
@@ -741,28 +736,28 @@ Academic license - for non-commercial use only - expires 2025-12-02
     </tr>
     <tr>
       <th>TALA</th>
-      <td>1.496984</td>
-      <td>0.000000e+00</td>
+      <td>1.496984e+00</td>
+      <td>-4.759755e-17</td>
     </tr>
     <tr>
       <th>THD2</th>
-      <td>0.000000</td>
+      <td>0.000000e+00</td>
       <td>-2.546243e-03</td>
     </tr>
     <tr>
       <th>TKT1</th>
-      <td>1.496984</td>
+      <td>1.496984e+00</td>
       <td>0.000000e+00</td>
     </tr>
     <tr>
       <th>TKT2</th>
-      <td>1.181498</td>
-      <td>2.775558e-17</td>
+      <td>1.181498e+00</td>
+      <td>2.379877e-17</td>
     </tr>
     <tr>
       <th>TPI</th>
-      <td>7.477382</td>
-      <td>0.000000e+00</td>
+      <td>7.477382e+00</td>
+      <td>2.316332e-17</td>
     </tr>
   </tbody>
 </table>
@@ -777,7 +772,7 @@ Academic license - for non-commercial use only - expires 2025-12-02
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fluxes           8.739215e-01
-reduced_costs    2.843873e-16
+reduced_costs    1.561251e-16
 Name: Biomass_Ecoli_core, dtype: float64
 </pre></div>
 </div>

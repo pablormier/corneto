@@ -467,7 +467,7 @@
             </td>
             <td>
             <table>
-                <tr><td>Installed version:</td><td style='text-align:left'>v1.0.0.dev5 (latest stable: v1.0.0-alpha)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.4, PICOS v2.6.0</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CLARABEL, CVXOPT, GLOP, GLPK, GLPK_MI, GUROBI, HIGHS, OSQP, PDLP, PROXQP, SCIP, SCIPY, SCS</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/Users/pablorodriguezmier/Documents/work/repos/pablormier/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
+                <tr><td>Installed version:</td><td style='text-align:left'>v1.0.0.dev5 (latest stable: v1.0.0-alpha)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.5, PICOS v2.6.1</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CVXOPT, GLPK, GLPK_MI, HIGHS, SCIP, SCIPY</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/home/runner/work/corneto/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
             </table>
             </td>
         </tr>
@@ -488,7 +488,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f3111c3792a1bbf5b790678e1cb17e8ef452d26eb418cbba00150769fdaa4613.svg" src="../../_images/f3111c3792a1bbf5b790678e1cb17e8ef452d26eb418cbba00150769fdaa4613.svg" />
+<img alt="../../_images/b26ad1cae5f801af9f1f8987fd50baf9d02e13ca30bb919b1953c71386255646.svg" src="../../_images/b26ad1cae5f801af9f1f8987fd50baf9d02e13ca30bb919b1953c71386255646.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -524,7 +524,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2bf02899ef9c7db87a3fac439f294aa250069428f4d8826a1313e7b75d5ff3dc.svg" src="../../_images/2bf02899ef9c7db87a3fac439f294aa250069428f4d8826a1313e7b75d5ff3dc.svg" />
+<img alt="../../_images/57d11cef1bfdf549eb5f3ad7f89af176d7cc4ca1e4123c50f0f474bb5f08e64e.svg" src="../../_images/57d11cef1bfdf549eb5f3ad7f89af176d7cc4ca1e4123c50f0f474bb5f08e64e.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -534,7 +534,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a85727504dfbf71c7b8679081fbad9c0004e9d9deff33f9c2c106bd58e08190d.svg" src="../../_images/a85727504dfbf71c7b8679081fbad9c0004e9d9deff33f9c2c106bd58e08190d.svg" />
+<img alt="../../_images/695b675bbed64769795a5d4b5679f497a98ea53de0131017b1f088e057155cc7.svg" src="../../_images/695b675bbed64769795a5d4b5679f497a98ea53de0131017b1f088e057155cc7.svg" />
 </div>
 </div>
 </section>
@@ -550,7 +550,59 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0e09fc2090910ee68b95a583d224b06ea4fe1266fa426b8098e3d5791d3958d4.svg" src="../../_images/0e09fc2090910ee68b95a583d224b06ea4fe1266fa426b8098e3d5791d3958d4.svg" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">SVG</span><span class="p">,</span> <span class="n">display</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">G_pydot</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">to_dot</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="s2">&quot;pydot&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">display</span><span class="p">(</span><span class="n">SVG</span><span class="p">(</span><span class="n">G_pydot</span><span class="o">.</span><span class="n">create_svg</span><span class="p">()))</span>
+
+<span class="nn">File ~/work/corneto/corneto/corneto/graph/_base.py:1058,</span> in <span class="ni">BaseGraph.to_dot</span><span class="nt">(self, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1048</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Convert graph to DOT format.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1049</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1050</span><span class="sd"> Args:</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1054</span><span class="sd">     DOT representation of the graph</span>
+<span class="g g-Whitespace">   </span><span class="mi">1055</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1056</span> <span class="kn">from</span><span class="w"> </span><span class="nn">corneto._plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_graphviz</span> <span class="k">as</span> <span class="n">_dot</span>
+<span class="ne">-&gt; </span><span class="mi">1058</span> <span class="k">return</span> <span class="n">_dot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/work/corneto/corneto/corneto/_plotting.py:448,</span> in <span class="ni">to_graphviz</span><span class="nt">(graph, graph_attr, node_attr, edge_attr, custom_edge_attr, custom_vertex_attr, edge_indexes, layout, orphan_edges, supress_warnings, backend)</span>
+<span class="g g-Whitespace">    </span><span class="mi">435</span>     <span class="k">return</span> <span class="n">to_python_graphviz</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">436</span>         <span class="n">graph</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">437</span>         <span class="n">graph_attr</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">445</span>         <span class="n">supress_warnings</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">446</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">447</span> <span class="k">elif</span> <span class="n">backend</span> <span class="o">==</span> <span class="s2">&quot;pydot&quot;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">448</span>     <span class="k">return</span> <span class="n">to_pydot</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span>         <span class="n">graph</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span>         <span class="n">graph_attr</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span>         <span class="n">node_attr</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span>         <span class="n">edge_attr</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span>         <span class="n">custom_edge_attr</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">454</span>         <span class="n">custom_vertex_attr</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">455</span>         <span class="n">edge_indexes</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">456</span>         <span class="n">layout</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">457</span>         <span class="n">orphan_edges</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">458</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">459</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">460</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown backend specified. Must be &#39;graphviz&#39; or &#39;pydot&#39;.&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/work/corneto/corneto/corneto/_plotting.py:351,</span> in <span class="ni">to_pydot</span><span class="nt">(graph, graph_attr, node_attr, edge_attr, custom_edge_attr, custom_vertex_attr, edge_indexes, layout, orphan_edges)</span>
+<span class="g g-Whitespace">    </span><span class="mi">340</span> <span class="k">def</span><span class="w"> </span><span class="nf">to_pydot</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span>     <span class="n">graph</span><span class="p">:</span> <span class="n">BaseGraph</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">342</span>     <span class="n">graph_attr</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">349</span>     <span class="n">orphan_edges</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">350</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">351</span>     <span class="kn">import</span><span class="w"> </span><span class="nn">pydot</span>
+<span class="g g-Whitespace">    </span><span class="mi">353</span>     <span class="n">is_hypergraph</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">    </span><span class="mi">354</span>     <span class="k">if</span> <span class="n">custom_edge_attr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pydot&#39;
+</pre></div>
+</div>
 </div>
 </div>
 </section>

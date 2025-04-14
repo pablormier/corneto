@@ -487,10 +487,6 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set parameter Username
-Academic license - for non-commercial use only - expires 2023-11-09
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(72, 95)
 </pre></div>
 </div>
@@ -512,7 +508,7 @@ Academic license - for non-commercial use only - expires 2023-11-09
                 <td><strong>Name</strong></td><td>Biomass Objective Function with GAM</td>
             </tr><tr>
                 <td><strong>Memory address</strong></td>
-                <td>0x235d3623bb0</td>
+                <td>0x7fee96592410</td>
             </tr><tr>
                 <td><strong>Stoichiometry</strong></td>
                 <td>
@@ -537,7 +533,7 @@ Academic license - for non-commercial use only - expires 2023-11-09
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Solution 0.874 at 0x235bcea6050&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Solution 0.874 at 0x7fee96419010&gt;
 </pre></div>
 </div>
 </div>
@@ -551,7 +547,7 @@ Academic license - for non-commercial use only - expires 2023-11-09
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
+<div class="output text_html"></div><div class="output text_html">
         <table style='background-color:rgba(0, 0, 0, 0);'>
         <tr>
             <td style="min-width:85px">
@@ -559,7 +555,7 @@ Academic license - for non-commercial use only - expires 2023-11-09
             </td>
             <td>
             <table>
-                <tr><td>Installed version:</td><td style='text-align:left'>v0.9.2-beta.1 (latest: v0.9.1-alpha.3)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.3.2, PICOS v2.4.17</td></tr><tr><td>Default backend (corneto.K):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CBC, CLARABEL, COPT, CPLEX, CVXOPT, DIFFCP, ECOS, ECOS_BB, GLPK, GLPK_MI, GUROBI, MOSEK, OSQP, PROXQP, SCIP, SCIPY, SCS</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.1</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
+                <tr><td>Installed version:</td><td style='text-align:left'>v1.0.0.dev5 (latest stable: v1.0.0-alpha)</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.5, PICOS v2.6.1</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CVXOPT, GLPK, GLPK_MI, HIGHS, SCIP, SCIPY</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/home/runner/work/corneto/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
             </table>
             </td>
         </tr>
@@ -573,7 +569,13 @@ Academic license - for non-commercial use only - expires 2023-11-09
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(72, 95)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">G</span> <span class="o">=</span> <span class="n">cn</span><span class="o">.</span><span class="n">Graph</span><span class="o">.</span><span class="n">from_cobra_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">G</span><span class="o">.</span><span class="n">shape</span>
+
+<span class="ne">AttributeError</span>: type object &#39;Graph&#39; has no attribute &#39;from_cobra_model&#39;
 </pre></div>
 </div>
 </div>
