@@ -16,7 +16,10 @@
       ~CarnivalILP.__init__
       ~CarnivalILP.build
       ~CarnivalILP.create_problem
+      ~CarnivalILP.get_citations
       ~CarnivalILP.preprocess
+      ~CarnivalILP.show_bibtex
+      ~CarnivalILP.show_citations
    
    
 

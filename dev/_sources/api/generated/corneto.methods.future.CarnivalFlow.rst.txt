@@ -17,8 +17,11 @@
       ~CarnivalFlow.build
       ~CarnivalFlow.create_flow_based_problem
       ~CarnivalFlow.create_problem
+      ~CarnivalFlow.get_citations
       ~CarnivalFlow.get_flow_bounds
       ~CarnivalFlow.preprocess
+      ~CarnivalFlow.show_bibtex
+      ~CarnivalFlow.show_citations
    
    
 

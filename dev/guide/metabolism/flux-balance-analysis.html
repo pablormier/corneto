@@ -508,7 +508,7 @@
                 <td><strong>Name</strong></td><td>Biomass Objective Function with GAM</td>
             </tr><tr>
                 <td><strong>Memory address</strong></td>
-                <td>0x7f26ac64ab90</td>
+                <td>0x7fe74be34c10</td>
             </tr><tr>
                 <td><strong>Stoichiometry</strong></td>
                 <td>
@@ -533,7 +533,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Solution 0.874 at 0x7f26ac6996d0&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Solution 0.874 at 0x7fe74be72f50&gt;
 </pre></div>
 </div>
 </div>
@@ -626,7 +626,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/129f2989bd09442f3d8db5984a97cc4962381a85c804b39033e72951fd80c625.svg" src="../../_images/129f2989bd09442f3d8db5984a97cc4962381a85c804b39033e72951fd80c625.svg" />
+<img alt="../../_images/6f360c373cb0449e26525c04e615080860e1c5a78b6fca93105b9aef7b090324.svg" src="../../_images/6f360c373cb0449e26525c04e615080860e1c5a78b6fca93105b9aef7b090324.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -776,7 +776,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/308370dbd57c07c953913ede2db0c5aaa8e8fbf414289d094f6d85d793309bda.svg" src="../../_images/308370dbd57c07c953913ede2db0c5aaa8e8fbf414289d094f6d85d793309bda.svg" />
+<img alt="../../_images/e16b76c90491781a5ac3dfa79fbbf49e02db604c4358124ca80f3be69c1d61d5.svg" src="../../_images/e16b76c90491781a5ac3dfa79fbbf49e02db604c4358124ca80f3be69c1d61d5.svg" />
 </div>
 </div>
 </section>
@@ -786,7 +786,8 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">FBA</span><span class="p">(</span><span class="n">lambda_reg</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="n">P</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
-<span class="n">P</span> <span class="o">+=</span> <span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">flow</span><span class="p">[</span><span class="n">rid</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">opt_flux</span><span class="o">*</span><span class="mf">0.99</span>
+<span class="c1"># We add a constraint to force at least 90% of optimal flux</span>
+<span class="n">P</span> <span class="o">+=</span> <span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">flow</span><span class="p">[</span><span class="n">rid</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">opt_flux</span><span class="o">*</span><span class="mf">0.90</span>
 <span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;highs&quot;</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -796,32 +797,32 @@
                                      CVXPY                                     
                                      v1.6.5                                    
 ===============================================================================
-(CVXPY) Apr 14 03:01:52 PM: Your problem has 190 variables, 453 constraints, and 1 parameters.
-(CVXPY) Apr 14 03:01:52 PM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Apr 14 03:01:52 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Apr 14 03:01:52 PM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Apr 15 07:26:25 PM: Your problem has 190 variables, 453 constraints, and 1 parameters.
+(CVXPY) Apr 15 07:26:25 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Apr 15 07:26:25 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Apr 15 07:26:25 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Apr 14 03:01:52 PM: Compiling problem (target solver=HIGHS).
-(CVXPY) Apr 14 03:01:52 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
-(CVXPY) Apr 14 03:01:52 PM: Applying reduction Dcp2Cone
-(CVXPY) Apr 14 03:01:52 PM: Applying reduction CvxAttr2Constr
-(CVXPY) Apr 14 03:01:52 PM: Applying reduction ConeMatrixStuffing
-(CVXPY) Apr 14 03:01:52 PM: Applying reduction HIGHS
-(CVXPY) Apr 14 03:01:52 PM: Finished problem compilation (took 1.037e-02 seconds).
-(CVXPY) Apr 14 03:01:52 PM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
+(CVXPY) Apr 15 07:26:25 PM: Compiling problem (target solver=HIGHS).
+(CVXPY) Apr 15 07:26:25 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
+(CVXPY) Apr 15 07:26:25 PM: Applying reduction Dcp2Cone
+(CVXPY) Apr 15 07:26:25 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Apr 15 07:26:25 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) Apr 15 07:26:25 PM: Applying reduction HIGHS
+(CVXPY) Apr 15 07:26:25 PM: Finished problem compilation (took 1.026e-02 seconds).
+(CVXPY) Apr 15 07:26:25 PM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Apr 14 03:01:52 PM: Invoking solver HIGHS  to obtain a solution.
+(CVXPY) Apr 15 07:26:25 PM: Invoking solver HIGHS  to obtain a solution.
 Running HiGHS 1.10.0 (git hash: fd86653): Copyright (c) 2025 HiGHS under MIT licence terms
 MIP  has 453 rows; 190 cols; 883 nonzeros; 95 integer variables (95 binary)
 Coefficient ranges:
   Matrix [7e-02, 1e+03]
   Cost   [1e-01, 1e+00]
   Bound  [1e+00, 1e+00]
-  RHS    [9e-01, 1e+03]
+  RHS    [8e-01, 1e+03]
 Presolving model
 153 rows, 144 cols, 493 nonzeros  0s
 123 rows, 123 cols, 415 nonzeros  0s
@@ -839,58 +840,49 @@ Src: B =&gt; Branching; C =&gt; Central rounding; F =&gt; Feasibility pump; H =&
         Nodes      |    B&amp;B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
 Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
 
-         0       0         0   0.00%   -64.93320449    inf                  inf        0      0      0         0     0.0s
- S       0       0         0   0.00%   -64.93320449    4.034817708     1709.32%        0      0      0         0     0.0s
- R       0       0         0   0.00%   0.6217904172    4.026078493       84.56%        0      0      0        60     0.0s
- L       0       0         0   0.00%   2.535637293     3.926078493       35.42%      104      9      0        83     0.0s
+         0       0         0   0.00%   -64.93809816    inf                  inf        0      0      0         0     0.0s
+ S       0       0         0   0.00%   -64.93809816    3.685702492     1861.89%        0      0      0         0     0.0s
+         0       0         0   0.00%   0.5684850774    3.685702492       84.58%        0      0      0        55     0.0s
 
-19.2% inactive integer columns, restarting
-Model after restart has 96 rows, 103 cols (63 bin., 0 int., 0 impl., 40 cont.), and 349 nonzeros
+7.7% inactive integer columns, restarting
+Model after restart has 109 rows, 113 cols (72 bin., 0 int., 0 impl., 41 cont.), and 382 nonzeros
 
-         0       0         0   0.00%   2.535637293     3.926078493       35.42%        0      0      0       233     0.0s
-         0       0         0   0.00%   2.541877803     3.926078493       35.26%        0      0      4       254     0.0s
- L       0       0         0   0.00%   3.456925346     3.926078493       11.95%      632     57      4       377     0.1s
-
-12.7% inactive integer columns, restarting
-Model after restart has 84 rows, 95 cols (55 bin., 0 int., 0 impl., 40 cont.), and 325 nonzeros
-
-         0       0         0   0.00%   3.456925346     3.926078493       11.95%       22      0      0       651     0.1s
-         0       0         0   0.00%   3.456925346     3.926078493       11.95%       22     20      7       702     0.1s
+         0       0         0   0.00%   2.159371619     3.685702492       41.41%       35      0      0      2185     0.3s
+         0       0         0   0.00%   2.159371619     3.685702492       41.41%       35     34      0      2241     0.3s
 
 Symmetry detection completed in 0.0s
-Found 13 full orbitope(s) acting on 31 columns
-
-         5       0         3 100.00%   3.926078493     3.926078493        0.00%      959     25     39      2269     0.4s
+Found 17 full orbitope(s) acting on 40 columns
+        97       0        49 100.00%   3.685702492     3.685702492        0.00%     1849     32    649      7352     0.9s
 
 Solving report
   Status            Optimal
-  Primal bound      3.92607849303
-  Dual bound        3.92607849303
+  Primal bound      3.68570249247
+  Dual bound        3.68570249247
   Gap               0% (tolerance: 0.01%)
-  P-D integral      0.047722094948
+  P-D integral      0.307133817705
   Solution status   feasible
-                    3.92607849303 (objective)
+                    3.68570249247 (objective)
                     0 (bound viol.)
-                    5.10702591328e-15 (int. viol.)
+                    0 (int. viol.)
                     0 (row viol.)
-  Timing            0.43 (total)
+  Timing            0.87 (total)
                     0.00 (presolve)
                     0.00 (solve)
                     0.00 (postsolve)
-  Max sub-MIP depth 4
-  Nodes             5
+  Max sub-MIP depth 3
+  Nodes             97
   Repair LPs        0 (0 feasible; 0 iterations)
-  LP iterations     2269 (total)
-                    149 (strong br.)
-                    294 (separation)
-                    1635 (heuristics)
+  LP iterations     7352 (total)
+                    2147 (strong br.)
+                    868 (separation)
+                    3383 (heuristics)
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Apr 14 03:01:53 PM: Problem status: optimal
-(CVXPY) Apr 14 03:01:53 PM: Optimal value: 3.926e+00
-(CVXPY) Apr 14 03:01:53 PM: Compilation took 1.037e-02 seconds
-(CVXPY) Apr 14 03:01:53 PM: Solver (including time spent in interface) took 4.322e-01 seconds
+(CVXPY) Apr 15 07:26:26 PM: Problem status: optimal
+(CVXPY) Apr 15 07:26:26 PM: Optimal value: 3.686e+00
+(CVXPY) Apr 15 07:26:26 PM: Compilation took 1.026e-02 seconds
+(CVXPY) Apr 15 07:26:26 PM: Solver (including time spent in interface) took 8.726e-01 seconds
 </pre></div>
 </div>
 </div>
@@ -902,7 +894,7 @@ Solving report
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/308370dbd57c07c953913ede2db0c5aaa8e8fbf414289d094f6d85d793309bda.svg" src="../../_images/308370dbd57c07c953913ede2db0c5aaa8e8fbf414289d094f6d85d793309bda.svg" />
+<img alt="../../_images/4cbdf3493629c373cbaf4bf6b4619402c5685f12426069571198de845320bf5f.svg" src="../../_images/4cbdf3493629c373cbaf4bf6b4619402c5685f12426069571198de845320bf5f.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -912,7 +904,7 @@ Solving report
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(48)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(45)
 </pre></div>
 </div>
 </div>
@@ -937,7 +929,7 @@ Solving report
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(47.99999999999999)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(45.0)
 </pre></div>
 </div>
 </div>
