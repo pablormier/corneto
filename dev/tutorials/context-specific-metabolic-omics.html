@@ -433,9 +433,20 @@
         </tr>
         </table></div></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corneto.methods.future.imat</span><span class="w"> </span><span class="kn">import</span> <span class="n">MultiSampleIMAT</span>
+
+<span class="n">MultiSampleIMAT</span><span class="o">.</span><span class="n">show_citations</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ul><li><strong>Tomer Shlomi, Moran N Cabili, Markus J Herrgård, Bernhard Ø Palsson, Eytan Ruppin</strong>. <em>Network-based prediction of human tissue-specific metabolism</em>. <em>Nature biotechnology</em>, Vol. 26, No. 9, pp. 1003--1010 (2008).</li><li><strong>Pablo Rodriguez-Mier, Martin Garrido-Rodriguez, Attila Gabor, Julio Saez-Rodriguez</strong>. <em>Unified knowledge-driven network inference from omics data</em>. <em>bioRxiv</em>, pp. 10 (2024).</li></ul></div></div>
+</div>
 <section id="loading-data-from-cobra">
 <h2>Loading data from COBRA<a class="headerlink" href="#loading-data-from-cobra" title="Link to this heading">#</a></h2>
-<p>We will use the ecoli core metabolic network and ecoli data example obtained from the COBRA package</p>
+<p>We will use the ecoli core metabolic network and ecoli data example obtained from the COBRA package. This dataset contains 4 biological replicates. In this tutorial, we will use the single sample iMAT, we will average the expression and use this for analysis, since we are not interesed in analysing differences of the replicates</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corneto.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">import_cobra_model</span>
@@ -970,9 +981,7 @@
 <p>We run the iMAT method (in this case, only 1 sample, which is the mean of the 4 biological replicates)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corneto.methods.future.imat</span><span class="w"> </span><span class="kn">import</span> <span class="n">MultiSampleIMAT</span>
-
-<span class="c1"># eps is the min absolute flux value that we will consider</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># eps is the min absolute flux value that we will consider</span>
 <span class="c1"># for reactions with positive scores, i.e., if a reaction</span>
 <span class="c1"># with a positive score is included in the context specific</span>
 <span class="c1"># metabolic network, it has to be able to carry an absolute</span>
@@ -993,9 +1002,9 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_flow&#39;: _flow: Variable((91,), _flow),
- &#39;_flow_ipos&#39;: _flow_ipos: Variable((91,), _flow_ipos, boolean=True),
  &#39;edge_has_flux&#39;: edge_has_flux: Variable((91,), edge_has_flux, boolean=True),
  &#39;_flow_ineg&#39;: _flow_ineg: Variable((91,), _flow_ineg, boolean=True),
+ &#39;_flow_ipos&#39;: _flow_ipos: Variable((91,), _flow_ipos, boolean=True),
  &#39;flow&#39;: _flow: Variable((91,), _flow)}
 </pre></div>
 </div>
@@ -1168,7 +1177,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ac396bf5c19248801da0872d20858e6da9e69f3dd6e90abbb19e7f6ec65e3f27.svg" src="../_images/ac396bf5c19248801da0872d20858e6da9e69f3dd6e90abbb19e7f6ec65e3f27.svg" />
+<img alt="../_images/462bf8bf666470c1aa7389d7e45af2f4ca42dcb6aea5b1f303ef0b36247bab16.svg" src="../_images/462bf8bf666470c1aa7389d7e45af2f4ca42dcb6aea5b1f303ef0b36247bab16.svg" />
 </div>
 </div>
 </section>
@@ -1198,6 +1207,49 @@
 </pre></div>
 </div>
 </div>
+</div>
+</section>
+<section id="citations">
+<h2>Citations<a class="headerlink" href="#citations" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MultiSampleIMAT</span><span class="o">.</span><span class="n">show_bibtex</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+    <div style='
+        background-color: #f7f7f9;
+        border: 1px solid #e1e1e8;
+        border-radius: 8px;
+        padding: 1em 1.5em;
+        font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+        font-size: 0.9em;
+        line-height: 1.6;
+        color: #333;
+        overflow-x: auto;
+        white-space: pre;
+    '>@article{shlomi2008network,
+    title={Network-based prediction of human tissue-specific metabolism},
+    author={Shlomi, Tomer and Cabili, Moran N and Herrg{\aa}rd, Markus J and Palsson, Bernhard {\O} and Ruppin, Eytan},
+    journal={Nature biotechnology},
+    volume={26},
+    number={9},
+    pages={1003--1010},
+    year={2008},
+    publisher={Nature Publishing Group US New York}
+}
+
+@article{rodriguez2024unified,
+    title={Unified knowledge-driven network inference from omics data},
+    author={Rodriguez-Mier, Pablo and Garrido-Rodriguez, Martin and Gabor, Attila and Saez-Rodriguez, Julio},
+    journal={bioRxiv},
+    pages={10},
+    year={2024},
+    publisher={Cold Spring Harbor Laboratory}
+}</div>
+    </div></div>
 </div>
 </section>
 </section>
@@ -1253,6 +1305,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-data-using-gene-protein-reaction-gpr-rules">Mapping data using Gene-Protein-Reaction (GPR) rules</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#context-specific-network-inference">Context-specific network inference</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#old-version">Old version</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citations">Citations</a></li>
 </ul>
   </nav></div>
 

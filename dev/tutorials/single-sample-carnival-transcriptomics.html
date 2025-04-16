@@ -1584,6 +1584,17 @@ MT-TP         0.012206
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corneto.methods.future</span><span class="w"> </span><span class="kn">import</span> <span class="n">CarnivalFlow</span>
+
+<span class="n">CarnivalFlow</span><span class="o">.</span><span class="n">show_citations</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ul><li><strong>Pablo Rodriguez-Mier, Martin Garrido-Rodriguez, Attila Gabor, Julio Saez-Rodriguez</strong>. <em>Unified knowledge-driven network inference from omics data</em>. <em>bioRxiv</em>, pp. 10 (2024).</li><li><strong>Anika Liu, Panuwat Trairatphisan, Enio Gjerga, Athanasios Didangelos, Jonathan Barratt, Julio Saez-Rodriguez</strong>. <em>From expression footprints to causal pathways: contextualizing large signaling networks with CARNIVAL</em>. <em>NPJ systems biology and applications</em>, Vol. 5, No. 1, pp. 40 (2019).</li></ul></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We get only interactions from SIGNOR http://signor.uniroma2.it/</span>
 <span class="n">pkn</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">interactions</span><span class="o">.</span><span class="n">OmniPath</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">databases</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;SIGNOR&quot;</span><span class="p">],</span> <span class="n">genesymbols</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">pkn</span> <span class="o">=</span> <span class="n">pkn</span><span class="p">[</span><span class="n">pkn</span><span class="o">.</span><span class="n">consensus_direction</span> <span class="o">==</span> <span class="kc">True</span><span class="p">]</span>
@@ -2068,9 +2079,7 @@ MT-TP         0.012206
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corneto.methods.future</span><span class="w"> </span><span class="kn">import</span> <span class="n">CarnivalFlow</span>
-
-<span class="n">carnival</span> <span class="o">=</span> <span class="n">CarnivalFlow</span><span class="p">(</span><span class="n">lambda_reg</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">carnival</span> <span class="o">=</span> <span class="n">CarnivalFlow</span><span class="p">(</span><span class="n">lambda_reg</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">P</span> <span class="o">=</span> <span class="n">carnival</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 <span class="n">P</span><span class="o">.</span><span class="n">expr</span>
 </pre></div>
@@ -2080,12 +2089,12 @@ MT-TP         0.012206
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unreachable vertices for sample: 0
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_flow&#39;: _flow: Variable((3374,), _flow),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;edge_activates&#39;: edge_activates: Variable((3374, 1), edge_activates, boolean=True),
+ &#39;const0x1ed29ddbdc597523&#39;: const0x1ed29ddbdc597523: Constant(CONSTANT, NONNEGATIVE, (970, 3374)),
+ &#39;_flow&#39;: _flow: Variable((3374,), _flow),
  &#39;edge_inhibits&#39;: edge_inhibits: Variable((3374, 1), edge_inhibits, boolean=True),
- &#39;edge_activates&#39;: edge_activates: Variable((3374, 1), edge_activates, boolean=True),
- &#39;const0x1995fd6c742c08f5&#39;: const0x1995fd6c742c08f5: Constant(CONSTANT, NONNEGATIVE, (970, 3374)),
+ &#39;const0x70b316d8f961cc5&#39;: const0x70b316d8f961cc5: Constant(CONSTANT, NONNEGATIVE, (970, 3374)),
  &#39;_dag_layer&#39;: _dag_layer: Variable((970, 1), _dag_layer),
- &#39;const0x8d48e669590d559&#39;: const0x8d48e669590d559: Constant(CONSTANT, NONNEGATIVE, (970, 3374)),
  &#39;flow&#39;: _flow: Variable((3374,), _flow),
  &#39;vertex_value&#39;: Expression(AFFINE, UNKNOWN, (970, 1)),
  &#39;vertex_activated&#39;: Expression(AFFINE, NONNEGATIVE, (970, 1)),
@@ -2107,25 +2116,25 @@ MT-TP         0.012206
                                      CVXPY                                     
                                      v1.6.4                                    
 ===============================================================================
-(CVXPY) Apr 10 03:05:36 PM: Your problem has 11092 variables, 31652 constraints, and 1 parameters.
-(CVXPY) Apr 10 03:05:36 PM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Apr 10 03:05:36 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Apr 10 03:05:36 PM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Apr 16 11:41:50 AM: Your problem has 11092 variables, 31652 constraints, and 1 parameters.
+(CVXPY) Apr 16 11:41:50 AM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Apr 16 11:41:50 AM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Apr 16 11:41:50 AM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Apr 10 03:05:36 PM: Compiling problem (target solver=HIGHS).
-(CVXPY) Apr 10 03:05:36 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
-(CVXPY) Apr 10 03:05:36 PM: Applying reduction Dcp2Cone
-(CVXPY) Apr 10 03:05:36 PM: Applying reduction CvxAttr2Constr
-(CVXPY) Apr 10 03:05:36 PM: Applying reduction ConeMatrixStuffing
-(CVXPY) Apr 10 03:05:36 PM: Applying reduction HIGHS
-(CVXPY) Apr 10 03:05:36 PM: Finished problem compilation (took 5.783e-02 seconds).
-(CVXPY) Apr 10 03:05:36 PM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
+(CVXPY) Apr 16 11:41:50 AM: Compiling problem (target solver=HIGHS).
+(CVXPY) Apr 16 11:41:50 AM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
+(CVXPY) Apr 16 11:41:50 AM: Applying reduction Dcp2Cone
+(CVXPY) Apr 16 11:41:50 AM: Applying reduction CvxAttr2Constr
+(CVXPY) Apr 16 11:41:50 AM: Applying reduction ConeMatrixStuffing
+(CVXPY) Apr 16 11:41:50 AM: Applying reduction HIGHS
+(CVXPY) Apr 16 11:41:50 AM: Finished problem compilation (took 5.614e-02 seconds).
+(CVXPY) Apr 16 11:41:50 AM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Apr 10 03:05:36 PM: Invoking solver HIGHS  to obtain a solution.
+(CVXPY) Apr 16 11:41:50 AM: Invoking solver HIGHS  to obtain a solution.
 Running HiGHS 1.10.0 (git hash: fd86653): Copyright (c) 2025 HiGHS under MIT licence terms
 MIP  has 31652 rows; 11092 cols; 111482 nonzeros; 6748 integer variables (6748 binary)
 Coefficient ranges:
@@ -2135,13 +2144,13 @@ Coefficient ranges:
   RHS    [1e+00, 1e+03]
 Presolving model
 18338 rows, 10622 cols, 93928 nonzeros  0s
-13383 rows, 9423 cols, 71899 nonzeros  0s
-13011 rows, 9348 cols, 71453 nonzeros  0s
+13396 rows, 9435 cols, 71834 nonzeros  0s
+13024 rows, 9360 cols, 71388 nonzeros  0s
 
 Solving MIP model with:
-   13011 rows
-   9348 cols (5850 binary, 0 integer, 0 implied int., 3498 continuous)
-   71453 nonzeros
+   13024 rows
+   9360 cols (5850 binary, 0 integer, 0 implied int., 3510 continuous)
+   71388 nonzeros
 
 Src: B =&gt; Branching; C =&gt; Central rounding; F =&gt; Feasibility pump; H =&gt; Heuristic; L =&gt; Sub-MIP;
      P =&gt; Empty MIP; R =&gt; Randomized rounding; S =&gt; Solve LP; T =&gt; Evaluate node; U =&gt; Unbounded;
@@ -2150,62 +2159,51 @@ Src: B =&gt; Branching; C =&gt; Central rounding; F =&gt; Feasibility pump; H =&
         Nodes      |    B&amp;B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
 Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
 
-         0       0         0   0.00%   -300.1180305    inf                  inf        0      0      0         0     0.3s
-         0       0         0   0.00%   -172.2083844    inf                  inf        0      0      5      1864     0.4s
- C       0       0         0   0.00%   -167.0036403    0                  Large      634     43     20      2310     1.1s
- L       0       0         0   0.00%   -166.6703069    -59.28143978     181.15%     1737    120     20      2772     3.0s
+         0       0         0   0.00%   -298.7062635    inf                  inf        0      0      0         0     0.3s
+         0       0         0   0.00%   -172.2083844    inf                  inf        0      0      5      1707     0.4s
+ C       0       0         0   0.00%   -167.0036403    0                  Large      501     37     10      2237     1.2s
+ L       0       0         0   0.00%   -166.1703069    -165.1703069       0.61%     1959    117     10      8802     3.9s
 
-0.2% inactive integer columns, restarting
-Model after restart has 12973 rows, 9323 cols (5830 bin., 0 int., 0 impl., 3493 cont.), and 71304 nonzeros
+9.2% inactive integer columns, restarting
+Model after restart has 12184 rows, 8682 cols (5196 bin., 0 int., 0 impl., 3486 cont.), and 63464 nonzeros
 
-         0       0         0   0.00%   -166.6703069    -59.28143978     181.15%       52      0      0     10494     4.7s
-         0       0         0   0.00%   -166.6703069    -59.28143978     181.15%       52     26      6     11234     4.7s
+         0       0         0   0.00%   -166.1703069    -165.1703069       0.61%       44      0      0      9812     4.0s
+         0       0         0   0.00%   -166.1703069    -165.1703069       0.61%       44     28      4     11329     4.1s
 
 Symmetry detection completed in 0.0s
 Found 29 generator(s)
 
- B      14       1         2   0.22%   -166.6703069    -159.1703069       4.71%     1412     47     16     22123     9.3s
-       189      65        44   0.51%   -166.6687605    -159.1703069       4.71%     1818     55    741     41472    14.4s
-       295     101        73   0.51%   -166.6687605    -159.1703069       4.71%     1841     68   1240     59751    19.7s
- L     340      71        94   0.52%   -166.6687605    -162.1703069       2.77%     1890     88   1562     63248    22.4s
- T     394      63       113   1.32%   -166.6687605    -162.6703069       2.46%     1926     88   1763     74385    24.3s
- T     478      66       143   1.59%   -166.6687605    -163.1703069       2.14%     2123     63   2337     87438    27.9s
-       661      92       206   2.46%   -166.5520734    -163.1703069       2.07%     2494    119   3096    104677    33.5s
- T     750      83       240   5.99%   -166.1703069    -163.6703069       1.53%     2666     87   3491    112774    36.3s
- T     763      34       241  23.03%   -166.1703069    -164.1703069       1.22%     2667     87   3491    112911    36.4s
- T     930      34       308  24.21%   -165.6703069    -164.6703069       0.61%     3002     59   4550    126772    40.5s
- B    1171       2       403  62.50%   -165.5703069    -165.1703069       0.24%     3378    115   5629    138108    44.3s
-      1180       0       405 100.00%   -165.1703069    -165.1703069       0.00%     3379    115   5629    138406    44.4s
+         8       0         4 100.00%   -165.1703069    -165.1703069       0.00%      902     56     16     21107     7.1s
 
 Solving report
   Status            Optimal
   Primal bound      -165.170306921
   Dual bound        -165.170306921
   Gap               0% (tolerance: 0.01%)
-  P-D integral      12.3409872372
+  P-D integral      0.0195956875377
   Solution status   feasible
                     -165.170306921 (objective)
                     0 (bound viol.)
-                    3.23115417584e-13 (int. viol.)
+                    0 (int. viol.)
                     0 (row viol.)
-  Timing            44.37 (total)
+  Timing            7.10 (total)
                     0.00 (presolve)
                     0.00 (solve)
                     0.00 (postsolve)
-  Max sub-MIP depth 9
-  Nodes             1180
+  Max sub-MIP depth 8
+  Nodes             8
   Repair LPs        0 (0 feasible; 0 iterations)
-  LP iterations     138406 (total)
-                    68938 (strong br.)
-                    2285 (separation)
-                    25067 (heuristics)
+  LP iterations     21107 (total)
+                    428 (strong br.)
+                    1865 (separation)
+                    15487 (heuristics)
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Apr 10 03:06:21 PM: Problem status: optimal
-(CVXPY) Apr 10 03:06:21 PM: Optimal value: 5.302e+01
-(CVXPY) Apr 10 03:06:21 PM: Compilation took 5.783e-02 seconds
-(CVXPY) Apr 10 03:06:21 PM: Solver (including time spent in interface) took 4.439e+01 seconds
+(CVXPY) Apr 16 11:41:57 AM: Problem status: optimal
+(CVXPY) Apr 16 11:41:57 AM: Optimal value: 5.302e+01
+(CVXPY) Apr 16 11:41:57 AM: Compilation took 5.614e-02 seconds
+(CVXPY) Apr 16 11:41:57 AM: Solver (including time spent in interface) took 7.115e+00 seconds
 </pre></div>
 </div>
 </div>
@@ -2219,7 +2217,7 @@ Solving report
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.0169713497161865
-91.99999999999969
+92.0
 </pre></div>
 </div>
 </div>
@@ -2237,7 +2235,7 @@ Solving report
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3b84878afe9cdb9839a851693974a111ee41cb01e8ff8404283ee26ebd37cd49.svg" src="../_images/3b84878afe9cdb9839a851693974a111ee41cb01e8ff8404283ee26ebd37cd49.svg" />
+<img alt="../_images/e1f7317e98cd18d0998869dcfe3e76268906efdfbb05ee92845b464a8d8582b4.svg" src="../_images/e1f7317e98cd18d0998869dcfe3e76268906efdfbb05ee92845b464a8d8582b4.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2286,23 +2284,23 @@ Solving report
   </thead>
   <tbody>
     <tr>
-      <th>P59594_UBB</th>
+      <th>PRKCA</th>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>ARHGEF1</th>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>HRH1</th>
+      <th>CXCL1</th>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>MDC1</th>
+      <th>CAMKK1</th>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>DVL3</th>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>MRE11_NBN_RAD50</th>
+      <th>PEX5</th>
       <td>0.0</td>
     </tr>
     <tr>
@@ -2310,23 +2308,23 @@ Solving report
       <td>...</td>
     </tr>
     <tr>
-      <th>KLF1</th>
+      <th>BAG3</th>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>PPP3CA_PPP3R1</th>
+      <th>SKP2</th>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>P59595_UBB</th>
-      <td>0.0</td>
+      <th>HIPK2</th>
+      <td>-1.0</td>
     </tr>
     <tr>
-      <th>GHR</th>
-      <td>0.0</td>
+      <th>SMAD4</th>
+      <td>1.0</td>
     </tr>
     <tr>
-      <th>CCNB1_CDK1</th>
+      <th>CSDE1</th>
       <td>0.0</td>
     </tr>
   </tbody>
@@ -2396,11 +2394,7 @@ Solving report
     </tr>
     <tr>
       <th rowspan="5" valign="top">()</th>
-      <th>(EGF)</th>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>(INHBA)</th>
+      <th>(IL21R)</th>
       <td>0.0</td>
     </tr>
     <tr>
@@ -2408,11 +2402,15 @@ Solving report
       <td>0.0</td>
     </tr>
     <tr>
+      <th>(TGFB1)</th>
+      <td>-1.0</td>
+    </tr>
+    <tr>
       <th>(CDH6)</th>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>(IL21R)</th>
+      <th>(INHBA)</th>
       <td>0.0</td>
     </tr>
   </tbody>
@@ -2465,25 +2463,25 @@ Solving report
                                      CVXPY                                     
                                      v1.6.4                                    
 ===============================================================================
-(CVXPY) Apr 10 03:06:21 PM: Your problem has 11092 variables, 31652 constraints, and 1 parameters.
-(CVXPY) Apr 10 03:06:21 PM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Apr 10 03:06:21 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Apr 10 03:06:21 PM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Apr 16 11:41:57 AM: Your problem has 11092 variables, 31652 constraints, and 1 parameters.
+(CVXPY) Apr 16 11:41:57 AM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Apr 16 11:41:57 AM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Apr 16 11:41:57 AM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Apr 10 03:06:21 PM: Compiling problem (target solver=HIGHS).
-(CVXPY) Apr 10 03:06:21 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
-(CVXPY) Apr 10 03:06:21 PM: Applying reduction Dcp2Cone
-(CVXPY) Apr 10 03:06:21 PM: Applying reduction CvxAttr2Constr
-(CVXPY) Apr 10 03:06:21 PM: Applying reduction ConeMatrixStuffing
-(CVXPY) Apr 10 03:06:21 PM: Applying reduction HIGHS
-(CVXPY) Apr 10 03:06:21 PM: Finished problem compilation (took 8.244e-02 seconds).
-(CVXPY) Apr 10 03:06:21 PM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
+(CVXPY) Apr 16 11:41:57 AM: Compiling problem (target solver=HIGHS).
+(CVXPY) Apr 16 11:41:57 AM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
+(CVXPY) Apr 16 11:41:57 AM: Applying reduction Dcp2Cone
+(CVXPY) Apr 16 11:41:57 AM: Applying reduction CvxAttr2Constr
+(CVXPY) Apr 16 11:41:57 AM: Applying reduction ConeMatrixStuffing
+(CVXPY) Apr 16 11:41:57 AM: Applying reduction HIGHS
+(CVXPY) Apr 16 11:41:57 AM: Finished problem compilation (took 6.065e-02 seconds).
+(CVXPY) Apr 16 11:41:57 AM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Apr 10 03:06:21 PM: Invoking solver HIGHS  to obtain a solution.
+(CVXPY) Apr 16 11:41:57 AM: Invoking solver HIGHS  to obtain a solution.
 Running HiGHS 1.10.0 (git hash: fd86653): Copyright (c) 2025 HiGHS under MIT licence terms
 MIP  has 31652 rows; 11092 cols; 111482 nonzeros; 6748 integer variables (6748 binary)
 Coefficient ranges:
@@ -2493,13 +2491,13 @@ Coefficient ranges:
   RHS    [1e+00, 1e+03]
 Presolving model
 18338 rows, 10622 cols, 93928 nonzeros  0s
-13162 rows, 9334 cols, 70840 nonzeros  0s
-12777 rows, 9252 cols, 70365 nonzeros  0s
+13176 rows, 9346 cols, 70802 nonzeros  0s
+12790 rows, 9263 cols, 70335 nonzeros  0s
 
 Solving MIP model with:
-   12777 rows
-   9252 cols (5764 binary, 0 integer, 0 implied int., 3488 continuous)
-   70365 nonzeros
+   12790 rows
+   9263 cols (5764 binary, 0 integer, 0 implied int., 3499 continuous)
+   70335 nonzeros
 
 Src: B =&gt; Branching; C =&gt; Central rounding; F =&gt; Feasibility pump; H =&gt; Heuristic; L =&gt; Sub-MIP;
      P =&gt; Empty MIP; R =&gt; Randomized rounding; S =&gt; Solve LP; T =&gt; Evaluate node; U =&gt; Unbounded;
@@ -2508,88 +2506,57 @@ Src: B =&gt; Branching; C =&gt; Central rounding; F =&gt; Feasibility pump; H =&
         Nodes      |    B&amp;B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
 Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
 
-         0       0         0   0.00%   -207.4054224    inf                  inf        0      0      0         0     0.4s
-         0       0         0   0.00%   -121.8853879    inf                  inf        0      0      0      1585     0.5s
- C       0       0         0   0.00%   -114.5118646    1                  Large      330     24      0      1698     1.3s
- L       0       0         0   0.00%   -112.5574794    -75.55747938      48.97%      850     57      0      8885     5.0s
+         0       0         0   0.00%   -205.9936554    inf                  inf        0      0      0         0     0.3s
+         0       0         0   0.00%   -121.8853879    inf                  inf        0      0      0      1641     0.4s
+ C       0       0         0   0.00%   -113.9104206    1                  Large      508     25      0      2000     1.6s
+ L       0       0         0   0.00%   -112.2153925    -109.1006672       2.85%     1454     80      0     11709     5.5s
 
-0.1% inactive integer columns, restarting
-Model after restart has 12763 rows, 9244 cols (5758 bin., 0 int., 0 impl., 3486 cont.), and 70313 nonzeros
+46.4% inactive integer columns, restarting
+Model after restart has 6110 rows, 5509 cols (2418 bin., 0 int., 0 impl., 3091 cont.), and 28900 nonzeros
 
-         0       0         0   0.00%   -112.5574794    -75.55747938      48.97%       39      0      0     12766     5.1s
-         0       0         0   0.00%   -112.5574794    -75.55747938      48.97%       39     32      4     13787     5.2s
-
-Symmetry detection completed in 0.0s
-Found 29 generator(s)
-
- B      33       0         2   0.00%   -112.5574794    -88.55747938      27.10%      715     42     94     33038     8.9s
-       121      29        28   0.39%   -112.5550739    -88.55747938      27.10%     1451     68   1203     59091    13.9s
-       211      62        67   0.42%   -112.5550739    -88.55747938      27.10%     1620     78   2671     78517    18.9s
- L     238      34        78   0.44%   -112.5550739    -95.55747938      17.79%     2381     72   2987     82078    21.8s
- T     238      34        78   0.44%   -112.5550739    -95.81854463      17.47%     2388     72   3042     87972    22.8s
- B     254      33        80   3.57%   -112.5550739    -96.31854463      16.86%     2398     72   3050     95981    23.2s
- T     293      19        84  17.21%   -112.5550739    -103.0574794       9.22%     3015    102   3371    112974    25.8s
-       391      35       120  18.00%   -112.055933     -103.0574794       8.73%     4585     85   4621    140709    31.7s
- T     409      35       130  18.00%   -112.055933     -103.5574794       8.21%     4613     85   4811    142207    32.2s
-
-Restarting search from the root node
-Model after restart has 7018 rows, 5943 cols (2786 bin., 0 int., 0 impl., 3157 cont.), and 33448 nonzeros
-
-       677       0         0   0.00%   -111.8384084    -103.5574794       8.00%       70      0      0    157344    37.0s
-       677       0         0   0.00%   -111.8384084    -103.5574794       8.00%       70     31      2    158600    37.1s
-
-6.0% inactive integer columns, restarting
-Model after restart has 6408 rows, 5639 cols (2524 bin., 0 int., 0 impl., 3115 cont.), and 30255 nonzeros
-
-       677       0         0   0.00%   -110.1006672    -103.5574794       6.32%       46      0      0    162012    39.1s
-       677       0         0   0.00%   -110.1006672    -103.5574794       6.32%       46     32      2    163460    39.2s
+         0       0         0   0.00%   -112.2119847    -109.1006672       2.85%       42      0      0     13907     5.7s
+         0       0         0   0.00%   -112.2119847    -109.1006672       2.85%       42     30     18     15117     5.7s
 
 Symmetry detection completed in 0.0s
-Found 18 generator(s)
+Found 16 generator(s)
 
- T     811      24        44   0.05%   -110.1006672    -104.6006672       5.26%      541     69    305    170527    40.7s
-
-        Nodes      |    B&amp;B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
-Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
-
- T     824      23        49   0.05%   -110.1006672    -105.1006672       4.76%      550     69    338    171041    40.8s
- L     980      25       113   0.27%   -110.1006672    -107.6006672       2.32%     1308     92   1024    177898    42.7s
-      1362      81       270   7.36%   -110.1006672    -107.6006672       2.32%     2202     80   2350    212814    47.8s
- T    1570      59       362   8.69%   -110.1006672    -108.1006672       1.85%     2552     90   3221    222517    49.8s
- T    1830      39       462  14.07%   -110.1006672    -108.6006672       1.38%     4388     74   3909    236594    52.4s
- T    2085      30       572  33.19%   -110.1006672    -109.1006672       0.92%     5285     88   4550    253914    55.1s
- T    2133      16       592  56.54%   -110.1006672    -109.6006672       0.46%     5370     63   4598    256446    55.6s
-      2353       3       708  68.65%   -110.1006672    -109.6006672       0.46%     9112    134   5466    276326    60.0s
+        20       0         6  50.10%   -112.1425009    -109.1006672       2.79%     2753     44    123     77529    12.2s
+       179      16        79  62.84%   -110.1849936    -109.1006672       0.99%     2833     71   1336    115436    17.3s
+       458      38       200  76.99%   -110.18492      -109.1006672       0.99%     4099     66   2511    154779    22.5s
+       954      93       415  84.75%   -110.1848812    -109.1006672       0.99%     5488     90   3997    187699    27.5s
+      1704     197       718  87.72%   -110.1006672    -109.1006672       0.92%     5637    141   5879    214807    32.5s
+ T    2029      10       860  98.53%   -109.9131672    -109.6006672       0.29%     7544    103   7167    236564    36.7s
+      2056       0       877 100.00%   -109.6006672    -109.6006672       0.00%     8193     94   7242    240627    37.3s
 
 Solving report
-  Status            Time limit reached
+  Status            Optimal
   Primal bound      -109.600667238
-  Dual bound        -110.100667238
-  Gap               0.456% (tolerance: 0.01%)
-  P-D integral      435.414388638
+  Dual bound        -109.600667238
+  Gap               0% (tolerance: 0.01%)
+  P-D integral      445.855556496
   Solution status   feasible
                     -109.600667238 (objective)
                     0 (bound viol.)
-                    1.11022302463e-16 (int. viol.)
+                    2.03537315471e-14 (int. viol.)
                     0 (row viol.)
-  Timing            60.02 (total)
+  Timing            37.26 (total)
                     0.00 (presolve)
                     0.00 (solve)
                     0.00 (postsolve)
-  Max sub-MIP depth 9
-  Nodes             2353
+  Max sub-MIP depth 7
+  Nodes             2056
   Repair LPs        0 (0 feasible; 0 iterations)
-  LP iterations     276326 (total)
-                    135819 (strong br.)
-                    13856 (separation)
-                    38411 (heuristics)
+  LP iterations     240627 (total)
+                    129542 (strong br.)
+                    11730 (separation)
+                    17795 (heuristics)
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Apr 10 03:07:21 PM: Problem status: user_limit
-(CVXPY) Apr 10 03:07:21 PM: Optimal value: 1.086e+02
-(CVXPY) Apr 10 03:07:21 PM: Compilation took 8.244e-02 seconds
-(CVXPY) Apr 10 03:07:21 PM: Solver (including time spent in interface) took 6.004e+01 seconds
+(CVXPY) Apr 16 11:42:35 AM: Problem status: optimal
+(CVXPY) Apr 16 11:42:35 AM: Optimal value: 1.086e+02
+(CVXPY) Apr 16 11:42:35 AM: Compilation took 6.065e-02 seconds
+(CVXPY) Apr 16 11:42:35 AM: Solver (including time spent in interface) took 3.728e+01 seconds
 </pre></div>
 </div>
 </div>
@@ -2622,7 +2589,7 @@ Solving report
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1c8a13f79b145917e00593936db9a6143f774096d18b9248b28a7d88d2a28948.svg" src="../_images/1c8a13f79b145917e00593936db9a6143f774096d18b9248b28a7d88d2a28948.svg" />
+<img alt="../_images/c36adcb32bea610dbe36514142b2832fc454b6861aaf50071f03309b3acbe09f.svg" src="../_images/c36adcb32bea610dbe36514142b2832fc454b6861aaf50071f03309b3acbe09f.svg" />
 </div>
 </div>
 </section>

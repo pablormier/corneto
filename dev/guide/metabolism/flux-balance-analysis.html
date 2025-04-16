@@ -57,7 +57,7 @@
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Sparse FBA" href="sparse-fba.html" />
+    <link rel="next" title="Multi-condition sparse FBA" href="multicondition-sfba.html" />
     <link rel="prev" title="Metabolism" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -359,7 +359,6 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Metabolism</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Flux Balance Analysis (FBA)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sparse-fba.html">Sparse FBA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multicondition-sfba.html">Multi-condition sparse FBA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imat.html">Context-specific models (iMAT)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multicondition-imat.html">Multi-condition iMAT</a></li>
@@ -508,7 +507,7 @@
                 <td><strong>Name</strong></td><td>Biomass Objective Function with GAM</td>
             </tr><tr>
                 <td><strong>Memory address</strong></td>
-                <td>0x7fe74be34c10</td>
+                <td>0x7f554cb2cbd0</td>
             </tr><tr>
                 <td><strong>Stoichiometry</strong></td>
                 <td>
@@ -533,7 +532,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Solution 0.874 at 0x7fe74be72f50&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Solution 0.874 at 0x7f554cbe7310&gt;
 </pre></div>
 </div>
 </div>
@@ -626,7 +625,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6f360c373cb0449e26525c04e615080860e1c5a78b6fca93105b9aef7b090324.svg" src="../../_images/6f360c373cb0449e26525c04e615080860e1c5a78b6fca93105b9aef7b090324.svg" />
+<img alt="../../_images/23dca83fe04566127c1f9caf2d11e5453752aac241fab0dc13de66c31764abed.svg" src="../../_images/23dca83fe04566127c1f9caf2d11e5453752aac241fab0dc13de66c31764abed.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -776,7 +775,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e16b76c90491781a5ac3dfa79fbbf49e02db604c4358124ca80f3be69c1d61d5.svg" src="../../_images/e16b76c90491781a5ac3dfa79fbbf49e02db604c4358124ca80f3be69c1d61d5.svg" />
+<img alt="../../_images/5398cfb6f237705a880beafc51bab3b093c6ca6c8bc651f0a6fda7235222f4ab.svg" src="../../_images/5398cfb6f237705a880beafc51bab3b093c6ca6c8bc651f0a6fda7235222f4ab.svg" />
 </div>
 </div>
 </section>
@@ -797,25 +796,25 @@
                                      CVXPY                                     
                                      v1.6.5                                    
 ===============================================================================
-(CVXPY) Apr 15 07:26:25 PM: Your problem has 190 variables, 453 constraints, and 1 parameters.
-(CVXPY) Apr 15 07:26:25 PM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Apr 15 07:26:25 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Apr 15 07:26:25 PM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Apr 16 09:49:16 AM: Your problem has 190 variables, 453 constraints, and 1 parameters.
+(CVXPY) Apr 16 09:49:16 AM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Apr 16 09:49:16 AM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Apr 16 09:49:16 AM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Apr 15 07:26:25 PM: Compiling problem (target solver=HIGHS).
-(CVXPY) Apr 15 07:26:25 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
-(CVXPY) Apr 15 07:26:25 PM: Applying reduction Dcp2Cone
-(CVXPY) Apr 15 07:26:25 PM: Applying reduction CvxAttr2Constr
-(CVXPY) Apr 15 07:26:25 PM: Applying reduction ConeMatrixStuffing
-(CVXPY) Apr 15 07:26:25 PM: Applying reduction HIGHS
-(CVXPY) Apr 15 07:26:25 PM: Finished problem compilation (took 1.026e-02 seconds).
-(CVXPY) Apr 15 07:26:25 PM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
+(CVXPY) Apr 16 09:49:16 AM: Compiling problem (target solver=HIGHS).
+(CVXPY) Apr 16 09:49:16 AM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
+(CVXPY) Apr 16 09:49:16 AM: Applying reduction Dcp2Cone
+(CVXPY) Apr 16 09:49:16 AM: Applying reduction CvxAttr2Constr
+(CVXPY) Apr 16 09:49:16 AM: Applying reduction ConeMatrixStuffing
+(CVXPY) Apr 16 09:49:16 AM: Applying reduction HIGHS
+(CVXPY) Apr 16 09:49:16 AM: Finished problem compilation (took 1.087e-02 seconds).
+(CVXPY) Apr 16 09:49:16 AM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Apr 15 07:26:25 PM: Invoking solver HIGHS  to obtain a solution.
+(CVXPY) Apr 16 09:49:16 AM: Invoking solver HIGHS  to obtain a solution.
 Running HiGHS 1.10.0 (git hash: fd86653): Copyright (c) 2025 HiGHS under MIT licence terms
 MIP  has 453 rows; 190 cols; 883 nonzeros; 95 integer variables (95 binary)
 Coefficient ranges:
@@ -859,13 +858,13 @@ Solving report
   Primal bound      3.68570249247
   Dual bound        3.68570249247
   Gap               0% (tolerance: 0.01%)
-  P-D integral      0.307133817705
+  P-D integral      0.301533442467
   Solution status   feasible
                     3.68570249247 (objective)
                     0 (bound viol.)
                     0 (int. viol.)
                     0 (row viol.)
-  Timing            0.87 (total)
+  Timing            0.86 (total)
                     0.00 (presolve)
                     0.00 (solve)
                     0.00 (postsolve)
@@ -879,10 +878,10 @@ Solving report
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Apr 15 07:26:26 PM: Problem status: optimal
-(CVXPY) Apr 15 07:26:26 PM: Optimal value: 3.686e+00
-(CVXPY) Apr 15 07:26:26 PM: Compilation took 1.026e-02 seconds
-(CVXPY) Apr 15 07:26:26 PM: Solver (including time spent in interface) took 8.726e-01 seconds
+(CVXPY) Apr 16 09:49:17 AM: Problem status: optimal
+(CVXPY) Apr 16 09:49:17 AM: Optimal value: 3.686e+00
+(CVXPY) Apr 16 09:49:17 AM: Compilation took 1.087e-02 seconds
+(CVXPY) Apr 16 09:49:17 AM: Solver (including time spent in interface) took 8.611e-01 seconds
 </pre></div>
 </div>
 </div>
@@ -894,7 +893,7 @@ Solving report
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4cbdf3493629c373cbaf4bf6b4619402c5685f12426069571198de845320bf5f.svg" src="../../_images/4cbdf3493629c373cbaf4bf6b4619402c5685f12426069571198de845320bf5f.svg" />
+<img alt="../../_images/7ef9bfb7d4c9e8f61013834b2bd3454d323f4fa005d12a2c470a8c4ff5fe672e.svg" src="../../_images/7ef9bfb7d4c9e8f61013834b2bd3454d323f4fa005d12a2c470a8c4ff5fe672e.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -957,11 +956,11 @@ Solving report
       </div>
     </a>
     <a class="right-next"
-       href="sparse-fba.html"
+       href="multicondition-sfba.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Sparse FBA</p>
+        <p class="prev-next-title">Multi-condition sparse FBA</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
