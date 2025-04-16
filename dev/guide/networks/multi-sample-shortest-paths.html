@@ -614,33 +614,33 @@
                                      CVXPY                                     
                                      v1.6.5                                    
 ===============================================================================
-(CVXPY) Apr 16 12:51:22 PM: Your problem has 51 variables, 126 constraints, and 0 parameters.
-(CVXPY) Apr 16 12:51:22 PM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Apr 16 12:51:22 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
-(CVXPY) Apr 16 12:51:22 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Apr 16 12:51:22 PM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Apr 16 03:40:37 PM: Your problem has 51 variables, 126 constraints, and 0 parameters.
+(CVXPY) Apr 16 03:40:37 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Apr 16 03:40:37 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) Apr 16 03:40:37 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Apr 16 03:40:37 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Apr 16 12:51:22 PM: Compiling problem (target solver=SCIPY).
-(CVXPY) Apr 16 12:51:22 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIPY
-(CVXPY) Apr 16 12:51:22 PM: Applying reduction Dcp2Cone
-(CVXPY) Apr 16 12:51:22 PM: Applying reduction CvxAttr2Constr
-(CVXPY) Apr 16 12:51:22 PM: Applying reduction ConeMatrixStuffing
-(CVXPY) Apr 16 12:51:22 PM: Applying reduction SCIPY
-(CVXPY) Apr 16 12:51:22 PM: Finished problem compilation (took 1.160e-02 seconds).
+(CVXPY) Apr 16 03:40:37 PM: Compiling problem (target solver=SCIPY).
+(CVXPY) Apr 16 03:40:37 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; SCIPY
+(CVXPY) Apr 16 03:40:37 PM: Applying reduction Dcp2Cone
+(CVXPY) Apr 16 03:40:37 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Apr 16 03:40:37 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) Apr 16 03:40:37 PM: Applying reduction SCIPY
+(CVXPY) Apr 16 03:40:37 PM: Finished problem compilation (took 1.110e-02 seconds).
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Apr 16 12:51:22 PM: Invoking solver SCIPY  to obtain a solution.
+(CVXPY) Apr 16 03:40:37 PM: Invoking solver SCIPY  to obtain a solution.
 Solver terminated with message: Optimization terminated successfully. (HiGHS Status 7: Optimal)
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Apr 16 12:51:22 PM: Problem status: optimal
-(CVXPY) Apr 16 12:51:22 PM: Optimal value: 3.705e+01
-(CVXPY) Apr 16 12:51:22 PM: Compilation took 1.160e-02 seconds
-(CVXPY) Apr 16 12:51:22 PM: Solver (including time spent in interface) took 3.300e-03 seconds
+(CVXPY) Apr 16 03:40:37 PM: Problem status: optimal
+(CVXPY) Apr 16 03:40:37 PM: Optimal value: 3.705e+01
+(CVXPY) Apr 16 03:40:37 PM: Compilation took 1.110e-02 seconds
+(CVXPY) Apr 16 03:40:37 PM: Solver (including time spent in interface) took 3.966e-03 seconds
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Problem(Minimize(Expression(AFFINE, UNKNOWN, ())), [Inequality(Constant(CONSTANT, ZERO, (17, 2))), Inequality(Variable((17, 2), _flow)), Equality(Expression(AFFINE, UNKNOWN, (8, 2)), Constant(CONSTANT, ZERO, ())), Equality(Expression(AFFINE, UNKNOWN, (2,)), Constant(CONSTANT, NONNEGATIVE, ())), Equality(Expression(AFFINE, UNKNOWN, (2,)), Constant(CONSTANT, NONNEGATIVE, ())), Equality(Expression(AFFINE, UNKNOWN, (2,)), Constant(CONSTANT, NONNEGATIVE, ())), Equality(Expression(AFFINE, UNKNOWN, (2,)), Constant(CONSTANT, NONNEGATIVE, ())), Inequality(Expression(AFFINE, UNKNOWN, (17,))), Inequality(Variable((17,), active_edge, boolean=True))])
