@@ -28,6 +28,7 @@
       ~Graph.from_dict
       ~Graph.from_json
       ~Graph.from_miom_model
+      ~Graph.from_networkx
       ~Graph.from_sif
       ~Graph.from_sif_tuples
       ~Graph.from_tuples

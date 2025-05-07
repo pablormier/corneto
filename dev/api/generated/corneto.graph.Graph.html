@@ -521,124 +521,127 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#corneto.graph.Graph.from_miom_model" title="corneto.graph.Graph.from_miom_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_miom_model</span></code></a>(model)</p></td>
 <td><p>Create graph from MIOM metabolic model.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#corneto.graph.Graph.from_sif" title="corneto.graph.Graph.from_sif"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_sif</span></code></a>(sif_file[, delimiter, has_header, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#corneto.graph.Graph.from_networkx" title="corneto.graph.Graph.from_networkx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_networkx</span></code></a>(G)</p></td>
+<td><p>Create graph from NetworkX graph.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#corneto.graph.Graph.from_sif" title="corneto.graph.Graph.from_sif"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_sif</span></code></a>(sif_file[, delimiter, has_header, ...])</p></td>
 <td><p>Create graph from Simple Interaction Format (SIF) file.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#corneto.graph.Graph.from_sif_tuples" title="corneto.graph.Graph.from_sif_tuples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_sif_tuples</span></code></a>(tuples)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#corneto.graph.Graph.from_sif_tuples" title="corneto.graph.Graph.from_sif_tuples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_sif_tuples</span></code></a>(tuples)</p></td>
 <td><p>Create graph from iterable of SIF tuples.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#corneto.graph.Graph.from_tuples" title="corneto.graph.Graph.from_tuples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_tuples</span></code></a>(tuples)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#corneto.graph.Graph.from_tuples" title="corneto.graph.Graph.from_tuples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_tuples</span></code></a>(tuples)</p></td>
 <td><p>Alias for corneto.io.load_graph_from_sif_tuples for backwards compatibility.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#corneto.graph.Graph.from_vertex_incidence" title="corneto.graph.Graph.from_vertex_incidence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_vertex_incidence</span></code></a>(A, vertex_ids, edge_ids)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#corneto.graph.Graph.from_vertex_incidence" title="corneto.graph.Graph.from_vertex_incidence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_vertex_incidence</span></code></a>(A, vertex_ids, edge_ids)</p></td>
 <td><p>Create graph from vertex incidence matrix and labels.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_attr_edge</span></code>(index)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_attr_edge</span></code>(index)</p></td>
 <td><p>Get attributes of an edge.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_attr_edges</span></code>([indexes])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_attr_edges</span></code>([indexes])</p></td>
 <td><p>Get attributes of multiple edges.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_attr_from_edges</span></code>(attr[, default])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_attr_from_edges</span></code>(attr[, default])</p></td>
 <td><p>Get specific attribute from all edges.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_attr_vertex</span></code>(v)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_attr_vertex</span></code>(v)</p></td>
 <td><p>Get attributes of a vertex.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_attr_vertices</span></code>([vertices])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_attr_vertices</span></code>([vertices])</p></td>
 <td><p>Get attributes of multiple vertices.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_common_incident_edges</span></code>(vertices)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_common_incident_edges</span></code>(vertices)</p></td>
 <td><p>Get common incident edges for multiple vertices.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#corneto.graph.Graph.get_edge" title="corneto.graph.Graph.get_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_edge</span></code></a>(index)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#corneto.graph.Graph.get_edge" title="corneto.graph.Graph.get_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_edge</span></code></a>(index)</p></td>
 <td><p>Get edge at specified index.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_edges</span></code>(indexes)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_edges</span></code>(indexes)</p></td>
 <td><p>Get multiple edges by their indices.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_edges_by_attr</span></code>(key, value)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_edges_by_attr</span></code>(key, value)</p></td>
 <td><p>Get edges by specific attribute value.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#corneto.graph.Graph.get_graph_attributes" title="corneto.graph.Graph.get_graph_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_graph_attributes</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#corneto.graph.Graph.get_graph_attributes" title="corneto.graph.Graph.get_graph_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_graph_attributes</span></code></a>()</p></td>
 <td><p>Get global graph attributes.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_incident_edges</span></code>(vertices)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_incident_edges</span></code>(vertices)</p></td>
 <td><p>Get incident edges for multiple vertices.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_vertex</span></code>(index)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_vertex</span></code>(index)</p></td>
 <td><p>Get vertex by its index.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_vertex_incidence_matrix_as_lists</span></code>([values])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_vertex_incidence_matrix_as_lists</span></code>([values])</p></td>
 <td><p>Get vertex incidence matrix as lists.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hash</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hash</span></code>()</p></td>
 <td><p>Compute hash of the graph based on its content.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">in_edges</span></code>(vertices)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">in_edges</span></code>(vertices)</p></td>
 <td><p>Get incoming edges for vertices.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_hypergraph</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_hypergraph</span></code>()</p></td>
 <td><p>Check if the graph is a hypergraph.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code>(filename[, compression])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code>(filename[, compression])</p></td>
 <td><p>Load graph from a saved file.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#corneto.graph.Graph.load_json" title="corneto.graph.Graph.load_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_json</span></code></a>(filepath[, compression])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#corneto.graph.Graph.load_json" title="corneto.graph.Graph.load_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_json</span></code></a>(filepath[, compression])</p></td>
 <td><p>Load graph from a JSON file.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">neighbors</span></code>(vertex)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">neighbors</span></code>(vertex)</p></td>
 <td><p>Get neighbors of a vertex (ignoring edge direction).</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">out_edges</span></code>(vertices)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">out_edges</span></code>(vertices)</p></td>
 <td><p>Get outgoing edges for vertices.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code>(**kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code>(**kwargs)</p></td>
 <td><p>Plot the graph using Graphviz.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_values</span></code>([vertex_values, edge_values, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_values</span></code>([vertex_values, edge_values, ...])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">predecessors</span></code>(vertices)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">predecessors</span></code>(vertices)</p></td>
 <td><p>Get predecessor vertices for multiple vertices.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prune</span></code>([source, target])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prune</span></code>([source, target])</p></td>
 <td><p>Prune the graph to include only reachable vertices.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reachability_analysis</span></code>(input_nodes, output_nodes)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reachability_analysis</span></code>(input_nodes, output_nodes)</p></td>
 <td><p>Perform reachability analysis from input nodes to output nodes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#corneto.graph.Graph.reverse" title="corneto.graph.Graph.reverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#corneto.graph.Graph.reverse" title="corneto.graph.Graph.reverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse</span></code></a>()</p></td>
 <td><p>Create new graph with all edge directions reversed.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code>(filename[, compression])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code>(filename[, compression])</p></td>
 <td><p>Save graph to file using pickle serialization.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#corneto.graph.Graph.save_json" title="corneto.graph.Graph.save_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_json</span></code></a>(filepath[, indent, compression])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#corneto.graph.Graph.save_json" title="corneto.graph.Graph.save_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_json</span></code></a>(filepath[, indent, compression])</p></td>
 <td><p>Save graph to a JSON file.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subgraph</span></code>(vertices)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subgraph</span></code>(vertices)</p></td>
 <td><p>Create subgraph induced by a set of vertices.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">successors</span></code>(vertices)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">successors</span></code>(vertices)</p></td>
 <td><p>Get successor vertices for multiple vertices.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#corneto.graph.Graph.to_dict" title="corneto.graph.Graph.to_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#corneto.graph.Graph.to_dict" title="corneto.graph.Graph.to_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code></a>()</p></td>
 <td><p>Convert graph to a JSON-serializable dictionary.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dot</span></code>(**kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dot</span></code>(**kwargs)</p></td>
 <td><p>Convert graph to DOT format.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_graphviz</span></code>(**kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_graphviz</span></code>(**kwargs)</p></td>
 <td><p>Convert graph to Graphviz representation.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#corneto.graph.Graph.to_json" title="corneto.graph.Graph.to_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_json</span></code></a>(**kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#corneto.graph.Graph.to_json" title="corneto.graph.Graph.to_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_json</span></code></a>(**kwargs)</p></td>
 <td><p>Serialize graph to JSON string.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">toposort</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">toposort</span></code>()</p></td>
 <td><p>Perform topological sort on the graph using Kahn's algorithm.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_incidence_matrix</span></code>([values, sparse])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_incidence_matrix</span></code>([values, sparse])</p></td>
 <td><p>Get vertex incidence matrix.</p></td>
 </tr>
 </tbody>
@@ -847,6 +850,20 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="corneto.graph.Graph.from_networkx">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_networkx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#corneto.graph.Graph.from_networkx" title="Link to this definition">#</a></dt>
+<dd><p>Create graph from NetworkX graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>G</strong> (<em>NxGraph</em><em> | </em><em>NxDiGraph</em>) – NetworkX graph instance</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Graph instance with equivalent structure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="corneto.graph.Graph.save_json">
 <span class="sig-name descname"><span class="pre">save_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#corneto.graph.Graph.save_json" title="Link to this definition">#</a></dt>
 <dd><p>Save graph to a JSON file.</p>
@@ -1038,6 +1055,7 @@ Non-zero entries indicate edge-vertex connections.</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.graph.Graph.to_json"><code class="docutils literal notranslate"><span class="pre">Graph.to_json</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.graph.Graph.from_dict"><code class="docutils literal notranslate"><span class="pre">Graph.from_dict</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.graph.Graph.from_json"><code class="docutils literal notranslate"><span class="pre">Graph.from_json</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.graph.Graph.from_networkx"><code class="docutils literal notranslate"><span class="pre">Graph.from_networkx</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.graph.Graph.save_json"><code class="docutils literal notranslate"><span class="pre">Graph.save_json</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.graph.Graph.load_json"><code class="docutils literal notranslate"><span class="pre">Graph.load_json</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corneto.graph.Graph.from_vertex_incidence"><code class="docutils literal notranslate"><span class="pre">Graph.from_vertex_incidence</span></code></a></li>
