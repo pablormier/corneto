@@ -507,7 +507,7 @@
                 <td><strong>Name</strong></td><td>Biomass Objective Function with GAM</td>
             </tr><tr>
                 <td><strong>Memory address</strong></td>
-                <td>0x7fcc395fd910</td>
+                <td>0x7fd25e42b050</td>
             </tr><tr>
                 <td><strong>Stoichiometry</strong></td>
                 <td>
@@ -532,7 +532,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Solution 0.874 at 0x7fcc341cb590&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Solution 0.874 at 0x7fd25e4a70d0&gt;
 </pre></div>
 </div>
 </div>
@@ -625,7 +625,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/063dc6c69779334928fb05dfb3c72b8ee4a6873115b87409a4f3f162c01216ca.svg" src="../../_images/063dc6c69779334928fb05dfb3c72b8ee4a6873115b87409a4f3f162c01216ca.svg" />
+<img alt="../../_images/496167ab8ec4d33078ec3cefcf96201dd1a0f2212eb858ce5ae6bb43efe4871b.svg" src="../../_images/496167ab8ec4d33078ec3cefcf96201dd1a0f2212eb858ce5ae6bb43efe4871b.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -775,7 +775,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c730f49c7c16c97e15ad700eed71f07772dd3fe4056d9a4e0dbdf0b48402433e.svg" src="../../_images/c730f49c7c16c97e15ad700eed71f07772dd3fe4056d9a4e0dbdf0b48402433e.svg" />
+<img alt="../../_images/53f4dc63193aa73ec380944368d1a549a1c5f9481069eabb9f60e76f583cc60b.svg" src="../../_images/53f4dc63193aa73ec380944368d1a549a1c5f9481069eabb9f60e76f583cc60b.svg" />
 </div>
 </div>
 </section>
@@ -796,25 +796,25 @@
                                      CVXPY                                     
                                      v1.6.5                                    
 ===============================================================================
-(CVXPY) May 08 04:34:39 PM: Your problem has 190 variables, 453 constraints, and 1 parameters.
-(CVXPY) May 08 04:34:39 PM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) May 08 04:34:39 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) May 08 04:34:39 PM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) May 08 04:50:16 PM: Your problem has 190 variables, 453 constraints, and 1 parameters.
+(CVXPY) May 08 04:50:16 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) May 08 04:50:16 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) May 08 04:50:16 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) May 08 04:34:39 PM: Compiling problem (target solver=HIGHS).
-(CVXPY) May 08 04:34:39 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
-(CVXPY) May 08 04:34:39 PM: Applying reduction Dcp2Cone
-(CVXPY) May 08 04:34:39 PM: Applying reduction CvxAttr2Constr
-(CVXPY) May 08 04:34:39 PM: Applying reduction ConeMatrixStuffing
-(CVXPY) May 08 04:34:39 PM: Applying reduction HIGHS
-(CVXPY) May 08 04:34:39 PM: Finished problem compilation (took 1.081e-02 seconds).
-(CVXPY) May 08 04:34:39 PM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
+(CVXPY) May 08 04:50:16 PM: Compiling problem (target solver=HIGHS).
+(CVXPY) May 08 04:50:16 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
+(CVXPY) May 08 04:50:16 PM: Applying reduction Dcp2Cone
+(CVXPY) May 08 04:50:16 PM: Applying reduction CvxAttr2Constr
+(CVXPY) May 08 04:50:16 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) May 08 04:50:16 PM: Applying reduction HIGHS
+(CVXPY) May 08 04:50:16 PM: Finished problem compilation (took 1.045e-02 seconds).
+(CVXPY) May 08 04:50:16 PM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) May 08 04:34:39 PM: Invoking solver HIGHS  to obtain a solution.
+(CVXPY) May 08 04:50:16 PM: Invoking solver HIGHS  to obtain a solution.
 Running HiGHS 1.10.0 (git hash: fd86653): Copyright (c) 2025 HiGHS under MIT licence terms
 MIP  has 453 rows; 190 cols; 883 nonzeros; 95 integer variables (95 binary)
 Coefficient ranges:
@@ -858,13 +858,13 @@ Solving report
   Primal bound      3.68570249247
   Dual bound        3.68570249247
   Gap               0% (tolerance: 0.01%)
-  P-D integral      0.301847673308
+  P-D integral      0.299746019642
   Solution status   feasible
                     3.68570249247 (objective)
                     0 (bound viol.)
                     0 (int. viol.)
                     0 (row viol.)
-  Timing            0.86 (total)
+  Timing            0.85 (total)
                     0.00 (presolve)
                     0.00 (solve)
                     0.00 (postsolve)
@@ -878,10 +878,10 @@ Solving report
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) May 08 04:34:40 PM: Problem status: optimal
-(CVXPY) May 08 04:34:40 PM: Optimal value: 3.686e+00
-(CVXPY) May 08 04:34:40 PM: Compilation took 1.081e-02 seconds
-(CVXPY) May 08 04:34:40 PM: Solver (including time spent in interface) took 8.618e-01 seconds
+(CVXPY) May 08 04:50:17 PM: Problem status: optimal
+(CVXPY) May 08 04:50:17 PM: Optimal value: 3.686e+00
+(CVXPY) May 08 04:50:17 PM: Compilation took 1.045e-02 seconds
+(CVXPY) May 08 04:50:17 PM: Solver (including time spent in interface) took 8.564e-01 seconds
 </pre></div>
 </div>
 </div>
@@ -893,7 +893,7 @@ Solving report
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6a92bea12df9ea4c2d1c1073f634154213a18e12c656b525022333d566ec6691.svg" src="../../_images/6a92bea12df9ea4c2d1c1073f634154213a18e12c656b525022333d566ec6691.svg" />
+<img alt="../../_images/a12fef80751c5827688130518f9f275d82f7f764e52f1492c1b2372dda5ee0ad.svg" src="../../_images/a12fef80751c5827688130518f9f275d82f7f764e52f1492c1b2372dda5ee0ad.svg" />
 </div>
 </div>
 <div class="cell docutils container">
