@@ -45,6 +45,13 @@
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-Z263GN2PKK"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-Z263GN2PKK');
+            </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'guide/metabolism/flux-balance-analysis';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
@@ -507,7 +514,7 @@
                 <td><strong>Name</strong></td><td>Biomass Objective Function with GAM</td>
             </tr><tr>
                 <td><strong>Memory address</strong></td>
-                <td>0x7fbc8715ae10</td>
+                <td>0x7ff82aa2ee10</td>
             </tr><tr>
                 <td><strong>Stoichiometry</strong></td>
                 <td>
@@ -532,7 +539,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Solution 0.874 at 0x7fbc871cfc10&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Solution 0.874 at 0x7ff82aae7ad0&gt;
 </pre></div>
 </div>
 </div>
@@ -625,7 +632,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/815562d6103cd14204662948de30e090d495d04478b8d8c719398e302e764b67.svg" src="../../_images/815562d6103cd14204662948de30e090d495d04478b8d8c719398e302e764b67.svg" />
+<img alt="../../_images/d1262e0b45e955de7f541e675e19fd46f836863df2a6848235a204e5003764ec.svg" src="../../_images/d1262e0b45e955de7f541e675e19fd46f836863df2a6848235a204e5003764ec.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -775,7 +782,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/484b7e59c19dc3795104068bb90429dfe7940bb3979de5a49cb601e2bc4ddabe.svg" src="../../_images/484b7e59c19dc3795104068bb90429dfe7940bb3979de5a49cb601e2bc4ddabe.svg" />
+<img alt="../../_images/d2a073b04681a252ede34032fd1e230ae607918be0a8520802d60ad4816973f2.svg" src="../../_images/d2a073b04681a252ede34032fd1e230ae607918be0a8520802d60ad4816973f2.svg" />
 </div>
 </div>
 </section>
@@ -796,25 +803,25 @@
                                      CVXPY                                     
                                      v1.6.5                                    
 ===============================================================================
-(CVXPY) May 11 06:28:19 PM: Your problem has 190 variables, 453 constraints, and 1 parameters.
-(CVXPY) May 11 06:28:19 PM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) May 11 06:28:19 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) May 11 06:28:19 PM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) May 11 09:11:10 PM: Your problem has 190 variables, 453 constraints, and 1 parameters.
+(CVXPY) May 11 09:11:10 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) May 11 09:11:10 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) May 11 09:11:10 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) May 11 06:28:19 PM: Compiling problem (target solver=HIGHS).
-(CVXPY) May 11 06:28:19 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
-(CVXPY) May 11 06:28:19 PM: Applying reduction Dcp2Cone
-(CVXPY) May 11 06:28:19 PM: Applying reduction CvxAttr2Constr
-(CVXPY) May 11 06:28:19 PM: Applying reduction ConeMatrixStuffing
-(CVXPY) May 11 06:28:19 PM: Applying reduction HIGHS
-(CVXPY) May 11 06:28:19 PM: Finished problem compilation (took 1.153e-02 seconds).
-(CVXPY) May 11 06:28:19 PM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
+(CVXPY) May 11 09:11:10 PM: Compiling problem (target solver=HIGHS).
+(CVXPY) May 11 09:11:10 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
+(CVXPY) May 11 09:11:10 PM: Applying reduction Dcp2Cone
+(CVXPY) May 11 09:11:10 PM: Applying reduction CvxAttr2Constr
+(CVXPY) May 11 09:11:10 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) May 11 09:11:10 PM: Applying reduction HIGHS
+(CVXPY) May 11 09:11:10 PM: Finished problem compilation (took 1.117e-02 seconds).
+(CVXPY) May 11 09:11:10 PM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) May 11 06:28:19 PM: Invoking solver HIGHS  to obtain a solution.
+(CVXPY) May 11 09:11:10 PM: Invoking solver HIGHS  to obtain a solution.
 Running HiGHS 1.10.0 (git hash: fd86653): Copyright (c) 2025 HiGHS under MIT licence terms
 MIP  has 453 rows; 190 cols; 883 nonzeros; 95 integer variables (95 binary)
 Coefficient ranges:
@@ -858,13 +865,13 @@ Solving report
   Primal bound      3.68570249247
   Dual bound        3.68570249247
   Gap               0% (tolerance: 0.01%)
-  P-D integral      0.310746967941
+  P-D integral      0.314263940501
   Solution status   feasible
                     3.68570249247 (objective)
                     0 (bound viol.)
                     0 (int. viol.)
                     0 (row viol.)
-  Timing            0.88 (total)
+  Timing            0.89 (total)
                     0.00 (presolve)
                     0.00 (solve)
                     0.00 (postsolve)
@@ -878,10 +885,10 @@ Solving report
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) May 11 06:28:20 PM: Problem status: optimal
-(CVXPY) May 11 06:28:20 PM: Optimal value: 3.686e+00
-(CVXPY) May 11 06:28:20 PM: Compilation took 1.153e-02 seconds
-(CVXPY) May 11 06:28:20 PM: Solver (including time spent in interface) took 8.840e-01 seconds
+(CVXPY) May 11 09:11:11 PM: Problem status: optimal
+(CVXPY) May 11 09:11:11 PM: Optimal value: 3.686e+00
+(CVXPY) May 11 09:11:11 PM: Compilation took 1.117e-02 seconds
+(CVXPY) May 11 09:11:11 PM: Solver (including time spent in interface) took 8.927e-01 seconds
 </pre></div>
 </div>
 </div>
@@ -893,7 +900,7 @@ Solving report
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2e93fde7c4ae0bffaa792a050da06cd30a10014f5bd871a2500968627163b9d9.svg" src="../../_images/2e93fde7c4ae0bffaa792a050da06cd30a10014f5bd871a2500968627163b9d9.svg" />
+<img alt="../../_images/843726a3400087a7be26d2ca8f66b5a9852264d5e65e43ed15e21e836377a247.svg" src="../../_images/843726a3400087a7be26d2ca8f66b5a9852264d5e65e43ed15e21e836377a247.svg" />
 </div>
 </div>
 <div class="cell docutils container">
