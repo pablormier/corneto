@@ -7,27 +7,7 @@
   },
   {
     "name": "dev",
-    "version": "0.0.0",
+    "version": "0.0.0.post357.dev0+c3bbeb58",
     "url": "https://pablormier.github.io/corneto/dev/"
-  },
-  {
-    "name": "1.0.0-alpha",
-    "version": "1.0.0-alpha",
-    "url": "https://pablormier.github.io/corneto/1.0.0-alpha/"
-  },
-  {
-    "name": "1.0.0.dev0",
-    "version": "1.0.0.dev0",
-    "url": "https://pablormier.github.io/corneto/1.0.0.dev0/"
-  },
-  {
-    "name": "1.0.0.dev7",
-    "version": "1.0.0.dev7",
-    "url": "https://pablormier.github.io/corneto/1.0.0.dev7/"
-  },
-  {
-    "name": "v1.0.0-dev.8",
-    "version": "v1.0.0-dev.8",
-    "url": "https://pablormier.github.io/corneto/v1.0.0-dev.8/"
   }
 ]
