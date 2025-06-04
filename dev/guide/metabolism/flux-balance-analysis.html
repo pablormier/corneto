@@ -56,7 +56,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = '/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0.dev13+a9e3f485';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.0.0.post357.dev0+c3bbeb58';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -514,7 +514,7 @@
                 <td><strong>Name</strong></td><td>Biomass Objective Function with GAM</td>
             </tr><tr>
                 <td><strong>Memory address</strong></td>
-                <td>0x7f5663c80610</td>
+                <td>0x7f2daf0a3a90</td>
             </tr><tr>
                 <td><strong>Stoichiometry</strong></td>
                 <td>
@@ -539,7 +539,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Solution 0.874 at 0x7f5663ce3fd0&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Solution 0.874 at 0x7f2daef1c510&gt;
 </pre></div>
 </div>
 </div>
@@ -549,8 +549,9 @@
 <h2>Using CORNETO<a class="headerlink" href="#using-corneto" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">corneto</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cn</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">corneto</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cn</span>
 
 <span class="n">cn</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
@@ -565,7 +566,7 @@
             </td>
             <td>
             <table>
-                <tr><td>Installed version:</td><td style='text-align:left'>v1.0.0.dev13+a9e3f485</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.5, PICOS v2.6.1</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CVXOPT, GLPK, GLPK_MI, HIGHS, SCIP, SCIPY</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/home/runner/work/corneto/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
+                <tr><td>Installed version:</td><td style='text-align:left'>v0.0.0.post357.dev0+c3bbeb58</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.5, PICOS v2.6.1</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CVXOPT, GLPK, GLPK_MI, HIGHS, SCIP, SCIPY</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/home/runner/work/corneto/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
             </table>
             </td>
         </tr>
@@ -574,6 +575,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corneto.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">cobra_model_to_graph</span>
+
 <span class="n">G</span> <span class="o">=</span> <span class="n">cobra_model_to_graph</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <span class="n">G</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
@@ -632,22 +634,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d610c4748321186879deb9b34045333d45880f4fcde998d056d15acf6e05eb48.svg" src="../../_images/d610c4748321186879deb9b34045333d45880f4fcde998d056d15acf6e05eb48.svg" />
+<img alt="../../_images/f08370fe3dff3559dcd46db6478dda58bdcf2e69164844e3ca9043d393bdec17.svg" src="../../_images/f08370fe3dff3559dcd46db6478dda58bdcf2e69164844e3ca9043d393bdec17.svg" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corneto.methods.future</span><span class="w"> </span><span class="kn">import</span> <span class="n">MultiSampleFBA</span> <span class="k">as</span> <span class="n">FBA</span>
 
-<span class="n">d</span> <span class="o">=</span> <span class="n">cn</span><span class="o">.</span><span class="n">Data</span><span class="o">.</span><span class="n">from_cdict</span><span class="p">(</span>
-    <span class="p">{</span>
-        <span class="s2">&quot;fba_example&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;Biomass_Ecoli_core&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;objective&quot;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">cn</span><span class="o">.</span><span class="n">Data</span><span class="o">.</span><span class="n">from_cdict</span><span class="p">({</span><span class="s2">&quot;fba_example&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Biomass_Ecoli_core&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;objective&quot;</span><span class="p">}}})</span>
 
 <span class="n">m</span> <span class="o">=</span> <span class="n">FBA</span><span class="p">()</span>
 <span class="n">P</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
@@ -782,7 +776,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1e9288b11e73a5f3e33a668c39199b35b44ea2c9a04eb2d26872faeb66201ee3.svg" src="../../_images/1e9288b11e73a5f3e33a668c39199b35b44ea2c9a04eb2d26872faeb66201ee3.svg" />
+<img alt="../../_images/b345cf525ea69aede0573be741e2578e577840ff5706bb4f5d2fcc0c147e9702.svg" src="../../_images/b345cf525ea69aede0573be741e2578e577840ff5706bb4f5d2fcc0c147e9702.svg" />
 </div>
 </div>
 </section>
@@ -793,7 +787,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">FBA</span><span class="p">(</span><span class="n">lambda_reg</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="n">P</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
 <span class="c1"># We add a constraint to force at least 90% of optimal flux</span>
-<span class="n">P</span> <span class="o">+=</span> <span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">flow</span><span class="p">[</span><span class="n">rid</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">opt_flux</span><span class="o">*</span><span class="mf">0.90</span>
+<span class="n">P</span> <span class="o">+=</span> <span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">flow</span><span class="p">[</span><span class="n">rid</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">opt_flux</span> <span class="o">*</span> <span class="mf">0.90</span>
 <span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;highs&quot;</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -803,25 +797,25 @@
                                      CVXPY                                     
                                      v1.6.5                                    
 ===============================================================================
-(CVXPY) May 22 04:50:04 PM: Your problem has 190 variables, 453 constraints, and 1 parameters.
-(CVXPY) May 22 04:50:04 PM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) May 22 04:50:04 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) May 22 04:50:04 PM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Jun 04 10:54:13 AM: Your problem has 190 variables, 453 constraints, and 1 parameters.
+(CVXPY) Jun 04 10:54:13 AM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Jun 04 10:54:13 AM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Jun 04 10:54:13 AM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) May 22 04:50:04 PM: Compiling problem (target solver=HIGHS).
-(CVXPY) May 22 04:50:04 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
-(CVXPY) May 22 04:50:04 PM: Applying reduction Dcp2Cone
-(CVXPY) May 22 04:50:04 PM: Applying reduction CvxAttr2Constr
-(CVXPY) May 22 04:50:04 PM: Applying reduction ConeMatrixStuffing
-(CVXPY) May 22 04:50:04 PM: Applying reduction HIGHS
-(CVXPY) May 22 04:50:04 PM: Finished problem compilation (took 1.066e-02 seconds).
-(CVXPY) May 22 04:50:04 PM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
+(CVXPY) Jun 04 10:54:13 AM: Compiling problem (target solver=HIGHS).
+(CVXPY) Jun 04 10:54:13 AM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
+(CVXPY) Jun 04 10:54:13 AM: Applying reduction Dcp2Cone
+(CVXPY) Jun 04 10:54:13 AM: Applying reduction CvxAttr2Constr
+(CVXPY) Jun 04 10:54:13 AM: Applying reduction ConeMatrixStuffing
+(CVXPY) Jun 04 10:54:13 AM: Applying reduction HIGHS
+(CVXPY) Jun 04 10:54:13 AM: Finished problem compilation (took 1.021e-02 seconds).
+(CVXPY) Jun 04 10:54:13 AM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) May 22 04:50:04 PM: Invoking solver HIGHS  to obtain a solution.
+(CVXPY) Jun 04 10:54:13 AM: Invoking solver HIGHS  to obtain a solution.
 Running HiGHS 1.10.0 (git hash: fd86653): Copyright (c) 2025 HiGHS under MIT licence terms
 MIP  has 453 rows; 190 cols; 883 nonzeros; 95 integer variables (95 binary)
 Coefficient ranges:
@@ -865,7 +859,7 @@ Solving report
   Primal bound      3.68570249247
   Dual bound        3.68570249247
   Gap               0% (tolerance: 0.01%)
-  P-D integral      0.300625142698
+  P-D integral      0.300251266788
   Solution status   feasible
                     3.68570249247 (objective)
                     0 (bound viol.)
@@ -885,10 +879,10 @@ Solving report
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) May 22 04:50:05 PM: Problem status: optimal
-(CVXPY) May 22 04:50:05 PM: Optimal value: 3.686e+00
-(CVXPY) May 22 04:50:05 PM: Compilation took 1.066e-02 seconds
-(CVXPY) May 22 04:50:05 PM: Solver (including time spent in interface) took 8.581e-01 seconds
+(CVXPY) Jun 04 10:54:14 AM: Problem status: optimal
+(CVXPY) Jun 04 10:54:14 AM: Optimal value: 3.686e+00
+(CVXPY) Jun 04 10:54:14 AM: Compilation took 1.021e-02 seconds
+(CVXPY) Jun 04 10:54:14 AM: Solver (including time spent in interface) took 8.579e-01 seconds
 </pre></div>
 </div>
 </div>
@@ -900,7 +894,7 @@ Solving report
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c9b74f23050137eb26c8c6dd3645009f02d668a18f0e0a0dd9076883ebdbdb8b.svg" src="../../_images/c9b74f23050137eb26c8c6dd3645009f02d668a18f0e0a0dd9076883ebdbdb8b.svg" />
+<img alt="../../_images/42d34f34e7d24deaff0671df6f66330c141bc5e117c611db983450a45f537736.svg" src="../../_images/42d34f34e7d24deaff0671df6f66330c141bc5e117c611db983450a45f537736.svg" />
 </div>
 </div>
 <div class="cell docutils container">
