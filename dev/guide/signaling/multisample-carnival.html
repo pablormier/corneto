@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=5ec6e6de" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=53e23fa6" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -56,7 +56,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = '/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.0.0.post366.dev0+a1f189ee';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.0.0.post370.dev0+79caf7f9';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -474,7 +474,7 @@
             </td>
             <td>
             <table>
-                <tr><td>Installed version:</td><td style='text-align:left'>v0.0.0.post366.dev0+a1f189ee</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.5, PICOS v2.6.1</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CVXOPT, GLPK, GLPK_MI, HIGHS, SCIP, SCIPY</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/home/runner/work/corneto/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
+                <tr><td>Installed version:</td><td style='text-align:left'>v0.0.0.post370.dev0+79caf7f9</td></tr><tr><td>Available backends:</td><td style='text-align:left'>CVXPY v1.6.5, PICOS v2.6.1</td></tr><tr><td>Default backend (corneto.opt):</td><td style='text-align:left'>CVXPY</td></tr><tr><td>Installed solvers:</td><td style='text-align:left'>CVXOPT, GLPK, GLPK_MI, HIGHS, SCIP, SCIPY</td></tr><tr><td>Graphviz version:</td><td style='text-align:left'>v0.20.3</td></tr><tr><td>Installed path:</td><td style='text-align:left'>/home/runner/work/corneto/corneto/corneto</td></tr><tr><td>Repository:</td><td style='text-align:left'><a href=https://github.com/saezlab/corneto>https://github.com/saezlab/corneto</a></td></tr>
             </table>
             </td>
         </tr>
@@ -581,7 +581,7 @@ Unreachable vertices for sample: 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/200a47e5ffdcc4027e31a73752410a032b8b708f446f046e26fad57ca59a820b.svg" src="../../_images/200a47e5ffdcc4027e31a73752410a032b8b708f446f046e26fad57ca59a820b.svg" />
+<img alt="../../_images/99eb45fe792da81e7a0603aa2e649cd5827e1c2780582bac410cf2e2912cfb9d.svg" src="../../_images/99eb45fe792da81e7a0603aa2e649cd5827e1c2780582bac410cf2e2912cfb9d.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -592,7 +592,7 @@ Unreachable vertices for sample: 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d52242c7b7d783d08cd795126e19dfb51f5101aa00cb5671b07f83bd3203d97b.svg" src="../../_images/d52242c7b7d783d08cd795126e19dfb51f5101aa00cb5671b07f83bd3203d97b.svg" />
+<img alt="../../_images/00fc650499dc3e03b705eef2a66e692e31b27fa8c857d986aca0264ff6e06eb3.svg" src="../../_images/00fc650499dc3e03b705eef2a66e692e31b27fa8c857d986aca0264ff6e06eb3.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -776,14 +776,14 @@ Unreachable vertices for sample: 0
     </tr>
     <tr>
       <th rowspan="2" valign="top">()</th>
-      <th>(rec1)</th>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
       <th>(rec2)</th>
       <td>1</td>
       <td>-1</td>
+    </tr>
+    <tr>
+      <th>(rec1)</th>
+      <td>0</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -792,9 +792,7 @@ Unreachable vertices for sample: 0
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution for sample 1</span>
-<span class="n">c</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">edge_subgraph</span><span class="p">(</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">edge_has_signal</span><span class="o">.</span><span class="n">value</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span>
-<span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">edge_subgraph</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">edge_has_signal</span><span class="o">.</span><span class="n">value</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -805,14 +803,12 @@ Unreachable vertices for sample: 0
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution for sample 2</span>
-<span class="n">c</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">edge_subgraph</span><span class="p">(</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">edge_has_signal</span><span class="o">.</span><span class="n">value</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span>
-<span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">edge_subgraph</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">edge_has_signal</span><span class="o">.</span><span class="n">value</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/22e121a97725d92c691431e413e2c5fea6f510813492ac2a7b6c9fb31fbdbbb0.svg" src="../../_images/22e121a97725d92c691431e413e2c5fea6f510813492ac2a7b6c9fb31fbdbbb0.svg" />
+<img alt="../../_images/1542ea34797a98a0b0329061800a8bd8dbe88e791e4af03a84896f7d12a8c02b.svg" src="../../_images/1542ea34797a98a0b0329061800a8bd8dbe88e791e4af03a84896f7d12a8c02b.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -843,7 +839,7 @@ Unreachable vertices for sample: 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a44269541a8bb3bec3ebb11f5cca5c30e5e66cb70569cfaf7840c65e27b2f370.svg" src="../../_images/a44269541a8bb3bec3ebb11f5cca5c30e5e66cb70569cfaf7840c65e27b2f370.svg" />
+<img alt="../../_images/38c12031388199ab954bd5663a3927170e4cb02dcb6b17eb7236edb4c157caf8.svg" src="../../_images/38c12031388199ab954bd5663a3927170e4cb02dcb6b17eb7236edb4c157caf8.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -856,7 +852,60 @@ Unreachable vertices for sample: 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0f457a8a5ba1b056482983a7d0b54be13cccc371d710c59a3b67f2a1a90efeeb.svg" src="../../_images/0f457a8a5ba1b056482983a7d0b54be13cccc371d710c59a3b67f2a1a90efeeb.svg" />
+<img alt="../../_images/0d62ae8e48d37eee10d8a547bcdb878bd95fc8be73c8b64853b75e7b30798366.svg" src="../../_images/0d62ae8e48d37eee10d8a547bcdb878bd95fc8be73c8b64853b75e7b30798366.svg" />
+</div>
+</div>
+</section>
+<section id="penalizing-indirect-signaling-rules">
+<h2>Penalizing indirect signaling rules<a class="headerlink" href="#penalizing-indirect-signaling-rules" title="Link to this heading">#</a></h2>
+<p>The original version of CARNIVAL treats indirect rules (A -&gt; B, A inhibited =&gt; B inhibited, and A -| B, A inhibited =&gt; B activated) similarly that more direct rules (…).  The reverse or inactive-state implications rely, in general, on additional assumptions, such as A being the sole regulator of B or the existence of efficient off-switch mechanisms, and these might be in general less reliable. To control for this, we added a tunable parameter called <code class="docutils literal notranslate"><span class="pre">indirect_rule_penalty</span></code> that penalizes the number of indirect rules selected in each sample</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">CarnivalFlow</span><span class="p">(</span><span class="n">lambda_reg</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">indirect_rule_penalty</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;scipy&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">P</span><span class="o">.</span><span class="n">objectives</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">o</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unreachable vertices for sample: 1
+Unreachable vertices for sample: 0
+error_c1_0 0.0
+penalty_indirect_rules_0 [0.]
+error_c2_1 1.0
+penalty_indirect_rules_1 [1.]
+regularization_edge_has_signal_OR 9.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">plot_values</span><span class="p">(</span>
+    <span class="n">vertex_values</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">vertex_value</span><span class="o">.</span><span class="n">value</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">edge_values</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">edge_value</span><span class="o">.</span><span class="n">value</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/38c12031388199ab954bd5663a3927170e4cb02dcb6b17eb7236edb4c157caf8.svg" src="../../_images/38c12031388199ab954bd5663a3927170e4cb02dcb6b17eb7236edb4c157caf8.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">plot_values</span><span class="p">(</span>
+    <span class="n">vertex_values</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">vertex_value</span><span class="o">.</span><span class="n">value</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">edge_values</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">edge_value</span><span class="o">.</span><span class="n">value</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/0536861d0baa3e208b83e78c1549bfb729bb1e2a709557bafd92103423305292.svg" src="../../_images/0536861d0baa3e208b83e78c1549bfb729bb1e2a709557bafd92103423305292.svg" />
 </div>
 </div>
 </section>
@@ -907,7 +956,7 @@ Unreachable vertices for sample: 0
 6.0
 </pre></div>
 </div>
-<img alt="../../_images/22e121a97725d92c691431e413e2c5fea6f510813492ac2a7b6c9fb31fbdbbb0.svg" src="../../_images/22e121a97725d92c691431e413e2c5fea6f510813492ac2a7b6c9fb31fbdbbb0.svg" />
+<img alt="../../_images/1542ea34797a98a0b0329061800a8bd8dbe88e791e4af03a84896f7d12a8c02b.svg" src="../../_images/1542ea34797a98a0b0329061800a8bd8dbe88e791e4af03a84896f7d12a8c02b.svg" />
 </div>
 </div>
 </section>
@@ -963,6 +1012,7 @@ Unreachable vertices for sample: 0
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#toy-example">Toy example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Multi-sample CARNIVAL</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-solutions-on-top-of-the-pkn">Plotting solutions on top of the PKN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penalizing-indirect-signaling-rules">Penalizing indirect signaling rules</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-sample-using-the-same-multi-sample-method">Single sample using the same multi-sample method</a></li>
 </ul>
   </nav></div>
