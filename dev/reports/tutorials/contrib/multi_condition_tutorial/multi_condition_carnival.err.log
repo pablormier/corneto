@@ -49,6 +49,8 @@ from pydeseq2.ds import DeseqStats
 
 # https://saezlab.github.io/
 import corneto as cn
+
+cn.info()
 ------------------
 
 
