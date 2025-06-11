@@ -56,7 +56,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = '/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.0.0.post374.dev0+775c6d90';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.0.0.post375.dev0+774fa03b';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -418,7 +418,7 @@
   <section class="tex2jax_ignore mathjax_ignore" id="single-sample-intracellular-signalling-network-inference">
 <h1>Single sample intracellular signalling network inference<a class="headerlink" href="#single-sample-intracellular-signalling-network-inference" title="Link to this heading">#</a></h1>
 <p>In this notebook we showcase how to use the advanced CARNIVAL implementation available in CORNETO. This implementation extends the capabilities of the original CARNIVAL method by enabling advanced modelling and injection of knowledge for hypothesis generation. We will use a dataset consisting of 6 samples of hepatic stellate cells (HSC) where three of them were activated by the cytokine Transforming growth factor (TGF-β).</p>
-<p>In the first part, we will show how to estimate Transcription Factor activities from gene expression data, following the <a class="reference external" href="https://decoupler-py.readthedocs.io/en/latest/notebooks/bulk.html">Decoupler tutorial</a> for functional analysis. Then, we will use the CARNIVAL method available in CORNETO to infer a network from TFs to receptors, assuming that we don’t really know which treatment was used.</p>
+<p>In the first part, we will show how to estimate Transcription Factor activities from gene expression data, following the <a class="reference external" href="https://decoupler-py.readthedocs.io/en/latest/notebooks/bulk.html">Decoupler tutorial</a> for functional analysis. Then, we will use the CARNIVAL method available in CORNETO to infer a network from TFs to receptors, assuming that we don’t really know which treatment was used. We will see how to do some basic modeling and adding information from pathway enrichment using PROGENy to bias the inferred networks.</p>
 <blockquote>
 <div><p><strong>NOTE:</strong> This tutorial uses the new <strong>Decoupler v2</strong> version. We also use the <strong>highs</strong> solver, which has to be installed with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">highspy</span></code></p>
 </div></blockquote>
@@ -493,7 +493,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain genes that pass the thresholds</span>
 <span class="n">dc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">filter_by_expr</span><span class="p">(</span>
     <span class="n">adata</span><span class="o">=</span><span class="n">adata</span><span class="p">,</span>
-    <span class="n">group</span><span class="o">=</span><span class="s1">&#39;condition&#39;</span><span class="p">,</span>
+    <span class="n">group</span><span class="o">=</span><span class="s2">&quot;condition&quot;</span><span class="p">,</span>
     <span class="n">min_count</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
     <span class="n">min_total_count</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
     <span class="n">large_n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
@@ -516,7 +516,7 @@
 <span class="n">inference</span> <span class="o">=</span> <span class="n">DefaultInference</span><span class="p">(</span><span class="n">n_cpus</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">dds</span> <span class="o">=</span> <span class="n">DeseqDataSet</span><span class="p">(</span>
     <span class="n">adata</span><span class="o">=</span><span class="n">adata</span><span class="p">,</span>
-    <span class="n">design_factors</span><span class="o">=</span><span class="s1">&#39;condition&#39;</span><span class="p">,</span>
+    <span class="n">design_factors</span><span class="o">=</span><span class="s2">&quot;condition&quot;</span><span class="p">,</span>
     <span class="n">refit_cooks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">inference</span><span class="o">=</span><span class="n">inference</span><span class="p">,</span>
 <span class="p">)</span>
@@ -525,11 +525,7 @@
 <span class="n">dds</span><span class="o">.</span><span class="n">deseq2</span><span class="p">()</span>
 
 <span class="c1"># Extract contrast between conditions</span>
-<span class="n">stat_res</span> <span class="o">=</span> <span class="n">DeseqStats</span><span class="p">(</span>
-    <span class="n">dds</span><span class="p">,</span>
-    <span class="n">contrast</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;condition&quot;</span><span class="p">,</span> <span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="s1">&#39;control&#39;</span><span class="p">],</span>
-    <span class="n">inference</span><span class="o">=</span><span class="n">inference</span>
-<span class="p">)</span>
+<span class="n">stat_res</span> <span class="o">=</span> <span class="n">DeseqStats</span><span class="p">(</span><span class="n">dds</span><span class="p">,</span> <span class="n">contrast</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;condition&quot;</span><span class="p">,</span> <span class="s2">&quot;treatment&quot;</span><span class="p">,</span> <span class="s2">&quot;control&quot;</span><span class="p">],</span> <span class="n">inference</span><span class="o">=</span><span class="n">inference</span><span class="p">)</span>
 
 <span class="c1"># Compute Wald test</span>
 <span class="n">stat_res</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
@@ -711,7 +707,7 @@ RP11-91I8.3     3.549714e-05   1.471318e-04
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">results_df</span><span class="p">[[</span><span class="s1">&#39;stat&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;stat&#39;</span><span class="p">:</span> <span class="s1">&#39;treatment.vs.control&#39;</span><span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">results_df</span><span class="p">[[</span><span class="s2">&quot;stat&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;stat&quot;</span><span class="p">:</span> <span class="s2">&quot;treatment.vs.control&quot;</span><span class="p">})</span>
 <span class="n">data</span>
 </pre></div>
 </div>
@@ -793,8 +789,10 @@ RP11-91I8.3     3.549714e-05   1.471318e-04
 <h2>Prior knowledge with Decoupler and Omnipath<a class="headerlink" href="#prior-knowledge-with-decoupler-and-omnipath" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve CollecTRI gene regulatory network (through Omnipath)</span>
-<span class="n">collectri</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">op</span><span class="o">.</span><span class="n">collectri</span><span class="p">(</span><span class="n">organism</span><span class="o">=</span><span class="s1">&#39;human&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve CollecTRI gene regulatory network (through Omnipath).</span>
+<span class="c1"># These are regulons that we will use for enrichment tests</span>
+<span class="c1"># to infer TF activities</span>
+<span class="n">collectri</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">op</span><span class="o">.</span><span class="n">collectri</span><span class="p">(</span><span class="n">organism</span><span class="o">=</span><span class="s2">&quot;human&quot;</span><span class="p">)</span>
 <span class="n">collectri</span>
 </pre></div>
 </div>
@@ -1018,12 +1016,7 @@ RP11-91I8.3     3.549714e-05   1.471318e-04
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span>
-    <span class="n">data</span><span class="o">=</span><span class="n">tf_acts</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;treatment.vs.control&#39;</span><span class="p">,</span>
-    <span class="n">top</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tf_acts</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;treatment.vs.control&quot;</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1191,15 +1184,15 @@ RP11-91I8.3     3.549714e-05   1.471318e-04
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">volcano</span><span class="p">(</span>
     <span class="n">data</span><span class="o">=</span><span class="n">df_de_receptors</span><span class="p">,</span>
-    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;log2FoldChange&#39;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;padj&#39;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;log2FoldChange&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;padj&quot;</span><span class="p">,</span>
     <span class="n">top</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f58e8b81b19280cf863ab776e6ac6f7e2d1a2bba61e4be0246689d40c899a1d2.png" src="../_images/f58e8b81b19280cf863ab776e6ac6f7e2d1a2bba61e4be0246689d40c899a1d2.png" />
+<img alt="../_images/343bfb791c3f33ef6b5748cd9651501b46a8b449199d4fb9ad53151ba0eb7148.png" src="../_images/343bfb791c3f33ef6b5748cd9651501b46a8b449199d4fb9ad53151ba0eb7148.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2025,9 +2018,9 @@ RP11-91I8.3     3.549714e-05   1.471318e-04
 </div>
 </div>
 </section>
-<section id="quick-run">
-<h2>Quick run<a class="headerlink" href="#quick-run" title="Link to this heading">#</a></h2>
-<p>We will use now the standard CARNIVAL with a regularization penalty of 0.5. Typically, we would need additional data or information to select the optimal parameter. We will see later how can we add extra modelling assumptions.</p>
+<section id="carnival">
+<h2>CARNIVAL<a class="headerlink" href="#carnival" title="Link to this heading">#</a></h2>
+<p>We will use now the standard CARNIVAL with a regularization penalty of 0.5. Typically, we would need additional data or information to select the optimal parameter. For hypothesis exploration, we can try different values and manually inspect the solutions</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">carnival</span> <span class="o">=</span> <span class="n">CarnivalFlow</span><span class="p">(</span><span class="n">lambda_reg</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -2041,17 +2034,18 @@ RP11-91I8.3     3.549714e-05   1.471318e-04
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_flow&#39;: _flow: Variable((3279,), _flow),
- &#39;edge_inhibits&#39;: edge_inhibits: Variable((3279, 1), edge_inhibits, boolean=True),
  &#39;edge_activates&#39;: edge_activates: Variable((3279, 1), edge_activates, boolean=True),
- &#39;const0x1e5776cc147d2e7f&#39;: const0x1e5776cc147d2e7f: Constant(CONSTANT, NONNEGATIVE, (947, 3279)),
+ &#39;edge_inhibits&#39;: edge_inhibits: Variable((3279, 1), edge_inhibits, boolean=True),
+ &#39;const0x94da39a381f04fe&#39;: const0x94da39a381f04fe: Constant(CONSTANT, NONNEGATIVE, (947, 3279)),
  &#39;_dag_layer&#39;: _dag_layer: Variable((947, 1), _dag_layer),
- &#39;const0xf17e72e1cd599c7&#39;: const0xf17e72e1cd599c7: Constant(CONSTANT, NONNEGATIVE, (947, 3279)),
+ &#39;const0x1aa7a82deb9aa0b6&#39;: const0x1aa7a82deb9aa0b6: Constant(CONSTANT, NONNEGATIVE, (947, 3279)),
  &#39;flow&#39;: _flow: Variable((3279,), _flow),
  &#39;vertex_value&#39;: Expression(AFFINE, UNKNOWN, (947, 1)),
  &#39;vertex_activated&#39;: Expression(AFFINE, NONNEGATIVE, (947, 1)),
  &#39;vertex_inhibited&#39;: Expression(AFFINE, NONNEGATIVE, (947, 1)),
  &#39;edge_value&#39;: Expression(AFFINE, UNKNOWN, (3279, 1)),
- &#39;edge_has_signal&#39;: Expression(AFFINE, NONNEGATIVE, (3279, 1))}
+ &#39;edge_has_signal&#39;: Expression(AFFINE, NONNEGATIVE, (3279, 1)),
+ &#39;vertex_max_depth&#39;: _dag_layer: Variable((947, 1), _dag_layer)}
 </pre></div>
 </div>
 </div>
@@ -2067,25 +2061,25 @@ RP11-91I8.3     3.549714e-05   1.471318e-04
                                      CVXPY                                     
                                      v1.6.5                                    
 ===============================================================================
-(CVXPY) Jun 10 01:43:42 PM: Your problem has 10784 variables, 30852 constraints, and 1 parameters.
-(CVXPY) Jun 10 01:43:42 PM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Jun 10 01:43:42 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Jun 10 01:43:42 PM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Jun 11 06:19:10 PM: Your problem has 10784 variables, 30852 constraints, and 1 parameters.
+(CVXPY) Jun 11 06:19:10 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Jun 11 06:19:10 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Jun 11 06:19:10 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Jun 10 01:43:42 PM: Compiling problem (target solver=HIGHS).
-(CVXPY) Jun 10 01:43:42 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
-(CVXPY) Jun 10 01:43:42 PM: Applying reduction Dcp2Cone
-(CVXPY) Jun 10 01:43:42 PM: Applying reduction CvxAttr2Constr
-(CVXPY) Jun 10 01:43:42 PM: Applying reduction ConeMatrixStuffing
-(CVXPY) Jun 10 01:43:42 PM: Applying reduction HIGHS
-(CVXPY) Jun 10 01:43:42 PM: Finished problem compilation (took 5.878e-02 seconds).
-(CVXPY) Jun 10 01:43:42 PM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
+(CVXPY) Jun 11 06:19:10 PM: Compiling problem (target solver=HIGHS).
+(CVXPY) Jun 11 06:19:10 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
+(CVXPY) Jun 11 06:19:10 PM: Applying reduction Dcp2Cone
+(CVXPY) Jun 11 06:19:10 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Jun 11 06:19:10 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) Jun 11 06:19:10 PM: Applying reduction HIGHS
+(CVXPY) Jun 11 06:19:10 PM: Finished problem compilation (took 6.457e-02 seconds).
+(CVXPY) Jun 11 06:19:10 PM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Jun 10 01:43:42 PM: Invoking solver HIGHS  to obtain a solution.
+(CVXPY) Jun 11 06:19:10 PM: Invoking solver HIGHS  to obtain a solution.
 Running HiGHS 1.11.0 (git hash: 364c83a): Copyright (c) 2025 HiGHS under MIT licence terms
 MIP  has 30852 rows; 10784 cols; 108719 nonzeros; 6558 integer variables (6558 binary)
 Coefficient ranges:
@@ -2094,14 +2088,14 @@ Coefficient ranges:
   Bound  [1e+00, 1e+00]
   RHS    [1e+00, 1e+03]
 Presolving model
-17922 rows, 10383 cols, 91791 nonzeros  0s
-13148 rows, 9268 cols, 70672 nonzeros  0s
-12763 rows, 9183 cols, 70234 nonzeros  0s
+17921 rows, 10381 cols, 91785 nonzeros  0s
+13133 rows, 9253 cols, 70701 nonzeros  0s
+12754 rows, 9174 cols, 70260 nonzeros  0s
 
 Solving MIP model with:
-   12763 rows
-   9183 cols (5768 binary, 0 integer, 0 implied int., 3415 continuous, 0 domain fixed)
-   70234 nonzeros
+   12754 rows
+   9174 cols (5768 binary, 0 integer, 0 implied int., 3406 continuous, 0 domain fixed)
+   70260 nonzeros
 
 Src: B =&gt; Branching; C =&gt; Central rounding; F =&gt; Feasibility pump; J =&gt; Feasibility jump;
      H =&gt; Heuristic; L =&gt; Sub-MIP; P =&gt; Empty MIP; R =&gt; Randomized rounding; Z =&gt; ZI Round;
@@ -2111,62 +2105,63 @@ Src: B =&gt; Branching; C =&gt; Central rounding; F =&gt; Feasibility pump; J =&
         Nodes      |    B&amp;B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
 Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
 
- J       0       0         0   0.00%   -inf            0                  Large        0      0      0         0     0.5s
-         0       0         0   0.00%   -100.0153165    0                  Large        0      0      0      1642     0.6s
- L       0       0         0   0.00%   -97.38159462    -87.26016509      11.60%     1703     63     48      3351     3.8s
- L       0       0         0   0.00%   -97.38159462    -94.88159462       2.63%     1746     66     48      8767     5.8s
+ J       0       0         0   0.00%   -inf            0                  Large        0      0      0         0     0.4s
+         0       0         0   0.00%   -100.0153165    0                  Large        0      0      0      1834     0.5s
+ L       0       0         0   0.00%   -97.38159462    -90.88159462       7.15%     1663     70      0      3162     4.0s
 
-6.8% inactive integer columns, restarting
-Model after restart has 12227 rows, 8705 cols (5302 bin., 0 int., 0 impl., 3403 cont., 0 dom.fix.), and 64776 nonzeros
+1.5% inactive integer columns, restarting
+Model after restart has 12621 rows, 9052 cols (5650 bin., 0 int., 0 impl., 3402 cont., 0 dom.fix.), and 69099 nonzeros
 
-         0       0         0   0.00%   -97.38159462    -94.88159462       2.63%       27      0      0     14185     5.9s
-         0       0         0   0.00%   -97.38159462    -94.88159462       2.63%       27     18      3     15680     6.0s
- L       0       0         0   0.00%   -97.38159462    -95.38159462       2.10%      339     51      3     16084     8.2s
+         0       0         0   0.00%   -97.38159462    -90.88159462       7.15%       27      0      0     12413     6.0s
+         0       0         0   0.00%   -97.38159462    -90.88159462       7.15%       27     19     21     13585     6.1s
+ L       0       0         0   0.00%   -97.38159462    -96.88159462       0.52%      365     58     21     13760     8.1s
+
+11.6% inactive integer columns, restarting
+Model after restart has 10990 rows, 8004 cols (4780 bin., 0 int., 0 impl., 3224 cont., 0 dom.fix.), and 57133 nonzeros
+
+         0       0         0   0.00%   -97.38159462    -96.88159462       0.52%       27      0      0     18245     8.3s
+         0       0         0   0.00%   -97.38159462    -96.88159462       0.52%       27     16      5     19546     8.3s
 
 Symmetry detection completed in 0.0s
-Found 29 generator(s)
+Found 19 generator(s)
 
- B      58       5        21   0.17%   -97.38159462    -95.88159462       1.56%      464     27    511     37841    11.7s
-       113      25        41   1.04%   -97.38159462    -95.88159462       1.56%      660     32   1013     64312    18.4s
-       171      27        67   2.76%   -97.38159462    -95.88159462       1.56%      815     32   1619     88610    23.5s
-       213      40        85   3.75%   -97.38159462    -95.88159462       1.56%      954     39   2024    123322    28.8s
- T     255      27       102   8.57%   -97.38159462    -96.38159462       1.04%     1009     39   2220    145243    32.0s
-       383      49       154  19.40%   -97.38159462    -96.38159462       1.04%     1363     40   2637    170892    37.2s
-       535      67       221  27.76%   -97.38159462    -96.38159462       1.04%     2386     41   3425    190717    42.3s
-       656      81       275  38.07%   -97.38159462    -96.38159462       1.04%     4106     52   3983    208198    47.3s
-       768      94       324  40.35%   -97.38159462    -96.38159462       1.04%     4957     56   5056    226058    52.6s
-       898     109       379  46.79%   -97.38159462    -96.38159462       1.04%     6568     99   5628    243299    57.7s
-      1050     119       451  56.34%   -97.38159462    -96.38159462       1.04%     6738    110   6149    250106    60.0s
+        34       1        16  46.09%   -97.38159462    -96.88159462       0.52%      603     27   1383     43341    13.5s
+
+Restarting search from the root node
+Model after restart has 869 rows, 2591 cols (75 bin., 0 int., 0 impl., 2516 cont., 0 dom.fix.), and 6771 nonzeros
+
+        50       0         0   0.00%   -97.37842673    -96.88159462       0.51%       10      0      0     55711    16.4s
+        51       0         1 100.00%   -96.88159462    -96.88159462       0.00%       10      0      0     56356    16.4s
 
 Solving report
-  Status            Time limit reached
-  Primal bound      -96.3815946237
-  Dual bound        -97.3815946237
-  Gap               1.04% (tolerance: 0.01%)
-  P-D integral      0.977087294011
+  Status            Optimal
+  Primal bound      -96.8815946237
+  Dual bound        -96.8815946237
+  Gap               0% (tolerance: 0.01%)
+  P-D integral      0.338566345924
   Solution status   feasible
-                    -96.3815946237 (objective)
+                    -96.8815946237 (objective)
                     0 (bound viol.)
-                    1.11022302463e-16 (int. viol.)
+                    2.22044604925e-16 (int. viol.)
                     0 (row viol.)
-  Timing            60.01 (total)
+  Timing            16.42 (total)
                     0.00 (presolve)
                     0.00 (solve)
                     0.00 (postsolve)
   Max sub-MIP depth 8
-  Nodes             1050
+  Nodes             51
   Repair LPs        0 (0 feasible; 0 iterations)
-  LP iterations     250106 (total)
-                    141622 (strong br.)
-                    5857 (separation)
-                    21151 (heuristics)
+  LP iterations     56356 (total)
+                    28833 (strong br.)
+                    1751 (separation)
+                    13653 (heuristics)
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Jun 10 01:44:42 PM: Problem status: user_limit
-(CVXPY) Jun 10 01:44:42 PM: Optimal value: 2.700e+01
-(CVXPY) Jun 10 01:44:42 PM: Compilation took 5.878e-02 seconds
-(CVXPY) Jun 10 01:44:42 PM: Solver (including time spent in interface) took 6.003e+01 seconds
+(CVXPY) Jun 11 06:19:27 PM: Problem status: optimal
+(CVXPY) Jun 11 06:19:27 PM: Optimal value: 2.650e+01
+(CVXPY) Jun 11 06:19:27 PM: Compilation took 6.457e-02 seconds
+(CVXPY) Jun 11 06:19:27 PM: Solver (including time spent in interface) took 1.643e+01 seconds
 </pre></div>
 </div>
 </div>
@@ -2180,8 +2175,8 @@ Solving report
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error_sample1_0 -&gt; 1.2616266732110729e-15
-regularization_edge_has_signal -&gt; 54.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error_sample1_0 -&gt; 1.050898412285121e-15
+regularization_edge_has_signal -&gt; 53.0
 </pre></div>
 </div>
 </div>
@@ -2199,7 +2194,7 @@ regularization_edge_has_signal -&gt; 54.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/788f5420b2e0695961835eef911b52a2c984f2e2dd839c0921022588727a5b3f.svg" src="../_images/788f5420b2e0695961835eef911b52a2c984f2e2dd839c0921022588727a5b3f.svg" />
+<img alt="../_images/a2e40127fd28fbe18a04e547913cfeda8b0c3f028fd9efc3a90dd9f72eb82137.svg" src="../_images/a2e40127fd28fbe18a04e547913cfeda8b0c3f028fd9efc3a90dd9f72eb82137.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2211,16 +2206,14 @@ regularization_edge_has_signal -&gt; 54.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(54, 54)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(53, 53)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-
-<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
     <span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">vertex_value</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
     <span class="n">index</span><span class="o">=</span><span class="n">carnival</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">V</span><span class="p">,</span>
     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;node_activity&quot;</span><span class="p">],</span>
@@ -2252,23 +2245,23 @@ regularization_edge_has_signal -&gt; 54.0
   </thead>
   <tbody>
     <tr>
-      <th>LARP1</th>
+      <th>PTPRC</th>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>GSK3B</th>
-      <td>-1.0</td>
-    </tr>
-    <tr>
-      <th>MAML3</th>
+      <th>GEM</th>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>RNF5</th>
+      <th>MYO10</th>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>DVL2</th>
+      <th>ARHGEF12</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>TP53RK</th>
       <td>0.0</td>
     </tr>
     <tr>
@@ -2276,23 +2269,23 @@ regularization_edge_has_signal -&gt; 54.0
       <td>...</td>
     </tr>
     <tr>
-      <th>ETS1</th>
+      <th>NUAK1</th>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>SMO</th>
+      <th>CAMKK2</th>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>CSNK1D</th>
+      <th>P0C725_UBB</th>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>G3BP1</th>
+      <th>CSNK2B</th>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>HOXB7</th>
+      <th>ANAPC1_ANAPC10_ANAPC11_ANAPC13_ANAPC2_ANAPC4_ANAPC5_ANAPC7_CDC16_CDC23_CDC26_CDC27</th>
       <td>0.0</td>
     </tr>
   </tbody>
@@ -2366,20 +2359,20 @@ regularization_edge_has_signal -&gt; 54.0
       <td>0.0</td>
     </tr>
     <tr>
+      <th>(IL21R)</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
       <th>(EGF)</th>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>(IGF1)</th>
+      <th>(TGFB1)</th>
       <td>0.0</td>
     </tr>
     <tr>
       <th>(CDH2)</th>
       <td>0.0</td>
-    </tr>
-    <tr>
-      <th>(TGFB1)</th>
-      <td>-1.0</td>
     </tr>
   </tbody>
 </table>
@@ -2432,25 +2425,25 @@ regularization_edge_has_signal -&gt; 54.0
                                      CVXPY                                     
                                      v1.6.5                                    
 ===============================================================================
-(CVXPY) Jun 10 01:44:42 PM: Your problem has 10784 variables, 30852 constraints, and 1 parameters.
-(CVXPY) Jun 10 01:44:42 PM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Jun 10 01:44:42 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Jun 10 01:44:42 PM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Jun 11 06:19:27 PM: Your problem has 10784 variables, 30852 constraints, and 1 parameters.
+(CVXPY) Jun 11 06:19:27 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Jun 11 06:19:27 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Jun 11 06:19:27 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Jun 10 01:44:42 PM: Compiling problem (target solver=HIGHS).
-(CVXPY) Jun 10 01:44:42 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
-(CVXPY) Jun 10 01:44:42 PM: Applying reduction Dcp2Cone
-(CVXPY) Jun 10 01:44:42 PM: Applying reduction CvxAttr2Constr
-(CVXPY) Jun 10 01:44:42 PM: Applying reduction ConeMatrixStuffing
-(CVXPY) Jun 10 01:44:42 PM: Applying reduction HIGHS
-(CVXPY) Jun 10 01:44:42 PM: Finished problem compilation (took 6.520e-02 seconds).
-(CVXPY) Jun 10 01:44:42 PM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
+(CVXPY) Jun 11 06:19:27 PM: Compiling problem (target solver=HIGHS).
+(CVXPY) Jun 11 06:19:27 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
+(CVXPY) Jun 11 06:19:27 PM: Applying reduction Dcp2Cone
+(CVXPY) Jun 11 06:19:27 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Jun 11 06:19:27 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) Jun 11 06:19:27 PM: Applying reduction HIGHS
+(CVXPY) Jun 11 06:19:27 PM: Finished problem compilation (took 5.865e-02 seconds).
+(CVXPY) Jun 11 06:19:27 PM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Jun 10 01:44:42 PM: Invoking solver HIGHS  to obtain a solution.
+(CVXPY) Jun 11 06:19:27 PM: Invoking solver HIGHS  to obtain a solution.
 Running HiGHS 1.11.0 (git hash: 364c83a): Copyright (c) 2025 HiGHS under MIT licence terms
 MIP  has 30852 rows; 10784 cols; 108719 nonzeros; 6558 integer variables (6558 binary)
 Coefficient ranges:
@@ -2459,14 +2452,14 @@ Coefficient ranges:
   Bound  [1e+00, 1e+00]
   RHS    [1e+00, 1e+03]
 Presolving model
-17922 rows, 10383 cols, 91791 nonzeros  0s
-13037 rows, 9224 cols, 70197 nonzeros  0s
-12654 rows, 9141 cols, 69762 nonzeros  0s
+17921 rows, 10381 cols, 91785 nonzeros  0s
+13026 rows, 9212 cols, 70234 nonzeros  0s
+12645 rows, 9131 cols, 69798 nonzeros  0s
 
 Solving MIP model with:
-   12654 rows
-   9141 cols (5727 binary, 0 integer, 0 implied int., 3414 continuous, 0 domain fixed)
-   69762 nonzeros
+   12645 rows
+   9131 cols (5727 binary, 0 integer, 0 implied int., 3404 continuous, 0 domain fixed)
+   69798 nonzeros
 
 Src: B =&gt; Branching; C =&gt; Central rounding; F =&gt; Feasibility pump; J =&gt; Feasibility jump;
      H =&gt; Heuristic; L =&gt; Sub-MIP; P =&gt; Empty MIP; R =&gt; Randomized rounding; Z =&gt; ZI Round;
@@ -2476,41 +2469,41 @@ Src: B =&gt; Branching; C =&gt; Central rounding; F =&gt; Feasibility pump; J =&
         Nodes      |    B&amp;B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
 Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
 
- J       0       0         0   0.00%   -inf            0                  Large        0      0      0         0     0.5s
-         0       0         0   0.00%   -80.01008213    0                  Large        0      0      0      1226     0.6s
- C       0       0         0   0.00%   -72.66150912    -2.006207148    3521.83%      421     25      0      1730     1.4s
- L       0       0         0   0.00%   -72.41150912    -72.41150912       0.00%     1690     63      0      2912     3.3s
-         1       0         1 100.00%   -72.41150912    -72.41150912       0.00%     1651     63      0      5127     3.3s
+ J       0       0         0   0.00%   -inf            0                  Large        0      0      0         0     0.4s
+         0       0         0   0.00%   -80.01008213    0                  Large        0      0      0      1331     0.5s
+ C       0       0         0   0.00%   -72.82817579    -2.006207148    3530.14%      356     21      0      1844     1.2s
+ L       0       0         0   0.00%   -72.41150912    -72.41150912       0.00%     1082     50      0      2307     2.5s
+         1       0         1 100.00%   -72.41150912    -72.41150912       0.00%     1082     50      0      4414     2.5s
 
 Solving report
   Status            Optimal
   Primal bound      -72.411509124
   Dual bound        -72.411509124
   Gap               0% (tolerance: 0.01%)
-  P-D integral      64.1061504023
+  P-D integral      46.7809634959
   Solution status   feasible
                     -72.411509124 (objective)
                     0 (bound viol.)
                     0 (int. viol.)
                     0 (row viol.)
-  Timing            3.27 (total)
+  Timing            2.53 (total)
                     0.00 (presolve)
                     0.00 (solve)
                     0.00 (postsolve)
   Max sub-MIP depth 5
   Nodes             1
   Repair LPs        0 (0 feasible; 0 iterations)
-  LP iterations     5127 (total)
+  LP iterations     4414 (total)
                     0 (strong br.)
-                    1686 (separation)
-                    2215 (heuristics)
+                    976 (separation)
+                    2107 (heuristics)
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Jun 10 01:44:45 PM: Problem status: optimal
-(CVXPY) Jun 10 01:44:45 PM: Optimal value: 5.097e+01
-(CVXPY) Jun 10 01:44:45 PM: Compilation took 6.520e-02 seconds
-(CVXPY) Jun 10 01:44:45 PM: Solver (including time spent in interface) took 3.291e+00 seconds
+(CVXPY) Jun 11 06:19:30 PM: Problem status: optimal
+(CVXPY) Jun 11 06:19:30 PM: Optimal value: 5.097e+01
+(CVXPY) Jun 11 06:19:30 PM: Compilation took 5.865e-02 seconds
+(CVXPY) Jun 11 06:19:30 PM: Solver (including time spent in interface) took 2.544e+00 seconds
 </pre></div>
 </div>
 </div>
@@ -2524,7 +2517,7 @@ Solving report
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26.97008549973487
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26.970085499734868
 48.0
 [0.]
 </pre></div>
@@ -2533,7 +2526,7 @@ Solving report
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We extract the selected edges. Networks are simpler, </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We extract the selected edges. Networks are simpler,</span>
 <span class="c1"># and they show again some activation of CDH2 and inhibition of IGF1</span>
 <span class="n">sol_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">edge_value</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span>
 <span class="n">carnival</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">plot_values</span><span class="p">(</span>
@@ -2545,7 +2538,7 @@ Solving report
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0ee33fc9e30b7b71f4db0f2b77741e5912094228fdf1b34534e80885ffa5d835.svg" src="../_images/0ee33fc9e30b7b71f4db0f2b77741e5912094228fdf1b34534e80885ffa5d835.svg" />
+<img alt="../_images/aebeead010ccc046a49ec68b0f4bb04c1f69bf064a8af0ac293906bc563827e7.svg" src="../_images/aebeead010ccc046a49ec68b0f4bb04c1f69bf064a8af0ac293906bc563827e7.svg" />
 </div>
 </div>
 </section>
@@ -2574,15 +2567,16 @@ Solving report
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_flow&#39;: _flow: Variable((3279,), _flow),
  &#39;edge_inhibits&#39;: edge_inhibits: Variable((3279, 1), edge_inhibits, boolean=True),
  &#39;edge_activates&#39;: edge_activates: Variable((3279, 1), edge_activates, boolean=True),
- &#39;const0x1f4e4724fc33880b&#39;: const0x1f4e4724fc33880b: Constant(CONSTANT, NONNEGATIVE, (947, 3279)),
+ &#39;const0x1735def7420c5858&#39;: const0x1735def7420c5858: Constant(CONSTANT, NONNEGATIVE, (947, 3279)),
  &#39;_dag_layer&#39;: _dag_layer: Variable((947, 1), _dag_layer),
- &#39;const0x159558551b6a1ecc&#39;: const0x159558551b6a1ecc: Constant(CONSTANT, NONNEGATIVE, (947, 3279)),
+ &#39;const0xb46ccbceabe3b17&#39;: const0xb46ccbceabe3b17: Constant(CONSTANT, NONNEGATIVE, (947, 3279)),
  &#39;flow&#39;: _flow: Variable((3279,), _flow),
  &#39;vertex_value&#39;: Expression(AFFINE, UNKNOWN, (947, 1)),
  &#39;vertex_activated&#39;: Expression(AFFINE, NONNEGATIVE, (947, 1)),
  &#39;vertex_inhibited&#39;: Expression(AFFINE, NONNEGATIVE, (947, 1)),
  &#39;edge_value&#39;: Expression(AFFINE, UNKNOWN, (3279, 1)),
- &#39;edge_has_signal&#39;: Expression(AFFINE, NONNEGATIVE, (3279, 1))}
+ &#39;edge_has_signal&#39;: Expression(AFFINE, NONNEGATIVE, (3279, 1)),
+ &#39;vertex_max_depth&#39;: _dag_layer: Variable((947, 1), _dag_layer)}
 </pre></div>
 </div>
 </div>
@@ -2598,25 +2592,25 @@ Solving report
                                      CVXPY                                     
                                      v1.6.5                                    
 ===============================================================================
-(CVXPY) Jun 10 01:44:46 PM: Your problem has 10784 variables, 30852 constraints, and 1 parameters.
-(CVXPY) Jun 10 01:44:46 PM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Jun 10 01:44:46 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Jun 10 01:44:46 PM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Jun 11 06:19:30 PM: Your problem has 10784 variables, 30852 constraints, and 1 parameters.
+(CVXPY) Jun 11 06:19:30 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Jun 11 06:19:30 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Jun 11 06:19:30 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Jun 10 01:44:46 PM: Compiling problem (target solver=HIGHS).
-(CVXPY) Jun 10 01:44:46 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
-(CVXPY) Jun 10 01:44:46 PM: Applying reduction Dcp2Cone
-(CVXPY) Jun 10 01:44:46 PM: Applying reduction CvxAttr2Constr
-(CVXPY) Jun 10 01:44:46 PM: Applying reduction ConeMatrixStuffing
-(CVXPY) Jun 10 01:44:46 PM: Applying reduction HIGHS
-(CVXPY) Jun 10 01:44:46 PM: Finished problem compilation (took 6.585e-02 seconds).
-(CVXPY) Jun 10 01:44:46 PM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
+(CVXPY) Jun 11 06:19:30 PM: Compiling problem (target solver=HIGHS).
+(CVXPY) Jun 11 06:19:30 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
+(CVXPY) Jun 11 06:19:30 PM: Applying reduction Dcp2Cone
+(CVXPY) Jun 11 06:19:30 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Jun 11 06:19:30 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) Jun 11 06:19:30 PM: Applying reduction HIGHS
+(CVXPY) Jun 11 06:19:30 PM: Finished problem compilation (took 7.756e-02 seconds).
+(CVXPY) Jun 11 06:19:30 PM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Jun 10 01:44:46 PM: Invoking solver HIGHS  to obtain a solution.
+(CVXPY) Jun 11 06:19:30 PM: Invoking solver HIGHS  to obtain a solution.
 Running HiGHS 1.11.0 (git hash: 364c83a): Copyright (c) 2025 HiGHS under MIT licence terms
 MIP  has 30852 rows; 10784 cols; 108719 nonzeros; 6558 integer variables (6558 binary)
 Coefficient ranges:
@@ -2625,14 +2619,14 @@ Coefficient ranges:
   Bound  [1e+00, 1e+00]
   RHS    [1e+00, 1e+03]
 Presolving model
-17922 rows, 10383 cols, 91791 nonzeros  0s
-12948 rows, 9182 cols, 69724 nonzeros  0s
-12575 rows, 9106 cols, 69281 nonzeros  0s
+17921 rows, 10381 cols, 91785 nonzeros  0s
+12937 rows, 9173 cols, 69770 nonzeros  0s
+12555 rows, 9092 cols, 69332 nonzeros  0s
 
 Solving MIP model with:
-   12575 rows
-   9106 cols (5688 binary, 0 integer, 0 implied int., 3418 continuous, 0 domain fixed)
-   69281 nonzeros
+   12555 rows
+   9092 cols (5685 binary, 0 integer, 0 implied int., 3407 continuous, 0 domain fixed)
+   69332 nonzeros
 
 Src: B =&gt; Branching; C =&gt; Central rounding; F =&gt; Feasibility pump; J =&gt; Feasibility jump;
      H =&gt; Heuristic; L =&gt; Sub-MIP; P =&gt; Empty MIP; R =&gt; Randomized rounding; Z =&gt; ZI Round;
@@ -2642,50 +2636,50 @@ Src: B =&gt; Branching; C =&gt; Central rounding; F =&gt; Feasibility pump; J =&
         Nodes      |    B&amp;B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
 Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
 
- J       0       0         0   0.00%   -inf            0                  Large        0      0      0         0     0.5s
-         0       0         0   0.00%   -54.39752097    0                  Large        0      0     20       885     0.5s
- L       0       0         0   0.00%   -49.48644796    -48.98644796       1.02%      700     45     33      1394     2.8s
+ J       0       0         0   0.00%   -inf            0                  Large        0      0      0         0     0.4s
+         0       0         0   0.00%   -54.39752097    0                  Large        0      0     16       912     0.5s
+ L       0       0         0   0.00%   -49.48644796    -48.98644796       1.02%      896     48     35      1408     3.0s
 
 62.0% inactive integer columns, restarting
-Model after restart has 4383 rows, 4106 cols (1192 bin., 0 int., 0 impl., 2914 cont., 0 dom.fix.), and 18515 nonzeros
+Model after restart has 4380 rows, 4101 cols (1192 bin., 0 int., 0 impl., 2909 cont., 0 dom.fix.), and 18621 nonzeros
 
-         0       0         0   0.00%   -49.48644796    -48.98644796       1.02%       16      0      0      5161     3.1s
-         0       0         0   0.00%   -49.48644796    -48.98644796       1.02%       16      9      8      5809     3.2s
+         0       0         0   0.00%   -49.48644796    -48.98644796       1.02%       16      0      0      6197     3.4s
+         0       0         0   0.00%   -49.48644796    -48.98644796       1.02%       16     13      7      6871     3.5s
 
 Symmetry detection completed in 0.0s
-Found 9 generator(s)
+Found 10 generator(s)
 
-         4       0         2 100.00%   -48.98644796    -48.98644796       0.00%      752     21     35     11572     4.0s
+         5       0         3 100.00%   -48.98644796    -48.98644796       0.00%      726     19     46     13939     4.5s
 
 Solving report
   Status            Optimal
   Primal bound      -48.9864479649
   Dual bound        -48.9864479649
   Gap               0% (tolerance: 0.01%)
-  P-D integral      0.0124906088912
+  P-D integral      0.0145504962008
   Solution status   feasible
                     -48.9864479649 (objective)
                     0 (bound viol.)
-                    2.22044604925e-16 (int. viol.)
+                    0 (int. viol.)
                     0 (row viol.)
-  Timing            3.99 (total)
+  Timing            4.46 (total)
                     0.00 (presolve)
                     0.00 (solve)
                     0.00 (postsolve)
-  Max sub-MIP depth 4
-  Nodes             4
+  Max sub-MIP depth 5
+  Nodes             5
   Repair LPs        0 (0 feasible; 0 iterations)
-  LP iterations     11572 (total)
-                    559 (strong br.)
-                    612 (separation)
-                    8797 (heuristics)
+  LP iterations     13939 (total)
+                    771 (strong br.)
+                    770 (separation)
+                    10556 (heuristics)
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Jun 10 01:44:50 PM: Problem status: optimal
-(CVXPY) Jun 10 01:44:50 PM: Optimal value: 7.440e+01
-(CVXPY) Jun 10 01:44:50 PM: Compilation took 6.585e-02 seconds
-(CVXPY) Jun 10 01:44:50 PM: Solver (including time spent in interface) took 4.006e+00 seconds
+(CVXPY) Jun 11 06:19:35 PM: Problem status: optimal
+(CVXPY) Jun 11 06:19:35 PM: Optimal value: 7.440e+01
+(CVXPY) Jun 11 06:19:35 PM: Compilation took 7.756e-02 seconds
+(CVXPY) Jun 11 06:19:35 PM: Solver (including time spent in interface) took 4.473e+00 seconds
 </pre></div>
 </div>
 </div>
@@ -2702,7 +2696,7 @@ Solving report
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d64a90aedc97236dabedb352ed6fe836d9a7ed1f8d9012ec987bb09c46fdf133.svg" src="../_images/d64a90aedc97236dabedb352ed6fe836d9a7ed1f8d9012ec987bb09c46fdf133.svg" />
+<img alt="../_images/4d627a4182090803f9c611b7f105aadb2afcface264d6e5a1471a8b74acbe181.svg" src="../_images/4d627a4182090803f9c611b7f105aadb2afcface264d6e5a1471a8b74acbe181.svg" />
 </div>
 </div>
 </section>
@@ -2712,7 +2706,7 @@ Solving report
 <p>Additional information can be used to bias the reconstruction towards more plausible signalling pathways. Here, we will use information from PROGENy, which infers pathway activities from gene expression data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">progeny</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">op</span><span class="o">.</span><span class="n">progeny</span><span class="p">(</span><span class="n">organism</span><span class="o">=</span><span class="s1">&#39;human&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">progeny</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">op</span><span class="o">.</span><span class="n">progeny</span><span class="p">(</span><span class="n">organism</span><span class="o">=</span><span class="s2">&quot;human&quot;</span><span class="p">)</span>
 <span class="n">progeny</span>
 </pre></div>
 </div>
@@ -2828,7 +2822,7 @@ Solving report
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We will use the PyDeseq2 stat as the score for the genes</span>
-<span class="n">de_data</span> <span class="o">=</span> <span class="n">results_df</span><span class="p">[[</span><span class="s1">&#39;stat&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;stat&#39;</span><span class="p">:</span> <span class="s1">&#39;treatment.vs.control&#39;</span><span class="p">})</span>
+<span class="n">de_data</span> <span class="o">=</span> <span class="n">results_df</span><span class="p">[[</span><span class="s2">&quot;stat&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;stat&quot;</span><span class="p">:</span> <span class="s2">&quot;treatment.vs.control&quot;</span><span class="p">})</span>
 <span class="n">de_data</span>
 </pre></div>
 </div>
@@ -2973,12 +2967,7 @@ Solving report
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span>
-    <span class="n">data</span><span class="o">=</span><span class="n">pw_acts</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;treatment.vs.control&#39;</span><span class="p">,</span>
-    <span class="n">top</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">pw_acts</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;treatment.vs.control&quot;</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2989,28 +2978,24 @@ Solving report
 <p>We can see that the TGFb pathway is predicted to be stimulated, using the observed downstream changes in gene expression. Now that we have this info, we can bias the networks towards the selection of signalling proteins in that pathway. We can check first the up/down genes in that pathway using the PROGENy network:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">source_targets</span><span class="p">(</span>
-    <span class="n">data</span><span class="o">=</span><span class="n">results_df</span><span class="p">,</span>
-    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;stat&#39;</span><span class="p">,</span>
-    <span class="n">net</span><span class="o">=</span><span class="n">progeny</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;TGFb&#39;</span><span class="p">,</span>
-    <span class="n">top</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
-    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">source_targets</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">results_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;stat&quot;</span><span class="p">,</span> <span class="n">net</span><span class="o">=</span><span class="n">progeny</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;TGFb&quot;</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f301e2ed586ec6f538f1a696da4a7b3bec6f8590ce4ddd24886db5ca1ac77c1c.png" src="../_images/f301e2ed586ec6f538f1a696da4a7b3bec6f8590ce4ddd24886db5ca1ac77c1c.png" />
+<img alt="../_images/59bd9c7ee19f3f70180b948962cae58516b15cb27e3a6a70a76865180cff9ddf.png" src="../_images/59bd9c7ee19f3f70180b948962cae58516b15cb27e3a6a70a76865180cff9ddf.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_progeny_with_de</span> <span class="o">=</span> <span class="n">progeny</span><span class="p">[(</span><span class="n">progeny</span><span class="o">.</span><span class="n">source</span><span class="o">==</span><span class="s2">&quot;TGFb&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">results_df</span><span class="p">,</span> <span class="n">rsuffix</span><span class="o">=</span><span class="s2">&quot;_deseq&quot;</span><span class="p">)</span>
-<span class="n">df_progeny_with_de</span> <span class="o">=</span> <span class="n">df_progeny_with_de</span><span class="p">[(</span><span class="n">df_progeny_with_de</span><span class="o">.</span><span class="n">padj_deseq</span><span class="o">&lt;=</span> <span class="mf">1e-2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df_progeny_with_de</span><span class="o">.</span><span class="n">padj</span> <span class="o">&lt;=</span> <span class="mf">1e-2</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_progeny_with_de</span> <span class="o">=</span> <span class="n">progeny</span><span class="p">[(</span><span class="n">progeny</span><span class="o">.</span><span class="n">source</span> <span class="o">==</span> <span class="s2">&quot;TGFb&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">results_df</span><span class="p">,</span> <span class="n">rsuffix</span><span class="o">=</span><span class="s2">&quot;_deseq&quot;</span><span class="p">)</span>
+<span class="n">df_progeny_with_de</span> <span class="o">=</span> <span class="n">df_progeny_with_de</span><span class="p">[(</span><span class="n">df_progeny_with_de</span><span class="o">.</span><span class="n">padj_deseq</span> <span class="o">&lt;=</span> <span class="mf">1e-2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df_progeny_with_de</span><span class="o">.</span><span class="n">padj</span> <span class="o">&lt;=</span> <span class="mf">1e-2</span><span class="p">)]</span>
+
 <span class="c1"># We remove the TFs, we keep only unscored nodes in the network</span>
 <span class="n">df_progeny_with_de</span> <span class="o">=</span> <span class="n">df_progeny_with_de</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_progeny_with_de</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">tf_acts</span><span class="o">.</span><span class="n">columns</span><span class="p">)]</span>
+<span class="c1"># We will calculate an score of importance, based on the weight from progeny PKN (the coefficient of importance)</span>
+<span class="c1"># and the stat from DESeq2 for that gene in our dataset</span>
+<span class="n">df_progeny_with_de</span><span class="p">[</span><span class="s2">&quot;score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_progeny_with_de</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">*</span> <span class="n">df_progeny_with_de</span><span class="p">[</span><span class="s2">&quot;stat&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
 <span class="n">df_progeny_with_de</span>
 </pre></div>
 </div>
@@ -3043,6 +3028,7 @@ Solving report
       <th>stat</th>
       <th>pvalue</th>
       <th>padj_deseq</th>
+      <th>score</th>
     </tr>
   </thead>
   <tbody>
@@ -3057,6 +3043,7 @@ Solving report
       <td>-5.395978</td>
       <td>6.815130e-08</td>
       <td>4.058705e-07</td>
+      <td>17.653141</td>
     </tr>
     <tr>
       <th>ABCA8</th>
@@ -3069,6 +3056,7 @@ Solving report
       <td>-18.413859</td>
       <td>1.017102e-75</td>
       <td>6.681365e-74</td>
+      <td>31.473798</td>
     </tr>
     <tr>
       <th>ABL1</th>
@@ -3081,6 +3069,7 @@ Solving report
       <td>8.421013</td>
       <td>3.732418e-17</td>
       <td>4.470195e-16</td>
+      <td>11.935557</td>
     </tr>
     <tr>
       <th>ACOX1</th>
@@ -3093,6 +3082,7 @@ Solving report
       <td>5.547157</td>
       <td>2.903517e-08</td>
       <td>1.797196e-07</td>
+      <td>6.924934</td>
     </tr>
     <tr>
       <th>ACOX3</th>
@@ -3105,9 +3095,11 @@ Solving report
       <td>13.956818</td>
       <td>2.859170e-44</td>
       <td>9.070311e-43</td>
+      <td>37.983882</td>
     </tr>
     <tr>
       <th>...</th>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -3129,6 +3121,7 @@ Solving report
       <td>6.975202</td>
       <td>3.054313e-12</td>
       <td>2.685428e-11</td>
+      <td>13.653126</td>
     </tr>
     <tr>
       <th>ZNF281</th>
@@ -3141,6 +3134,7 @@ Solving report
       <td>6.172166</td>
       <td>6.736069e-10</td>
       <td>4.833421e-09</td>
+      <td>12.280681</td>
     </tr>
     <tr>
       <th>ZNF365</th>
@@ -3153,6 +3147,7 @@ Solving report
       <td>17.051793</td>
       <td>3.389758e-65</td>
       <td>1.797124e-63</td>
+      <td>21.104492</td>
     </tr>
     <tr>
       <th>ZNF48</th>
@@ -3165,6 +3160,7 @@ Solving report
       <td>6.895368</td>
       <td>5.372537e-12</td>
       <td>4.650319e-11</td>
+      <td>12.035601</td>
     </tr>
     <tr>
       <th>ZNF592</th>
@@ -3177,10 +3173,11 @@ Solving report
       <td>2.933306</td>
       <td>3.353729e-03</td>
       <td>9.545039e-03</td>
+      <td>2.172756</td>
     </tr>
   </tbody>
 </table>
-<p>600 rows × 9 columns</p>
+<p>600 rows × 10 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -3188,28 +3185,13 @@ Solving report
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We will favor now the inclusion of these genes. We will</span>
 <span class="c1"># increase lambda to get smaller networks for interpretation, and</span>
 <span class="c1"># we will use a large penalty for indirect rules.</span>
-<span class="n">carnival</span> <span class="o">=</span> <span class="n">CarnivalFlow</span><span class="p">(</span><span class="n">lambda_reg</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">indirect_rule_penalty</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">carnival</span> <span class="o">=</span> <span class="n">CarnivalFlow</span><span class="p">(</span><span class="n">lambda_reg</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">indirect_rule_penalty</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">P</span> <span class="o">=</span> <span class="n">carnival</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-<span class="n">P</span><span class="o">.</span><span class="n">expr</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unreachable vertices for sample: 0
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_flow&#39;: _flow: Variable((3279,), _flow),
- &#39;edge_inhibits&#39;: edge_inhibits: Variable((3279, 1), edge_inhibits, boolean=True),
- &#39;edge_activates&#39;: edge_activates: Variable((3279, 1), edge_activates, boolean=True),
- &#39;const0x23ac4b598cf1c0b&#39;: const0x23ac4b598cf1c0b: Constant(CONSTANT, NONNEGATIVE, (947, 3279)),
- &#39;_dag_layer&#39;: _dag_layer: Variable((947, 1), _dag_layer),
- &#39;const0x11db96d9c01bc4d&#39;: const0x11db96d9c01bc4d: Constant(CONSTANT, NONNEGATIVE, (947, 3279)),
- &#39;flow&#39;: _flow: Variable((3279,), _flow),
- &#39;vertex_value&#39;: Expression(AFFINE, UNKNOWN, (947, 1)),
- &#39;vertex_activated&#39;: Expression(AFFINE, NONNEGATIVE, (947, 1)),
- &#39;vertex_inhibited&#39;: Expression(AFFINE, NONNEGATIVE, (947, 1)),
- &#39;edge_value&#39;: Expression(AFFINE, UNKNOWN, (3279, 1)),
- &#39;edge_has_signal&#39;: Expression(AFFINE, NONNEGATIVE, (3279, 1))}
 </pre></div>
 </div>
 </div>
@@ -3220,151 +3202,154 @@ Solving report
 <span class="c1"># inputs (receptors) and TFs, the processed graph is pruned (unreachable genes removed) and thus many</span>
 <span class="c1"># of the genes we want to score are not anymore in the graph</span>
 <span class="n">tgfb_genes</span> <span class="o">=</span> <span class="n">df_progeny_with_de</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">carnival</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">V</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="n">tgfb_genes</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">tgfb_genes</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ABL1&#39;,
- &#39;AKT3&#39;,
- &#39;BDKRB2&#39;,
- &#39;BMPR2&#39;,
- &#39;CAMKK1&#39;,
- &#39;CDC25B&#39;,
- &#39;CDH2&#39;,
- &#39;DVL1&#39;,
- &#39;FERMT2&#39;,
- &#39;FN1&#39;,
- &#39;GNAI1&#39;,
- &#39;GRB10&#39;,
- &#39;HBEGF&#39;,
- &#39;HES1&#39;,
- &#39;IGF1&#39;,
- &#39;IL13RA1&#39;,
- &#39;KIT&#39;,
- &#39;KSR1&#39;,
- &#39;LMNA&#39;,
- &#39;MAP3K4&#39;,
- &#39;MAP3K5&#39;,
- &#39;NCOR2&#39;,
- &#39;NOTCH2&#39;,
- &#39;NRAS&#39;,
- &#39;NRBF2&#39;,
- &#39;NUAK1&#39;,
- &#39;OXTR&#39;,
- &#39;RAC2&#39;,
- &#39;RARA&#39;,
- &#39;RARG&#39;,
- &#39;SH3PXD2A&#39;,
- &#39;SHC3&#39;,
- &#39;SKI&#39;,
- &#39;SMAD7&#39;,
- &#39;SMAD9&#39;,
- &#39;SMURF1&#39;,
- &#39;SPRY1&#39;,
- &#39;STK38L&#39;,
- &#39;TGFB1&#39;,
- &#39;TGFBR1&#39;,
- &#39;TGFBR2&#39;,
- &#39;TSHZ3&#39;,
- &#39;UBE3A&#39;,
- &#39;ULK1&#39;,
- &#39;ZMIZ1&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>45
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="o">.</span><span class="n">expr</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can visualize only the genes in the pruned PKN that carnival will use</span>
+<span class="c1"># NOTE: The processed graph is the pruned PKN containing all interactions</span>
+<span class="c1"># connecting the selected receptors to TFs, before inferring the signalling</span>
+<span class="c1"># networks</span>
+<span class="n">dc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">source_targets</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">results_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">tgfb_genes</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;stat&quot;</span><span class="p">,</span> <span class="n">net</span><span class="o">=</span><span class="n">progeny</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;TGFb&quot;</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_flow&#39;: _flow: Variable((3279,), _flow),
- &#39;edge_inhibits&#39;: edge_inhibits: Variable((3279, 1), edge_inhibits, boolean=True),
- &#39;edge_activates&#39;: edge_activates: Variable((3279, 1), edge_activates, boolean=True),
- &#39;const0x23ac4b598cf1c0b&#39;: const0x23ac4b598cf1c0b: Constant(CONSTANT, NONNEGATIVE, (947, 3279)),
- &#39;_dag_layer&#39;: _dag_layer: Variable((947, 1), _dag_layer),
- &#39;const0x11db96d9c01bc4d&#39;: const0x11db96d9c01bc4d: Constant(CONSTANT, NONNEGATIVE, (947, 3279)),
- &#39;flow&#39;: _flow: Variable((3279,), _flow),
- &#39;vertex_value&#39;: Expression(AFFINE, UNKNOWN, (947, 1)),
- &#39;vertex_activated&#39;: Expression(AFFINE, NONNEGATIVE, (947, 1)),
- &#39;vertex_inhibited&#39;: Expression(AFFINE, NONNEGATIVE, (947, 1)),
- &#39;edge_value&#39;: Expression(AFFINE, UNKNOWN, (3279, 1)),
- &#39;edge_has_signal&#39;: Expression(AFFINE, NONNEGATIVE, (3279, 1))}
-</pre></div>
-</div>
+<img alt="../_images/6902e78e030e16697622e671876a088a8a08fe0b81269c4e06e7654eed782868.png" src="../_images/6902e78e030e16697622e671876a088a8a08fe0b81269c4e06e7654eed782868.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vertex_penalties</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">carnival</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">V</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">df_progeny_with_de</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">tgfb_genes</span><span class="p">,</span> <span class="s2">&quot;score&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Importance scores of PROGENY TGFb genes for the given dataset&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4702995f86e158e5fca583cf58cc1afeb6e0a562c9d82ea388030ee79c35e152.png" src="../_images/4702995f86e158e5fca583cf58cc1afeb6e0a562c9d82ea388030ee79c35e152.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scale factor for influence in the overall CARNIVAL obj function</span>
+<span class="n">influence_factor</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="c1"># Create the custom obj function to include in CARNIVAL</span>
+<span class="n">vertex_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">carnival</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">V</span><span class="p">))</span>
 <span class="n">vertex_selected_var</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">vertex_activated</span> <span class="o">+</span> <span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">vertex_inhibited</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">carnival</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">V</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">tgfb_genes</span><span class="p">:</span>
-        <span class="c1"># Negative penalty is eq. to positive score</span>
-        <span class="c1"># (reward the inclusion of the node in the net)</span>
-        <span class="n">vertex_penalties</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="n">df_progeny_with_de</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">score</span>
+        <span class="n">vertex_scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">score</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+
 <span class="c1"># The objective is just c^T @ penalties</span>
-<span class="n">obj</span> <span class="o">=</span> <span class="n">vertex_selected_var</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">vertex_penalties</span>
-<span class="n">obj</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Expression(AFFINE, NONPOSITIVE, (1,))
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="o">.</span><span class="n">add_objective</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;total_scored_genes&quot;</span><span class="p">)</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">vertex_selected_var</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">vertex_scores</span>
+
+<span class="c1"># We add a negative weight to maximize selection</span>
+<span class="n">P</span><span class="o">.</span><span class="n">add_objective</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;progeny_genes_score&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=-</span><span class="n">influence_factor</span><span class="p">)</span>
 <span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;highs&quot;</span><span class="p">,</span> <span class="n">max_seconds</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===============================================================================
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21 NRAS 9.055651210075709
+25 GNAI1 19.972682422333143
+27 RAC2 25.75672169584716
+44 STK38L 71.06848321367565
+84 TGFBR1 19.78318967446914
+101 CDH2 112.81029585047202
+126 MAP3K4 18.633117866454263
+148 SMURF1 5.687767369319471
+189 SMAD9 29.108495622484853
+208 CAMKK1 9.853578482249983
+224 KIT 60.51896993721089
+287 RARA 10.473371785649258
+288 ULK1 16.78905409561297
+295 HES1 27.774456156272613
+314 UBE3A 4.198015442492376
+324 SH3PXD2A 90.03028888776223
+327 NOTCH2 6.0877870556111855
+335 IGF1 29.197953109742727
+370 NCOR2 5.253273919130532
+412 ZMIZ1 13.653126134909561
+434 RARG 4.459674733843175
+438 IL13RA1 7.412771495771951
+470 SPRY1 16.340142523123966
+480 TSHZ3 10.746459209540498
+533 HBEGF 25.871592750755017
+538 LMNA 4.330586475862753
+556 CDC25B 24.899175740820784
+608 SHC3 11.348956411416047
+643 DVL1 8.484789724643731
+672 NRBF2 31.751626499871815
+700 FN1 103.98952712958402
+715 SMAD7 117.45746080491878
+730 TGFBR2 45.037266815474084
+749 SKI 9.483452356595494
+758 GRB10 10.21623996260473
+828 BDKRB2 28.78488734209394
+881 AKT3 10.323123896941524
+883 TGFB1 34.09092982693877
+885 MAP3K5 46.20501733040189
+919 KSR1 8.971244710059793
+922 BMPR2 36.36346180289949
+927 OXTR 57.57638716147753
+937 FERMT2 57.35922796009637
+940 ABL1 11.93555671963558
+942 NUAK1 247.3297776135959
+===============================================================================
                                      CVXPY                                     
                                      v1.6.5                                    
 ===============================================================================
-(CVXPY) Jun 10 01:45:31 PM: Your problem has 10784 variables, 30852 constraints, and 1 parameters.
-(CVXPY) Jun 10 01:45:31 PM: It is compliant with the following grammars: DCP, DQCP
-(CVXPY) Jun 10 01:45:31 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
-(CVXPY) Jun 10 01:45:31 PM: Your problem is compiled with the CPP canonicalization backend.
+(CVXPY) Jun 11 06:19:42 PM: Your problem has 10784 variables, 30852 constraints, and 1 parameters.
+(CVXPY) Jun 11 06:19:42 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Jun 11 06:19:42 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Jun 11 06:19:42 PM: Your problem is compiled with the CPP canonicalization backend.
 -------------------------------------------------------------------------------
                                   Compilation                                  
 -------------------------------------------------------------------------------
-(CVXPY) Jun 10 01:45:31 PM: Compiling problem (target solver=HIGHS).
-(CVXPY) Jun 10 01:45:31 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
-(CVXPY) Jun 10 01:45:31 PM: Applying reduction Dcp2Cone
-(CVXPY) Jun 10 01:45:31 PM: Applying reduction CvxAttr2Constr
-(CVXPY) Jun 10 01:45:31 PM: Applying reduction ConeMatrixStuffing
-(CVXPY) Jun 10 01:45:31 PM: Applying reduction HIGHS
-(CVXPY) Jun 10 01:45:31 PM: Finished problem compilation (took 9.471e-02 seconds).
-(CVXPY) Jun 10 01:45:31 PM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
+(CVXPY) Jun 11 06:19:42 PM: Compiling problem (target solver=HIGHS).
+(CVXPY) Jun 11 06:19:42 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
+(CVXPY) Jun 11 06:19:42 PM: Applying reduction Dcp2Cone
+(CVXPY) Jun 11 06:19:42 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Jun 11 06:19:42 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) Jun 11 06:19:42 PM: Applying reduction HIGHS
+(CVXPY) Jun 11 06:19:42 PM: Finished problem compilation (took 6.605e-02 seconds).
+(CVXPY) Jun 11 06:19:42 PM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
 -------------------------------------------------------------------------------
                                 Numerical solver                               
 -------------------------------------------------------------------------------
-(CVXPY) Jun 10 01:45:31 PM: Invoking solver HIGHS  to obtain a solution.
+(CVXPY) Jun 11 06:19:42 PM: Invoking solver HIGHS  to obtain a solution.
 Running HiGHS 1.11.0 (git hash: 364c83a): Copyright (c) 2025 HiGHS under MIT licence terms
 MIP  has 30852 rows; 10784 cols; 108719 nonzeros; 6558 integer variables (6558 binary)
 Coefficient ranges:
   Matrix [1e+00, 9e+02]
-  Cost   [5e-01, 2e+01]
+  Cost   [1e-02, 2e+01]
   Bound  [1e+00, 1e+00]
   RHS    [1e+00, 1e+03]
 Presolving model
-17922 rows, 10383 cols, 91791 nonzeros  0s
-12948 rows, 9182 cols, 69724 nonzeros  0s
-12575 rows, 9106 cols, 69281 nonzeros  0s
+17921 rows, 10381 cols, 91785 nonzeros  0s
+13093 rows, 9239 cols, 70459 nonzeros  0s
+12721 rows, 9164 cols, 70013 nonzeros  0s
 
 Solving MIP model with:
-   12575 rows
-   9106 cols (5688 binary, 0 integer, 0 implied int., 3418 continuous, 0 domain fixed)
-   69281 nonzeros
+   12721 rows
+   9164 cols (5762 binary, 0 integer, 0 implied int., 3402 continuous, 0 domain fixed)
+   70013 nonzeros
 
 Src: B =&gt; Branching; C =&gt; Central rounding; F =&gt; Feasibility pump; J =&gt; Feasibility jump;
      H =&gt; Heuristic; L =&gt; Sub-MIP; P =&gt; Empty MIP; R =&gt; Randomized rounding; Z =&gt; ZI Round;
@@ -3374,41 +3359,41 @@ Src: B =&gt; Branching; C =&gt; Central rounding; F =&gt; Feasibility pump; J =&
         Nodes      |    B&amp;B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
 Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
 
- J       0       0         0   0.00%   -inf            0                  Large        0      0      0         0     0.5s
-         0       0         0   0.00%   -24.67984705    0                  Large        0      0      0       634     0.5s
- C       0       0         0   0.00%   -21.64166211    -8.65788632      149.96%      103     13      0       673     1.3s
- T       0       0         0 100.00%   -21.64166211    -21.64166211       0.00%      103     13      0       673     1.3s
-         1       0         1 100.00%   -21.64166211    -21.64166211       0.00%      103     13      0       673     1.3s
+ J       0       0         0   0.00%   -inf            0                  Large        0      0      0         0     0.4s
+         0       0         0   0.00%   -117.3104258    0                  Large        0      0      0      1299     0.5s
+ C       0       0         0   0.00%   -113.9766863    -16.59196353     586.94%      568     24      0      1571     1.6s
+ L       0       0         0   0.00%   -113.5162162    -113.5162162       0.00%      841     49      0      1753     2.4s
+         1       0         1 100.00%   -113.5162162    -113.5162162       0.00%      841     49      0      2589     2.4s
 
 Solving report
   Status            Optimal
-  Primal bound      -21.6416621145
-  Dual bound        -21.6416621145
+  Primal bound      -113.51621621
+  Dual bound        -113.51621621
   Gap               0% (tolerance: 0.01%)
-  P-D integral      0.00368250990034
+  P-D integral      4.86057835395
   Solution status   feasible
-                    -21.6416621145 (objective)
+                    -113.51621621 (objective)
                     0 (bound viol.)
-                    8.881784197e-16 (int. viol.)
+                    0 (int. viol.)
                     0 (row viol.)
-  Timing            1.29 (total)
+  Timing            2.39 (total)
                     0.00 (presolve)
                     0.00 (solve)
                     0.00 (postsolve)
-  Max sub-MIP depth 0
+  Max sub-MIP depth 2
   Nodes             1
   Repair LPs        0 (0 feasible; 0 iterations)
-  LP iterations     673 (total)
+  LP iterations     2589 (total)
                     0 (strong br.)
-                    39 (separation)
-                    0 (heuristics)
+                    454 (separation)
+                    836 (heuristics)
 -------------------------------------------------------------------------------
                                     Summary                                    
 -------------------------------------------------------------------------------
-(CVXPY) Jun 10 01:45:32 PM: Problem status: optimal
-(CVXPY) Jun 10 01:45:32 PM: Optimal value: 1.017e+02
-(CVXPY) Jun 10 01:45:32 PM: Compilation took 9.471e-02 seconds
-(CVXPY) Jun 10 01:45:32 PM: Solver (including time spent in interface) took 1.310e+00 seconds
+(CVXPY) Jun 11 06:19:44 PM: Problem status: optimal
+(CVXPY) Jun 11 06:19:44 PM: Optimal value: 9.865e+00
+(CVXPY) Jun 11 06:19:44 PM: Compilation took 6.605e-02 seconds
+(CVXPY) Jun 11 06:19:44 PM: Solver (including time spent in interface) took 2.406e+00 seconds
 </pre></div>
 </div>
 </div>
@@ -3421,10 +3406,10 @@ Solving report
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error_sample1_0 74.23993250927995
-penalty_indirect_rules_0 [0.]
-regularization_edge_has_signal 21.0
-total_scored_genes [-4.]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error_sample1_0 32.97458407452457
+penalty_indirect_rules_0 [8.]
+regularization_edge_has_signal 59.0
+progeny_genes_score [1196.09205661]
 </pre></div>
 </div>
 </div>
@@ -3441,7 +3426,147 @@ total_scored_genes [-4.]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/188bead3914b4802184d707bcc658da6d66ec3b334f8a9c0dbcfe65d911f7c76.svg" src="../_images/188bead3914b4802184d707bcc658da6d66ec3b334f8a9c0dbcfe65d911f7c76.svg" />
+<img alt="../_images/11df107bb031e48f480da8287b6c92d653cca5c6963ae6d9669377a80eab76fc.svg" src="../_images/11df107bb031e48f480da8287b6c92d653cca5c6963ae6d9669377a80eab76fc.svg" />
+</div>
+</div>
+</section>
+<section id="advanced">
+<h2>Advanced<a class="headerlink" href="#advanced" title="Link to this heading">#</a></h2>
+<p>Finally, we will combine CVXPY with CORNETO to add a custom objective function that uses the <code class="docutils literal notranslate"><span class="pre">cvxpy.max</span></code> to penalize the depth of the vertex in the trees. Penalizing the depth will increase the number of different receptors used indirectly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cvxpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cp</span>
+
+<span class="n">carnival</span> <span class="o">=</span> <span class="n">CarnivalFlow</span><span class="p">(</span><span class="n">lambda_reg</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">indirect_rule_penalty</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">carnival</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">P</span><span class="o">.</span><span class="n">add_objective</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;progeny_genes_score&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=-</span><span class="n">influence_factor</span><span class="p">)</span>
+<span class="n">P</span><span class="o">.</span><span class="n">add_objective</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">vertex_max_depth</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">cp</span><span class="o">.</span><span class="n">max</span><span class="p">),</span> <span class="n">weight</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">P</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;highs&quot;</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unreachable vertices for sample: 0
+===============================================================================
+                                     CVXPY                                     
+                                     v1.6.5                                    
+===============================================================================
+(CVXPY) Jun 11 06:19:45 PM: Your problem has 17342 variables, 30852 constraints, and 1 parameters.
+(CVXPY) Jun 11 06:19:45 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) Jun 11 06:19:45 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+(CVXPY) Jun 11 06:19:45 PM: Your problem is compiled with the CPP canonicalization backend.
+-------------------------------------------------------------------------------
+                                  Compilation                                  
+-------------------------------------------------------------------------------
+(CVXPY) Jun 11 06:19:45 PM: Compiling problem (target solver=HIGHS).
+(CVXPY) Jun 11 06:19:45 PM: Reduction chain: Dcp2Cone -&gt; CvxAttr2Constr -&gt; ConeMatrixStuffing -&gt; HIGHS
+(CVXPY) Jun 11 06:19:45 PM: Applying reduction Dcp2Cone
+(CVXPY) Jun 11 06:19:45 PM: Applying reduction CvxAttr2Constr
+(CVXPY) Jun 11 06:19:45 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) Jun 11 06:19:45 PM: Applying reduction HIGHS
+(CVXPY) Jun 11 06:19:45 PM: Finished problem compilation (took 7.298e-02 seconds).
+(CVXPY) Jun 11 06:19:45 PM: (Subsequent compilations of this problem, using the same arguments, should take less time.)
+-------------------------------------------------------------------------------
+                                Numerical solver                               
+-------------------------------------------------------------------------------
+(CVXPY) Jun 11 06:19:45 PM: Invoking solver HIGHS  to obtain a solution.
+Running HiGHS 1.11.0 (git hash: 364c83a): Copyright (c) 2025 HiGHS under MIT licence terms
+MIP  has 31799 rows; 17343 cols; 110613 nonzeros; 13116 integer variables (13116 binary)
+Coefficient ranges:
+  Matrix [1e+00, 9e+02]
+  Cost   [1e-01, 2e+01]
+  Bound  [1e+00, 1e+00]
+  RHS    [1e+00, 1e+03]
+Presolving model
+18862 rows, 10395 cols, 93709 nonzeros  0s
+13892 rows, 9200 cols, 71597 nonzeros  0s
+13441 rows, 9121 cols, 71009 nonzeros  0s
+
+Solving MIP model with:
+   13441 rows
+   9121 cols (5690 binary, 0 integer, 0 implied int., 3431 continuous, 0 domain fixed)
+   71009 nonzeros
+
+Src: B =&gt; Branching; C =&gt; Central rounding; F =&gt; Feasibility pump; J =&gt; Feasibility jump;
+     H =&gt; Heuristic; L =&gt; Sub-MIP; P =&gt; Empty MIP; R =&gt; Randomized rounding; Z =&gt; ZI Round;
+     I =&gt; Shifting; S =&gt; Solve LP; T =&gt; Evaluate node; U =&gt; Unbounded; X =&gt; User solution;
+     z =&gt; Trivial zero; l =&gt; Trivial lower; u =&gt; Trivial upper; p =&gt; Trivial point
+
+        Nodes      |    B&amp;B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+ J       0       0         0   0.00%   -inf            -908.2539388       Large        0      0      0         0     0.4s
+         0       0         0   0.00%   -980.5254038    -908.2539388       7.96%        0      0      0      1121     0.5s
+ C       0       0         0   0.00%   -974.7403867    -941.8118251       3.50%      523     89      0      1403     1.4s
+ L       0       0         0 100.00%   -974.7403867    -974.7403867       0.00%      892     59      0      1957     2.0s
+         1       0         1 100.00%   -974.7403867    -974.7403867       0.00%      892     59      0      2666     2.0s
+
+Solving report
+  Status            Optimal
+  Primal bound      -974.740386722
+  Dual bound        -974.740386722
+  Gap               0% (tolerance: 0.01%)
+  P-D integral      0.0936236829513
+  Solution status   feasible
+                    -974.740386722 (objective)
+                    0 (bound viol.)
+                    0 (int. viol.)
+                    0 (row viol.)
+  Timing            2.04 (total)
+                    0.00 (presolve)
+                    0.00 (solve)
+                    0.00 (postsolve)
+  Max sub-MIP depth 1
+  Nodes             1
+  Repair LPs        0 (0 feasible; 0 iterations)
+  LP iterations     2666 (total)
+                    0 (strong br.)
+                    836 (separation)
+                    709 (heuristics)
+-------------------------------------------------------------------------------
+                                    Summary                                    
+-------------------------------------------------------------------------------
+(CVXPY) Jun 11 06:19:47 PM: Problem status: optimal
+(CVXPY) Jun 11 06:19:47 PM: Optimal value: -8.514e+02
+(CVXPY) Jun 11 06:19:47 PM: Compilation took 7.298e-02 seconds
+(CVXPY) Jun 11 06:19:47 PM: Solver (including time spent in interface) took 2.060e+00 seconds
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Problem(Minimize(Expression(CONVEX, UNKNOWN, (1,))), [Inequality(Constant(CONSTANT, ZERO, (3279,))), Inequality(Variable((3279,), _flow)), Inequality(Constant(CONSTANT, ZERO, (947, 1))), Inequality(Variable((947, 1), _dag_layer)), Equality(Expression(AFFINE, UNKNOWN, (947,)), Constant(CONSTANT, ZERO, ())), Inequality(Expression(AFFINE, NONNEGATIVE, (3279, 1))), Inequality(Expression(AFFINE, NONNEGATIVE, (947, 1))), Inequality(Expression(AFFINE, UNKNOWN, (3247,))), Inequality(Expression(AFFINE, UNKNOWN, (3247,))), Inequality(Constant(CONSTANT, NONNEGATIVE, (912,))), Inequality(Expression(AFFINE, NONNEGATIVE, (3279, 1))), Inequality(Expression(AFFINE, NONNEGATIVE, (3271, 1))), Inequality(Expression(AFFINE, NONNEGATIVE, (3271, 1)))])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">P</span><span class="o">.</span><span class="n">objectives</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">o</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error_sample1_0 56.895146658866466
+penalty_indirect_rules_0 [0.]
+regularization_edge_has_signal 42.0
+progeny_genes_score [9094.53938757]
+ 12.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">edge_value</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">carnival</span><span class="o">.</span><span class="n">processed_graph</span><span class="o">.</span><span class="n">plot_values</span><span class="p">(</span>
+    <span class="n">vertex_values</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">vertex_value</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+    <span class="n">edge_values</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">edge_value</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+    <span class="n">edge_indexes</span><span class="o">=</span><span class="n">sol_edges</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3f8da1ddfd28c96b8f1aae7c0feab7a399c4ffceb4b1622506cc89488540b273.svg" src="../_images/3f8da1ddfd28c96b8f1aae7c0feab7a399c4ffceb4b1622506cc89488540b273.svg" />
 </div>
 </div>
 </section>
@@ -3509,10 +3634,11 @@ total_scored_genes [-4.]
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">Data preprocessing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-knowledge-with-decoupler-and-omnipath">Prior knowledge with Decoupler and Omnipath</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferring-intracellular-signalling-network-with-carnival-and-corneto">Inferring intracellular signalling network with CARNIVAL and CORNETO</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-run">Quick run</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carnival">CARNIVAL</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-modelling-assumptions">Changing modelling assumptions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-options">Other options</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-information-from-progeny">Using information from PROGENy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced">Advanced</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-processed-dataset">Saving the processed dataset</a></li>
 </ul>
   </nav></div>
