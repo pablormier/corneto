@@ -7,7 +7,12 @@
   },
   {
     "name": "dev",
-    "version": "dev",
+    "version": "1.0.0b0.post1.dev0+a1224781",
     "url": "https://pablormier.github.io/corneto/dev/"
+  },
+  {
+    "name": "v1.0.0-beta.0",
+    "version": "v1.0.0-beta.0",
+    "url": "https://pablormier.github.io/corneto/v1.0.0-beta.0/"
   }
 ]
