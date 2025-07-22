@@ -1,17 +1,17 @@
 [
   {
     "name": "latest",
-    "version": "docs",
-    "url": "https://pablormier.github.io/corneto/docs/",
+    "version": "main",
+    "url": "https://pablormier.github.io/corneto/main/",
     "preferred": true
   },
   {
     "name": "dev",
-    "version": "1.0.0b0.post16.dev0+afe35a76",
+    "version": "1.0.0b0.post17.dev0+c29da2d2",
     "url": "https://pablormier.github.io/corneto/dev/"
   },
   {
-    "name": "1.0.0-beta.0",
+    "name": "v1.0.0-beta.0",
     "version": "v1.0.0-beta.0",
     "url": "https://pablormier.github.io/corneto/v1.0.0-beta.0/"
   }
