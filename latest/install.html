@@ -55,7 +55,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'install';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
-        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/saezlab/corneto-data/refs/heads/main/assets/docs/switcher.json?ts=1753352680';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/saezlab/corneto-data/refs/heads/main/assets/docs/switcher.json?ts=1753353464';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'latest';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
@@ -401,68 +401,59 @@
 <section class="tex2jax_ignore mathjax_ignore" id="install">
 <h1>Install<a class="headerlink" href="#install" title="Link to this heading">#</a></h1>
 <p><strong>CORNETO</strong> provides flexible installation options depending on your needs. It integrates with various mathematical optimization solvers, which differ in their licensing, capabilities, and performance. Below are several installation options tailored to different use cases.</p>
-<section id="quick-installation">
-<h2>🔧 Quick Installation<a class="headerlink" href="#quick-installation" title="Link to this heading">#</a></h2>
-<p>To get started quickly with open-source solvers, run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/saezlab/corneto.git@dev<span class="w"> </span>scipy<span class="w"> </span>pyscipopt<span class="w"> </span>highspy<span class="w"> </span>cvxpy
+<section id="recommended-installation">
+<h2>🚀 Recommended Installation<a class="headerlink" href="#recommended-installation" title="Link to this heading">#</a></h2>
+<p>For most users, we recommend creating a conda environment and installing the research flavor:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>corneto<span class="w"> </span>python&gt;<span class="o">=</span><span class="m">3</span>.10
+conda<span class="w"> </span>activate<span class="w"> </span>corneto
+conda<span class="w"> </span>install<span class="w"> </span>python-graphviz
+pip<span class="w"> </span>install<span class="w"> </span>corneto<span class="o">[</span>research<span class="o">]</span>
 </pre></div>
 </div>
-<p>This installs:</p>
-<ul class="simple">
-<li><p><strong>CORNETO</strong> (from the development branch)</p></li>
-<li><p><strong>PySCIPOpt</strong>: a Python interface for SCIP (a fast open-source solver)</p></li>
-<li><p><strong>highspy</strong>: Python bindings for the HIGHs solver</p></li>
-<li><p><strong>CVXPY</strong>: a modeling language for convex optimization problems</p></li>
-</ul>
-<p>These libraries provide solid performance for most users and don’t require a commercial license.</p>
+<p>This installs CORNETO with all research dependencies including Gurobi, PICOS, and visualization libraries.</p>
 </section>
 <hr class="docutils" />
 <section id="installation-options">
 <h2>🧩 Installation Options<a class="headerlink" href="#installation-options" title="Link to this heading">#</a></h2>
-<section id="basic-installation-corneto-only">
-<h3>Basic Installation (CORNETO only)<a class="headerlink" href="#basic-installation-corneto-only" title="Link to this heading">#</a></h3>
-<p>If you only want the core CORNETO package without any solver backend (useful for development or adding solvers manually later):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/saezlab/corneto.git@dev
+<section id="standard-installation">
+<h3>Standard Installation<a class="headerlink" href="#standard-installation" title="Link to this heading">#</a></h3>
+<p>The minimal installation via pip provides core functionalities:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>corneto
 </pre></div>
 </div>
-<p>You’ll need to install and configure a solver separately to make CORNETO fully functional.</p>
 </section>
-<hr class="docutils" />
-<section id="installation-with-commercial-solvers">
-<h3>⚙️ Installation with Commercial Solvers<a class="headerlink" href="#installation-with-commercial-solvers" title="Link to this heading">#</a></h3>
-<p>If you have access to <strong>Gurobi</strong> (a powerful commercial solver, free for academic use), you can install CORNETO along with Gurobi and its supported modeling tools:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/saezlab/corneto.git@dev<span class="w"> </span>cvxpy<span class="w"> </span>gurobipy
-</pre></div>
-</div>
-<p><strong>Note:</strong> Make sure you have a valid Gurobi license set up on your system. You can get a free academic license <a class="reference external" href="https://www.gurobi.com/academia/academic-program-and-licenses/">here</a>.</p>
-</section>
-<hr class="docutils" />
-<section id="installation-with-open-source-solvers">
-<h3>🆓 Installation with Open-Source Solvers<a class="headerlink" href="#installation-with-open-source-solvers" title="Link to this heading">#</a></h3>
-<p>Prefer open-source? This installs CORNETO with:</p>
+<section id="optional-dependencies">
+<h3>Optional Dependencies<a class="headerlink" href="#optional-dependencies" title="Link to this heading">#</a></h3>
+<p>CORNETO provides several optional dependency groups:</p>
 <ul class="simple">
-<li><p><strong>SCIP</strong> (via <code class="docutils literal notranslate"><span class="pre">pyscipopt</span></code>)</p></li>
-<li><p><strong>HIGHs</strong> (via <code class="docutils literal notranslate"><span class="pre">highspy</span></code>)</p></li>
-<li><p><strong>CVXPY</strong></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">research</span></code></strong>: Full research stack with Gurobi, PICOS, visualization, and network tools</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">os</span></code></strong>: Open-source solvers (SCIP, HiGHS) with visualization and network tools</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">ml</span></code></strong>: Machine learning dependencies (JAX, Keras, scikit-learn)</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">vanilla</span></code></strong>: Minimal dependencies (same as base installation)</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/saezlab/corneto.git@dev<span class="w"> </span>scipy<span class="w"> </span>pyscipopt<span class="w"> </span>highspy<span class="w"> </span>cvxpy
+<p>Install any combination with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>corneto<span class="o">[</span>research,ml<span class="o">]</span><span class="w">  </span><span class="c1"># Multiple extras</span>
 </pre></div>
 </div>
-<p>These tools are effective and don’t require any licensing setup.</p>
 </section>
 <hr class="docutils" />
-<section id="alternative-backend-picos">
-<h3>🧪 Alternative Backend: PICOS<a class="headerlink" href="#alternative-backend-picos" title="Link to this heading">#</a></h3>
-<p>CORNETO also supports <code class="docutils literal notranslate"><span class="pre">picos</span></code>, another modeling layer for optimization. You can install CORNETO with <code class="docutils literal notranslate"><span class="pre">picos</span></code> and several solvers it supports:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/saezlab/corneto.git@dev<span class="w"> </span>scipy<span class="w"> </span>picos<span class="w"> </span>swiglpk<span class="w"> </span>qics
+<section id="gurobi-installation">
+<h3>Gurobi Installation<a class="headerlink" href="#gurobi-installation" title="Link to this heading">#</a></h3>
+<p>For research problems, we strongly recommend using the Gurobi solver. Gurobi is a commercial solver that offers free academic licences. To install and configure Gurobi, please refer to the <a class="reference external" href="https://www.gurobi.com/documentation/">official Gurobi documentation</a>. After installation, you can verify that Gurobi is correctly set up by running:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corneto.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_gurobi</span>
+<span class="n">check_gurobi</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>This setup uses:</p>
-<ul class="simple">
-<li><p><strong>PICOS</strong>: a high-level modeling tool</p></li>
-<li><p><strong>swiglpk</strong>: Python bindings for GLPK, a lightweight solver</p></li>
-<li><p><strong>qics</strong>: another solver supported by PICOS</p></li>
-</ul>
+</section>
+<hr class="docutils" />
+<section id="development-installation">
+<h3>Development Installation<a class="headerlink" href="#development-installation" title="Link to this heading">#</a></h3>
+<p>If you plan to contribute to CORNETO, we recommend using <a class="reference external" href="https://python-poetry.org">Poetry</a> for dependency management.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/saezlab/corneto.git
+<span class="nb">cd</span><span class="w"> </span>corneto
+poetry<span class="w"> </span>install<span class="w"> </span>--with<span class="w"> </span>dev
+</pre></div>
+</div>
 </section>
 </section>
 <hr class="docutils" />
@@ -475,6 +466,11 @@
 </pre></div>
 </div>
 <p>This should print out CORNETO version info and configuration details.</p>
+<hr class="docutils" />
+<section id="legacy-compatibility">
+<h3>Legacy Compatibility<a class="headerlink" href="#legacy-compatibility" title="Link to this heading">#</a></h3>
+<p>The stable version used by <a class="reference external" href="https://liana-py.readthedocs.io/">LIANA+</a> and <a class="reference external" href="https://networkcommons.readthedocs.io/">NetworkCommons</a> remains available. However, we recommend using the latest version for new projects to access the latest features and improvements described in our manuscript.</p>
+</section>
 </section>
 <hr class="docutils" />
 <section id="troubleshooting">
@@ -482,7 +478,7 @@
 <p>If you run into installation problems:</p>
 <ol class="arabic simple">
 <li><p>✅ Make sure you’re using <strong>Python 3.10 or higher</strong></p></li>
-<li><p>🧱 Check that you have at least <strong>cvxpy</strong> installed as a backend (this is the recommended one)</p></li>
+<li><p>🧱 Check that you have at least one solver backend installed (CVXPY is recommended)</p></li>
 <li><p>🔑 For Gurobi users, verify that your <strong>license is properly installed</strong></p></li>
 </ol>
 <p>In case of using Gurobi, you can check if the license and installation are correct by running:</p>
@@ -550,15 +546,18 @@ Gurobi is correctly installed and working.
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-installation">🔧 Quick Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-installation">🚀 Recommended Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-options">🧩 Installation Options</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-installation-corneto-only">Basic Installation (CORNETO only)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-with-commercial-solvers">⚙️ Installation with Commercial Solvers</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-with-open-source-solvers">🆓 Installation with Open-Source Solvers</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-backend-picos">🧪 Alternative Backend: PICOS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-installation">Standard Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-dependencies">Optional Dependencies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gurobi-installation">Gurobi Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#development-installation">Development Installation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifying-installation">✅ Verifying Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifying-installation">✅ Verifying Installation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#legacy-compatibility">Legacy Compatibility</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">🛠 Troubleshooting</a></li>
 </ul>
   </nav></div>
