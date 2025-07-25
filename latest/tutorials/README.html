@@ -55,7 +55,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/README';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
-        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/saezlab/corneto-data/refs/heads/main/assets/docs/switcher.json?ts=1753369588';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/saezlab/corneto-data/refs/heads/main/assets/docs/switcher.json?ts=1753462325';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'latest';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
@@ -403,53 +403,57 @@
 <hr class="docutils" />
 <section id="directory-structure">
 <h2>📁 Directory Structure<a class="headerlink" href="#directory-structure" title="Link to this heading">#</a></h2>
-<p>Each tutorial must be placed in its own folder inside one of the following:</p>
+<p>Each tutorial is <strong>independent</strong> and must be placed in its own folder with its own <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">corneto</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">tutorials</span><span class="o">/</span>
-  <span class="n">accepted</span><span class="o">/</span>
+  <span class="n">carnival</span><span class="o">/</span>                    <span class="c1"># Official tutorial</span>
+    <span class="n">notebook</span><span class="o">.</span><span class="n">ipynb</span>
+    <span class="n">pixi</span><span class="o">.</span><span class="n">toml</span>
+  <span class="n">fba</span><span class="o">/</span>                        <span class="c1"># Official tutorial</span>
+    <span class="n">notebook</span><span class="o">.</span><span class="n">ipynb</span>
+    <span class="n">pixi</span><span class="o">.</span><span class="n">toml</span>
+  <span class="n">contrib</span><span class="o">/</span>                    <span class="c1"># Community contributions</span>
     <span class="n">my_tutorial</span><span class="o">/</span>
       <span class="n">notebook</span><span class="o">.</span><span class="n">ipynb</span>
-      <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>  <span class="c1"># or dependencies.yaml</span>
-  <span class="n">contrib</span><span class="o">/</span>
+      <span class="n">pixi</span><span class="o">.</span><span class="n">toml</span>
     <span class="n">another_example</span><span class="o">/</span>
       <span class="n">example</span><span class="o">.</span><span class="n">ipynb</span>
-      <span class="n">dependencies</span><span class="o">.</span><span class="n">yaml</span>
-  <span class="n">template</span><span class="o">/</span>
-    <span class="n">template</span><span class="o">.</span><span class="n">ipynb</span>
-    <span class="n">dependencies</span><span class="o">.</span><span class="n">yaml</span>
+      <span class="n">pixi</span><span class="o">.</span><span class="n">toml</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">accepted/</span></code>: Reviewed and validated tutorials.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">contrib/</span></code>: Community submissions pending review.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">template/</span></code>: A suggested structure to help you start.</p></li>
+<li><p>Official tutorials are maintained by the CORNETO team</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">contrib/</span></code>: Community submissions that go through PR review</p></li>
 </ul>
 </section>
 <hr class="docutils" />
-<section id="dependency-file-format">
-<h2>📦 Dependency File Format<a class="headerlink" href="#dependency-file-format" title="Link to this heading">#</a></h2>
-<p>Each tutorial folder <strong>must include</strong> a file listing additional dependencies:</p>
+<section id="environment-setup-with-pixi">
+<h2>📦 Environment Setup with Pixi<a class="headerlink" href="#environment-setup-with-pixi" title="Link to this heading">#</a></h2>
+<p>Each tutorial folder <strong>must include</strong> a <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> file that:</p>
 <ul class="simple">
-<li><p>Use either <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> <strong>or</strong> <code class="docutils literal notranslate"><span class="pre">dependencies.yaml</span></code></p></li>
-<li><p><strong>All packages must specify a minimum version (<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>)</strong></p></li>
-<li><p>Avoid pinning (<code class="docutils literal notranslate"><span class="pre">==</span></code>) unless absolutely required</p></li>
+<li><p>Specifies a <strong>specific version</strong> of corneto (not latest)</p></li>
+<li><p>Includes all additional dependencies needed for the tutorial</p></li>
+<li><p>Allows tutorials to be run independently of the main repository</p></li>
 </ul>
-<section id="example-requirements-txt">
-<h3>✅ Example <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code><a class="headerlink" href="#example-requirements-txt" title="Link to this heading">#</a></h3>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>scanpy&gt;=1.9
-matplotlib&gt;=3.5
-</pre></div>
-</div>
-</section>
-<section id="example-dependencies-yaml">
-<h3>✅ Example <code class="docutils literal notranslate"><span class="pre">dependencies.yaml</span></code><a class="headerlink" href="#example-dependencies-yaml" title="Link to this heading">#</a></h3>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">dependencies</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scanpy&gt;=1.9</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matplotlib&gt;=3.5</span>
+<section id="example-pixi-toml">
+<h3>✅ Example <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code><a class="headerlink" href="#example-pixi-toml" title="Link to this heading">#</a></h3>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[workspace]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my_tutorial&quot;</span>
+<span class="n">channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;conda-forge&quot;</span><span class="p">]</span>
+<span class="n">platforms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;linux-64&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;osx-64&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;osx-arm64&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;win-64&quot;</span><span class="p">]</span>
+
+<span class="k">[dependencies]</span>
+<span class="n">python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.10.*&quot;</span>
+<span class="n">matplotlib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=3.5&quot;</span>
+<span class="n">pip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
+
+<span class="k">[pypi-dependencies]</span>
+<span class="n">corneto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;==0.9.2&quot;</span><span class="w">  </span><span class="c1"># Use specific version, not latest</span>
+<span class="n">scanpy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=1.9&quot;</span>
+<span class="c1"># Add other dependencies as needed</span>
 </pre></div>
 </div>
 <blockquote>
-<div><p>ℹ️ If your tutorial has no extra dependencies, include an empty file or write:
-<code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">No</span> <span class="pre">additional</span> <span class="pre">dependencies</span> <span class="pre">required</span></code></p>
+<div><p>ℹ️ <strong>Important</strong>: Always specify a specific corneto version (e.g., <code class="docutils literal notranslate"><span class="pre">==0.9.2</span></code>) to ensure reproducibility and independence from the main repository.</p>
 </div></blockquote>
 </section>
 </section>
@@ -493,11 +497,20 @@ poetry<span class="w"> </span>run<span class="w"> </span>pre-commit<span class="
 <p>Include:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">my_tutorial_name.ipynb</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> or <code class="docutils literal notranslate"><span class="pre">dependencies.yaml</span></code> with <strong>minimum versions</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> with specific corneto version and dependencies</p></li>
 </ul>
 </section>
+<section id="test-your-tutorial">
+<h3>6. Test Your Tutorial<a class="headerlink" href="#test-your-tutorial" title="Link to this heading">#</a></h3>
+<p>Before submitting, test your tutorial independently:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>corneto/docs/tutorials/contrib/my_tutorial_name/
+pixi<span class="w"> </span>install
+pixi<span class="w"> </span>run<span class="w"> </span>jupyter<span class="w"> </span>notebook
+</pre></div>
+</div>
+</section>
 <section id="commit-and-push">
-<h3>6. Commit and Push<a class="headerlink" href="#commit-and-push" title="Link to this heading">#</a></h3>
+<h3>7. Commit and Push<a class="headerlink" href="#commit-and-push" title="Link to this heading">#</a></h3>
 <p>Use <strong><a class="reference external" href="https://www.conventionalcommits.org/">Conventional Commits</a></strong>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>corneto/docs/tutorials/contrib/my_tutorial_name/
 git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;docs(tutorial): add my_tutorial_name example notebook&quot;</span>
@@ -506,7 +519,7 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 </div>
 </section>
 <section id="open-a-pull-request">
-<h3>7. Open a Pull Request<a class="headerlink" href="#open-a-pull-request" title="Link to this heading">#</a></h3>
+<h3>8. Open a Pull Request<a class="headerlink" href="#open-a-pull-request" title="Link to this heading">#</a></h3>
 <p>Open a <strong>PR against <code class="docutils literal notranslate"><span class="pre">dev</span></code></strong> with title:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docs</span><span class="p">(</span><span class="n">tutorial</span><span class="p">):</span> <span class="n">add</span> <span class="n">my_tutorial_name</span> <span class="n">example</span>
 </pre></div>
@@ -517,6 +530,7 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 <li><p>🔧 Which CORNETO functionality it uses</p></li>
 <li><p>🧪 External dependencies (with versions)</p></li>
 <li><p>📊 Key outputs or takeaways</p></li>
+<li><p>✅ Confirm the tutorial runs independently with <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">install</span> <span class="pre">&amp;&amp;</span> <span class="pre">pixi</span> <span class="pre">run</span> <span class="pre">jupyter</span> <span class="pre">notebook</span></code></p></li>
 </ul>
 </section>
 </section>
@@ -530,10 +544,12 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 <li><p>Ensure the notebook runs top to bottom without errors.</p></li>
 <li><p>Avoid heavy or obscure dependencies unless necessary.</p></li>
 <li><p>Use open source solvers such as <code class="docutils literal notranslate"><span class="pre">highs</span></code> or <code class="docutils literal notranslate"><span class="pre">scip</span></code> if possible.</p></li>
+<li><p><strong>Pin a specific corneto version</strong> in your <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> for reproducibility.</p></li>
+<li><p>Test your tutorial in isolation using <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">install</span> <span class="pre">&amp;&amp;</span> <span class="pre">pixi</span> <span class="pre">run</span> <span class="pre">jupyter</span> <span class="pre">notebook</span></code>.</p></li>
 <li><p>Include a README in your tutorial folder with:</p>
 <ul>
 <li><p>A brief description of the tutorial</p></li>
-<li><p>Instructions to run the notebook</p></li>
+<li><p>Instructions to run the notebook with pixi</p></li>
 <li><p>Any additional notes or tips</p></li>
 </ul>
 </li>
@@ -542,11 +558,40 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 <hr class="docutils" />
 <section id="recognition">
 <h2>✨ Recognition<a class="headerlink" href="#recognition" title="Link to this heading">#</a></h2>
-<p>Accepted tutorials will:</p>
+<p>Merged tutorials will:</p>
 <ul class="simple">
-<li><p>Be moved to <code class="docutils literal notranslate"><span class="pre">accepted/</span></code></p></li>
 <li><p>Be listed in CORNETO documentation</p></li>
 <li><p>Credit the author in the README or release notes</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="for-developers-automated-testing">
+<h2>🔧 For Developers: Automated Testing<a class="headerlink" href="#for-developers-automated-testing" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">run_notebooks.py</span></code> script allows automated execution of tutorials for testing purposes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run all tutorials (default behavior)</span>
+poetry<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>docs/tutorials/run_notebooks.py
+poetry<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>docs/tutorials/run_notebooks.py<span class="w"> </span>--all
+
+<span class="c1"># Run specific tutorials by name</span>
+poetry<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>docs/tutorials/run_notebooks.py<span class="w"> </span>carnival
+poetry<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>docs/tutorials/run_notebooks.py<span class="w"> </span>carnival<span class="w"> </span>fba
+
+<span class="c1"># Run tutorials by path</span>
+poetry<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>docs/tutorials/run_notebooks.py<span class="w"> </span>../path/to/tutorial
+
+<span class="c1"># List available tutorials</span>
+poetry<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>docs/tutorials/run_notebooks.py<span class="w"> </span>--list
+
+<span class="c1"># Preview commands without executing (dry run)</span>
+poetry<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>docs/tutorials/run_notebooks.py<span class="w"> </span>carnival<span class="w"> </span>--dry-run
+</pre></div>
+</div>
+<p>This script:</p>
+<ul class="simple">
+<li><p>Installs the pixi environment for each tutorial</p></li>
+<li><p>Executes notebooks using papermill</p></li>
+<li><p>Saves outputs to a <code class="docutils literal notranslate"><span class="pre">build/</span></code> directory within each tutorial folder</p></li>
+<li><p>Supports multiple tutorials at once and dry-run mode</p></li>
 </ul>
 </section>
 <hr class="docutils" />
@@ -588,9 +633,8 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directory-structure">📁 Directory Structure</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependency-file-format">📦 Dependency File Format</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-requirements-txt">✅ Example <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-dependencies-yaml">✅ Example <code class="docutils literal notranslate"><span class="pre">dependencies.yaml</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-setup-with-pixi">📦 Environment Setup with Pixi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-pixi-toml">✅ Example <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-submit-a-tutorial">🚀 How to Submit a Tutorial</a><ul class="nav section-nav flex-column">
@@ -599,12 +643,14 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-branch">3. Create a New Branch</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-pre-commit-hooks-required">4. Set Up Pre-commit Hooks (Required)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-your-tutorial-folder">5. Add Your Tutorial Folder</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commit-and-push">6. Commit and Push</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-a-pull-request">7. Open a Pull Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-your-tutorial">6. Test Your Tutorial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commit-and-push">7. Commit and Push</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-a-pull-request">8. Open a Pull Request</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-for-a-good-tutorial">🧪 Tips for a Good Tutorial</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recognition">✨ Recognition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-developers-automated-testing">🔧 For Developers: Automated Testing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">🧰 Questions?</a></li>
 </ul>
   </nav></div>
