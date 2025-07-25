@@ -197,10 +197,6 @@ We use [Nox](https://nox.thea.codes/) to standardize testing, linting, and docum
   nox -s docs
   ```
 
-- **Notebook Caching**: Execute notebooks with Pixi isolation (for tutorials)
-  ```bash
-  nox -s cache_notebooks_with_pixi
-  ```
 
 ### Running All Quality Checks
 
@@ -271,14 +267,9 @@ We provide several nox sessions for different documentation needs:
 
 For tutorial notebooks, we support per-directory Pixi environments that provide isolated execution contexts. This is particularly useful when different tutorials require different dependencies or solver configurations.
 
-To execute notebooks with Pixi isolation:
+Use the dedicated script to execute notebooks:
 ```bash
-nox -s cache_notebooks_with_pixi
-```
-
-You can also filter specific notebooks using patterns:
-```bash
-nox -s cache_notebooks_with_pixi -- "*metabolic*" "^docs/.*intro.ipynb$"
+poetry run python docs/tutorials/run_notebooks.py
 ```
 
 ### Additional notes
