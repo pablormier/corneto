@@ -17,6 +17,7 @@ To create a new release:
 2. **Automatic pipeline execution**:
    - GitHub Actions detects the new tag
    - Builds the package using Poetry
+   - **Creates GitHub Release with automated release notes**
    - Publishes to PyPI via OIDC trusted publishing
    - Deploys versioned documentation to GitHub Pages
 
@@ -24,6 +25,12 @@ To create a new release:
    - Poetry Dynamic Versioning automatically extracts the version from the Git tag
    - The package version in `pyproject.toml` remains at `0.0.0` (placeholder)
    - Built packages use the actual tag version (e.g., `1.2.3`)
+
+4. **Automated Release Notes**:
+   - GitHub automatically generates release notes based on merged PRs and commits
+   - Uses conventional commit patterns to categorize changes
+   - Includes contributor acknowledgments and change summaries
+   - Release notes can be manually edited after creation if needed
 
 ## Example Release Process
 
@@ -41,8 +48,16 @@ git push origin v0.2.0
 
 The release pipeline (`.github/workflows/build-and-publish.yml`) will automatically:
 - Build source and wheel distributions
+- Create a GitHub Release with automated release notes
 - Publish to PyPI using trusted publishing
 - Deploy documentation with version switcher
+
+### Customizing Release Notes
+
+After the automated release is created, you can:
+1. Go to the [GitHub Releases page](https://github.com/saezlab/corneto/releases)
+2. Edit the release to add additional context, migration guides, or breaking change notices
+3. The automated notes will serve as the foundation, with your manual additions
 
 ## Version Numbering
 
@@ -64,9 +79,20 @@ All maintainers should have the development environment properly configured as d
 ### Pre-commit Requirements
 **Critical**: Pre-commit hooks must be installed and passing for all commits that will be included in the release. The pre-commit configuration ensures:
 
-- **Conventional commit messages**: Required for consistent release notes and potential automated changelog generation
+- **Conventional commit messages**: Required for automated GitHub release notes generation (feat:, fix:, docs:, etc.)
 - **Code quality**: Linting, formatting, and style checks via Ruff
 - **Repository hygiene**: File validation, trailing whitespace removal, etc.
+
+**Important**: Conventional commits are essential for the automated release notes feature. Each commit should follow the pattern:
+```
+<type>(<optional scope>): <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+Common types: `feat`, `fix`, `docs`, `chore`, `refactor`, `test`, `ci`, `build`, `perf`, `style`, `revert`
 
 To set up pre-commit hooks:
 ```bash

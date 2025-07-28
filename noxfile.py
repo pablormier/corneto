@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 
-import fnmatch
 import os
-import re
 import shutil
-from collections import defaultdict
 from pathlib import Path
-from typing import Iterable, Optional, Set
+from typing import Iterable
 
 import nox
 
@@ -30,12 +27,6 @@ JUPYTER_CACHE = DOCS_SRC / "_jupyter-cache"
 
 TUTORIALS_ROOT = DOCS_SRC / "tutorials"
 
-# Notebook execution ----------------------------------------------------------
-
-SKIP_DIR_KEYWORDS: Set[str] = {".ipynb_checkpoints", "__pycache__", ".git"}
-MANIFEST_FILE = "pixi.toml"
-KERNEL_FMT = "pixi-{stem}"
-
 
 # -----------------------------------------------------------------------------
 # Helpers
@@ -46,144 +37,6 @@ def _install(session: nox.Session, extras: str | Iterable[str] = "") -> None:
     extras_str = extras if isinstance(extras, str) else ",".join(extras)
     target = f".[{extras_str}]" if extras_str else "."
     session.install("-e", target)
-
-
-def _pixi_available(session: nox.Session) -> bool:
-    try:
-        session.run("pixi", "--version", external=True, silent=True)
-        return True
-    except Exception:
-        return False
-
-
-def _gather_notebooks(base_dir: Path) -> list[Path]:
-    return sorted(nb for nb in base_dir.rglob("*.ipynb") if not SKIP_DIR_KEYWORDS.intersection(nb.parts))
-
-
-def _pixi_run(session: nox.Session, manifest: Path, *cmd: str) -> None:
-    session.run("pixi", "run", "--manifest-path", str(manifest), *cmd, external=True)
-
-
-# -----------------------------------------------------------------------------
-# Notebook filtering
-# -----------------------------------------------------------------------------
-
-
-def _filter_notebooks(notebooks: list[Path], patterns: list[str]) -> list[Path]:
-    if not patterns:
-        return notebooks
-
-    regexes: list[re.Pattern[str]] = []
-    for p in patterns:
-        try:
-            regexes.append(re.compile(p))
-        except re.error:
-            regexes.append(re.compile(fnmatch.translate(p)))
-
-    return [nb for nb in notebooks if any(rx.search(nb.as_posix()) for rx in regexes)]
-
-
-# -----------------------------------------------------------------------------
-# Notebook caching
-# -----------------------------------------------------------------------------
-
-
-@nox.session(name="cache_notebooks_with_pixi")
-def cache_notebooks_with_pixi(session: nox.Session) -> None:
-    """Execute all (or selected) notebooks under *docs/* with per-directory Pixi
-    isolation.
-
-    Pass regex *or* glob patterns after “--”, e.g.:
-
-        nox -s cache_notebooks_with_pixi -- "*metabolic*" "^docs/.*intro.ipynb$"
-    """
-    _install(session, extras=["dev"])
-    session.install("papermill", "ipykernel")
-
-    use_pixi = _pixi_available(session)
-    if not use_pixi:
-        session.warn("Pixi CLI not found – notebooks will run in the dev environment.")
-
-    # 1 – collect and optionally filter notebooks ---------------------------
-    all_nbs = _gather_notebooks(TUTORIALS_ROOT)
-    notebooks = _filter_notebooks(all_nbs, session.posargs)
-
-    # 2 – group by manifest path (None → dev env) ---------------------------
-    groups: dict[Optional[Path], list[Path]] = defaultdict(list)
-    for nb in notebooks:
-        manifest = nb.parent / MANIFEST_FILE if use_pixi else None
-        print(f"Manifest for {nb}: {manifest}")
-        if manifest and manifest.exists():
-            groups[manifest].append(nb)
-        else:
-            print(f"No manifest for {nb} – running in dev env")
-            groups[None].append(nb)
-
-    # 3 – run notebooks that *don’t* need Pixi first ------------------------
-    for nb in sorted(groups.pop(None, [])):
-        session.log(f"📓 {nb.relative_to(PROJECT_ROOT)}  (dev env)")
-        with session.chdir(nb.parent):
-            session.run("papermill", str(nb.name), str(nb.name), external=True)
-
-    # 4 – run each manifest group exactly once -----------------------------
-    for manifest, nbs in groups.items():
-        _run_directory_notebooks_with_pixi(session, manifest, sorted(nbs))
-
-
-def _run_directory_notebooks_with_pixi(
-    session: nox.Session,
-    manifest: Path,
-    notebooks: list[Path],
-) -> None:
-    dir_id = manifest.parent.relative_to(PROJECT_ROOT).as_posix().replace("/", "-")
-    kernel = KERNEL_FMT.format(stem=dir_id)
-
-    # -- resolve env + install tooling --------------------------------------
-    session.run("pixi", "install", "--manifest-path", str(manifest), external=True)
-    _pixi_run(session, manifest, "python", "-m", "pip", "install", "-e", ".[dev]")
-    _pixi_run(session, manifest, "python", "-m", "pip", "install", "ipykernel", "papermill")
-    _pixi_run(session, manifest, "dot", "-c")
-    _pixi_run(
-        session,
-        manifest,
-        "python",
-        "-m",
-        "ipykernel",
-        "install",
-        "--user",
-        "--name",
-        kernel,
-    )
-
-    # -- run each notebook ---------------------------------------------------
-    for nb in notebooks:
-        session.log(f"📓 {nb.relative_to(PROJECT_ROOT)}")
-        with session.chdir(nb.parent):
-            session.run(
-                "pixi",
-                "run",
-                "--manifest-path",
-                str(manifest),
-                "papermill",
-                str(nb.name),
-                str(nb.name),
-                "-k",
-                kernel,
-                external=True,
-            )
-
-    # -- clean once per directory -------------------------------------------
-    try:
-        session.run(
-            "pixi",
-            "clean",
-            "--manifest-path",
-            str(manifest),
-            external=True,
-            silent=True,
-        )
-    except Exception:
-        session.warn(f"Pixi clean failed for {manifest}")
 
 
 # -----------------------------------------------------------------------------

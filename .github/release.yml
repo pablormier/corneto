@@ -1,0 +1,71 @@
+changelog:
+  exclude:
+    labels:
+      - ignore-for-release
+      - dependencies
+      - duplicate
+      - invalid
+      - question
+      - wontfix
+    authors:
+      - dependabot
+      - github-actions[bot]
+  categories:
+    - title: '🚀 New Features'
+      labels:
+        - feature
+        - enhancement
+      rules:
+        - pattern: '^feat(\(.+\))?: .+'
+          on_property: title
+    - title: '🐛 Bug Fixes'
+      labels:
+        - bug
+        - bugfix
+      rules:
+        - pattern: '^fix(\(.+\))?: .+'
+          on_property: title
+    - title: '📚 Documentation'
+      labels:
+        - documentation
+        - docs
+      rules:
+        - pattern: '^docs(\(.+\))?: .+'
+          on_property: title
+    - title: '🔧 Maintenance & Infrastructure'
+      labels:
+        - maintenance
+        - chore
+        - ci
+        - build
+      rules:
+        - pattern: '^(chore|ci|build)(\(.+\))?: .+'
+          on_property: title
+    - title: '⚡ Performance Improvements'
+      labels:
+        - performance
+      rules:
+        - pattern: '^perf(\(.+\))?: .+'
+          on_property: title
+    - title: '🎨 Code Refactoring'
+      labels:
+        - refactor
+      rules:
+        - pattern: '^refactor(\(.+\))?: .+'
+          on_property: title
+    - title: '🧪 Tests'
+      labels:
+        - test
+        - testing
+      rules:
+        - pattern: '^test(\(.+\))?: .+'
+          on_property: title
+    - title: '🔄 Reverts'
+      labels:
+        - revert
+      rules:
+        - pattern: '^revert(\(.+\))?: .+'
+          on_property: title
+    - title: '📦 Other Changes'
+      labels:
+        - '*'
