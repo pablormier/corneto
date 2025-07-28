@@ -29,7 +29,7 @@ html_theme.sidebar_secondary.remove: true
 <div style="margin: 3em 0;">
 
 ```{gallery-grid}
-:grid-columns: 1 2 2 4
+:grid-columns: 1 2 2 5
 
 - header: "**Installation** {octicon}`terminal;1.2em;pst-color-secondary`"
   content: "Get started with CORNETO by following our installation guide for different setups and requirements."
@@ -43,6 +43,9 @@ html_theme.sidebar_secondary.remove: true
 - header: "**API Reference** {octicon}`stack;1.2em;pst-color-secondary`"
   content: "Python API reference for CORNETO."
   website: api
+- header: "**Release Notes** {octicon}`tag;1.2em;pst-color-secondary`"
+  content: "Version history, new features, bug fixes, and migration guides for CORNETO releases."
+  website: releases
 ```
 
 </div>
@@ -93,5 +96,6 @@ install
 guide/index
 tutorials/index
 api/index
+releases/index
 GitHub <https://github.com/saezlab/corneto>
 ```
