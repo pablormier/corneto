@@ -64,7 +64,6 @@ CORNETO provides several optional dependency groups:
 - **`research`**: Full research stack with Gurobi, PICOS, visualization, and network tools
 - **`os`**: Open-source solvers (SCIP, HiGHS) with visualization and network tools
 - **`ml`**: Machine learning dependencies (JAX, Keras, scikit-learn)
-- **`vanilla`**: Minimal dependencies (same as base installation)
 
 Install any combination with:
 ```bash
